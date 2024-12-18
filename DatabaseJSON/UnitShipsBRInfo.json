@@ -8,8 +8,11 @@
         "immovable": false
     },
     {
+        "message": "Ship has been effectively removed from the game do not classify as a carrier",
         "type": "VINSON",
-        "families": [],
+        "families": [
+            "ShipSpeedboat"
+        ],
         "lowPolly": true,
         "immovable": false
     },
