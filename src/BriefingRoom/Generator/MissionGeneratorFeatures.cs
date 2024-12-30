@@ -241,8 +241,10 @@ namespace BriefingRoom4DCS.Generator
                         nearFrontLineFamily: featureDB.UnitGroupFlags.HasFlag(FeatureUnitGroupFlags.UseFrontLine) ? unitFamily : null
                         );
 
-                if (!spawnCoords.HasValue)
-                    throw new BriefingRoomException(mission.LangKey, "NoExtraGroupSpawnPoint", featureDB.ID);
+                if (!spawnCoords.HasValue) {
+                    BriefingRoom.PrintTranslatableWarning(mission.LangKey, "NoExtraGroupSpawnPoint", featureDB.UIDisplayName.Get(mission.LangKey));
+                    continue;
+                }
 
                 extraSettings.Remove("TemplatePositionMap");
                 if (units.Count == 0)

@@ -56,7 +56,7 @@ namespace BriefingRoom4DCS.Generator
                     !(featureDB.UnitGroupValidSpawnPoints.Contains(SpawnPointType.Sea) || featureDB.UnitGroupValidSpawnPoints.Contains(SpawnPointType.Air)) &&
                     UnitMakerSpawnPointSelector.CheckInSea(mission.TheaterDB,coordinates.Value))
                 {
-                    BriefingRoom.PrintTranslatableWarning(mission.LangKey, "CannotSpawnObjectiveFeature",featureID);
+                    BriefingRoom.PrintTranslatableWarning(mission.LangKey, "CannotSpawnObjectiveFeature", $"{objectiveName}: {featureDB.UIDisplayName.Get(mission.LangKey)}");
                     return;
                 }
             }
@@ -71,8 +71,8 @@ namespace BriefingRoom4DCS.Generator
 
                 if (!spawnPoint.HasValue)
                 {
-                    throw new BriefingRoomException(mission.LangKey, "NoSpawnPointForObjectiveFeature",featureID);
-  
+                    BriefingRoom.PrintTranslatableWarning(mission.LangKey, "NoSpawnPointForObjectiveFeature", $"{objectiveName}: {featureDB.UIDisplayName.Get(mission.LangKey)}");
+                    return;
                 }
 
                 coordinates = spawnPoint;
