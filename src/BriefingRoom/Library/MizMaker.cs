@@ -90,7 +90,7 @@ namespace BriefingRoom4DCS
             return true;
         }
 
-        [GeneratedRegex("\\$.*?\\$")]
+        [GeneratedRegex("\\$\\w*?\\$")]
         private static partial Regex UnassignedRegex();
     }
 }
