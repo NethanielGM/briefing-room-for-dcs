@@ -47,5 +47,5 @@
     x.Item2 == LogMessageErrorLevel.Warning || x.Item2 == LogMessageErrorLevel.Error;
 
     private List<Tuple<DateTime, LogMessageErrorLevel, string>> GetLastRunLogs() =>
-    logs.Skip(logs.LastIndexOf(logs.Last(x => x.Item3 == "Generating mission date and time..."))).ToList();
+    logs.Count() == 0 ? [] : logs.Skip(logs.LastIndexOf(logs.Last(x => x.Item3 == "Generating mission date and time..."))).ToList();
 }
