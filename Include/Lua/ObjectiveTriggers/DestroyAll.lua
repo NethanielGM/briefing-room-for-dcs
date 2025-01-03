@@ -1,1 +1,1 @@
-briefingRoom.mission.registerDestroyTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerDestroyTrigger($OBJECTIVEINDEX$)

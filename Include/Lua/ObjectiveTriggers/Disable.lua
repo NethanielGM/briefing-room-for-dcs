@@ -1,1 +1,1 @@
-briefingRoom.mission.registerDisableTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerDisableTrigger($OBJECTIVEINDEX$)

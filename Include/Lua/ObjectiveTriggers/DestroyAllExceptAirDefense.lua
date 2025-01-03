@@ -1,2 +1,2 @@
-briefingRoom.mission.registerDestroyTrigger($OBJECTIVEINDEX$)
-briefingRoom.mission.filterTargets($OBJECTIVEINDEX$, "Air Defence")
+briefingRoom.mission.objectivesTriggersCommon.registerDestroyTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.filterTargets($OBJECTIVEINDEX$, "Air Defence")

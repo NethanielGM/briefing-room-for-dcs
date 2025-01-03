@@ -1150,6 +1150,7 @@ missionCommands.addCommandForCoalition(briefingRoom.playerCoalition, "$LANG_MISS
 -- ===================================================================================
 
 briefingRoom.mission.objectives = { } -- Main objective table
+briefingRoom.mission.objectivesTriggersCommon = { }
 $SCRIPTOBJECTIVES$
 
 
@@ -1209,7 +1210,7 @@ end
 
 ------START OF TRIGGERS TODO MOVE TO INDEPENDENT FILES---------------
 
-function briefingRoom.mission.filterTargets(objectiveIndex, attribute)
+function briefingRoom.mission.objectivesTriggersCommon.filterTargets(objectiveIndex, attribute)
   do
     local newTargetTable = { }
     
@@ -1227,7 +1228,7 @@ function briefingRoom.mission.filterTargets(objectiveIndex, attribute)
   end
 end
 
-function briefingRoom.mission.registerDestroyTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerDestroyTrigger(objectiveIndex)
   table.insert(briefingRoom.mission.objectiveTriggers, function(event)
 
     -- Mission complete, nothing to do
@@ -1261,7 +1262,7 @@ function briefingRoom.mission.registerDestroyTrigger(objectiveIndex)
   end)
 end
 
-function briefingRoom.mission.registerDisableTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerDisableTrigger(objectiveIndex)
   table.insert(briefingRoom.mission.objectiveTriggers, function(event)
     -- Mission complete, nothing to do
     if briefingRoom.mission.complete then return false end
@@ -1287,7 +1288,7 @@ function briefingRoom.mission.registerDisableTrigger(objectiveIndex)
   end)
 end
 
-function briefingRoom.mission.registerCargoNearTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerCargoNearTrigger(objectiveIndex)
   table.insert(briefingRoom.mission.objectiveTimers,  function ()
     if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
     for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
@@ -1308,7 +1309,7 @@ function briefingRoom.mission.registerCargoNearTrigger(objectiveIndex)
   end)
 end
 
-function briefingRoom.mission.registerKeepAliveTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerKeepAliveTrigger(objectiveIndex)
   table.insert(briefingRoom.mission.objectiveTriggers, function(event)
     -- Mission complete, nothing to do
     if briefingRoom.mission.complete then return false end
@@ -1351,7 +1352,7 @@ function briefingRoom.mission.registerKeepAliveTrigger(objectiveIndex)
   end)
 end
 
-function briefingRoom.mission.registerLandNearTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerLandNearTrigger(objectiveIndex)
   table.insert(briefingRoom.mission.objectiveTriggers, function(event)
     if briefingRoom.mission.complete then return false end -- Mission complete, nothing to do
     if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
@@ -1381,7 +1382,7 @@ end)
 briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
 end
 
-function briefingRoom.mission.registerFlyNearTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearTrigger(objectiveIndex)
   briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
     if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
   
@@ -1414,7 +1415,7 @@ function briefingRoom.mission.registerFlyNearTrigger(objectiveIndex)
   briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
 end
 
-function briefingRoom.mission.registerEscortNearTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger(objectiveIndex)
   briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
     if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
     for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
@@ -1462,7 +1463,7 @@ function briefingRoom.mission.registerEscortNearTrigger(objectiveIndex)
   end
 end
 
-function briefingRoom.mission.registerFlyNearAndReportTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearAndReportTrigger(objectiveIndex)
   briefingRoom.mission.objectives[objectiveIndex].completeCommand = nil
   briefingRoom.mission.objectives[objectiveIndex].reportComplete = function ()
     briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_PILOTREPORTCOMPLETE$", "RadioPilotReportComplete", math.random(1, 3))
@@ -1499,7 +1500,7 @@ function briefingRoom.mission.registerFlyNearAndReportTrigger(objectiveIndex)
   end
 end
 
-function briefingRoom.mission.registerTransportTroopsTrigger(objectiveIndex)
+function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTrigger(objectiveIndex)
   briefingRoom.mission.objectives[objectiveIndex].forcePickup = function()
     local objectiveIndex = objectiveIndex
     if briefingRoom.mission.objectives[objectiveIndex].complete then return end

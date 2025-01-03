@@ -1,1 +1,1 @@
-briefingRoom.mission.registerEscortNearTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger($OBJECTIVEINDEX$)

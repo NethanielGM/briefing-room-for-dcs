@@ -1,1 +1,1 @@
-briefingRoom.mission.registerKeepAliveTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerKeepAliveTrigger($OBJECTIVEINDEX$)

@@ -1,1 +1,1 @@
-briefingRoom.mission.registerLandNearTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerLandNearTrigger($OBJECTIVEINDEX$)

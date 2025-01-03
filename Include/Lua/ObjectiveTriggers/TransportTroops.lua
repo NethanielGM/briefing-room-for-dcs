@@ -1,1 +1,1 @@
-briefingRoom.mission.registerTransportTroopsTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTrigger($OBJECTIVEINDEX$)

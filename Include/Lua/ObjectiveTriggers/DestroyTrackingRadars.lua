@@ -1,2 +1,2 @@
-briefingRoom.mission.registerDestroyTrigger($OBJECTIVEINDEX$)
-briefingRoom.mission.filterTargets($OBJECTIVEINDEX$, "SAM TR")
+briefingRoom.mission.objectivesTriggersCommon.registerDestroyTrigger($OBJECTIVEINDEX$)
+briefingRoom.mission.objectivesTriggersCommon.filterTargets($OBJECTIVEINDEX$, "SAM TR")
