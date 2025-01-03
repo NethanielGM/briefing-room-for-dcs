@@ -948,6 +948,7 @@ briefingRoom.mission.hasStarted = false -- has at least one player taken off?
 briefingRoom.mission.autoEnd = $ENDMISSIONAUTOMATICALLY$
 briefingRoom.mission.commandEnd = $ENDMISSIONONCOMMAND$
 briefingRoom.mission.MapMarkers = $SHOWMAPMARKERS$
+briefingRoom.mission.objectiveDropDistanceMeters = $DROPOFFDISTANCEMETERS$
 
 -- Marks objective with index index as complete, and completes the mission itself if all objectives are complete
 function briefingRoom.mission.coreFunctions.completeObjective(index, failed)
@@ -1206,8 +1207,26 @@ function briefingRoom.mission.isSoftKillEvent(eventID)
  eventID == world.event.S_EVENT_AI_ABORT_MISSION
 end
 
-function briefingRoom.mission.getDestroyFunction(objectiveIndex)
-  return function(event)
+function briefingRoom.mission.filterTargets(objectiveIndex, attribute)
+  do
+    local newTargetTable = { }
+    
+    for _,i in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local unit = Unit.getByName(i)
+      if unit ~= nil and not unit:hasAttribute(attribute) then
+        table.insert(newTargetTable, i)
+      end
+    end
+  
+    if #newTargetTable > 0 then
+      briefingRoom.mission.objectives[objectiveIndex].unitNames = newTargetTable
+      briefingRoom.mission.objectives[objectiveIndex].unitsCount = #newTargetTable
+    end
+  end
+end
+
+function briefingRoom.mission.registerDestroyTrigger(objectiveIndex)
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
 
     -- Mission complete, nothing to do
     if briefingRoom.mission.complete then return false end
@@ -1237,7 +1256,364 @@ function briefingRoom.mission.getDestroyFunction(objectiveIndex)
     then return false end
 
     return briefingRoom.mission.destroyCallout(objectiveIndex, killedUnit, event.id, playerName)
+  end)
+end
+
+function briefingRoom.mission.registerDisableTrigger(objectiveIndex)
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
+    -- Mission complete, nothing to do
+    if briefingRoom.mission.complete then return false end
+
+    -- Objective complete, nothing to do
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end
+    local killedUnit = event.initiator
+    local playerName = nil
+    if event.id == world.event.S_EVENT_KILL then
+        if event.target == nil then return false end
+        killedUnit = event.target
+        playerName = event.initiator.getPlayerName and event.initiator:getPlayerName() or nil
+    elseif  event.id == world.event.S_EVENT_HIT then -- unit was hit but not destroyed, check anyway because destroying a parked aircraft in DCS is HARD, and any aircraft with less than 90% hp left is not airworthy
+        if event.target == nil then return false end
+        if event.target:getCategory() ~= Object.Category.UNIT then return false end -- target was not a unit
+        local life = event.target:getLife() / event.target:getLife0()
+        if life > .9 then return false end -- not damaged enough
+        killedUnit = event.target
+    elseif briefingRoom.mission.isSoftKillEvent(event.id) then -- unit destroyed
+        if event.initiator == nil then return false end
+    else return false end
+    return  briefingRoom.mission.destroyCallout(objectiveIndex, killedUnit, event.id, playerName)
+  end)
+end
+
+function briefingRoom.mission.registerCargoNearTrigger(objectiveIndex)
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+    for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local unit = dcsExtensions.getUnitOrStatic(u)
+      if unit ~= nil then
+        local vec2p = briefingRoom.mission.objectives[objectiveIndex].waypoint
+        local vec2u = dcsExtensions.toVec2(unit:getPoint())
+        local distance = dcsExtensions.getDistance(vec2p, vec2u);
+        if distance < briefingRoom.mission.objectiveDropDistanceMeters and not unit:inAir() then
+          briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_CARGODELIVERED$", "RadioPilotCargoDelivered")
+          table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
+          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+            briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+          end
+        end
+      end
+    end
+  end)
+end
+
+function briefingRoom.mission.registerKeepAliveTrigger(objectiveIndex)
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
+    -- Mission complete, nothing to do
+    if briefingRoom.mission.complete then return false end
+  
+    -- Check if event is a "destruction" event
+    local destructionEvent = false
+    if event.id == world.event.S_EVENT_DEAD or event.id == world.event.S_EVENT_CRASH then destructionEvent = true end
+    -- "Landing" events are considered kills for helicopter targets
+    if briefingRoom.mission.objectives[objectiveIndex].targetCategory == Unit.Category.HELICOPTER and event.id == world.event.S_EVENT_LAND then destructionEvent = true end
+    if not destructionEvent then return false end
+  
+    -- Initiator was nil
+    if event.initiator == nil then return false end
+    if Object.getCategory(event.initiator) ~= Object.Category.UNIT and Object.getCategory(event.initiator) ~= Object.Category.STATIC then return false end
+  
+    local unitName = event.initiator:getName()
+    -- Destroyed unit wasn't a target
+    if not table.contains(briefingRoom.mission.objectives[objectiveIndex].unitNames, unitName) then return false end
+  
+    -- Remove the unit from the list of targets
+    table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, unitName)
+  
+    -- Play "target destroyed" radio message
+    local soundName = "RadioHQTargetLost"
+    local messages = { "$LANG_COMMAND$: $LANG_TARGETLOST1$", "$LANG_COMMAND$: $LANG_TARGETLOST2$" }
+    local targetType = "Ground"
+    local messageIndex = math.random(1, 2)
+    local messageIndexOffset = 0
+  
+    if briefingRoom.eventHandler.BDASetting == "ALL" or briefingRoom.eventHandler.BDASetting == "TARGETONLY" then
+      briefingRoom.radioManager.play(messages[messageIndex + messageIndexOffset], "RadioHQTargetLost", math.random(1, 3))
+    end
+  
+    -- Mark the objective as complete if all targets have been destroyed
+    if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective failed
+      briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex, true)
+    end
+  
+    return true
+  end)
+end
+
+function briefingRoom.mission.registerLandNearTrigger(objectiveIndex)
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
+    if briefingRoom.mission.complete then return false end -- Mission complete, nothing to do
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+    if event.id ~= world.event.S_EVENT_LAND then return false end -- Not a "land" event, nothing to do
+  
+    if event.initiator == nil then return false end -- Initiator was nil
+    if Object.getCategory(event.initiator) ~= Object.Category.UNIT then return false end -- Initiator was not an unit
+    if event.initiator:getCoalition() ~= briefingRoom.playerCoalition then return false end -- Initiator was not a friendy unit
+
+    local position = dcsExtensions.toVec2(event.initiator:getPoint()) -- get the landing unit position
+
+    -- check if any target unit is close enough from the landing unit
+    -- if so, clean the target unit ID table and mark the objective as completed
+    for _,id in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local targetUnit = Unit.getByName(id)
+      if targetUnit ~= nil then
+        local targetPosition = dcsExtensions.toVec2(targetUnit:getPoint())
+        if dcsExtensions.getDistance(position, targetPosition) < 650 then
+          briefingRoom.mission.objectives[objectiveIndex].unitNames = { }
+          briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+          return true
+        end
+      end
+    end
+end)
+
+briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
+end
+
+function briefingRoom.mission.registerFlyNearTrigger(objectiveIndex)
+  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+  
+    local players = dcsExtensions.getAllPlayers()
+  
+    for _,p in ipairs(players) do
+      for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+        local unit = Unit.getByName(u)
+        if unit ~= nil then
+          local vec2p = dcsExtensions.toVec2(p:getPoint())
+          local vec2u = dcsExtensions.toVec2(unit:getPoint())
+          local distance = dcsExtensions.getDistance(vec2p, vec2u);
+          
+          if distance < 3704 and math.abs(vec2p.y - vec2u.y) < 609.6 and p:inAir() then -- less than 2nm away on the X/Z axis, less than 2000 feet of altitude difference
+            local playername = p.getPlayerName and p:getPlayerName() or nil
+            if math.random(1, 2) == 1 then
+              briefingRoom.radioManager.play((playername or"$LANG_PILOT$")..": $LANG_FLYNEAR1$", "RadioPilotTargetReconned1")
+            else
+              briefingRoom.radioManager.play((playername or"$LANG_PILOT$")..": $LANG_FLYNEAR2$", "RadioPilotTargetReconned2")
+            end
+            briefingRoom.mission.objectives[objectiveIndex].unitNames = { }
+            briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+            return nil
+          end
+        end
+      end
+    end
   end
+  
+  briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
+end
+
+function briefingRoom.mission.registerEscortNearTrigger(objectiveIndex)
+  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+    for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local unit = Unit.getByName(u)
+      if unit == nil then
+        unit = StaticObject.getByName(u)
+      end
+      if unit ~= nil then
+        local vec2p = briefingRoom.mission.objectives[objectiveIndex].waypoint
+        local vec2u = dcsExtensions.toVec2(unit:getPoint())
+        local distance = dcsExtensions.getDistance(vec2p, vec2u);
+        if distance < 500 then
+          table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
+          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+            briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_ESCORTCOMPLETE$", "RadioPilotEscortComplete")
+            briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+          end
+        end
+      end
+    end
+  end
+  
+  briefingRoom.mission.objectives[objectiveIndex].launchMission = function ()
+    local objective = briefingRoom.mission.objectives[objectiveIndex]
+    briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_ESCORTSTARTREQUEST$", "RadioPilotBeginEscort")
+    local unit = Unit.getByName(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
+    if unit == nil then
+      unit = StaticObject.getByName(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
+    end
+    if unit ~= nil then
+      local group = unit:getGroup()
+      if group ~= nil then
+        group:activate()
+        briefingRoom.radioManager.play("$LANG_ESCORT$ "..objective.name..": $LANG_ESCORTAFFIRM$", "RadioEscortMoving", briefingRoom.radioManager.getAnswerDelay(), nil, nil)
+      end
+    end
+  end
+  
+  local unit = Unit.getByName(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
+  if unit == nil then
+    unit = StaticObject.getByName(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
+  end
+  if unit ~= nil and not unit:isActive() then
+    table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_ESCORTMENU$", func = briefingRoom.mission.objectives[objectiveIndex].launchMission, args =  nil})
+  end
+end
+
+function briefingRoom.mission.registerFlyNearAndReportTrigger(objectiveIndex)
+  briefingRoom.mission.objectives[objectiveIndex].completeCommand = nil
+  briefingRoom.mission.objectives[objectiveIndex].reportComplete = function ()
+    briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_PILOTREPORTCOMPLETE$", "RadioPilotReportComplete", math.random(1, 3))
+    briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+    missionCommands.removeItemForCoalition(briefingRoom.playerCoalition, briefingRoom.mission.objectives[objectiveIndex].completeCommand)
+  end
+
+  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+    if briefingRoom.mission.objectives[objectiveIndex].flownOver then return false end -- Objective complete, nothing to do
+  
+    local players = dcsExtensions.getAllPlayers()
+  
+    for _,p in ipairs(players) do
+      for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+        local unit = Unit.getByName(u)
+        if unit ~= nil then
+          local vec2p = dcsExtensions.toVec2(p:getPoint())
+          local vec2u = dcsExtensions.toVec2(unit:getPoint())
+          local distance = dcsExtensions.getDistance(vec2p, vec2u);
+  
+          if distance < 9260 and math.abs(vec2p.y - vec2u.y) < 2438 and briefingRoom.mission.objectives[objectiveIndex].completeCommand == nil then
+            local playername = p.getPlayerName and p:getPlayerName() or nil
+            if math.random(1, 2) == 1 then
+                briefingRoom.radioManager.play((playername or"$LANG_PILOT$").." $LANG_FLYNEAR1$", "RadioPilotTargetReconned1")
+            else
+                briefingRoom.radioManager.play((playername or"$LANG_PILOT$").." $LANG_FLYNEAR2$", "RadioPilotTargetReconned2")
+            end
+            briefingRoom.mission.objectives[objectiveIndex].unitNames = { }
+            briefingRoom.mission.objectives[objectiveIndex].completeCommand = missionCommands.addCommandForCoalition(briefingRoom.playerCoalition, "$LANG_REPORTCOMPLETE$", briefingRoom.f10Menu.objectives[objectiveIndex], briefingRoom.mission.objectives[objectiveIndex].reportComplete)
+          end
+        end
+      end
+    end
+  end
+end
+
+function briefingRoom.mission.registerTransportTroopsTrigger(objectiveIndex)
+  briefingRoom.mission.objectives[objectiveIndex].forcePickup = function()
+    local objectiveIndex = objectiveIndex
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return end
+    local players = dcsExtensions.getAllPlayers()
+      for _,p in ipairs(players) do
+        if not p:inAir() then
+        briefingRoom.debugPrint("Player on ground")
+        local position = dcsExtensions.toVec2(p:getPoint())
+        local collect = {}
+        -- Pickup
+        for _,id in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+          local targetUnit = Unit.getByName(id)
+          if targetUnit ~= nil then
+            local targetPosition = dcsExtensions.toVec2(targetUnit:getPoint())
+            briefingRoom.debugPrint("Player distance"..dcsExtensions.getDistance(position, targetPosition))
+            if dcsExtensions.getDistance(position, targetPosition) < briefingRoom.mission.objectiveDropDistanceMeters then
+              table.insert(collect, id)
+            end
+          end
+        end
+  
+  
+        if #collect > 0 then
+          briefingRoom.debugPrint("Loading "..#collect.." troops")
+          briefingRoom.transportManager.troopsMoveToGetIn(p:getName(), collect)
+        end
+      end
+    end
+  end
+  
+  briefingRoom.mission.objectives[objectiveIndex].forceDrop = function()
+    local objectiveIndex = objectiveIndex
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return end
+    local players = dcsExtensions.getAllPlayers()
+      for _,p in ipairs(players) do
+        if not p:inAir() then
+          briefingRoom.debugPrint("Player on ground")
+          briefingRoom.transportManager.removeTroopCargo(p:getName(), briefingRoom.mission.objectives[objectiveIndex].unitNames)
+      end
+    end
+  end
+  
+  
+  
+  
+  table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_FORCEPICKUP$", func = briefingRoom.mission.objectives[objectiveIndex].forcePickup, args =  nil})
+  table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_FORCEDROP$", func = briefingRoom.mission.objectives[objectiveIndex].forceDrop, args =  nil})
+  
+  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+    for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local unit = Unit.getByName(u)
+      if unit == nil then
+        unit = StaticObject.getByName(u)
+      end
+      if unit ~= nil then
+        local vec2p = briefingRoom.mission.objectives[objectiveIndex].waypoint
+        local vec2u = dcsExtensions.toVec2(unit:getPoint())
+        local distance = dcsExtensions.getDistance(vec2p, vec2u);
+        if distance < briefingRoom.mission.objectiveDropDistanceMeters then
+          table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
+          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+            briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_TROOPSDELIVERED$", "RadioPilotTroopsDelivered")
+            briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+          end
+        end
+      end
+    end
+  end
+  
+  
+  
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
+    if briefingRoom.mission.complete then return false end -- Mission complete, nothing to do
+    if briefingRoom.mission.objectives[objectiveIndex].complete then return false end -- Objective complete, nothing to do
+    if event.id ~= world.event.S_EVENT_LAND then return false end -- Not a "land" event, nothing to do
+  
+    if event.initiator == nil then return false end -- Initiator was nil
+    if Object.getCategory(event.initiator) ~= Object.Category.UNIT then return false end -- Initiator was not an unit
+    if event.initiator:getCoalition() ~= briefingRoom.playerCoalition then return false end -- Initiator was not a friendy unit
+  
+    local position = dcsExtensions.toVec2(event.initiator:getPoint()) -- get the landing unit position
+   
+    -- Drop off
+    local distanceToObjective = dcsExtensions.getDistance(briefingRoom.mission.objectives[objectiveIndex].waypoint, position);
+    if distanceToObjective < briefingRoom.mission.objectiveDropDistanceMeters then
+      local removed = briefingRoom.transportManager.removeTroopCargo(event.initiator:getName(), briefingRoom.mission.objectives[objectiveIndex].unitNames)
+      for index, value in ipairs(removed) do
+        table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, value)
+      end
+      if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units moved or dead, objective complete
+        local playername = event.initiator.getPlayerName and event.initiator:getPlayerName() or nil
+        briefingRoom.radioManager.play((playername or"$LANG_PILOT$")..": $LANG_TROOPSDELIVERED$", "RadioPilotTroopsDelivered")
+        briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+      end
+      return true
+    end
+  
+    local collect = {}
+    -- Pickup
+    for _,id in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
+      local targetUnit = Unit.getByName(id)
+      if targetUnit ~= nil then
+        local targetPosition = dcsExtensions.toVec2(targetUnit:getPoint())
+        if dcsExtensions.getDistance(position, targetPosition) < briefingRoom.mission.objectiveDropDistanceMeters then
+          table.insert(collect, id)
+        end
+      end
+    end
+  
+    local nonNativeTransportingAircraft = { "UH-60L" }
+    if #collect > 0 and table.contains(nonNativeTransportingAircraft, event.initiator:getTypeName()) then
+      briefingRoom.transportManager.troopsMoveToGetIn(event.initiator:getName(), collect)
+    end
+  end)
+  
 end
 
 for objIndex,obj in ipairs(briefingRoom.mission.objectives) do
