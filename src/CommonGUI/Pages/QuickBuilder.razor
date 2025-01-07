@@ -106,6 +106,7 @@
                             <label>@briefingRoom.Translate("Count")</label>
                             <InputNumber class="form-control" @bind-Value="flight.Count"></InputNumber>
                         </div>
+                        <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("StartingSetup") @bind-Value="flight.StartLocation" EnumType="PlayerStartLocation"/>
                         <InputDataBase ClassString="flex-block"  Label=@briefingRoom.Translate("StartOn") @bind-Value="flight.Carrier"
                         DataBaseType="DatabaseEntryType.UnitCarrier" EmptOpt=@briefingRoom.Translate("Airbase") />
                         @if(Template.CarrierHints.ContainsKey(flight.Carrier))
