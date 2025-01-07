@@ -50,7 +50,7 @@ namespace BriefingRoom4DCS.Mission
         {
             Name = oldBriefing.Name;
             Description = oldBriefing.Description;
-            Items = oldBriefing.Items.ToDictionary(x => x.Key, x => x.Value);
+            Items = oldBriefing.Items.ToDictionary(x => x.Key, x => x.Value.ToList());
             FlightBriefings = oldBriefing.FlightBriefings.ToList();
         }
 
