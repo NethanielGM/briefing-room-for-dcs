@@ -1740,6 +1740,8 @@ function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationC
   briefingRoom.mission.objectiveFeatures[objectiveIndex].objRadioCommandIndex = #briefingRoom.mission.objectives[objectiveIndex].f10Commands
 end
 
+-- Flare
+
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlareDoFlare(args)
   trigger.action.signalFlare(args.position, trigger.flareColor.Yellow, 0)
 end
@@ -1770,18 +1772,30 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlare(arg
 
   local args = { ["position"] = unit:getPoint() }
 
-  briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_FLAIRAFFIRM$", "RadioSupportShootingFlare", briefingRoom.radioManager.getAnswerDelay(),  briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlareDoFlare, args)
+  if briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate then 
+    local heading = math.random(0, 359)
+    local distance = math.floor(math.random(5, 20)) * 100
+    args.position.x = args.position.x - math.cos(heading * DEGREES_TO_RADIANS) * distance;
+    args.position.z = args.position.z - math.sin(heading * DEGREES_TO_RADIANS) * distance;
+    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_FLAIRAFFIRM$"..dcsExtensions.degreesToCardinalDirection(heading).." of the Flare.", "RadioSupportShootingFlare", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlareDoFlare, args)
+  else
+    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_FLAIRAFFIRM$", "RadioSupportShootingFlare", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlareDoFlare, args)
+  end
 end
 
-function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationFlare(objectiveIndex)
+function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationFlare(objectiveIndex, innacurate)
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate = innacurate or false 
   briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationFlareFlaresLeft = 5
   table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_FLAIRMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlare, args =  {objectiveIndex}})
 end
+
+-- IlluminationBomb
 
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBombDoBomb(args)
   args.position.y = args.position.y + 1250 + math.random(0, 500)
   trigger.action.illuminationBomb(args.position, 100000)
 end
+
 
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBomb(args)
   local objectiveIndex = args[1]
@@ -1808,18 +1822,28 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminat
   objectiveFeature.targetDesignationIlluminationBombBombsLeft = objectiveFeature.targetDesignationIlluminationBombBombsLeft - 1
 
   local args = { ["position"] = unit:getPoint() }
-
-  briefingRoom.radioManager.play(objective.name.." $LANG_RECON$: $LANG_ILLUMINATIONAFFIRM$", "RadioSupportIlluminationBomb", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBombDoBomb, args)
+  if briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate then 
+    local heading = math.random(0, 359)
+    local distance = math.floor(math.random(5, 20)) * 100
+    args.position.x = args.position.x - math.cos(heading * DEGREES_TO_RADIANS) * distance;
+    args.position.z = args.position.z - math.sin(heading * DEGREES_TO_RADIANS) * distance;
+    briefingRoom.radioManager.play(objective.name.." $LANG_RECON$: $LANG_ILLUMINATIONAFFIRM$"..dcsExtensions.degreesToCardinalDirection(heading).." of the Illumination.", "RadioSupportIlluminationBomb", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBombDoBomb, args)
+  else
+    briefingRoom.radioManager.play(objective.name.." $LANG_RECON$: $LANG_ILLUMINATIONAFFIRM$", "RadioSupportIlluminationBomb", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBombDoBomb, args)
+  end
 end
 
-function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationIlluminationBomb(objectiveIndex)
+function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationIlluminationBomb(objectiveIndex, innacurate)
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate = innacurate or false 
   -- Number of bombs available
-briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationIlluminationBombBombsLeft = 4
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationIlluminationBombBombsLeft = 4
    
 -- Add the command to the F10 menu
 table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_ILLUMINATIONMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminationBomb, args =  {objectiveIndex}})
 
 end
+
+-- Laser
 
 briefingRoom.mission.objectiveFeaturesCommon.targetDesignationLaser = {}
 
@@ -1959,10 +1983,10 @@ end
 
 function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationLaser(objectiveIndex, laserCode)
   briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser = { }
-briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserSpot = nil -- current laser spot
-briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserIRSpot = nil -- current laser spot
-briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserTarget = nil -- current lased target
-briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserCode = laserCode -- current lased target
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserSpot = nil -- current laser spot
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserIRSpot = nil -- current laser spot
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserTarget = nil -- current lased target
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationLaser.laserCode = laserCode -- current lased target
 
 
 -- Begin updating laser designation
@@ -1971,6 +1995,8 @@ timer.scheduleFunction(briefingRoom.mission.objectiveFeatures[objectiveIndex].ta
 table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_LASERMENUNEW$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationLaser.turnOn, args =  {objectiveIndex}})
 end
 
+
+---- SMOKE
 
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarker(args)
   local objectiveIndex = args[1]
@@ -2001,79 +2027,28 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMark
   -- Play radio message and setup smoke creating function
   local args = { position = unit:getPoint(), color = trigger.smokeColor.Red }
   if unit:getCoalition() == briefingRoom.playerCoalition then args.color = trigger.smokeColor.Green end
-  briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_SMOKEAFFIRM$", "RadioSupportTargetMarkedWithSmoke", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerDoSmoke, args)
+  if briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate then 
+    local heading = math.random(0, 359)
+    local distance = math.floor(math.random(5, 20)) * 100
+    args.position.x = args.position.x - math.cos(heading * DEGREES_TO_RADIANS) * distance;
+    args.position.z = args.position.z - math.sin(heading * DEGREES_TO_RADIANS) * distance;
+    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_SMOKENEARAFFIRM$"..dcsExtensions.degreesToCardinalDirection(heading).." of the smoke.", "RadioSupportTargetMarkedWithSmoke", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerDoSmoke, args)
+  else
+    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_SMOKEAFFIRM$", "RadioSupportTargetMarkedWithSmoke", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerDoSmoke, args)
+  end
 end
 
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerDoSmoke(args)
   local smokePosition = args.position
-  if args.innacurate then
-    local distance = math.floor(math.random(5, 20)) * 100
-    local heading = args.heading
-    smokePosition.x = smokePosition.x - math.cos(heading * DEGREES_TO_RADIANS) * distance;
-    smokePosition.z = smokePosition.z - math.sin(heading * DEGREES_TO_RADIANS) * distance;
-  end
   trigger.action.smoke(smokePosition, args.color)
   return nil
 end
 
-
-
-
-
-function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationSmoke(objectiveIndex)
+function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationSmoke(objectiveIndex, innacurate)
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].innacurate = innacurate or false 
   briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerNextSmoke = -999999
-      
--- Add the command to the F10 menu
-table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_SMOKEMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarker, args =  {objectiveIndex}})
-end
-
-function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerInaccurate(args)
-  local objectiveIndex = args[1]
-  local objective = briefingRoom.mission.objectives[objectiveIndex]
-  briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_SMOKENEARREQUEST$", "RadioPilotMarkTargetWithSmoke")
-
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames == 0 then -- no target units left
-    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$:$LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
-    return
-  end
-  
-  local unit = dcsExtensions.getUnitOrStatic(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
-  if unit == nil then -- no unit nor static found with the ID
-    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$:$LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
-    return
-  end
-  
-  local timeNow = timer.getAbsTime()
-  
-  if timeNow < briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateNextSmoke then -- Smoke not ready
-    briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_SMOKENEARBY$", "RadioSupportTargetAlreadyMarkedWithSmoke", briefingRoom.radioManager.getAnswerDelay())
-    return
-  end
-  
-  -- Set cooldown for next smoke
-  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateNextSmoke = timeNow + SMOKE_DURATION
-  
-  -- Play radio message and setup smoke creating function
-  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateHeading = math.random(0, 359)
-
-  local args = { position = unit:getPoint(), color = trigger.smokeColor.Red, innacure = true, heading = briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateHeading }
-  if unit:getCoalition() == briefingRoom.playerCoalition then args.color = trigger.smokeColor.Green end
-  briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_SMOKENEARAFFIRM$"..dcsExtensions.degreesToCardinalDirection(briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateHeading).." of the smoke.", "RadioSupportTargetMarkedWithSmoke", briefingRoom.radioManager.getAnswerDelay(), briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerDoSmoke, args)
-end
-
--- this function should not exist TODO add accuracy param to each designation function
-function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationSmokeInaccurate(objectiveIndex)
-  briefingRoom.mission.objectiveFeatures[objectiveIndex].targetDesignationSmokeMarkerInaccurateNextSmoke = -999999
-
--- Spawn smoke marker
-
-
--- "Mark target with smoke" F10 radio command
-
-      
--- Add the command to the F10 menu
-table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_SMOKENEARMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarkerInaccurate, args =  {objectiveIndex}})
-
+  -- Add the command to the F10 menu
+  table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_SMOKEMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMarker, args =  {objectiveIndex}})
 end
 
 

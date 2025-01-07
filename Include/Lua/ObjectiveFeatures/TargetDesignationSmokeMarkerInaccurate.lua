@@ -1,1 +1,1 @@
-briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationSmokeInaccurate($OBJECTIVEINDEX$)
+briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationSmoke($OBJECTIVEINDEX$, true)
