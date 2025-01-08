@@ -1,1 +1,1 @@
-briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationIlluminationBomb($OBJECTIVEINDEX$, true)
+briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationFlare($OBJECTIVEINDEX$, true)
