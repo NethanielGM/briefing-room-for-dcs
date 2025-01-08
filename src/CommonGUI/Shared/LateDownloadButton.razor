@@ -1,0 +1,18 @@
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+<div class="late_download_overlay">
+    @if (ON)
+    {  
+        <div class="late_download">
+            <button class="btn btn-warning late_download_button" @onclick="() => Download()">
+                <span class="oi oi-data-transfer-download"></span>
+                @briefingRoom.Translate("Download")
+            </button>
+            <p class="custom-warning"><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("DownloadTookTooLong")</p>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public bool ON { get; set; }
+    [Parameter] public Func<Task> Download { get; set; }
+}

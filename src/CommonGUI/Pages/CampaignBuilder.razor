@@ -15,7 +15,9 @@
 @using System.IO
 @using Polly
 @using System.IO.Compression
+@using System.Diagnostics
 <LoadingSpinner ON="spinner"/>
+<LateDownloadButton Download="LateDownload" ON="showLateDownloadButton" />  
 <div class="title-bar">
     <h1>@briefingRoom.Translate("CampaignGenerator")</h1>
     <TemplateButtons LoadTemplate="LoadTemplate" SaveTemplate="SaveTemplate" ClearTemplate="ClearTemplate" AcceptString=".cbrt,.zip" />
@@ -119,6 +121,7 @@
                         <div class="generator-group flex-justify-spaced flex-margin-fix">
                             <div class="form-group flex-block">
                                 <label>@briefingRoom.Translate("MissionCount")</label>
+    using IronSoftware.DOM;
                                 <InputNumber class="form-control" @bind-Value="Template.MissionsCount"></InputNumber>
                             </div>
                             <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("MissionDifficultyVariation") @bind-Value="Template.MissionsDifficultyVariation" EnumType="CampaignDifficultyVariation"/>
@@ -590,17 +593,53 @@
 
     async Task DownloadCampaign()
     {
-        try { 
+        try {
+            Stopwatch stopwatch = Stopwatch.StartNew(); 
             spinner = true;
             StateHasChanged();
             byte[] zipBytes = await campaign.ExportToCompressedByteArray(Template);
             if (zipBytes == null) return; // Something went wrong during the .miz export
-
+            stopwatch.Stop();
+            Console.WriteLine($"Download Prep in {stopwatch.Elapsed.Seconds}s");
+            if(stopwatch.Elapsed.Seconds > 5)
+            {
+                ShowLateDownloadButton($"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
+              return;  
+            } 
             await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", $"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
         } catch (Exception ex){
             Console.WriteLine(ex);
         } finally {
             spinner = false;
+            StateHasChanged();
+        }
+    }
+
+     private byte[] cachedBytes;
+     private string cachedName;
+     private string cachedMimeType;
+     private Boolean showLateDownloadButton = false;
+
+    private void ShowLateDownloadButton(string fileName, string mimeType, byte[] data)
+    {
+        cachedBytes = data;
+        cachedName = fileName;
+        cachedMimeType = mimeType;
+        showLateDownloadButton = true;
+    }
+
+    private async Task LateDownload()
+    {
+        try {
+        await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", cachedName, cachedMimeType, cachedBytes);
+
+        } catch (Exception ex) { 
+            Console.WriteLine(ex);
+        } finally {
+            showLateDownloadButton = false;
+            cachedBytes = null;
+            cachedName = null;
+            cachedMimeType = null;
             StateHasChanged();
         }
     }

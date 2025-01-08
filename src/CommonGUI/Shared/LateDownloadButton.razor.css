@@ -1,0 +1,22 @@
+.late_download_overlay {
+  position: relative;
+}
+
+.late_download {
+  top: 200px;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  background-color: #020A10;
+  border: 1px solid white;
+  width: fit-content;
+}
+
+.late_download_button {
+  height: 10vh;
+  width: 20vw;
+  margin: 10vh;
+}
