@@ -26,8 +26,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BriefingRoom4DCS.Generator
 {
@@ -267,6 +265,18 @@ namespace BriefingRoom4DCS.Generator
             mission.SetValue("MissionAirbaseX", mission.PlayerAirbase.Coordinates.X);
             mission.SetValue("MissionAirbaseY", mission.PlayerAirbase.Coordinates.Y);
             mission.SaveStage(MissionStageName.Airbase);
+
+
+            // DCS Hack to render local area near player airbase
+            var groupInfo = UnitMaker.AddUnitGroup(
+                ref mission,
+                UnitFamily.Infantry, 1, Side.Enemy,
+                "Vehicle", "Vehicle",
+                mission.PlayerAirbase.Coordinates.CreateNearRandom(300, 500),
+                UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal, 
+                new Dictionary<string, object>(),
+                true
+            );
         }
 
         private static void ObjectiveStage(ref DCSMission mission)
