@@ -565,12 +565,14 @@
     private async void GenerateCampaign()
     {
         try {
+            await ClearLateDownload();
             spinner = true;
             StateHasChanged();
             campaign = null;
             errorMessage = "";
-            await Task.Delay(10);
-            campaign = briefingRoom.GenerateCampaign(Template);
+            await Task.Run(() => {
+                campaign = briefingRoom.GenerateCampaign(Template);
+            });
             missionTab = campaign.Missions.First();
             StateHasChanged();
             await Policy.Handle<Exception>().RetryAsync(3).ExecuteAsync(async () => await JSRuntime.InvokeVoidAsync("RenderMap", missionTab.GetMapData(), Template.ContextTheater, Template.ContextPlayerCoalition == Coalition.Red));
@@ -594,19 +596,21 @@
     async Task DownloadCampaign()
     {
         try {
-            Stopwatch stopwatch = Stopwatch.StartNew(); 
             spinner = true;
             StateHasChanged();
-            byte[] zipBytes = await campaign.ExportToCompressedByteArray(Template);
-            if (zipBytes == null) return; // Something went wrong during the .miz export
-            stopwatch.Stop();
-            Console.WriteLine($"Download Prep in {stopwatch.Elapsed.Seconds}s");
-            if(stopwatch.Elapsed.Seconds > 5)
-            {
-                ShowLateDownloadButton($"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
-              return;  
-            } 
-            await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", $"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
+            await Task.Run(async () => {
+                Stopwatch stopwatch = Stopwatch.StartNew(); 
+                byte[] zipBytes = await campaign.ExportToCompressedByteArray(Template);
+                if (zipBytes == null) return; // Something went wrong during the .miz export
+                stopwatch.Stop();
+                Console.WriteLine($"Download Prep in {stopwatch.Elapsed.Seconds}s");
+                if(stopwatch.Elapsed.Seconds > 5)
+                {
+                    ShowLateDownloadButton($"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
+                return;  
+                } 
+                await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", $"{Template.ContextTheater} - {campaign.Name}.zip", "application/octet-stream", zipBytes);
+            });
         } catch (Exception ex){
             Console.WriteLine(ex);
         } finally {
@@ -636,12 +640,17 @@
         } catch (Exception ex) { 
             Console.WriteLine(ex);
         } finally {
-            showLateDownloadButton = false;
-            cachedBytes = null;
-            cachedName = null;
-            cachedMimeType = null;
-            StateHasChanged();
+            await ClearLateDownload();
         }
+    }
+
+        private Task ClearLateDownload()
+    {
+        showLateDownloadButton = false;
+        cachedBytes = null;
+        cachedName = null;
+        cachedMimeType = null;
+        return Task.CompletedTask;
     }
 
     async Task DownloadBriefing()
