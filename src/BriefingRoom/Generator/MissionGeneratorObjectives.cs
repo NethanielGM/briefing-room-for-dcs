@@ -315,12 +315,25 @@ namespace BriefingRoom4DCS.Generator
                 if (isStatic) x.Units.ForEach(u => u.Name += $"{(i == 0 ? "" : i)}-TGT-{objectiveName}");
                 i++;
             });
+
+            var luaExtraSettings = new Dictionary<string,object>();
+            if (task.Task.StartsWith("Hold"))
+            {
+                var (holdSizeMeters, holdTimeSeconds) = GetHoldValues(task.TargetCount);
+                luaExtraSettings.Add("HoldSize", holdSizeMeters);
+                luaExtraSettings.Add("HoldSizeNm", (int)Math.Floor(holdSizeMeters * Toolbox.METERS_TO_NM));
+                luaExtraSettings.Add("HoldTime", holdTimeSeconds);
+                luaExtraSettings.Add("HoldTimeMins", holdTimeSeconds/60);
+                if (mission.TemplateRecord.OptionsMission.Contains("MarkWaypoints"))
+                    DrawingMaker.AddDrawing(ref mission, $"Hold Zone {objectiveName}", DrawingType.Circle, objectiveCoordinates, "Radius".ToKeyValuePair(holdSizeMeters));
+            }
+
             mission.Briefing.AddItem(DCSMissionBriefingItemType.TargetGroupName, $"-TGT-{objectiveName}");
             var length = isStatic ? targetGroupInfo.Value.DCSGroups.Count : targetGroupInfo.Value.UnitNames.Length;
             var pluralIndex = length == 1 ? 0 : 1;
             var taskString = GeneratorTools.ParseRandomString(taskDB.BriefingTask[pluralIndex].Get(mission.LangKey), mission).Replace("\"", "''");
-            CreateTaskString(ref mission, pluralIndex, ref taskString, objectiveName, objectiveTargetUnitFamily, task);
-            CreateLua(ref mission, targetDB, taskDB, objectiveIndex, objectiveName, targetGroupInfo, taskString, task);
+            CreateTaskString(ref mission, pluralIndex, ref taskString, objectiveName, objectiveTargetUnitFamily, task, luaExtraSettings);
+            CreateLua(ref mission, targetDB, taskDB, objectiveIndex, objectiveName, targetGroupInfo, taskString, task, luaExtraSettings);
 
             // Add briefing remarks for this objective task
             var remarksString = taskDB.BriefingRemarks.Get(mission.LangKey);
@@ -512,7 +525,7 @@ namespace BriefingRoom4DCS.Generator
                     extraSettings);
         }
 
-        private static void CreateLua(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTask taskDB, int objectiveIndex, string objectiveName, UnitMakerGroupInfo? targetGroupInfo, string taskString, MissionTemplateSubTaskRecord task)
+        private static void CreateLua(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTask taskDB, int objectiveIndex, string objectiveName, UnitMakerGroupInfo? targetGroupInfo, string taskString, MissionTemplateSubTaskRecord task, Dictionary<string, object> extraSettings)
         {
             // Add Lua table for this objective
             string objectiveLua = $"briefingRoom.mission.objectives[{objectiveIndex + 1}] = {{ ";
@@ -528,7 +541,7 @@ namespace BriefingRoom4DCS.Generator
             objectiveLua += $"unitNames = dcsExtensions.getUnitNamesByGroupNameSuffix(\"-TGT-{objectiveName}\"), ";
             objectiveLua += $"progressionHidden = {(task.ProgressionActivation ? "true" : "false")},";
             objectiveLua += $"progressionHiddenBrief = {(task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief) ? "true" : "false")},";
-            objectiveLua += $"progressionCondition = \"{(!string.IsNullOrEmpty(task.ProgressionOverrideCondition) ? task.ProgressionOverrideCondition : string.Join(task.ProgressionDependentIsAny ? " or " : " and ", task.ProgressionDependentTasks.Select(x => x  + 1).ToList()))}\", ";
+            objectiveLua += $"progressionCondition = \"{(!string.IsNullOrEmpty(task.ProgressionOverrideCondition) ? task.ProgressionOverrideCondition : string.Join(task.ProgressionDependentIsAny ? " or " : " and ", task.ProgressionDependentTasks.Select(x => x + 1).ToList()))}\", ";
             objectiveLua += $"f10MenuText = \"$LANG_OBJECTIVE$ {objectiveName}\",";
             objectiveLua += $"f10Commands = {{}}";
             objectiveLua += "}\n";
@@ -541,16 +554,22 @@ namespace BriefingRoom4DCS.Generator
             {
                 string triggerLua = Toolbox.ReadAllTextIfFileExists(Path.Combine(BRPaths.INCLUDE_LUA_OBJECTIVETRIGGERS, CompletionTriggerLua));
                 GeneratorTools.ReplaceKey(ref triggerLua, "ObjectiveIndex", objectiveIndex + 1);
+                foreach (KeyValuePair<string, object> extraSetting in extraSettings)
+                    if (extraSetting.Value is not Array)
+                        GeneratorTools.ReplaceKey(ref triggerLua, extraSetting.Key, extraSetting.Value);
                 mission.AppendValue("ScriptObjectivesTriggers", triggerLua);
             }
         }
 
-        private static void CreateTaskString(ref DCSMission mission, int pluralIndex, ref string taskString, string objectiveName, UnitFamily objectiveTargetUnitFamily, MissionTemplateSubTaskRecord task)
+        private static void CreateTaskString(ref DCSMission mission, int pluralIndex, ref string taskString, string objectiveName, UnitFamily objectiveTargetUnitFamily, MissionTemplateSubTaskRecord task, Dictionary<string, object> extraSettings)
         {
             // Get tasking string for the briefing
             if (string.IsNullOrEmpty(taskString)) taskString = "Complete objective $OBJECTIVENAME$";
             GeneratorTools.ReplaceKey(ref taskString, "ObjectiveName", objectiveName);
             GeneratorTools.ReplaceKey(ref taskString, "UnitFamily", Database.Instance.Common.Names.UnitFamilies[(int)objectiveTargetUnitFamily].Get(mission.LangKey).Split(",")[pluralIndex]);
+            foreach (KeyValuePair<string, object> extraSetting in extraSettings)
+                if (extraSetting.Value is not Array)
+                    GeneratorTools.ReplaceKey(ref taskString, extraSetting.Key, extraSetting.Value);
             if (!task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief))
                 mission.Briefing.AddItem(DCSMissionBriefingItemType.Task, taskString);
         }
@@ -591,6 +610,24 @@ namespace BriefingRoom4DCS.Generator
 
             Coordinates objectiveCoordinates = spawnPoint.Value;
             return objectiveCoordinates;
+        }
+
+        private static Tuple<int, int> GetHoldValues(Amount targetAmount)
+        {
+            // TODO: Variance
+            switch (targetAmount)
+            {
+                case Amount.VeryHigh:
+                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 10), 60 * 15);
+                case Amount.High:
+                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 8), 60 * 10);
+                case Amount.Average:
+                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 5), 60 * 5);
+                case Amount.Low:
+                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 3), 60 * 3);
+                default:
+                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 2), 60 * 2);
+            }
         }
     }
 }

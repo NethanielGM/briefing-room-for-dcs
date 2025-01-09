@@ -1381,7 +1381,7 @@ briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
 end
 
 function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearTrigger(objectiveIndex)
-  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
     if briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveComplete(objectiveIndex) then return false end
 
   
@@ -1409,11 +1409,47 @@ function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearTrigger(ob
         end
       end
     end
-  end
+  end)
   
   briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
 end
 
+
+function briefingRoom.mission.objectivesTriggersCommon.registerHoldTrigger(objectiveIndex, distanceInMeters, timeRequiredSeconds, superiorityRequired)
+  superiorityRequired = superiorityRequired or false
+  briefingRoom.mission.objectives[objectiveIndex].superiortyTimer = 0
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
+    if briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveComplete(objectiveIndex) then return false end
+    local players = dcsExtensions.getAllPlayers()
+  
+    for _,p in ipairs(players) do
+      local vec2p = dcsExtensions.toVec2(p:getPoint())
+      local vec2u = briefingRoom.mission.objectives[objectiveIndex].waypoint
+      local distance = dcsExtensions.getDistance(vec2p, vec2u);
+      if distance < distanceInMeters then -- less than 2nm
+        if superiorityRequired then
+          for __,eu in ipairs(dcsExtensions.getCoalitionUnits(briefingRoom.enemyCoalition)) do
+            local evec2u = dcsExtensions.toVec2(eu:getPoint())
+            local edistance = dcsExtensions.getDistance(vec2p, evec2u);
+            if edistance < distanceInMeters then
+              return false
+            end
+          end
+        end
+        briefingRoom.mission.objectives[objectiveIndex].superiortyTimer = briefingRoom.mission.objectives[objectiveIndex].superiortyTimer + 1
+        briefingRoom.debugPrint("Player in zone "..tostring(objectiveIndex).." for "..tostring(briefingRoom.mission.objectives[objectiveIndex].superiortyTimer).." seconds")
+        if briefingRoom.mission.objectives[objectiveIndex].superiortyTimer > timeRequiredSeconds then
+          local playername = p.getPlayerName and p:getPlayerName() or nil
+          briefingRoom.mission.objectives[objectiveIndex].unitNames = { }
+          briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+          return nil
+        end
+        end
+    end
+  end)
+  
+  briefingRoom.mission.objectives[objectiveIndex].hideTargetCount = true
+end
 
 function briefingRoom.mission.objectivesTriggersCommon.escortNearTriggerlaunchMission (args)
   local objectiveIndex = args[1]
@@ -1433,7 +1469,7 @@ function briefingRoom.mission.objectivesTriggersCommon.escortNearTriggerlaunchMi
 end
 
 function briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger(objectiveIndex)
-  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
     if briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveComplete(objectiveIndex) then return false end
     for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
       local unit = Unit.getByName(u)
@@ -1453,7 +1489,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger
         end
       end
     end
-  end
+  end)
   
   local unit = Unit.getByName(briefingRoom.mission.objectives[objectiveIndex].unitNames[1])
   if unit == nil then
@@ -1475,7 +1511,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearAndReportT
   briefingRoom.mission.objectives[objectiveIndex].completeCommand = nil
 
 
-  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
     if briefingRoom.mission.objectives[objectiveIndex].flownOver then return false end -- Objective complete, nothing to do
   
     local players = dcsExtensions.getAllPlayers()
@@ -1501,7 +1537,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerFlyNearAndReportT
         end
       end
     end
-  end
+  end)
 end
 
 
@@ -1552,7 +1588,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
   table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_FORCEPICKUP$", func = briefingRoom.mission.objectivesTriggersCommon.transportTroopsForcePickup, args = {objectiveIndex}})
   table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_FORCEDROP$", func =  briefingRoom.mission.objectivesTriggersCommon.transportTroopsForceDrop, args =  {objectiveIndex}})
 
-  briefingRoom.mission.objectiveTimers[objectiveIndex] = function()
+  table.insert(briefingRoom.mission.objectiveTimers,  function ()
     if briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveComplete(objectiveIndex) then return false end
 
     for __,u in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
@@ -1573,7 +1609,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
         end
       end
     end
-  end
+  end)
   
 
   table.insert(briefingRoom.mission.objectiveTriggers, function(event)
