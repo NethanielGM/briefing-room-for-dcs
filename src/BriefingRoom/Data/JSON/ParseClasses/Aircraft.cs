@@ -67,16 +67,18 @@ namespace BriefingRoom4DCS.Data.JSON
         public string displayName { get; set; }
     }
 
-    public class Pylon
-    {
-        public string CLSID { get; set; }
-        public int num { get; set; }
-        public Dictionary<string, object>? settings { get; set; }
-    }
-
     public class CallSign
     {
         public string Name { get; set; }
         public int WorldID { get; set; }
+    }
+
+    public class Pylon
+    {
+        public string CLSID { get; set; }
+        public int num { get; set; }
+
+#nullable enable
+        public Dictionary<string, object>? settings { get; set; }
     }
 }

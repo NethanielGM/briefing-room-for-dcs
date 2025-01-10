@@ -52,6 +52,19 @@ namespace BriefingRoom4DCS.Generator
             SpawnPointType.LandLarge,
         };
 
+        private static readonly List<List<UnitFamily>> MIXED_INFANTRY_SETS = new()
+        {
+            new List<UnitFamily> {UnitFamily.Infantry},
+            new List<UnitFamily> {UnitFamily.Infantry},
+            new List<UnitFamily> {UnitFamily.Infantry},
+            new List<UnitFamily> {UnitFamily.Infantry, UnitFamily.Infantry, UnitFamily.InfantryMANPADS},
+            new List<UnitFamily> {UnitFamily.Infantry, UnitFamily.Infantry, UnitFamily.InfantryMANPADS},
+            new List<UnitFamily> {UnitFamily.Infantry, UnitFamily.Infantry, UnitFamily.InfantryMANPADS},
+            new List<UnitFamily> {UnitFamily.Infantry, UnitFamily.InfantryMANPADS},
+            new List<UnitFamily> {UnitFamily.Infantry, UnitFamily.InfantryMANPADS, UnitFamily.InfantryMANPADS},
+            new List<UnitFamily> {UnitFamily.InfantryMANPADS},
+        };
+
         private static readonly List<List<UnitFamily>> MIXED_VEHICLE_SETS = new()
         {
             new List<UnitFamily> {UnitFamily.VehicleAPC},
@@ -203,7 +216,6 @@ namespace BriefingRoom4DCS.Generator
             extraSettings.Add("GroupX2", destinationPoint.X);
             extraSettings.Add("GroupY2", destinationPoint.Y);
             extraSettings.Add("playerCanDrive", false);
-            extraSettings.Add("NoCM", true);
 
             var unitCoordinates = objectiveCoordinates;
             var objectiveName = mission.WaypointNameGenerator.GetWaypointName();
@@ -274,6 +286,9 @@ namespace BriefingRoom4DCS.Generator
                 unitCoordinates,
                 groupFlags,
                 extraSettings);
+            
+            if(targetDB.ID  == "CombinedArms")
+                AddCombinedArmsAircraft(ref mission, ref targetGroupInfo, task, targetBehaviorDB, taskDB, unitCoordinates, groupFlags, extraSettings);
 
             if (!targetGroupInfo.HasValue) // Failed to generate target group
                 throw new BriefingRoomException(mission.LangKey, "FailedToGenerateGroupObjective");
@@ -283,8 +298,10 @@ namespace BriefingRoom4DCS.Generator
 
             if (task.ProgressionActivation)
             {
-                targetGroupInfo.Value.DCSGroup.LateActivation = true;
-                targetGroupInfo.Value.DCSGroup.Visible = task.ProgressionOptions.Contains(ObjectiveProgressionOption.PreProgressionSpottable);
+                targetGroupInfo.Value.DCSGroups.ForEach((grp) => {
+                    grp.LateActivation = true;
+                    grp.Visible = task.ProgressionOptions.Contains(ObjectiveProgressionOption.PreProgressionSpottable);
+                });
             }
 
             if (targetDB.UnitCategory.IsAircraft())
@@ -401,7 +418,7 @@ namespace BriefingRoom4DCS.Generator
             return (targetBehaviorDB.UnitLua[(int)targetDB.DCSUnitCategory],
                 targetDB.UnitCount[(int)task.TargetCount].GetValue(),
                 targetDB.UnitCount[(int)task.TargetCount],
-                targetDB.ID == "VehicleAny" ? Toolbox.RandomFrom(MIXED_VEHICLE_SETS) : [Toolbox.RandomFrom(targetDB.UnitFamilies)],
+                targetDB.ID.StartsWith("CombinedArms") ? Toolbox.RandomFrom(MIXED_INFANTRY_SETS).Concat(Toolbox.RandomFrom(MIXED_VEHICLE_SETS)).ToList() : (targetDB.ID == "VehicleAny" ? Toolbox.RandomFrom(MIXED_VEHICLE_SETS) : [Toolbox.RandomFrom(targetDB.UnitFamilies)]),
                 groupFlags
             );
         }
@@ -628,6 +645,49 @@ namespace BriefingRoom4DCS.Generator
                 default:
                     return new((int)Math.Floor(Toolbox.NM_TO_METERS * 2), 60 * 2);
             }
+        }
+
+        private static void AddCombinedArmsAircraft(ref DCSMission mission, ref UnitMakerGroupInfo? targetGroupInfo, MissionTemplateSubTaskRecord task, DBEntryObjectiveTargetBehavior targetBehaviorDB, DBEntryObjectiveTask taskDB, Coordinates unitCoordinates, UnitMakerGroupFlags groupFlags,  Dictionary<string, object> extraSettings)
+        {
+            if (task.ProgressionActivation)
+                    groupFlags |= UnitMakerGroupFlags.ProgressionAircraftSpawn;
+                else
+                    groupFlags |= UnitMakerGroupFlags.ImmediateAircraftSpawn;
+                extraSettings.AddIfKeyUnused("ObjectiveGroupID", targetGroupInfo.Value.GroupID);
+
+                var (unitsHeli, unitDBsHeli) = UnitMaker.GetUnits(ref mission, new List<UnitFamily>{UnitFamily.HelicopterAttack}, new MinMaxI(1,4).GetValue(), taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
+                var heliGroup = UnitMaker.AddUnitGroup(
+                ref mission,
+                unitsHeli,
+                taskDB.TargetSide,
+                UnitFamily.HelicopterAttack,
+                "AircraftEscort", "Aircraft",
+                unitCoordinates.CreateNearRandom(50, 100),
+                groupFlags,
+                extraSettings);
+                if(heliGroup.HasValue)
+                {
+                    heliGroup.Value.DCSGroup.Waypoints.First().Tasks.Insert(0, new DCSWrappedWaypointTask("SetUnlimitedFuel", new Dictionary<string, object> { { "value", true } }));
+                    targetGroupInfo.Value.DCSGroups.AddRange(heliGroup.Value.DCSGroups);
+                }
+
+                var fixedWingFamily = Toolbox.RandomFrom(new List<UnitFamily>{UnitFamily.PlaneDrone, UnitFamily.PlaneAttack, UnitFamily.PlaneStrike, UnitFamily.PlaneBomber, UnitFamily.PlaneFighter});
+                var (unitsFixedWing, unitDBsFixedWing) = UnitMaker.GetUnits(ref mission, new List<UnitFamily>{fixedWingFamily}, new MinMaxI(1,4).GetValue(), taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
+                var fixedWingGroup = UnitMaker.AddUnitGroup(
+                ref mission,
+                unitsFixedWing,
+                taskDB.TargetSide,
+                fixedWingFamily,
+                targetBehaviorDB.GroupLua[(int)DCSUnitCategory.Plane], "Aircraft",
+                unitCoordinates.CreateNearRandom(300, 1000),
+                groupFlags,
+                extraSettings);
+                if(fixedWingGroup.HasValue)
+                {
+                    fixedWingGroup.Value.DCSGroup.Waypoints.First().Tasks.Insert(0, new DCSWrappedWaypointTask("SetUnlimitedFuel", new Dictionary<string, object> { { "value", true } }));
+                    fixedWingGroup.Value.DCSGroup.Waypoints = DCSWaypoint.CreateExtraWaypoints(ref mission, fixedWingGroup.Value.DCSGroup.Waypoints, fixedWingGroup.Value.UnitDB.Families.First());
+                    targetGroupInfo.Value.DCSGroups.AddRange(fixedWingGroup.Value.DCSGroups);
+                }
         }
     }
 }

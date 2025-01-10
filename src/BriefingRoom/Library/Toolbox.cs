@@ -207,7 +207,11 @@ namespace BriefingRoom4DCS
         {
             if (dictionary.ContainsKey(key))
                 return;
+            try {
             dictionary.Add(key, value);
+            } catch (Exception e) {
+                BriefingRoom.PrintToLog($"Failed to add key {key} to dictionary {e}", LogMessageErrorLevel.Warning);
+            }
         }
 
         internal static string ReplaceAll(this string str, string replaceTo, params string[] replaceFrom)
