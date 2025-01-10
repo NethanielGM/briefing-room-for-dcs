@@ -1212,14 +1212,20 @@ function briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveCompl
   return briefingRoom.mission.complete or briefingRoom.mission.objectives[objectiveIndex].complete
 end
 
-function briefingRoom.mission.objectivesTriggersCommon.filterTargets(objectiveIndex, attribute)
+function briefingRoom.mission.objectivesTriggersCommon.filterTargets(objectiveIndex, attribute, inverse)
+  inverse = inverse or false
   do
     local newTargetTable = { }
     
     for _,i in ipairs(briefingRoom.mission.objectives[objectiveIndex].unitNames) do
       local unit = Unit.getByName(i)
-      if unit ~= nil and not unit:hasAttribute(attribute) then
-        table.insert(newTargetTable, i)
+      if unit ~= nil then
+        if inverse and not unit:hasAttribute(attribute) then
+          table.insert(newTargetTable, i)
+        end
+        if not inverse and unit:hasAttribute(attribute) then
+          table.insert(newTargetTable, i)
+        end 
       end
     end
   
