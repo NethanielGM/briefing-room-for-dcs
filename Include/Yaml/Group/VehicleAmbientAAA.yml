@@ -2,7 +2,7 @@ visible: false
 lateActivation: false
 modulation: $RADIOBAND$
 task: Ground Nothing
-uncontrolled: $NOCM$
+uncontrolled: false
 hiddenOnMFD: $HIDDEN$
 routeRelativeTOT: false
 waypoints:

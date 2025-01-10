@@ -89,17 +89,14 @@ namespace BriefingRoom4DCS.Generator
             extraSettings.AddIfKeyUnused("ObjectiveName", objectiveName);
             extraSettings.AddIfKeyUnused("ObjectiveIndex", objectiveIndex + 1);
             extraSettings.AddIfKeyUnused("ObjectiveGroupID", objectiveTarget.GroupID);
+            extraSettings.AddIfKeyUnused("ObjectiveUnitCategory", objectiveTarget.UnitDB.Category);
+            extraSettings.AddIfKeyUnused("ObjectiveUnitUncontrolled", objectiveTarget.DCSGroup.Uncontrolled);
 
             if (featureID == "TargetDesignationLaser")
             {
                 var laserCode = mission.TemplateRecord.OptionsMission.Contains("SingleLaserCode") || mission.TemplateRecord.OptionsMission.Contains("FC3LaserCode") ? (mission.TemplateRecord.OptionsMission.Contains("FC3LaserCode") ? 1113 : 1688) : mission.GetNextLaserCode();
                 extraSettings.AddIfKeyUnused("LASERCODE", laserCode);
                 mission.Briefing.AddItem(DCSMissionBriefingItemType.JTAC, $"{objectiveName}\t{laserCode}");
-            }
-
-            if (featureID == "EnemyCAP" && objectiveTarget.UnitDB.Category == UnitCategory.Plane && !objectiveTarget.DCSGroup.Uncontrolled)
-            {
-                featureDB.UnitGroupLuaGroup = "AircraftEscort";
             }
 
             UnitMakerGroupInfo? groupInfo = AddMissionFeature(

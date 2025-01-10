@@ -108,6 +108,16 @@ namespace BriefingRoom4DCS.Generator
                 if (featureDB.UnitGroupFlags.HasFlag(FeatureUnitGroupFlags.FireWithinThreatRange))
                     SetFiringCoordinates(ref mission, coordinatesValue, unitDB, ref extraSettings);
 
+                if (featureDB.ID.Contains("CAP") && featureDB.ID.Contains("Enemy"))
+                {
+                    var objectiveUnitCategory = (UnitCategory)extraSettings.GetValueOrDefault("ObjectiveUnitCategory", UnitCategory.Static);
+                    var objectiveUnitUncontrolled = (bool)extraSettings.GetValueOrDefault("ObjectiveUnitUncontrolled", false);
+                    if (featureDB.ID == "EnemyCAP" && objectiveUnitCategory == UnitCategory.Plane && !objectiveUnitUncontrolled)
+                        groupLua = "AircraftEscort";
+
+                    if (featureDB.ID == "EnemyHeloCAP" && new List<UnitCategory> { UnitCategory.Infantry, UnitCategory.Ship, UnitCategory.Vehicle, UnitCategory.Helicopter }.Contains(objectiveUnitCategory) && !objectiveUnitUncontrolled)
+                        groupLua = "AircraftEscort";
+                }
 
                 groupInfo = UnitMaker.AddUnitGroup(
                     ref mission,

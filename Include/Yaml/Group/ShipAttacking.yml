@@ -1,6 +1,6 @@
 visible: false
 modulation: $RADIOBAND$
-uncontrolled: $NOCM$
+uncontrolled: false
 waypoints:
   - alt: 0
     action: Turning Point

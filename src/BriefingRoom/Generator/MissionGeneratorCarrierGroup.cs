@@ -75,8 +75,7 @@ namespace BriefingRoom4DCS.Generator
                         {"TACANFrequency", GeneratorTools.GetTACANFrequency(tacanChannel, 'X', false)},
                         {"Link4Frequency", GeneratorTools.GetRadioFrequency(link4Frequency)},
                         {"TACANMode"," X"},
-                        {"playerCanDrive", false},
-                        {"NoCM", true}};
+                        {"playerCanDrive", false}};
                 var templateOps = templatesDB.Where(x => x.Units.First().DCSID == unitDB.DCSID).ToList();
                 UnitMakerGroupInfo? groupInfo;
                 var groupLua = "ShipCarrier";
@@ -201,8 +200,7 @@ namespace BriefingRoom4DCS.Generator
                     {"HeliportFrequency", GeneratorTools.FormatRadioFrequency(radioFrequency)},
                     {"RadioBand", (int)RadioModulation.AM},
                     {"RadioFrequency", radioFrequencyValue},
-                    {"playerCanDrive", false},
-                    {"NoCM", true}});
+                    {"playerCanDrive", false}});
             if (!groupInfo.HasValue || (groupInfo.Value.UnitNames.Length == 0))
             {
                 UnitMakerSpawnPointSelector.RecoverSpawnPoint(ref mission,spawnPoint.Value);

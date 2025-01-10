@@ -320,7 +320,6 @@ namespace BriefingRoom4DCS.Generator
             GeneratorTools.ReplaceKey(ref groupYml, "GroupX2", coordinates.X); // GroupX2 and GroupY2 are replaced by the default coordinates only if they were not replaced earlier in extraSetting replacements. 
             GeneratorTools.ReplaceKey(ref groupYml, "GroupY2", coordinates.Y);
             GeneratorTools.ReplaceKey(ref groupYml, "Name", groupName);
-            GeneratorTools.ReplaceKey(ref groupYml, "NoCM", false);
             GeneratorTools.ReplaceKey(ref groupYml, "Hidden", hidden);
             GeneratorTools.ReplaceKey(ref groupYml, "UnitID", mission.UnitID); // Must be after units are added
 
