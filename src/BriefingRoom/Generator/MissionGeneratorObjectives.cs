@@ -286,9 +286,6 @@ namespace BriefingRoom4DCS.Generator
                 unitCoordinates,
                 groupFlags,
                 extraSettings);
-            
-            if(targetDB.ID  == "CombinedArms")
-                AddCombinedArmsAircraft(ref mission, ref targetGroupInfo, task, targetBehaviorDB, taskDB, unitCoordinates, groupFlags, extraSettings);
 
             if (!targetGroupInfo.HasValue) // Failed to generate target group
                 throw new BriefingRoomException(mission.LangKey, "FailedToGenerateGroupObjective");
@@ -298,7 +295,8 @@ namespace BriefingRoom4DCS.Generator
 
             if (task.ProgressionActivation)
             {
-                targetGroupInfo.Value.DCSGroups.ForEach((grp) => {
+                targetGroupInfo.Value.DCSGroups.ForEach((grp) =>
+                {
                     grp.LateActivation = true;
                     grp.Visible = task.ProgressionOptions.Contains(ObjectiveProgressionOption.PreProgressionSpottable);
                 });
@@ -323,24 +321,16 @@ namespace BriefingRoom4DCS.Generator
 
             targetGroupInfo.Value.DCSGroup.Waypoints = taskDB.IsEscort() || targetBehaviorDB.ID.Contains("OnRoad") || targetBehaviorDB.ID.Contains("Idle") ? targetGroupInfo.Value.DCSGroup.Waypoints : DCSWaypoint.CreateExtraWaypoints(ref mission, targetGroupInfo.Value.DCSGroup.Waypoints, targetGroupInfo.Value.UnitDB.Families.First());
 
-            // Assign target suffix
-            var i = 0;
             var isStatic = objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Static || objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Cargo;
-            targetGroupInfo.Value.DCSGroups.ForEach(x =>
-            {
-                x.Name += $"{(i == 0 ? "" : i)}-TGT-{objectiveName}";
-                if (isStatic) x.Units.ForEach(u => u.Name += $"{(i == 0 ? "" : i)}-TGT-{objectiveName}");
-                i++;
-            });
-
-            var luaExtraSettings = new Dictionary<string,object>();
+            AssignTargetSuffix(ref targetGroupInfo, objectiveName, isStatic);
+            var luaExtraSettings = new Dictionary<string, object>();
             if (task.Task.StartsWith("Hold"))
             {
                 var (holdSizeMeters, holdTimeSeconds) = GetHoldValues(task.TargetCount);
                 luaExtraSettings.Add("HoldSize", holdSizeMeters);
                 luaExtraSettings.Add("HoldSizeNm", (int)Math.Floor(holdSizeMeters * Toolbox.METERS_TO_NM));
                 luaExtraSettings.Add("HoldTime", holdTimeSeconds);
-                luaExtraSettings.Add("HoldTimeMins", holdTimeSeconds/60);
+                luaExtraSettings.Add("HoldTimeMins", holdTimeSeconds / 60);
                 if (mission.TemplateRecord.OptionsMission.Contains("MarkWaypoints"))
                     DrawingMaker.AddDrawing(ref mission, $"Hold Zone {objectiveName}", DrawingType.Circle, objectiveCoordinates, "Radius".ToKeyValuePair(holdSizeMeters));
             }
@@ -415,10 +405,27 @@ namespace BriefingRoom4DCS.Generator
             if (objectiveOptions.Contains(ObjectiveOption.ShowTarget)) groupFlags = UnitMakerGroupFlags.NeverHidden;
             else if (objectiveOptions.Contains(ObjectiveOption.HideTarget)) groupFlags = UnitMakerGroupFlags.AlwaysHidden;
             if (objectiveOptions.Contains(ObjectiveOption.EmbeddedAirDefense)) groupFlags |= UnitMakerGroupFlags.EmbeddedAirDefense;
+            List<UnitFamily> unitFamilies;
+            switch (true)
+            {
+                case true when targetDB.ID == "VehicleAny":
+                    unitFamilies = Toolbox.RandomFrom(MIXED_VEHICLE_SETS);
+                    break;
+                case true when targetDB.ID == "InfantryAny":
+                    unitFamilies = Toolbox.RandomFrom(MIXED_INFANTRY_SETS);
+                    break;
+                case true when targetDB.ID == "GroundAny":
+                    unitFamilies = Toolbox.RandomFrom(MIXED_INFANTRY_SETS).Concat(Toolbox.RandomFrom(MIXED_VEHICLE_SETS)).ToList();
+                    break;
+                default:
+                    unitFamilies = [Toolbox.RandomFrom(targetDB.UnitFamilies)];
+                    break;
+            }
+
             return (targetBehaviorDB.UnitLua[(int)targetDB.DCSUnitCategory],
                 targetDB.UnitCount[(int)task.TargetCount].GetValue(),
                 targetDB.UnitCount[(int)task.TargetCount],
-                targetDB.ID.StartsWith("CombinedArms") ? Toolbox.RandomFrom(MIXED_INFANTRY_SETS).Concat(Toolbox.RandomFrom(MIXED_VEHICLE_SETS)).ToList() : (targetDB.ID == "VehicleAny" ? Toolbox.RandomFrom(MIXED_VEHICLE_SETS) : [Toolbox.RandomFrom(targetDB.UnitFamilies)]),
+                unitFamilies,
                 groupFlags
             );
         }
@@ -490,6 +497,16 @@ namespace BriefingRoom4DCS.Generator
 
             ObjectiveNullCheck(langKey, targetDB, targetBehaviorDB, taskDB);
             return (featuresID, targetDB, targetBehaviorDB, taskDB, objectiveOptions);
+        }
+
+        internal static void AssignTargetSuffix(ref UnitMakerGroupInfo? targetGroupInfo, string objectiveName, Boolean isStatic){
+            var i = 0;
+            targetGroupInfo.Value.DCSGroups.ForEach(x =>
+            {
+                x.Name += $"{(i == 0 ? "" : i)}-TGT-{objectiveName}";
+                if (isStatic) x.Units.ForEach(u => u.Name += $"{(i == 0 ? "" : i)}-TGT-{objectiveName}");
+                i++;
+            });
         }
 
         private static (DBEntryObjectiveTarget targetDB, DBEntryObjectiveTargetBehavior targetBehaviorDB, DBEntryObjectiveTask taskDB, ObjectiveOption[] objectiveOptions, DBEntryObjectivePreset presetDB) GetCustomObjectiveData(string langKey, MissionTemplateSubTaskRecord objectiveTemplate)
@@ -647,47 +664,5 @@ namespace BriefingRoom4DCS.Generator
             }
         }
 
-        private static void AddCombinedArmsAircraft(ref DCSMission mission, ref UnitMakerGroupInfo? targetGroupInfo, MissionTemplateSubTaskRecord task, DBEntryObjectiveTargetBehavior targetBehaviorDB, DBEntryObjectiveTask taskDB, Coordinates unitCoordinates, UnitMakerGroupFlags groupFlags,  Dictionary<string, object> extraSettings)
-        {
-            if (task.ProgressionActivation)
-                    groupFlags |= UnitMakerGroupFlags.ProgressionAircraftSpawn;
-                else
-                    groupFlags |= UnitMakerGroupFlags.ImmediateAircraftSpawn;
-                extraSettings.AddIfKeyUnused("ObjectiveGroupID", targetGroupInfo.Value.GroupID);
-
-                var (unitsHeli, unitDBsHeli) = UnitMaker.GetUnits(ref mission, new List<UnitFamily>{UnitFamily.HelicopterAttack}, new MinMaxI(1,4).GetValue(), taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
-                var heliGroup = UnitMaker.AddUnitGroup(
-                ref mission,
-                unitsHeli,
-                taskDB.TargetSide,
-                UnitFamily.HelicopterAttack,
-                "AircraftEscort", "Aircraft",
-                unitCoordinates.CreateNearRandom(50, 100),
-                groupFlags,
-                extraSettings);
-                if(heliGroup.HasValue)
-                {
-                    heliGroup.Value.DCSGroup.Waypoints.First().Tasks.Insert(0, new DCSWrappedWaypointTask("SetUnlimitedFuel", new Dictionary<string, object> { { "value", true } }));
-                    targetGroupInfo.Value.DCSGroups.AddRange(heliGroup.Value.DCSGroups);
-                }
-
-                var fixedWingFamily = Toolbox.RandomFrom(new List<UnitFamily>{UnitFamily.PlaneDrone, UnitFamily.PlaneAttack, UnitFamily.PlaneStrike, UnitFamily.PlaneBomber, UnitFamily.PlaneFighter});
-                var (unitsFixedWing, unitDBsFixedWing) = UnitMaker.GetUnits(ref mission, new List<UnitFamily>{fixedWingFamily}, new MinMaxI(1,4).GetValue(), taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
-                var fixedWingGroup = UnitMaker.AddUnitGroup(
-                ref mission,
-                unitsFixedWing,
-                taskDB.TargetSide,
-                fixedWingFamily,
-                targetBehaviorDB.GroupLua[(int)DCSUnitCategory.Plane], "Aircraft",
-                unitCoordinates.CreateNearRandom(300, 1000),
-                groupFlags,
-                extraSettings);
-                if(fixedWingGroup.HasValue)
-                {
-                    fixedWingGroup.Value.DCSGroup.Waypoints.First().Tasks.Insert(0, new DCSWrappedWaypointTask("SetUnlimitedFuel", new Dictionary<string, object> { { "value", true } }));
-                    fixedWingGroup.Value.DCSGroup.Waypoints = DCSWaypoint.CreateExtraWaypoints(ref mission, fixedWingGroup.Value.DCSGroup.Waypoints, fixedWingGroup.Value.UnitDB.Families.First());
-                    targetGroupInfo.Value.DCSGroups.AddRange(fixedWingGroup.Value.DCSGroups);
-                }
-        }
     }
 }
