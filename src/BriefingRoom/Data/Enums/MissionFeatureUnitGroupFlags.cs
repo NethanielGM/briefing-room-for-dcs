@@ -68,5 +68,6 @@ namespace BriefingRoom4DCS.Data
         TimedAircraftActivation = 536870912,
         Intercept = 1073741824,
         FireWithinThreatRange = 1073741825,
+        ObjectiveTargetable
     }
 }

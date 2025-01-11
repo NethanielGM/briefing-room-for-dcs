@@ -32,6 +32,8 @@ namespace BriefingRoom4DCS.Template
         ShowTarget,
         Invisible,
 
-        NoAircraftWaypoint
+        NoAircraftWaypoint,
+
+        FeaturesAsTargets,
     }
 }

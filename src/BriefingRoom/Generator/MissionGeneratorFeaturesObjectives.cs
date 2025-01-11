@@ -20,6 +20,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 
 using BriefingRoom4DCS.Data;
 using BriefingRoom4DCS.Mission;
+using BriefingRoom4DCS.Template;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace BriefingRoom4DCS.Generator
     internal class MissionGeneratorFeaturesObjectives : MissionGeneratorFeatures<DBEntryFeatureObjective>
     {
 
-        internal static void GenerateMissionFeature(ref DCSMission mission, string featureID, string objectiveName, int objectiveIndex, UnitMakerGroupInfo objectiveTarget, Side objectiveTargetSide, bool hideEnemy = false, Coordinates? overrideCoords = null)
+        internal static void GenerateMissionFeature(ref DCSMission mission, string featureID, string objectiveName, int objectiveIndex, UnitMakerGroupInfo objectiveTarget, Side objectiveTargetSide, ObjectiveOption[] objectiveOptions, Coordinates? overrideCoords = null)
         {   
             var objCoords = overrideCoords.HasValue ? overrideCoords.Value : objectiveTarget.Coordinates;
             DBEntryFeatureObjective featureDB = Database.Instance.GetEntry<DBEntryFeatureObjective>(featureID);
@@ -102,7 +103,8 @@ namespace BriefingRoom4DCS.Generator
             UnitMakerGroupInfo? groupInfo = AddMissionFeature(
                 featureDB, ref mission,
                 coordinates, coordinates2,
-                ref extraSettings, objectiveTargetSide, hideEnemy);
+                ref extraSettings, objectiveTargetSide, objectiveOptions.Contains(ObjectiveOption.HideTarget),
+                FeaturesAsTargets: objectiveOptions.Contains(ObjectiveOption.FeaturesAsTargets));
 
             AddBriefingRemarkFromFeature(featureDB, ref mission, false, groupInfo, extraSettings);
         }
