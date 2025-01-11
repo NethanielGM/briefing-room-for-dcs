@@ -115,7 +115,7 @@ namespace BriefingRoom4DCS.Generator
                     if (featureDB.ID == "EnemyCAP" && objectiveUnitCategory == UnitCategory.Plane && !objectiveUnitUncontrolled)
                         groupLua = "AircraftEscort";
 
-                    if (featureDB.ID == "EnemyHeloCAP" && new List<UnitCategory> { UnitCategory.Infantry, UnitCategory.Ship, UnitCategory.Vehicle, UnitCategory.Helicopter }.Contains(objectiveUnitCategory) && !objectiveUnitUncontrolled)
+                    if (featureDB.ID == "EnemyHeloEscort" && new List<UnitCategory> { UnitCategory.Infantry, UnitCategory.Ship, UnitCategory.Vehicle, UnitCategory.Helicopter }.Contains(objectiveUnitCategory) && !objectiveUnitUncontrolled)
                         groupLua = "AircraftEscort";
                 }
 
