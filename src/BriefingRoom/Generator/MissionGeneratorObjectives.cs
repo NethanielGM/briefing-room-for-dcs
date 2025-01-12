@@ -361,9 +361,9 @@ namespace BriefingRoom4DCS.Generator
             // Add objective features Lua for this objective
             mission.AppendValue("ScriptObjectivesFeatures", ""); // Just in case there's no features
             var featureList = taskDB.RequiredFeatures.Concat(featuresID).ToHashSet();
+            var playerHasPlanes = mission.TemplateRecord.PlayerFlightGroups.Any(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft).Category == UnitCategory.Plane) || mission.TemplateRecord.AirbaseDynamicSpawn != DsAirbase.None; 
             if (taskDB.IsEscort())
             {
-                var playerHasPlanes = mission.TemplateRecord.PlayerFlightGroups.Any(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft).Category == UnitCategory.Plane);
                 switch (targetDB.UnitCategory)
                 {
                     case UnitCategory.Plane:
@@ -377,6 +377,31 @@ namespace BriefingRoom4DCS.Generator
                         break;
                     default:
                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
+                        if (Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
+                        if (Toolbox.RollChance(AmountNR.VeryHigh)) { featureList.Add("HiddenEnemyGroundAttackingObj"); }
+                        break;
+                }
+            }
+            if(taskDB.ID == "HoldSuperiority") {
+                switch (targetDB.UnitCategory)
+                {
+                    case UnitCategory.Plane:
+                        featureList.Add("HiddenEnemyCAPAttackingObj");
+                        break;
+                    case UnitCategory.Helicopter:
+                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
+                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyCAPAttackingObj"); }
+                         if (Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
+                        break;
+                    case UnitCategory.Ship:
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyCAPAttackingObj"); }
+                        if (Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
+                        if (Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyShipAttackingObj"); }
+                        break;
+                    default:
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyCAPAttackingObj"); }
                         if (Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
                         if (Toolbox.RollChance(AmountNR.VeryHigh)) { featureList.Add("HiddenEnemyGroundAttackingObj"); }
                         break;
