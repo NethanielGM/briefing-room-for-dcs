@@ -38,6 +38,8 @@ namespace BriefingRoom4DCS.Data
         public int MinCampaignMissions { get; private set; }
         public int MaxCampaignMissions { get; private set; }
         public int DropOffDistanceMeters { get; private set; }
+        public Dictionary<Amount, MinMaxI> HoldTimesInMinutes { get; private set; }
+        public Dictionary<Amount, MinMaxI> HoldSizesInNauticalMiles { get; private set; }
         internal DBCommonAirDefense AirDefense { get; private set; }
         internal DBCommonCAP CAP { get; private set; }
         internal DBCommonCarrierGroup CarrierGroup { get; private set; }
@@ -65,6 +67,15 @@ namespace BriefingRoom4DCS.Data
             MinCampaignMissions = commonIni.GetValue<int>("Limits", "MinCampaignMissions");
             MaxCampaignMissions = commonIni.GetValue<int>("Limits", "MaxCampaignMissions");
             DropOffDistanceMeters = commonIni.GetValue<int>("Limits", "DropOffDistanceMeters");
+
+            HoldTimesInMinutes = new Dictionary<Amount, MinMaxI>();
+            foreach (Amount amount in Toolbox.GetEnumValues<Amount>())
+                HoldTimesInMinutes[amount] = commonIni.GetValue<MinMaxI>("HoldTimeMinutes", amount.ToString());
+            
+            HoldSizesInNauticalMiles =  new Dictionary<Amount, MinMaxI>();
+            foreach (Amount amount in Toolbox.GetEnumValues<Amount>())
+                HoldSizesInNauticalMiles[amount] = commonIni.GetValue<MinMaxI>("HoldSizeNauticalMiles", amount.ToString());
+
 
            
 

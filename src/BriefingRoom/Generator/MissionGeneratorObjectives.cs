@@ -499,7 +499,8 @@ namespace BriefingRoom4DCS.Generator
             return (featuresID, targetDB, targetBehaviorDB, taskDB, objectiveOptions);
         }
 
-        internal static void AssignTargetSuffix(ref UnitMakerGroupInfo? targetGroupInfo, string objectiveName, Boolean isStatic){
+        internal static void AssignTargetSuffix(ref UnitMakerGroupInfo? targetGroupInfo, string objectiveName, Boolean isStatic)
+        {
             var i = 0;
             targetGroupInfo.Value.DCSGroups.ForEach(x =>
             {
@@ -646,23 +647,11 @@ namespace BriefingRoom4DCS.Generator
             return objectiveCoordinates;
         }
 
-        private static Tuple<int, int> GetHoldValues(Amount targetAmount)
-        {
-            // TODO: Variance
-            switch (targetAmount)
-            {
-                case Amount.VeryHigh:
-                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 10), 60 * 15);
-                case Amount.High:
-                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 8), 60 * 10);
-                case Amount.Average:
-                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 5), 60 * 5);
-                case Amount.Low:
-                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 3), 60 * 3);
-                default:
-                    return new((int)Math.Floor(Toolbox.NM_TO_METERS * 2), 60 * 2);
-            }
-        }
+        private static Tuple<int, int> GetHoldValues(Amount targetAmount) =>
+            new(
+                (int)Math.Floor(Database.Instance.Common.HoldSizesInNauticalMiles[targetAmount].GetValue() * Toolbox.NM_TO_METERS),
+                Database.Instance.Common.HoldTimesInMinutes[targetAmount].GetValue() * 60
+            );
 
     }
 }
