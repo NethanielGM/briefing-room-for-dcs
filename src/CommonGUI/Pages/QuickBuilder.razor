@@ -230,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+                <h4>@briefingRoom.Translate("Tasks")</h4>
                 @foreach (var objective in Template.Objectives)
                 {
                     <div class="generator-group flex-justify-spaced flex-margin-fix">
@@ -294,7 +295,7 @@
                         }
                     }
                 }
-                <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddObjective(ref Template)">+</button> 
+                <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddObjective(ref Template)">+ @briefingRoom.Translate("Task")</button> 
                 <hr />
             </div>
             <div id="mission-features" class="generator-block row">

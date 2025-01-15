@@ -143,6 +143,7 @@
                                 </InputNumber>
                             </div>
                         </div>
+                        <h4>@briefingRoom.Translate("Tasks")</h4>
                         <ul class="nav nav-tabs">
                             @foreach (var value in Template.Objectives)
                             {
@@ -158,7 +159,7 @@
                                 </li>
                             }
                             <li class="nav-item">
-                                <a class="nav-link" @onclick="() => objectiveUtil.AddObjective(ref Template)">+</a>
+                                <a class="nav-link" @onclick="() => objectiveUtil.AddObjective(ref Template)">+ @briefingRoom.Translate("Task")</a>
                             </li>
                         </ul>
 
@@ -169,7 +170,7 @@
                                 <div class="flight-group">
                                     <div class="form-group">
                                         <button type="button" class="btn btn-secondary float-right" @onclick="() => objectiveUtil.CloneObjective(objective, ref Template)"  title="Clone Objective"><span class="oi oi-layers"></span></button>
-                                        <button type="button" class="btn btn-secondary float-right" @onclick='() => RenderHintMap("OBJECTIVE_"+ objective.Alias)'  title='@briefingRoom.Translate("TakeHint")'><span class="oi oi-globe"></span></button>
+                                        <button type="button" class="btn @(objective.CoordinateHint[0] != 0 && objective.CoordinateHint[1] != 0 ? "btn-warning" : "btn-secondary") float-right" @onclick='() => RenderHintMap("OBJECTIVE_"+ objective.Alias)'  title='@briefingRoom.Translate("TakeHint")'><span class="oi oi-globe"></span></button>
                                         <h4>@briefingRoom.Translate("Features")</h4>
                                         <CheckBoxList
                                             Data='briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.ObjectiveFeature).Where(x => !x.Category.ContainsValue("Hidden")).ToList()'
@@ -182,7 +183,7 @@
                                         </CheckBoxList>
                                     </div>
                                     
-                                    <h4>@briefingRoom.Translate("Tasks")</h4>
+                                    
                                     <h5>@briefingRoom.Translate("Base")</h5>
                                     <div class="generator-group flex-justify-spaced flex-margin-fix">
                                         <h6 class="row-button">@(Template.GetTasksFlat().IndexOf(objective) + 1)</h6>
@@ -349,7 +350,7 @@
                                             </div>
                                         </div>
                                     }
-                                    <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddSubTask(objective)">+</button>
+                                    <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddSubTask(objective)">+ @briefingRoom.Translate("Nearby")</button>
                                 </div>
                             }
                         }
@@ -522,7 +523,7 @@
                                         <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("StartOn") @bind-Value="flight.Carrier" DataBaseType="DatabaseEntryType.UnitCarrier" EmptOpt=@briefingRoom.Translate("Airbase")/>
                                         @if(!String.IsNullOrEmpty(flight.Carrier))
                                         {
-                                            <button type="button" class="btn btn-secondary row-button" @onclick='() => RenderHintMap(flight.Carrier.StartsWith("FOB") ? flight.Carrier : $"CARRIER_{flight.Carrier}")' title="@briefingRoom.Translate("LocationHint")"><span class="oi oi-globe"></span></button>
+                                            <button type="button" class="btn @(Template.CarrierHints.ContainsKey(flight.Carrier) ? "btn-warning" : "btn-secondary") row-button" @onclick='() => RenderHintMap(flight.Carrier.StartsWith("FOB") ? flight.Carrier : $"CARRIER_{flight.Carrier}")' title="@briefingRoom.Translate("LocationHint")"><span class="oi oi-globe"></span></button>
                                         }
                                     </div>
                                     <div class="generator-group flex-justify-spaced flex-margin-fix">
@@ -998,7 +999,7 @@
     private Dictionary<string, string> tabs = new Dictionary<string, string>{
         { "context-&-enviroment", "ContextAndEnviroment" },
         { "flight-groups", "FlightGroups" },
-        { "objectives", "Missions" },
+        { "objectives", "Objectives" },
         { "situation", "Situation" },
         { "combined-arms", "CombinedArms"},
         { "options", "Options" },
