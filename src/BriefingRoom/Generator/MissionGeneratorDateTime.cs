@@ -79,7 +79,7 @@ namespace BriefingRoom4DCS.Generator
                                         (mission.TheaterDB.DayTime[(int)month].Min + mission.TheaterDB.DayTime[(int)month].Max) / 2 - 90,
                                         (mission.TheaterDB.DayTime[(int)month].Min + mission.TheaterDB.DayTime[(int)month].Max) / 2 + 90),
                 TimeOfDay.Twilight => Toolbox.RandomInt(mission.TheaterDB.DayTime[(int)month].Max - 120, mission.TheaterDB.DayTime[(int)month].Max + 30),
-                TimeOfDay.Night => Toolbox.RandomInt(0, mission.TheaterDB.DayTime[(int)month].Min - 120),
+                TimeOfDay.Night => Toolbox.RandomInt(0, Math.Max(mission.TheaterDB.DayTime[(int)month].Min - 120, 0)),
                 // case TimeOfDay.Random
                 _ => (double)Toolbox.RandomInt(Toolbox.MINUTES_PER_DAY),
             };
