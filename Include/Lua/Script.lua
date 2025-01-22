@@ -1663,6 +1663,21 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
   end)
 end
 
+function briefingRoom.mission.objectivesTriggersCommon.registerCaptureLocation(objectiveIndex, objectiveLocationId)
+  table.insert(briefingRoom.mission.objectiveTriggers, function(event)
+
+    if briefingRoom.mission.objectivesTriggersCommon.isMissionOrObjectiveComplete(objectiveIndex) then return false end
+    if event.id == world.event.S_EVENT_BASE_CAPTURED then
+
+      if event.place:getID() == objectiveLocationId and event.place:getCoalition() == briefingRoom.playerCoalition then
+        briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_PILOTREPORTCOMPLETE$", "RadioPilotReportComplete", math.random(1, 3))
+        briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
+        return true
+      end
+    else return false end
+  end)
+end
+
 ------END OF TRIGGERS TODO MOVE TO INDEPENDENT FILES---------------
 
 for objIndex,obj in ipairs(briefingRoom.mission.objectives) do

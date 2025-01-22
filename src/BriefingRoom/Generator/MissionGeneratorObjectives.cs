@@ -334,6 +334,13 @@ namespace BriefingRoom4DCS.Generator
                 if (mission.TemplateRecord.OptionsMission.Contains("MarkWaypoints"))
                     DrawingMaker.AddDrawing(ref mission, $"Hold Zone {objectiveName}", DrawingType.Circle, objectiveCoordinates, "Radius".ToKeyValuePair(holdSizeMeters));
             }
+            if (task.Task == "CaptureLocation")
+            {
+                if (!extraSettings.ContainsKey("GroupAirbaseID"))
+                    throw new BriefingRoomException(mission.LangKey, "CaptureLocationNoAirbase");
+
+                luaExtraSettings.Add("GroupAirbaseID", extraSettings.GetValueOrDefault("GroupAirbaseID"));
+            }
 
             mission.Briefing.AddItem(DCSMissionBriefingItemType.TargetGroupName, $"-TGT-{objectiveName}");
             var length = isStatic ? targetGroupInfo.Value.DCSGroups.Count : targetGroupInfo.Value.UnitNames.Length;
@@ -361,7 +368,7 @@ namespace BriefingRoom4DCS.Generator
             // Add objective features Lua for this objective
             mission.AppendValue("ScriptObjectivesFeatures", ""); // Just in case there's no features
             var featureList = taskDB.RequiredFeatures.Concat(featuresID).ToHashSet();
-            var playerHasPlanes = mission.TemplateRecord.PlayerFlightGroups.Any(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft).Category == UnitCategory.Plane) || mission.TemplateRecord.AirbaseDynamicSpawn != DsAirbase.None; 
+            var playerHasPlanes = mission.TemplateRecord.PlayerFlightGroups.Any(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft).Category == UnitCategory.Plane) || mission.TemplateRecord.AirbaseDynamicSpawn != DsAirbase.None;
             if (taskDB.IsEscort())
             {
                 switch (targetDB.UnitCategory)
@@ -382,16 +389,17 @@ namespace BriefingRoom4DCS.Generator
                         break;
                 }
             }
-            if(taskDB.ID == "HoldSuperiority") {
+            if (taskDB.ID == "HoldSuperiority")
+            {
                 switch (targetDB.UnitCategory)
                 {
                     case UnitCategory.Plane:
                         featureList.Add("HiddenEnemyCAPAttackingObj");
                         break;
                     case UnitCategory.Helicopter:
-                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
-                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyCAPAttackingObj"); }
-                         if (Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
+                        if (playerHasPlanes && Toolbox.RollChance(AmountNR.Average)) { featureList.Add("HiddenEnemyCAPAttackingObj"); }
+                        if (Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyHeloAttackingObj"); }
                         break;
                     case UnitCategory.Ship:
                         if (playerHasPlanes && Toolbox.RollChance(AmountNR.High)) { featureList.Add("HiddenEnemyCASAttackingObj"); }
