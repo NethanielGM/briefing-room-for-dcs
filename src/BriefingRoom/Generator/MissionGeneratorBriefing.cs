@@ -73,6 +73,11 @@ namespace BriefingRoom4DCS.Generator
         {
             var briefingDescriptionList = new List<string>();
             var maxDescriptionCount = Database.Instance.Common.Briefing.MaxObjectiveDescriptionCount;
+
+            // Remove duplicates
+            foreach (var key in descriptionsMap.Keys)
+                descriptionsMap[key] = descriptionsMap[key].Distinct().ToList();
+
             while (descriptionsMap.Keys.Count > 0 && briefingDescriptionList.Count < maxDescriptionCount)
             {
                 var task = descriptionsMap.Keys.First();
