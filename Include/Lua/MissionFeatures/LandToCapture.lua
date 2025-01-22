@@ -3,26 +3,22 @@ briefingRoom.mission.missionFeatures.LandToCapture.wasHasStarted = false -- has 
 
 briefingRoom.mission.missionFeatures.LandToCapture.eventHandler = {}
 function briefingRoom.mission.missionFeatures.LandToCapture.eventHandler:onEvent(event)
-    if event.id == world.event.S_EVENT_LAND  then
-        briefingRoom.debugPrint("LandToCapture event"..tostring(event.id))
-        if event.initiator.getPlayerName and event.initiator:getCoalition() ~= event.place:getCoalition() then
-            briefingRoom.debugPrint("Player Landed Capping")
-            local pos = event.place:getPoint()
-            local spawnUnits = { {
-                ["y"] = pos.z + math.random(-500, 500),
-                ["type"] = "JTAC",
-                ["name"] = "JTAC"..tostring(math.random(1, 1000)),
-                ["heading"] = 0,
-                ["playerCanDrive"] = true,
-                ["skill"] = "Excellent",
-                ["x"] = pos.x + math.random(-500, 500),
-              }}
-              mist.dynAdd({
-                units = spawnUnits,
-                country = event.initiator:getCountry(),
-                category = Group.Category.GROUND
-              })   
-        end
+    if event.id == world.event.S_EVENT_LAND and event.initiator.getPlayerName and event.initiator:getCoalition() ~= event.place:getCoalition() then
+        local pos = event.place:getPoint()
+        local spawnUnits = { {
+            ["y"] = pos.z + math.random(-500, 500),
+            ["type"] = "JTAC",
+            ["name"] = "JTAC"..tostring(math.random(1, 1000)),
+            ["heading"] = 0,
+            ["playerCanDrive"] = true,
+            ["skill"] = "Excellent",
+            ["x"] = pos.x + math.random(-500, 500),
+            }}
+            mist.dynAdd({
+            units = spawnUnits,
+            country = event.initiator:getCountry(),
+            category = Group.Category.GROUND
+            })
     end
 end
 
