@@ -76,7 +76,8 @@ namespace BriefingRoom4DCS.Generator
 
             if (side == Side.Neutral)
             {
-                (country, units) = GeneratorTools.GetNeutralRandomUnits(mission.LangKey, families, mission.CoalitionsDB.SelectMany(x => x.Countries).ToList(), mission.TemplateRecord.ContextDecade, unitCount, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"), mission.TemplateRecord.OptionsUnitBanList);
+                var ignoreCountries = mission.CoalitionsDB.SelectMany(x => x.Countries).Where(x => x != Country.ALL).ToList();
+                (country, units) = GeneratorTools.GetNeutralRandomUnits(mission.LangKey, families, ignoreCountries, mission.TemplateRecord.ContextDecade, unitCount, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"), mission.TemplateRecord.OptionsUnitBanList);
                 if (!units.Where(x => x != null).Any()) return new(new List<string>(), new List<DBEntryJSONUnit>());
             }
             else if (forceTryTemplate || families.All(x => TEMPLATE_ALWAYS_FAMILIES.Contains(x)) || (families.All(x => TEMPLATE_PREFERENCE_FAMILIES.Contains(x)) && Toolbox.RandomChance(3)))
