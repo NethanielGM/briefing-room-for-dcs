@@ -3,7 +3,11 @@ briefingRoom.mission.missionFeatures.LandToCapture.wasHasStarted = false -- has 
 
 briefingRoom.mission.missionFeatures.LandToCapture.eventHandler = {}
 function briefingRoom.mission.missionFeatures.LandToCapture.eventHandler:onEvent(event)
-    if event.id == world.event.S_EVENT_LAND and event.initiator.getPlayerName and event.initiator:getCoalition() ~= event.place:getCoalition() then
+    if event.id == world.event.S_EVENT_LAND and
+        event.place ~= nil and
+        event.initiator.getPlayerName and
+        event.initiator:getCoalition() ~= event.place:getCoalition()
+    then
         local pos = event.place:getPoint()
         local spawnUnits = { {
             ["y"] = pos.z + math.random(-500, 500),
