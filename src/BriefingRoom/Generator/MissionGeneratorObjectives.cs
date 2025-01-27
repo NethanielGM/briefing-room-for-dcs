@@ -421,7 +421,7 @@ namespace BriefingRoom4DCS.Generator
             mission.ObjectiveCoordinates.Add(isInverseTransportWayPoint ? unitCoordinates : objectiveCoordinates);
             var objCoords = objectiveCoordinates;
             var furthestWaypoint = targetGroupInfo.Value.DCSGroup.Waypoints.Aggregate(objectiveCoordinates, (furthest, x) => objCoords.GetDistanceFrom(x.Coordinates) > objCoords.GetDistanceFrom(furthest) ? x.Coordinates : furthest);
-            var waypoint = GenerateObjectiveWaypoint(ref mission, task, objectiveCoordinates, furthestWaypoint, objectiveName, targetGroupInfo.Value.GroupID, hiddenMapMarker: task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief));
+            var waypoint = GenerateObjectiveWaypoint(ref mission, task, objectiveCoordinates, furthestWaypoint, objectiveName, targetGroupInfo.Value.DCSGroups.Select(x => x.GroupId).ToList(), hiddenMapMarker: task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief));
             mission.Waypoints.Add(waypoint);
             objectiveWaypoints.Add(waypoint);
             mission.MapData.Add($"OBJECTIVE_AREA_{objectiveIndex}", new List<double[]> { waypoint.Coordinates.ToArray() });
@@ -642,7 +642,7 @@ namespace BriefingRoom4DCS.Generator
                 mission.Briefing.AddItem(DCSMissionBriefingItemType.Task, taskString);
         }
 
-        private static Waypoint GenerateObjectiveWaypoint(ref DCSMission mission, MissionTemplateSubTaskRecord objectiveTemplate, Coordinates objectiveCoordinates, Coordinates ObjectiveDestinationCoordinates, string objectiveName, int groupId = 0, bool scriptIgnore = false, bool hiddenMapMarker = false)
+        private static Waypoint GenerateObjectiveWaypoint(ref DCSMission mission, MissionTemplateSubTaskRecord objectiveTemplate, Coordinates objectiveCoordinates, Coordinates ObjectiveDestinationCoordinates, string objectiveName, List<int> groupIds = null, bool scriptIgnore = false, bool hiddenMapMarker = false)
         {
             var (targetDB, targetBehaviorDB, taskDB, objectiveOptions, presetDB) = GetCustomObjectiveData(mission.LangKey, objectiveTemplate);
             var targetBehaviorLocation = targetBehaviorDB.Location;
@@ -661,7 +661,7 @@ namespace BriefingRoom4DCS.Generator
                 DrawingMaker.AddDrawing(ref mission, $"Target Zone {objectiveName}", DrawingType.Circle, waypointCoordinates, "Radius".ToKeyValuePair(Database.Instance.Common.DropOffDistanceMeters));
             else if (targetBehaviorLocation == DBEntryObjectiveTargetBehaviorLocation.Patrolling)
                 DrawingMaker.AddDrawing(ref mission, $"Target Zone {objectiveName}", DrawingType.Circle, waypointCoordinates, "Radius".ToKeyValuePair(ObjectiveDestinationCoordinates.GetDistanceFrom(objectiveCoordinates)));
-            return new Waypoint(objectiveName, waypointCoordinates, onGround, groupId, scriptIgnore, objectiveTemplate.Options.Contains(ObjectiveOption.NoAircraftWaypoint), hiddenMapMarker);
+            return new Waypoint(objectiveName, waypointCoordinates, onGround, groupIds, scriptIgnore, objectiveTemplate.Options.Contains(ObjectiveOption.NoAircraftWaypoint), hiddenMapMarker);
         }
 
         //----------------SUB TASK SUPPORT FUNCTIONS-------------------------------

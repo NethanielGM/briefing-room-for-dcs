@@ -21,6 +21,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 using System.Collections.Generic;
 using BriefingRoom4DCS.Mission.DCSLuaObjects;
 using BriefingRoom4DCS.Data;
+using System.Linq;
 
 namespace BriefingRoom4DCS.Generator
 {
@@ -36,16 +37,16 @@ namespace BriefingRoom4DCS.Generator
         internal bool ScriptIgnore { get; }
         internal bool AircraftIgnore { get; }
 
-        internal int TargetGroupID { get; }
-        internal bool HiddenMapMarker {get; }
+        internal List<int> TargetGroupIDs { get; }
+        internal bool HiddenMapMarker { get; }
 
-        internal Waypoint(string name, Coordinates coordinates, bool onGround = false, int targetGroupID = 0, bool scriptIgnore = false, bool aircraftIgnore = false, bool hiddenMapMarker = false)
+        internal Waypoint(string name, Coordinates coordinates, bool onGround = false, List<int> targetGroupIDs = null, bool scriptIgnore = false, bool aircraftIgnore = false, bool hiddenMapMarker = false)
         {
             Name = name;
             Coordinates = coordinates;
             OnGround = onGround;
             ScriptIgnore = scriptIgnore;
-            TargetGroupID = targetGroupID;
+            TargetGroupIDs = targetGroupIDs;
             AircraftIgnore = aircraftIgnore;
             HiddenMapMarker = hiddenMapMarker;
         }
@@ -53,40 +54,42 @@ namespace BriefingRoom4DCS.Generator
         internal DCSWaypoint ToDCSWaypoint(Data.DBEntryAircraft aircraftData, DCSTask task)
         {
             var tasks = new List<DCSWaypointTask>();
-            if (TargetGroupID > 0)
+            if (TargetGroupIDs != null && TargetGroupIDs.Count > 0)
             {
                 if (ATTACK_GROUP_TASKS.Contains(task))
-                    tasks.Add(new DCSWaypointTask
-                    {
-                        Enabled = true,
-                        Auto = false,
-                        Id = "AttackGroup",
-                        Parameters = new Dictionary<string, object>{
-                            {"altitudeEnabled", false},
-                            {"groupId", TargetGroupID},
-                            {"attackQtyLimit", false},
-                            {"attackQty", 1},
-                            {"expend", "Auto"},
-                            {"altitude", 2000},
-                            {"directionEnabled", false},
-                            {"groupAttack", false},
-                            {"weaponType", 9663676414},
-                            {"direction", 0},
-                        }
-                    });
+                    foreach (var TargetGroupID in TargetGroupIDs)
+                        tasks.Add(new DCSWaypointTask
+                        {
+                            Enabled = true,
+                            Auto = false,
+                            Id = "AttackGroup",
+                            Parameters = new Dictionary<string, object>{
+                                {"altitudeEnabled", false},
+                                {"groupId", TargetGroupID},
+                                {"attackQtyLimit", false},
+                                {"attackQty", 1},
+                                {"expend", "Auto"},
+                                {"altitude", 2000},
+                                {"directionEnabled", false},
+                                {"groupAttack", false},
+                                {"weaponType", 9663676414},
+                                {"direction", 0},
+                            }
+                        });
                 else if (task == DCSTask.CAP)
-                    tasks.Add(new DCSWaypointTask
-                    {
-                        Enabled = true,
-                        Auto = false,
-                        Id = "EngageGroup",
-                        Parameters = new Dictionary<string, object>{
-                            {"visible", false},
-                            {"groupId", TargetGroupID},
-                            {"priority", 1},
-                            {"weaponType", 9659482112},
+                    foreach (var TargetGroupID in TargetGroupIDs)
+                        tasks.Add(new DCSWaypointTask
+                        {
+                            Enabled = true,
+                            Auto = false,
+                            Id = "EngageGroup",
+                            Parameters = new Dictionary<string, object>{
+                                {"visible", false},
+                                {"groupId", TargetGroupID},
+                                {"priority", 1},
+                                {"weaponType", 9659482112},
+                            }
                         }
-                    }
             );
             }
             return new DCSWaypoint
