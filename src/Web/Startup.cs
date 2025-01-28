@@ -63,8 +63,8 @@ namespace BriefingRoom4DCS.GUI.Web
             {
                 IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = false;
                 IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Disabled;
-                IronPdf.Installation.Initialize();
             }
+            IronPdf.Installation.Initialize();
 
             // app.UseHttpsRedirection();
             app.UseStaticFiles();

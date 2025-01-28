@@ -14,6 +14,7 @@ namespace BriefingRoom4DCS.GUI.Desktop
             Application.SetCompatibleTextRenderingDefault(false);
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
             CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InstalledUICulture;
+            IronPdf.Installation.Initialize();
             try
             {
                 Application.Run(new BriefingRoomBlazorWrapper());
