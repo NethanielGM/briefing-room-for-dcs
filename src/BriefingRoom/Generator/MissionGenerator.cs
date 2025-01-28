@@ -268,21 +268,11 @@ namespace BriefingRoom4DCS.Generator
 
             var spot = mission.PlayerAirbase.Coordinates.CreateNearRandom(300, 500);
             // DCS Hack to render local area near player airbase
-            UnitMaker.AddUnitGroup(
-                ref mission,
-                UnitFamily.Infantry, 1, Side.Enemy,
-                "Vehicle", "Vehicle",
-                spot,
-                UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal, 
-                new Dictionary<string, object>(),
-                true
-            );
-            // DCS Hack of a hack to stop the hack from capturing the player airbase
              UnitMaker.AddUnitGroup(
                 ref mission,
-                UnitFamily.Infantry, 1, Side.Ally,
-                "Vehicle", "Vehicle",
-                spot.CreateNearRandom(1,3),
+                UnitFamily.HelicopterUtility, 1, Side.Ally,
+                "AircraftUncontrolledGround", "Aircraft",
+                spot,
                 UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal, 
                 new Dictionary<string, object>(),
                 true

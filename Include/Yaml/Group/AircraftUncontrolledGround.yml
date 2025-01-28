@@ -1,0 +1,21 @@
+lateActivation: false
+modulation: $RADIOBAND$
+task: Nothing
+radioSet: true
+uncontrolled: true
+waypoints:
+  - alt: 13
+    action: From Ground Area
+    speed: $SPEED$
+    type: TakeOffGround
+    etaLocked: false
+    speedLocked: false
+    y: $GROUPY$
+    x: $GROUPX$
+    airdromeId: $GROUPAIRBASEID$
+groupId: $GROUPID$
+hidden: $HIDDEN$
+y: $GROUPY$
+x: $GROUPX$
+name: $NAME$
+frequency: $RADIOFREQUENCY$
