@@ -25,6 +25,7 @@ namespace BriefingRoom4DCS
         Initialization,
         Situation,
         Airbase,
+        WorldPreload,
         Objective,
         Carrier,
         PlayerFlightGroups,

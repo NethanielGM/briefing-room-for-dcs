@@ -43,7 +43,7 @@ namespace BriefingRoom4DCS.Generator
 
 
 
-        internal static List<DBEntryAirbaseParkingSpot> GetFreeParkingSpots(ref DCSMission mission, int airbaseID, int unitCount, DBEntryAircraft aircraftDB, bool requiresOpenAirParking = false)
+        internal static List<DBEntryAirbaseParkingSpot> GetFreeParkingSpots(ref DCSMission mission, int airbaseID, int unitCount, DBEntryAircraft aircraftDB, bool requiresOpenAirParking = false, int reservedSpots = 0)
         {
 
             if (!mission.AirbaseParkingSpots.ContainsKey(airbaseID))
@@ -55,7 +55,7 @@ namespace BriefingRoom4DCS.Generator
             for (int i = 0; i < unitCount; i++)
             {
                 var viableSpots = FilterAndSortSuitableSpots(mission.LangKey, mission.AirbaseParkingSpots[airbaseID].ToArray(), aircraftDB, requiresOpenAirParking, lastSpot);
-                if (viableSpots.Count == 0) throw new BriefingRoomException(mission.LangKey, "AirbaseNotEnoughParkingSpots", airbaseDB.UIDisplayName.Get(mission.LangKey));
+                if (viableSpots.Count <= reservedSpots) throw new BriefingRoomException(mission.LangKey, "AirbaseNotEnoughParkingSpots", airbaseDB.UIDisplayName.Get(mission.LangKey));
                 var parkingSpot = viableSpots.First();
                 lastSpot = parkingSpot;
                 mission.AirbaseParkingSpots[airbaseID].Remove(parkingSpot);

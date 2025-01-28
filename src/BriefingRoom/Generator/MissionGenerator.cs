@@ -26,6 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using YamlDotNet.Core.Tokens;
 
 namespace BriefingRoom4DCS.Generator
 {
@@ -35,6 +36,7 @@ namespace BriefingRoom4DCS.Generator
         private static readonly List<MissionStageName> STAGE_ORDER = new List<MissionStageName>{
             MissionStageName.Situation,
             MissionStageName.Airbase,
+            MissionStageName.WorldPreload,
             MissionStageName.Objective,
             MissionStageName.Carrier,
             MissionStageName.PlayerFlightGroups,
@@ -115,6 +117,9 @@ namespace BriefingRoom4DCS.Generator
                             break;
                         case MissionStageName.Airbase:
                             AirbaseStage(ref mission);
+                            break;
+                        case MissionStageName.WorldPreload:
+                            WorldPreloadStage(ref mission);
                             break;
                         case MissionStageName.Objective:
                             ObjectiveStage(ref mission);
@@ -265,18 +270,53 @@ namespace BriefingRoom4DCS.Generator
             mission.SetValue("MissionAirbaseX", mission.PlayerAirbase.Coordinates.X);
             mission.SetValue("MissionAirbaseY", mission.PlayerAirbase.Coordinates.Y);
             mission.SaveStage(MissionStageName.Airbase);
+        }
 
-            var spot = mission.PlayerAirbase.Coordinates.CreateNearRandom(300, 500);
+        private static void WorldPreloadStage(ref DCSMission mission)
+        {
             // DCS Hack to render local area near player airbase
-             UnitMaker.AddUnitGroup(
-                ref mission,
-                UnitFamily.HelicopterUtility, 1, Side.Ally,
-                "AircraftUncontrolledGround", "Aircraft",
-                spot,
-                UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal, 
-                new Dictionary<string, object>(),
-                true
-            );
+            var extraSettings = new Dictionary<string, object>
+            {
+                { "NAME", "Hank the Hack" }
+            };
+            var (units, unitDBs) = UnitMaker.GetUnits(ref mission, new List<UnitFamily> { UnitFamily.HelicopterUtility }, 1, Side.Ally, new UnitMakerGroupFlags(), ref extraSettings, true);
+            List<DBEntryAirbaseParkingSpot> parkingSpots = null;
+            try
+            {
+                parkingSpots = UnitMakerSpawnPointSelector.GetFreeParkingSpots(
+                        ref mission,
+                        mission.PlayerAirbase.DCSID,
+                        1, (DBEntryAircraft)unitDBs.First(), false, mission.TemplateRecord.GetPlayerSlotsCount());
+            }
+            catch (Exception)
+            {
+                // Do nothing
+            }
+            finally
+            {
+                if (parkingSpots is not null)
+                {
+                    extraSettings.Add("GroupAirbaseID", mission.PlayerAirbase.DCSID);
+                    extraSettings.Add("ParkingID", parkingSpots.Select(x => x.DCSID).ToList());
+                    extraSettings.Add("UnitCoords", parkingSpots.Select(x => x.Coordinates).ToList());
+                    UnitMaker.AddUnitGroup(
+                        ref mission,
+                        units, Side.Ally, UnitFamily.HelicopterUtility,
+                        "AircraftUncontrolled", "Aircraft",
+                        parkingSpots.First().Coordinates,
+                        UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal,
+                        extraSettings);
+                }
+                else
+                    UnitMaker.AddUnitGroup(
+                        ref mission,
+                        units, Side.Ally, UnitFamily.HelicopterUtility,
+                        "AircraftUncontrolledGround", "Aircraft",
+                        mission.PlayerAirbase.Coordinates.CreateNearRandom(300, 500),
+                        UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal,
+                        extraSettings);
+            }
+            mission.SaveStage(MissionStageName.WorldPreload);
         }
 
         private static void ObjectiveStage(ref DCSMission mission)
