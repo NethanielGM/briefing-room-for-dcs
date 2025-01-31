@@ -28,6 +28,9 @@ csar.aircraftType["Mi-8MT"] = 16
 csar.aircraftType["UH-60L"] = 11
 csar.aircraftType["Mi-24P"] = 8
 csar.aircraftType["AH-64D_BLK_II"] = 2
+csar.aircraftType["OH58D"] = 2
+csar.aircraftType["CH-47Fbl1"] = 2
+csar.aircraftType["OH-6A"] = 4
 
 -- Prefix Settings - Only For helicopters
 csar.useprefix  = false -- Use the Prefixed defined below, Requires Unit have the Prefix defined below
