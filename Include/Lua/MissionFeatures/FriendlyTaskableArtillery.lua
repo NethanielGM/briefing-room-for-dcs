@@ -88,7 +88,7 @@ end
 -- Set the correct number of fire missions
 briefingRoom.mission.missionFeatures.supportArtillery.fireMissionsLeft = briefingRoom.mission.missionFeatures
     .supportArtillery
-    .FIRE_MISSIONS_PER_OBJECTIVE * math.max(1, #briefingRoom.mission.objectives)
+    .FIRE_MISSIONS_PER_OBJECTIVE * math.max(1, table.count(briefingRoom.mission.objectives))
 
 -- Add F10 menu command
 missionCommands.addCommandForCoalition(briefingRoom.playerCoalition, "$LANG_FIREMENU$", briefingRoom.f10Menu.missionMenu

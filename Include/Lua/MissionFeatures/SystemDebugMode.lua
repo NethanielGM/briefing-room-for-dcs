@@ -3,12 +3,12 @@ briefingRoom.f10MenuCommands.debug = {} -- Create F10 debug sub-menu
 briefingRoom.printDebugMessages = true -- Enable debug messages
 
 function briefingRoom.f10MenuCommands.debug.activateAllAircraft()
-  if #briefingRoom.aircraftActivator.reserveQueue == 0 then
+  if table.count(briefingRoom.aircraftActivator.reserveQueue) == 0 then
     briefingRoom.debugPrint("No groups in the reserve queue")
     return
   end
 
-  while #briefingRoom.aircraftActivator.reserveQueue > 0 do
+  while table.count(briefingRoom.aircraftActivator.reserveQueue) > 0 do
     briefingRoom.aircraftActivator.pushFromReserveQueue()
   end
 end
@@ -16,7 +16,7 @@ end
 -- Destroys the next active target unit
 function briefingRoom.f10MenuCommands.debug.destroyTargetUnit()
   for index, objective in ipairs(briefingRoom.mission.objectives) do
-    if (#objective.unitNames > 0) then
+    if (table.count(objective.unitNames) > 0) then
       local u = Unit.getByName(objective.unitNames[1])
       if u == nil then
         u = StaticObject.getByName(objective.unitNames[1])

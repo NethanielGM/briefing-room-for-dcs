@@ -204,6 +204,14 @@ function table.contains(t, val)
   return false
 end
 
+
+-- Returns Key count
+function table.count(t)
+  local count = 0
+  for _ in pairs(t) do count = count + 1 end
+  return count
+end
+
 -- Returns true if table t contains key key
 function table.containsKey(t, key)
   for k,_v in pairs(t) do
@@ -600,13 +608,13 @@ function briefingRoom.aircraftActivator.getRandomInterval()
 end
 
 function briefingRoom.aircraftActivator.pushFromReserveQueue()
-  if #briefingRoom.aircraftActivator.reserveQueue == 0 then -- no extra queues available
+  if table.count(briefingRoom.aircraftActivator.reserveQueue) == 0 then -- no extra queues available
     briefingRoom.debugPrint("Tried to push extra aircraft to the activation queue, but found none")
     return
   end
 
   -- add aircraft groups from the reserve queue to the current queue
-  local numberOfGroupsToAdd = math.max(1, math.min(briefingRoom.aircraftActivator.reserveQueueInitialCount / (#briefingRoom.mission.objectives + 1), #briefingRoom.aircraftActivator.reserveQueue))
+  local numberOfGroupsToAdd = math.max(1, math.min(briefingRoom.aircraftActivator.reserveQueueInitialCount / (table.count(briefingRoom.mission.objectives) + 1), table.count(briefingRoom.aircraftActivator.reserveQueue)))
 
   for i=0,numberOfGroupsToAdd do
     briefingRoom.debugPrint("Pushed aircraft group #"..tostring(briefingRoom.aircraftActivator.reserveQueue[1]).." into the activation queue")
@@ -627,8 +635,8 @@ function briefingRoom.aircraftActivator.update(args, time)
       briefingRoom.debugPrint(name.." Pushed to current queue", 1)
     end
   end
-  briefingRoom.debugPrint("Looking for aircraft groups to activate, found "..tostring(#briefingRoom.aircraftActivator.currentQueue).." Time:"..tostring(minsPassed), 1)
-  if #briefingRoom.aircraftActivator.currentQueue == 0 then -- no aircraft in the queue at the moment
+  briefingRoom.debugPrint("Looking for aircraft groups to activate, found "..tostring(table.count(briefingRoom.aircraftActivator.currentQueue)).." Time:"..tostring(minsPassed), 1)
+  if table.count(briefingRoom.aircraftActivator.currentQueue) == 0 then -- no aircraft in the queue at the moment
     return time + briefingRoom.aircraftActivator.getRandomInterval() -- schedule next update and return
   end
   
@@ -689,7 +697,7 @@ end
 
 briefingRoom.aircraftActivator.convertToStatic()
 
-briefingRoom.aircraftActivator.reserveQueueInitialCount = #briefingRoom.aircraftActivator.reserveQueue
+briefingRoom.aircraftActivator.reserveQueueInitialCount = table.count(briefingRoom.aircraftActivator.reserveQueue)
 
 -- ===================================================================================
 -- 2.3 - EVENT HANDLER: common event handler used during the mission
@@ -738,15 +746,15 @@ function briefingRoom.handleTroopsInAircraft(event)
   local unitName = event.initiator:getName()
   -- TODO see if we can detect units in aircraft that embarked using DCS radio
   if table.containsKey(briefingRoom.transportManager.transportRoster, unitName) then
-    local toopNames={}
+    local troopNames={}
     local n=0
     for k,v in pairs(briefingRoom.transportManager.transportRoster[unitName].troops) do
       n=n+1
-      toopNames[n]=k
+      troopNames[n]=k
     end
-    briefingRoom.debugPrint("unpacking troops "..#toopNames)
+    briefingRoom.debugPrint("unpacking troops "..table.count(troopNames))
     -- Assume all troops are main characters and survive the crash no issues
-    briefingRoom.transportManager.removeTroopCargo(unitName, toopNames, event.initiator:getPoint())
+    briefingRoom.transportManager.removeTroopCargo(unitName, troopNames, event.initiator:getPoint())
   end
 end
 
@@ -799,6 +807,22 @@ end
 briefingRoom.transportManager = {}
 briefingRoom.transportManager.transportRoster = {}
 briefingRoom.transportManager.maxTroops = 10
+briefingRoom.transportManager.maxTroopsByType = {
+  SA342Mistral=2,
+  SA342Minigun=2,
+  SA342L=2,
+  SA342M=2,
+  ["UH-1H"]=8,
+  ["Mi-8MT"]=24,
+  ["UH-60L"]=11,
+  ["Mi-24P"]=8,
+  ["AH-64D_BLK_II"]=2,
+  ["CH-47Fbl1"]=31,
+  OH58D=2,
+  ["Ka-50"]=1,
+  ["Ka-50_3"]=1,
+  ["OH-6A"]=4,
+}
 
 function briefingRoom.transportManager.initTransport(transportUnitName)
   briefingRoom.transportManager.transportRoster[transportUnitName] = {
@@ -855,10 +879,19 @@ function briefingRoom.transportManager.addTroopCargo(transportUnitName, unitName
     briefingRoom.transportManager.initTransport(transportUnitName)
   end
   local addedCount = 0
+  local transportUnit = Unit.getByName(transportUnitName)
+  local maxUnitTroops = briefingRoom.transportManager.maxTroops
+  local transportUnitType = transportUnit:getTypeName()
+  briefingRoom.debugPrint("Transport Unit Type: "..transportUnitType)
+  if table.containsKey(briefingRoom.transportManager.maxTroopsByType, transportUnitType) then
+    maxUnitTroops = briefingRoom.transportManager.maxTroopsByType[transportUnitType]
+  end
+  briefingRoom.debugPrint("Max Troops: "..maxUnitTroops)
   for index, unitName in ipairs(unitNames) do
-    local unitCount = #briefingRoom.transportManager.transportRoster[transportUnitName].troops
-    if unitCount == briefingRoom.transportManager.maxTroops then
-      briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTFULL$ ($LANG_TOTALTROOPS$: "..briefingRoom.transportManager.maxTroops..")", "RadioTroopFull")
+    local unitCount = table.count(briefingRoom.transportManager.transportRoster[transportUnitName].troops)
+    briefingRoom.debugPrint("Troop Count Troops: "..unitCount)
+    if unitCount == maxUnitTroops then
+      briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTFULL$ ($LANG_TOTALTROOPS$: "..maxUnitTroops..")", "RadioTroopFull")
       return true
     end
 
@@ -881,7 +914,7 @@ function briefingRoom.transportManager.addTroopCargo(transportUnitName, unitName
     end
   end
   if addedCount > 0 then
-    briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTALLIN$ ($LANG_TOTALTROOPS$: "..#briefingRoom.transportManager.transportRoster[transportUnitName].troops + addedCount..")", "RadioTroopAllIn")
+    briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTALLIN$ ($LANG_TOTALTROOPS$: "..table.count(briefingRoom.transportManager.transportRoster[transportUnitName].troops)..")", "RadioTroopAllIn")
   end
 end
 
@@ -914,10 +947,9 @@ function briefingRoom.transportManager.removeTroopCargo(transportUnitName, unitN
         ["skill"] = "Excellent",
         ["x"] = transportUnitPoint.x + math.random(-30, 30),
       })
-      
     end
   end
-  if #spawnUnits > 0 then
+  if table.count(spawnUnits) > 0 then
     mist.dynAdd({
       units = spawnUnits,
       country = country,
@@ -926,7 +958,7 @@ function briefingRoom.transportManager.removeTroopCargo(transportUnitName, unitN
   end
 
   if unitPos == nil then
-    briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTEVERYONEOUT$ ($LANG_REMAININGTROOPS$: "..#briefingRoom.transportManager.transportRoster[transportUnitName].troops..")", "RadioTroopTakeoff")
+    briefingRoom.radioManager.play("$LANG_TROOP$: $LANG_TRANSPORTEVERYONEOUT$ ($LANG_REMAININGTROOPS$: "..table.count(briefingRoom.transportManager.transportRoster[transportUnitName].troops)..")", "RadioTroopTakeoff")
   end
   return removed
 end
@@ -1004,10 +1036,10 @@ function briefingRoom.mission.coreFunctions.completeObjective(index, failed)
       completeCount = completeCount + 1
     end
   end
-  local missionOver = completeCount >= #briefingRoom.mission.objectives
+  local missionOver = completeCount >= table.count(briefingRoom.mission.objectives)
   -- Debug missions called complete early
   if briefingRoom.printDebugMessages then
-    briefingRoom.debugPrint("Objective Completion state: "..tostring(completeCount).."/"..tostring(#briefingRoom.mission.objectives).."=".. tostring(missionOver))
+    briefingRoom.debugPrint("Objective Completion state: "..tostring(completeCount).."/"..tostring(table.count(briefingRoom.mission.objectives)).."=".. tostring(missionOver))
   end
   -- End Debug
   if missionOver then
@@ -1105,7 +1137,7 @@ function briefingRoom.f10MenuCommands.missionStatus()
 
       local objectiveProgress = ""
       if o.unitsCount > 0 and o.hideTargetCount ~= true then
-        local targetsDone = math.max(0, o.unitsCount - #o.unitNames)
+        local targetsDone = math.max(0, o.unitsCount - table.count(o.unitNames))
         objectiveProgress = " ("..tostring(targetsDone).."/"..tostring(o.unitsCount)..")"
       end
 
@@ -1133,7 +1165,7 @@ end
 
 function briefingRoom.f10MenuCommands.activateObjective(i)
   briefingRoom.f10Menu.objectives[i] = missionCommands.addSubMenuForCoalition(briefingRoom.playerCoalition,  briefingRoom.mission.objectives[i].f10MenuText, nil)
-  for j=1,#briefingRoom.mission.objectives[i].f10Commands do
+  for j=1,table.count(briefingRoom.mission.objectives[i].f10Commands) do
     briefingRoom.mission.objectives[i].f10Commands[j].commandPath = missionCommands.addCommandForCoalition(briefingRoom.playerCoalition, briefingRoom.mission.objectives[i].f10Commands[j].text, briefingRoom.f10Menu.objectives[i] ,briefingRoom.mission.objectives[i].f10Commands[j].func, briefingRoom.mission.objectives[i].f10Commands[j].args)
   end
   if briefingRoom.printDebugMessages then
@@ -1162,7 +1194,7 @@ briefingRoom.mission.objectiveTriggers = { } -- Objective triggers (checks objec
 briefingRoom.mission.objectiveTimers = { } -- Objective timers (called every second)
 
 function briefingRoom.mission.objectiveTimerSchedule(args, time)
-  for i=1,#briefingRoom.mission.objectives do
+  for i=1,table.count(briefingRoom.mission.objectives) do
     if briefingRoom.mission.objectiveTimers[i] ~= nil then
       briefingRoom.mission.objectiveTimers[i]()
     end
@@ -1194,7 +1226,7 @@ function briefingRoom.mission.destroyCallout(objectiveIndex, killedUnit, eventID
   end
 
   -- Mark the objective as complete if all targets have been destroyed
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+  if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective complete
     briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
   else
     briefingRoom.aircraftActivator.possibleResponsiveSpawn()
@@ -1229,9 +1261,9 @@ function briefingRoom.mission.objectivesTriggersCommon.filterTargets(objectiveIn
       end
     end
   
-    if #newTargetTable > 0 then
+    if table.count(newTargetTable > 0) then
       briefingRoom.mission.objectives[objectiveIndex].unitNames = newTargetTable
-      briefingRoom.mission.objectives[objectiveIndex].unitsCount = #newTargetTable
+      briefingRoom.mission.objectives[objectiveIndex].unitsCount = table.count(newTargetTable)
     end
   end
 end
@@ -1306,7 +1338,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerCargoNearTrigger(
         if distance < briefingRoom.mission.objectiveDropDistanceMeters and not unit:inAir() then
           briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_CARGODELIVERED$", "RadioPilotCargoDelivered")
           table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
-          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+          if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective complete
             briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
           end
         end
@@ -1349,7 +1381,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerKeepAliveTrigger(
     end
   
     -- Mark the objective as complete if all targets have been destroyed
-    if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective failed
+    if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective failed
       briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex, true)
     end
   
@@ -1488,7 +1520,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger
         local distance = dcsExtensions.getDistance(vec2p, vec2u);
         if distance < 500 then
           table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
-          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+          if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective complete
             briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_ESCORTCOMPLETE$", "RadioPilotEscortComplete")
             briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
           end
@@ -1569,8 +1601,8 @@ function briefingRoom.mission.objectivesTriggersCommon.transportTroopsForcePicku
       end
 
 
-      if #collect > 0 then
-        briefingRoom.debugPrint("Loading "..#collect.." troops")
+      if table.count(collect) > 0 then
+        briefingRoom.debugPrint("Loading "..table.count(collect).." troops")
         briefingRoom.transportManager.troopsMoveToGetIn(p:getName(), collect)
       end
     end
@@ -1608,7 +1640,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
         local distance = dcsExtensions.getDistance(vec2p, vec2u);
         if distance < briefingRoom.mission.objectiveDropDistanceMeters then
           table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
-          if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units destroyed, objective complete
+          if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective complete
             briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_TROOPSDELIVERED$", "RadioPilotTroopsDelivered")
             briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
           end
@@ -1636,7 +1668,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
       for index, value in ipairs(removed) do
         table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, value)
       end
-      if #briefingRoom.mission.objectives[objectiveIndex].unitNames < 1 then -- all target units moved or dead, objective complete
+      if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units moved or dead, objective complete
         local playername = event.initiator.getPlayerName and event.initiator:getPlayerName() or nil
         briefingRoom.radioManager.play((playername or"$LANG_PILOT$")..": $LANG_TROOPSDELIVERED$", "RadioPilotTroopsDelivered")
         briefingRoom.mission.coreFunctions.completeObjective(objectiveIndex)
@@ -1657,7 +1689,7 @@ function briefingRoom.mission.objectivesTriggersCommon.registerTransportTroopsTr
     end
   
     local nonNativeTransportingAircraft = { "UH-60L" }
-    if #collect > 0 and table.contains(nonNativeTransportingAircraft, event.initiator:getTypeName()) then
+    if table.count(collect) > 0 and table.contains(nonNativeTransportingAircraft, event.initiator:getTypeName()) then
       briefingRoom.transportManager.troopsMoveToGetIn(event.initiator:getName(), collect)
     end
   end)
@@ -1738,7 +1770,7 @@ function briefingRoom.mission.objectivesTriggersCommon.startAttack(args)
   local objectiveIndex = args[1]
   briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_LAUNCHATTACKREQUEST$", "RadioPilotBeginYourAttack")
   local groupNames = dcsExtensions.getGroupNamesContaining("%-STGT%-$OBJECTIVENAME$")
-  briefingRoom.debugPrint("Activating Attack group objectiveIndex: "..#groupNames, 1)
+  briefingRoom.debugPrint("Activating Attack group objectiveIndex: "..table.count(groupNames), 1)
   for _, value in pairs(groupNames) do
       local acGroup = Group.getByName(value) -- get the group
       if acGroup ~= nil then -- activate the group, if it exists
@@ -1760,7 +1792,7 @@ function briefingRoom.mission.objectiveFeaturesCommon.registerStartAttack(object
   
 
 table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_LAUNCHATTACK$", func = briefingRoom.mission.objectivesTriggersCommon.startAttack, args = {objectiveIndex}})
-briefingRoom.mission.objectiveFeatures[objectiveIndex].startAttackCommandIndex = #briefingRoom.mission.objectives[objectiveIndex].f10Commands
+briefingRoom.mission.objectiveFeatures[objectiveIndex].startAttackCommandIndex = table.count(briefingRoom.mission.objectives[objectiveIndex].f10Commands)
 end
 
 function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationCoordinates(args)
@@ -1768,7 +1800,7 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationCoordinat
   briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_TARGETCOORDSREQUEST$", "RadioPilotTargetCoordinates")
   local objective = briefingRoom.mission.objectives[objectiveIndex]
     
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames == 0 then -- no target units left
+  if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) == 0 then -- no target units left
     briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$: $LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
     return
   end
@@ -1794,7 +1826,7 @@ end
 
 function briefingRoom.mission.objectiveFeaturesCommon.registerTargetDesignationCoordinates(objectiveIndex)
   table.insert(briefingRoom.mission.objectives[objectiveIndex].f10Commands, {text = "$LANG_TARGETCOORDSMENU$", func = briefingRoom.mission.objectiveFeaturesCommon.targetDesignationCoordinates, args =  {objectiveIndex}})
-  briefingRoom.mission.objectiveFeatures[objectiveIndex].objRadioCommandIndex = #briefingRoom.mission.objectives[objectiveIndex].f10Commands
+  briefingRoom.mission.objectiveFeatures[objectiveIndex].objRadioCommandIndex = table.count(briefingRoom.mission.objectives[objectiveIndex].f10Commands)
 end
 
 -- Flare
@@ -1814,7 +1846,7 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationFlare(arg
     return
   end
 
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames == 0 then -- no target units left
+  if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) == 0 then -- no target units left
     briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$:$LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
     return
   end
@@ -1865,7 +1897,7 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationIlluminat
     return
   end
   
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames == 0 then -- no target units left
+  if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) == 0 then -- no target units left
     briefingRoom.radioManager.play(objective.name.." $LANG_RECON$:$LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
     return
   end
@@ -2060,7 +2092,7 @@ function briefingRoom.mission.objectiveFeaturesCommon.targetDesignationSmokeMark
   local objective = briefingRoom.mission.objectives[objectiveIndex]
   briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_SMOKEREQUEST$", "RadioPilotMarkTargetWithSmoke")
 
-  if #briefingRoom.mission.objectives[objectiveIndex].unitNames == 0 then -- no target units left
+  if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) == 0 then -- no target units left
     briefingRoom.radioManager.play(objective.name.." $LANG_JTAC$:$LANG_NOTARGET$", "RadioSupportNoTarget", briefingRoom.radioManager.getAnswerDelay())
     return
   end
@@ -2111,7 +2143,7 @@ end
 
 --- END OF OBJECTIVE REGISTER FEATURES-----
 
-for i=1,#briefingRoom.mission.objectives do briefingRoom.mission.objectiveFeatures[i] = {} end
+for i=1,table.count(briefingRoom.mission.objectives) do briefingRoom.mission.objectiveFeatures[i] = {} end
 $SCRIPTOBJECTIVESFEATURES$
 
 -- ===================================================================================
@@ -2130,9 +2162,9 @@ $SCRIPTMISSIONFEATURES$
 -- All done, enable event handler so the mission can begin
 world.addEventHandler(briefingRoom.eventHandler)
 
-for i=1,#briefingRoom.mission.objectives do
+for i=1,table.count(briefingRoom.mission.objectives) do
   table.insert(briefingRoom.mission.objectives[i].f10Commands, {text = "$LANG_WAYPOINTCOORDINATESREQUEST$", func = briefingRoom.f10MenuCommands.getWaypointCoordinates, args =  i})
-  briefingRoom.mission.objectives[i].waypointRadioCommandIndex = #briefingRoom.mission.objectives[i].f10Commands
+  briefingRoom.mission.objectives[i].waypointRadioCommandIndex = table.count(briefingRoom.mission.objectives[i].f10Commands)
 
   if briefingRoom.mission.objectives[i].progressionHiddenBrief == false then
     briefingRoom.f10MenuCommands.activateObjective(i)
