@@ -168,6 +168,7 @@ namespace BriefingRoom4DCS.Generator
                 OptionsFogOfWar = campaignTemplate.OptionsFogOfWar,
                 OptionsMission = campaignTemplate.OptionsMission.ToList(),
                 OptionsRealism = campaignTemplate.OptionsRealism.ToList(),
+                OptionsUnitBanList = campaignTemplate.OptionsUnitBanList.ToList(),
 
                 PlayerFlightGroups = campaignTemplate.PlayerFlightGroups,
 
