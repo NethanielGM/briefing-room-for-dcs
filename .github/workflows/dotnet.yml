@@ -54,7 +54,10 @@ jobs:
           LOGS="${LOGS//'%'/'%25'}"
           LOGS="${LOGS//$'\n'/'%0A'}"
           LOGS="${LOGS//$'\r'/'%0D'}"
-          echo "::set-output name=log::$LOGS"
+          echo "$LOGS" > logs.txt
+          sort -u logs.txt -o logs.txt
+          echo "::set-output name=log::$(cat logs.txt)"
+          rm logs.txt
 
       - name: Zip Release
         run: 7z a -tzip beta-release-${{ steps.current-time.outputs.formattedTime }}.zip BriefingRoom-build${{ steps.current-time.outputs.formattedTime }} "-xr!.git\" "-xr!.github\" "-xr!.git*" "-xr!.vscode\" "-xr!dataExtractors\"  "-xr!src\" "-xr!docs\" "-x!*.bat" "-x!*.filelist"
