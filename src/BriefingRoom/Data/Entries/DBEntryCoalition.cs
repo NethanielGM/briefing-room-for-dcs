@@ -1,4 +1,4 @@
-﻿/*
+/*
 ==========================================================================
 This file is part of Briefing Room for DCS World, a mission
 generator for DCS World, by @akaAgar (https://github.com/akaAgar/briefing-room-for-dcs)
@@ -189,7 +189,7 @@ namespace BriefingRoom4DCS.Data
                 var blockSupplierString = !blockSuppliers ? BriefingRoom.Translate(langKey, "IncludeSupplierAllies", countryList.Where(x => x != Country.ALL).Count()) : BriefingRoom.Translate(langKey, "NoBlockSuppliers");
                 BriefingRoom.PrintTranslatableWarning(langKey, "NoUnitsOrSuppliersFound", UIDisplayName.Get(langKey), string.Join(", ", families), decade, string.Join(", ", Countries.Where(x => x != Country.ALL)), blockSupplierString);
                 if (allowDefaults)
-                    return GetDefaultUnits(langKey, families, decade, unitMods);
+                    return GetDefaultUnits(langKey, families, decade, unitMods, unitBanList);
                 return null;
             }
             if (allyCountries != null)
@@ -208,7 +208,7 @@ namespace BriefingRoom4DCS.Data
                 .ToArray();
         }
 
-        private Dictionary<Country, List<string>> GetDefaultUnits(string langKey, List<UnitFamily> families, Decade decade, List<string> unitMods)
+        private Dictionary<Country, List<string>> GetDefaultUnits(string langKey, List<UnitFamily> families, Decade decade, List<string> unitMods, List<string> unitBanList)
         {
             var defaultDict = Database.GetEntry<DBEntryDefaultUnitList>(DefaultUnitList).DefaultUnits;
             var validUnits = new List<string>();
@@ -219,7 +219,7 @@ namespace BriefingRoom4DCS.Data
                 var options = defaultDict[family][decade].Where(id =>
                 {
                     var unit = Database.GetEntry<DBEntryJSONUnit>(id);
-                    return string.IsNullOrEmpty(unit.Module) || unitMods.Contains(unit.Module, StringComparer.InvariantCultureIgnoreCase) || DBEntryDCSMod.CORE_MODS.Contains(unit.Module, StringComparer.InvariantCultureIgnoreCase);
+                    return !unitBanList.Contains(id) && (string.IsNullOrEmpty(unit.Module) || unitMods.Contains(unit.Module, StringComparer.InvariantCultureIgnoreCase) || DBEntryDCSMod.CORE_MODS.Contains(unit.Module, StringComparer.InvariantCultureIgnoreCase));
                 });
                 validUnits.AddRange(options);
             }
