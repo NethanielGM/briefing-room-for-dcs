@@ -1,4 +1,4 @@
-/*
+﻿/*
 ==========================================================================
 This file is part of Briefing Room for DCS World, a mission
 generator for DCS World, by @akaAgar (https://github.com/akaAgar/briefing-room-for-dcs)
@@ -188,6 +188,10 @@ namespace BriefingRoom4DCS.Data
 
                 var blockSupplierString = !blockSuppliers ? BriefingRoom.Translate(langKey, "IncludeSupplierAllies", countryList.Where(x => x != Country.ALL).Count()) : BriefingRoom.Translate(langKey, "NoBlockSuppliers");
                 BriefingRoom.PrintTranslatableWarning(langKey, "NoUnitsOrSuppliersFound", UIDisplayName.Get(langKey), string.Join(", ", families), decade, string.Join(", ", Countries.Where(x => x != Country.ALL)), blockSupplierString);
+                if(!allowLowPolly) {
+                    BriefingRoom.PrintTranslatableWarning(langKey, "NoUnitsHighQualityUnits", UIDisplayName.Get(langKey), string.Join(", ", families), decade);
+                    return SelectValidUnits(langKey, families, decade, unitMods, unitBanList, true, blockSuppliers, allowStatic, allyCountries, allowDefaults);
+                }
                 if (allowDefaults)
                     return GetDefaultUnits(langKey, families, decade, unitMods, unitBanList);
                 return null;
