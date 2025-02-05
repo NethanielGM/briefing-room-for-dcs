@@ -1261,7 +1261,7 @@ function briefingRoom.mission.objectivesTriggersCommon.filterTargets(objectiveIn
       end
     end
   
-    if table.count(newTargetTable > 0) then
+    if table.count(newTargetTable) > 0 then
       briefingRoom.mission.objectives[objectiveIndex].unitNames = newTargetTable
       briefingRoom.mission.objectives[objectiveIndex].unitsCount = table.count(newTargetTable)
     end
