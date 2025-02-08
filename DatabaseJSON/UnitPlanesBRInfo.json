@@ -99,7 +99,8 @@
     {
         "type": "Su-27",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -107,7 +108,8 @@
     {
         "type": "MiG-23MLD",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": true,
         "playerControllable": true
@@ -144,7 +146,8 @@
         "type": "Su-33",
         "families": [
             "PlaneFighter",
-            "PlaneSTOBAR"
+            "PlaneSTOBAR",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -169,7 +172,8 @@
         "type": "Su-30",
         "families": [
             "PlaneFighter",
-            "PlaneSEAD"
+            "PlaneSEAD",
+            "PlaneStrike"
         ],
         "lowPolly": true,
         "playerControllable": false
@@ -300,7 +304,8 @@
     {
         "type": "MiG-29A",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -308,7 +313,8 @@
     {
         "type": "MiG-29S",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -316,7 +322,8 @@
     {
         "type": "MiG-29G",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -664,7 +671,8 @@
     {
         "type": "J-11A",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -724,7 +732,8 @@
     {
         "type": "F-5E",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": false
@@ -732,7 +741,8 @@
     {
         "type": "F-5E-3",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -740,7 +750,8 @@
     {
         "type": "F-5E-3_FC",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -748,7 +759,9 @@
     {
         "type": "F-86F_FC",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneAttack",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -870,7 +883,8 @@
     {
         "type": "MiG-15bis",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -878,7 +892,8 @@
     {
         "type": "MiG-15bis_FC",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -886,7 +901,8 @@
     {
         "type": "MiG-19P",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
@@ -894,7 +910,8 @@
     {
         "type": "MiG-21Bis",
         "families": [
-            "PlaneFighter"
+            "PlaneFighter",
+            "PlaneStrike"
         ],
         "lowPolly": false,
         "playerControllable": true
