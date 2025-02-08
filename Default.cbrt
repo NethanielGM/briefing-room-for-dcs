@@ -16,8 +16,13 @@ missionfeatures=FriendlyAWACS,FriendlyTankerBasket,FriendlyTankerBoom
 
 [options]
 fogofwar=All
-mission=ImperialUnitsForBriefing,MarkWaypoints
+mission=AllowLowPoly,CombinedArmsPilotControl,ImperialUnitsForBriefing,MarkWaypoints
 realism=DisableDCSRadioAssists,NoBDA
+airbasedynamicspawn=None
+carrierdynamicspawn=False
+dsallowhotstart=False
+airbasedynamiccargo=Friendly
+carrierdynamiccargo=True
 
 [playerflightgroups]
 playerflightgroup000.aircrafttype=Su-25T
@@ -25,7 +30,7 @@ playerflightgroup000.aiwingmen=False
 playerflightgroup000.hostile=False
 playerflightgroup000.count=2
 playerflightgroup000.payload=default
-playerflightgroup000.country=CombinedJointTaskForcesRed
+playerflightgroup000.country=CombinedJointTaskForcesBlue
 playerflightgroup000.startlocation=Runway
 playerflightgroup000.livery=default
 playerflightgroup000.overrideradioband=AM
@@ -54,9 +59,13 @@ nightmissionchance=VeryLow
 [missions]
 count=5
 difficultyvariation=Random
-objectives=AirbaseStrike,AntiShipStrike,CloseAirSupport,CombatAirPatrol,CombatSearchAndRescue,CommandoDrop,Custom,DeepStrike,DeepStrikeJTAC,DEAD,EscortGroundForces,EscortHelicopters,EscortPlane,HeloHunt,Interception,Interdiction,InterdictionJTAC,OffensiveCounterAir,Random,RandomFixedWing,RandomRotor,Reconnaissance,TransportCargo,TransportTroops
+objectives=AirbaseStrike,AntiShipStrike,CloseAirSupport,CombatAirPatrol,CombatSearchAndRescue,CommandoDrop,Custom,DEAD,DeepStrike,DeepStrikeJTAC,DeliverPackage,DeliverTerms,EscortGroundForces,EscortHelicopters,EscortPlane,HeloHunt,Interception,Interdiction,InterdictionJTAC,MoralFlyover,OffensiveCounterAir,Random,RandomFixedWing,RandomRotor,Reconnaissance,ShowOfForce,TransportCargo,TransportTroops
 objectivecount=Average
 objectivevariationdistance=Average
 airbasevariationdistance=Average
 targetcount=Average
+progression=None
+
+[campaignoptions]
+staticsituation=False
 

@@ -107,7 +107,7 @@ namespace BriefingRoom4DCS.Template
             Mods = new List<string>();
 
             OptionsFogOfWar = FogOfWar.All;
-            OptionsMission = new List<string> { "ImperialUnitsForBriefing", "MarkWaypoints", "CombinedArmsPilotControl" };
+            OptionsMission = new List<string> { "ImperialUnitsForBriefing", "MarkWaypoints", "CombinedArmsPilotControl", "AllowLowPoly" };
             OptionsRealism = new RealismOption[] { RealismOption.DisableDCSRadioAssists, RealismOption.NoBDA }.ToList();
             OptionsUnitBanList = new List<string>();
 

@@ -19,8 +19,13 @@ missionfeatures=FriendlyAWACS,FriendlyTankerBasket,FriendlyTankerBoom
 
 [options]
 fogofwar=All
-mission=ImperialUnitsForBriefing,MarkWaypoints
+mission=AllowLowPoly,CombinedArmsPilotControl,ImperialUnitsForBriefing,MarkWaypoints
 realism=DisableDCSRadioAssists,NoBDA
+airbasedynamicspawn=None
+carrierdynamicspawn=False
+dsallowhotstart=False
+airbasedynamiccargo=Friendly
+carrierdynamiccargo=True
 
 [playerflightgroups]
 playerflightgroup000.aircrafttype=Su-25T
@@ -28,7 +33,7 @@ playerflightgroup000.aiwingmen=False
 playerflightgroup000.hostile=False
 playerflightgroup000.count=2
 playerflightgroup000.payload=default
-playerflightgroup000.country=CombinedJointTaskForcesRed
+playerflightgroup000.country=CombinedJointTaskForcesBlue
 playerflightgroup000.startlocation=Runway
 playerflightgroup000.livery=default
 playerflightgroup000.overrideradioband=AM
@@ -62,4 +67,5 @@ objective000.target=VehicleAny
 objective000.targetbehavior=Idle
 objective000.targetcount=Average
 objective000.coordinatehint=0,0
+objective000.progression.isany=False
 
