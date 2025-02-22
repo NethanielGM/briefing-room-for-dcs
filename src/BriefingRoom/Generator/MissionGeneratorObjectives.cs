@@ -212,6 +212,10 @@ namespace BriefingRoom4DCS.Generator
                 extraSettings.Add("EndAirbaseId", destinationAirbase.DCSID);
                 mission.PopulatedAirbaseIds[targetCoalition.Value].Add(destinationAirbase.DCSID);
             }
+            else if (groupLua.StartsWith("AircraftOrbiting"))
+            {
+                destinationPoint = objectiveCoordinates;
+            }
 
             extraSettings.Add("GroupX2", destinationPoint.X);
             extraSettings.Add("GroupY2", destinationPoint.Y);
