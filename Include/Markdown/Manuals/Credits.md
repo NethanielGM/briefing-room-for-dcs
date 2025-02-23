@@ -24,6 +24,8 @@ The creators of Briefing Room would like to thank for following for their direct
     * NaDs
     * Eagle01
     * edernucci
+    * Khaotic
+
 
 * Creators of scripts used:
     * ciribob (CSAR & CTLD)
