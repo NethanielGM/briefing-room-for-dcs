@@ -378,7 +378,10 @@ namespace BriefingRoom4DCS.Mission
             {
                 var callsign = (GetType() == typeof(MissionGeneratorFeaturesObjectives) && extraSettings.ContainsKey("ObjectiveName")) ? extraSettings["ObjectiveName"].ToString()[..3] : $"{GeneratorTools.GetTACANCallsign(featureDB.UnitGroupFamilies[0])}{TACANIndex}";
                 if (extraSettings.ContainsKey("TACAN_NAME"))
-                    callsign = extraSettings["TACAN_NAME"].ToString()[..3];
+                {
+                    var tacanName = extraSettings["TACAN_NAME"].ToString();
+                    callsign = tacanName.Length > 3 ? tacanName[..3] : tacanName;
+                }
                 var channel = ((GetType() == typeof(MissionGeneratorFeaturesObjectives)) ? 31 : 25) + TACANIndex;
                 extraSettings.AddIfKeyUnused("TACANFrequency", 1108000000);
                 extraSettings.AddIfKeyUnused("TACANCallsign", callsign);

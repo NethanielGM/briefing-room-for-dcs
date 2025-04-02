@@ -55,7 +55,7 @@ namespace BriefingRoom4DCS.Generator
             if ((unitDB == null) || !unitDB.PlayerControllable)
                 throw new BriefingRoomException(mission.LangKey, "PlayerFlightNotFound", flightGroup.Aircraft);
             if (unitDB.MinimumRunwayLengthFt > 0 && airbase.RunwayLengthFt < unitDB.MinimumRunwayLengthFt)
-                BriefingRoom.PrintTranslatableWarning(mission.LangKey, "RunwayTooShort", airbase.Name, airbase.RunwayLengthFt, unitDB.UIDisplayName, unitDB.MinimumRunwayLengthFt);
+                BriefingRoom.PrintTranslatableWarning(mission.LangKey, "RunwayTooShort", airbase.UIDisplayName.Get(mission.LangKey), airbase.RunwayLengthFt, unitDB.UIDisplayName, unitDB.MinimumRunwayLengthFt);
 
             List<int> parkingSpotIDsList = new();
             List<Coordinates> parkingSpotCoordinatesList = new();

@@ -108,12 +108,12 @@ namespace BriefingRoom4DCS.Generator
                     throw new BriefingRoomException(mission.LangKey, "NoSpawnPointForMissionFeature", featureID);
                 }
 
-                Dictionary<string, object> extraSettings = new() { { "TACAN_NAME", airbase.Name } };
+                Dictionary<string, object> extraSettings = new() { { "TACAN_NAME", airbase.UIDisplayName.Get(mission.LangKey) } };
                 UnitMakerGroupInfo? groupInfo = AddMissionFeature(featureDB, ref mission, spawnPoint.Value, spawnPoint.Value, ref extraSettings);
 
                 AddBriefingRemarkFromFeature(featureDB, ref mission, false, groupInfo, extraSettings);
                 if (featureID == "TacanAirbases")
-                    AppendTacanToBriefing(ref mission, airbase.Name, extraSettings);
+                    AppendTacanToBriefing(ref mission, airbase.UIDisplayName.Get(mission.LangKey), extraSettings);
 
             }
         }
