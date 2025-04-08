@@ -708,7 +708,7 @@ briefingRoom.eventHandler.BDASetting = "$BDASETTING$"
 
 function briefingRoom.handleGeneralPlayerKill(event)
   local playerName = event.initiator:getPlayerName()
-  if playerName == nil then return end
+  if playerName == nil or event.target.getCoalition == nil then return end
   if event.target:getCoalition() ~= briefingRoom.playerCoalition then -- unit is an enemy, radio some variation of a "enemy destroyed" message
     local soundName = "UnitDestroyed"
     local messages = { "$LANG_DESTROY1$", "$LANG_DESTROY2$", "$LANG_SHOOTDOWN1$", "$LANG_SHOOTDOWN2$" }
