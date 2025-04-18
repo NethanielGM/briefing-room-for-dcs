@@ -408,8 +408,8 @@ th {
 }
 
 .map_point_icon {
-    width: 40px !important;
-    height: 40px;
+    width: 30px !important;
+    height: 30px;
     position: relative;
     top: -15px;
     left: -15px;
