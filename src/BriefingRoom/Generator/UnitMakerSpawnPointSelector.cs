@@ -252,7 +252,7 @@ namespace BriefingRoom4DCS.Generator
                 && aircraftDB.Width < x.Width
                 && (!requiresOpenAirParking || x.ParkingType != ParkingSpotType.HardenedAirShelter)
                 && (
-                    (category == UnitCategory.Helicopter) ? (x.ParkingType != ParkingSpotType.AirplaneOnly || x.ParkingType != ParkingSpotType.HardenedAirShelter) : (x.ParkingType != ParkingSpotType.HelicopterOnly)
+                    (category == UnitCategory.Helicopter) ? (x.ParkingType != ParkingSpotType.AirplaneOnly || x.ParkingType != ParkingSpotType.HardenedAirShelter || x.ParkingType != ParkingSpotType.SmallAirplane) : (x.ParkingType != ParkingSpotType.HelicopterOnly)
                     )
              )
              .OrderBy(x => x.ParkingType)
@@ -268,7 +268,8 @@ namespace BriefingRoom4DCS.Generator
             var validTypes = new List<ParkingSpotType>{
                 ParkingSpotType.OpenAirSpawn,
                 ParkingSpotType.HardenedAirShelter,
-                ParkingSpotType.AirplaneOnly
+                ParkingSpotType.AirplaneOnly,
+                ParkingSpotType.SmallAirplane
             };
 
             if (unitFamily.GetUnitCategory() == UnitCategory.Helicopter)
@@ -299,7 +300,7 @@ namespace BriefingRoom4DCS.Generator
 
             // Aircraft that can't use bunkers
             if (IsBunkerUnsuitable(unitFamily))
-                return parkingSpots.Count(X => X.ParkingType == ParkingSpotType.AirplaneOnly) + openSpots > unitCount;
+                return parkingSpots.Count(X => X.ParkingType == ParkingSpotType.AirplaneOnly || X.ParkingType == ParkingSpotType.SmallAirplane) + openSpots > unitCount;
 
             // Bunkerable aircraft
             return parkingSpots.Count(X => X.ParkingType == ParkingSpotType.HardenedAirShelter) + openSpots > unitCount;

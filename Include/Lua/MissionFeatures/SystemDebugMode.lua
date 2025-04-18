@@ -89,6 +89,7 @@ function briefingRoom.f10MenuCommands.debug.dumpAirbaseDataType(o)
   if o == 40 then return "HelicopterOnly" end
   if o == 68 then return "HardenedAirShelter" end
   if o == 72 then return "AirplaneOnly" end
+  if o == 100 then return "SmallAirplane" end
   if o == 104 then return "OpenAirSpawn" end
   return "UNKNOWN"
 end

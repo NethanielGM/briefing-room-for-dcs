@@ -49,7 +49,7 @@ namespace BriefingRoom4DCS.Data
                 }
                 catch (System.Exception)
                 {
-                    BriefingRoom.PrintToLog($"Failed to parse parking type: {p.Term_Type_Name} (airbase: {airbaseId}, id: {p.Term_Index})", LogMessageErrorLevel.Warning);
+                    BriefingRoom.PrintToLog($"Failed to parse parking type: {p.Term_Type_Name}:{p.Term_Type} (airbase: {airbaseId}, id: {p.Term_Index})", LogMessageErrorLevel.Warning);
                 }
                 return new DBEntryAirbaseParkingSpot
                 {
@@ -79,7 +79,7 @@ namespace BriefingRoom4DCS.Data
                 }
                 catch (System.Exception)
                 {
-                    BriefingRoom.PrintToLog($"Failed to parse parking type: {stand.name} (airbase: {airbaseId}, id: {stand.crossroad_index})", LogMessageErrorLevel.Warning);
+                    BriefingRoom.PrintToLog($"Failed to parse stand parking type: {stand.name} (airbase: {airbaseId}, id: {stand.crossroad_index})", LogMessageErrorLevel.Warning);
                 }
                 return new DBEntryAirbaseParkingSpot
                 {
