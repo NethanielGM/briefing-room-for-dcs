@@ -133,4 +133,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
+          context: .
           tags: johnharvey/dcs-briefing-room-web:0.5.${{ steps.current-date.outputs.formattedTime }}
