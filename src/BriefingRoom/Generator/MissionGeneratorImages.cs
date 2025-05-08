@@ -33,6 +33,7 @@ namespace BriefingRoom4DCS.Generator
 {
     public class MissionGeneratorImages
     {
+        private static string UNKOWN_IMAGE_PATH = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"Unknown.png");
         internal static async Task GenerateCampaignImages(CampaignTemplate campaignTemplate, DCSCampaign campaign, string baseFileName)
         {
             string titleHTML = Toolbox.ReadAllTextIfFileExists(Path.Combine(BRPaths.INCLUDE_HTML, "CampaignTitleImage.html"));
@@ -47,23 +48,23 @@ namespace BriefingRoom4DCS.Generator
             GeneratorTools.ReplaceKey(ref titleHTML, "BackgroundImage", GetInternalImageHTMLBase64(Path.Combine(BRPaths.INCLUDE_JPG, "Theaters", backgroundImage)));
             GeneratorTools.ReplaceKey(ref winHTML, "BackgroundImage", GetInternalImageHTMLBase64(Path.Combine(BRPaths.INCLUDE_JPG, "Sky.jpg")));
             GeneratorTools.ReplaceKey(ref lossHTML, "BackgroundImage", GetInternalImageHTMLBase64(Path.Combine(BRPaths.INCLUDE_JPG, "Fire.jpg")));
-
             var playerFlagPath = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{campaignTemplate.GetCoalitionID(campaignTemplate.ContextPlayerCoalition)}.png");
-            if (File.Exists(playerFlagPath))
-            {
-                GeneratorTools.ReplaceKey(ref titleHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
-                GeneratorTools.ReplaceKey(ref winHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
-                GeneratorTools.ReplaceKey(ref lossHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
-            }
+            if (!File.Exists(playerFlagPath))
+                playerFlagPath = UNKOWN_IMAGE_PATH;
+        
+            GeneratorTools.ReplaceKey(ref titleHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
+            GeneratorTools.ReplaceKey(ref winHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
+            GeneratorTools.ReplaceKey(ref lossHTML, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
 
             var enemyFlagPath = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{campaignTemplate.GetCoalitionID(campaignTemplate.ContextPlayerCoalition.GetEnemy())}.png");
-            if (File.Exists(enemyFlagPath))
-            {
-                GeneratorTools.ReplaceKey(ref titleHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
-                GeneratorTools.ReplaceKey(ref winHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
-                GeneratorTools.ReplaceKey(ref lossHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
-            }
-
+            
+            if (!File.Exists(enemyFlagPath))
+                enemyFlagPath = UNKOWN_IMAGE_PATH;
+            
+            GeneratorTools.ReplaceKey(ref titleHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
+            GeneratorTools.ReplaceKey(ref winHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
+            GeneratorTools.ReplaceKey(ref lossHTML, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
+           
 
             GeneratorTools.ReplaceKey(ref titleHTML, "MissionName", campaign.Name);
             GeneratorTools.ReplaceKey(ref winHTML, "MissionName", campaign.Name);
@@ -91,12 +92,15 @@ namespace BriefingRoom4DCS.Generator
             GeneratorTools.ReplaceKey(ref html, "BackgroundImage", GetInternalImageHTMLBase64(Path.Combine(BRPaths.INCLUDE_JPG, "Theaters", backgroundImage)));
 
             var playerFlagPath = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{mission.TemplateRecord.GetCoalitionID(mission.TemplateRecord.ContextPlayerCoalition)}.png");
-            if (File.Exists(playerFlagPath))
-                GeneratorTools.ReplaceKey(ref html, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
-            var enemyFlagPath = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{mission.TemplateRecord.GetCoalitionID(mission.TemplateRecord.ContextPlayerCoalition.GetEnemy())}.png");
-            if (File.Exists(enemyFlagPath))
-                GeneratorTools.ReplaceKey(ref html, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
+            if (!File.Exists(playerFlagPath))
+                playerFlagPath = UNKOWN_IMAGE_PATH;
+            GeneratorTools.ReplaceKey(ref html, "PlayerFlag", GetInternalImageHTMLBase64(playerFlagPath));
 
+            var enemyFlagPath = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{mission.TemplateRecord.GetCoalitionID(mission.TemplateRecord.ContextPlayerCoalition.GetEnemy())}.png");
+            if (!File.Exists(enemyFlagPath))
+                enemyFlagPath = UNKOWN_IMAGE_PATH;
+            GeneratorTools.ReplaceKey(ref html, "EnemyFlag", GetInternalImageHTMLBase64(enemyFlagPath));
+            
             GeneratorTools.ReplaceKey(ref html, "MissionName", mission.Briefing.Name);
             GeneratorTools.ReplaceKey(ref html, "Watermark", GetInternalImageHTMLBase64(Path.Combine(BRPaths.INCLUDE_JPG, "IconSlim.png")));
 

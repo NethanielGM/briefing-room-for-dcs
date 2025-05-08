@@ -21,6 +21,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 using BriefingRoom4DCS.Template;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace BriefingRoom4DCS.Data
@@ -63,6 +64,11 @@ namespace BriefingRoom4DCS.Data
             {
                 BriefingRoom.PrintToLog($"Default unit list \"{DefaultUnitList}\" required by coalition \"{ID}\" doesn't exist. Coalition was ignored.", LogMessageErrorLevel.Warning);
                 return false;
+            }
+
+            if(!File.Exists(Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"{ID}.png")))
+            {
+                BriefingRoom.PrintToLog($"Missing Flag for {ID}", LogMessageErrorLevel.Warning);
             }
 
             return true;
