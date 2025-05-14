@@ -4,7 +4,7 @@ const situationMapLayers = {
   NEUTRAL: [],
 };
 
-let leafSituationMap, drawnItems, SPGroup;
+let leafSituationMap, drawnItems, SPGroupS, SPGroupM, SPGroupL;
 
 async function RenderEditorMap(map, spawnPoints, airbaseData) {
   console.log("SpawnPoints", spawnPoints.length);
@@ -17,13 +17,30 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
     leafSituationMap = L.map("situationMap");
     L.esri.basemapLayer("Imagery").addTo(leafSituationMap);
     L.esri.basemapLayer("ImageryLabels").addTo(leafSituationMap);
-    SPGroup = new L.layerGroup();
+    SPGroupS = new L.layerGroup();
+    SPGroupM = new L.layerGroup();
+    SPGroupL = new L.layerGroup();
     L.easyButton(
       "oi oi-dial",
       function (btn, map) {
-        ToggleSPLayer();
+        ToggleSPLayer("S");
       },
-      `Spawn Points (${spawnPoints.length})`
+      `Spawn Points Small (${spawnPoints.filter(x => x.bRtype == "LandSmall").length})`
+    ).addTo(leafSituationMap);
+
+    L.easyButton(
+      "oi oi-dial",
+      function (btn, map) {
+        ToggleSPLayer("M");
+      },
+      `Spawn Points Med (${spawnPoints.filter(x => x.bRtype == "LandMedium").length})`
+    ).addTo(leafSituationMap);
+    L.easyButton(
+      "oi oi-dial",
+      function (btn, map) {
+        ToggleSPLayer("L");
+      },
+      `Spawn Points Large (${spawnPoints.filter(x => x.bRtype == "LandLarge").length})`
     ).addTo(leafSituationMap);
   } catch (error) {
     console.warn(error);
@@ -97,40 +114,61 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
       );
     });
   });
+  let totalL = 0;
+  let totalM = 0;
+  let totalS = 0;
   const addSP = (sp) => {
-      let iconType = "GREEN_AIRBASE";
-      switch (sp.bRtype) {
-        case "LandSmall":
-          iconType = "RED_AIRBASE";
-          break;
-        case "LandLarge":
-          iconType = "BLUE_AIRBASE";
-          break;
-        default:
-          break;
-      }
-      SPGroup.addLayer(
-        new L.Marker(GetFromMapCoordData(sp.coords, map), {
-          title: JSON.stringify(sp),
-          icon: new L.DivIcon({
-            html: `<img class="map_point_icon_small" src="_content/CommonGUI/img/nato-icons/${iconType}.svg" alt="${sp.bRtype}"/>`,
-          }),
-        })
-      );
+    let iconType = "GREEN_AIRBASE";
+    let SPGroup = SPGroupM;
+    let totalType = totalM;
+    switch (sp.bRtype) {
+      case "LandSmall":
+        iconType = "RED_AIRBASE";
+        SPGroup = SPGroupS;
+        totalS++;
+        totalType = totalS;
+        break;
+      case "LandLarge":
+        iconType = "BLUE_AIRBASE";
+        SPGroup = SPGroupL;
+        totalL++;
+        totalType = totalL;
+        break;
+      default:
+        totalM++;
+        break;
     }
-  if (spawnPoints.length < 50000) {
-    spawnPoints.forEach(addSP);
-  } else {
-    let i = 0;
-    while (i < 5000) {
-      var sp = spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
-      addSP(sp);
-      i++;
+    if (totalType > 10000) {
+      return;
+    }
+    SPGroup.addLayer(
+      new L.Marker(GetFromMapCoordData(sp.coords, map), {
+        title: JSON.stringify(sp),
+        icon: new L.DivIcon({
+          html: `<img class="map_point_icon_small" src="_content/CommonGUI/img/nato-icons/${iconType}.svg" alt="${sp.bRtype}"/>`,
+        }),
+      })
+    );
+  };
+  const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
   }
+  shuffle(spawnPoints)
+  spawnPoints.forEach(addSP);
 }
 
-function ToggleSPLayer() {
+function ToggleSPLayer(size) {
+  let SPGroup = SPGroupS;
+  if (size === "S") {
+    SPGroup = SPGroupS;
+  } else if (size === "M") {
+    SPGroup = SPGroupM;
+  } else if (size === "L") {
+    SPGroup = SPGroupL;
+  }
   if (SPGroup._map) {
     SPGroup.remove();
     return;
