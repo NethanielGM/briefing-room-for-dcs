@@ -95,6 +95,22 @@ namespace BriefingRoom4DCS.Data
                 }
             ).ToArray();
             BriefingRoom.PrintToLog($"{DCSID} loaded {SpawnPoints.Length} spawn points");
+
+            var spawnPointsGeneratedJsonFilePath = Path.Combine(BRPaths.DATABASEJSON, "TheaterSpawnPoints", $"{DCSID}_Generated.json");
+            if(File.Exists(spawnPointsGeneratedJsonFilePath)) {
+                var generatedSpawnPoints = JsonConvert.DeserializeObject<List<SpawnPoint>>(File.ReadAllText(spawnPointsGeneratedJsonFilePath)).Select(x =>
+                    new DBEntryTheaterSpawnPoint{
+                        Coordinates = new Coordinates(x.coords),
+                        PointType = (SpawnPointType)Enum.Parse(typeof(SpawnPointType), x.BRtype, true)
+                    }
+                ).ToArray();
+                BriefingRoom.PrintToLog($"{DCSID} loaded {generatedSpawnPoints.Length} generated spawn points");
+                SpawnPoints = SpawnPoints.Concat(generatedSpawnPoints).ToArray();
+                BriefingRoom.PrintToLog($"{DCSID} total {SpawnPoints.Length} spawn points");
+
+            }
+               
+                
     
 
             // [Temperature] section
