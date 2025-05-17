@@ -69,7 +69,7 @@ namespace BriefingRoom4DCS.Data
 
         protected abstract bool OnLoad(string iniFilePath);
 
-        protected string[] GetValidDBEntryIDs<T>(string[] values, out string[] rejected) where T : DBEntry
+        protected string[] GetValidDBEntryIDs<T>(string[] values, out string[] rejected) where T : DBEntry, new()
         {
             values ??= Array.Empty<string>(); // Make sure values is not null
 
@@ -88,7 +88,7 @@ namespace BriefingRoom4DCS.Data
             return accepted;
         }
 
-        protected string[] GetValidDBEntryIDs<T>(List<string> values, out string[] rejected) where T : DBEntry
+        protected string[] GetValidDBEntryIDs<T>(List<string> values, out string[] rejected) where T : DBEntry, new()
         {
             return GetValidDBEntryIDs<T>(values.ToArray(), out rejected);
         }

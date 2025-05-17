@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace BriefingRoom4DCS.Data
@@ -44,6 +45,7 @@ namespace BriefingRoom4DCS.Data
         internal DatabaseLanguage Language { get; set; }
 
         private readonly Dictionary<Type, Dictionary<string, DBEntry>> DBEntries;
+        private readonly Dictionary<Type, Tuple<string, string>> UnloadedEntries = new();
 
         private bool Initialized = false;
 
@@ -69,18 +71,18 @@ namespace BriefingRoom4DCS.Data
 
             // Load entries into the database
             DBEntries.Clear();
-            LoadEntries<DBEntryBriefingDescription>("BriefingDescriptions");
-            LoadEntries<DBEntryFeatureMission>("MissionFeatures");
-            LoadEntries<DBEntryOptionsMission>("OptionsMission");
-            LoadEntries<DBEntryFeatureObjective>("ObjectiveFeatures");
-            LoadEntries<DBEntryObjectiveTarget>("ObjectiveTargets");
-            LoadEntries<DBEntryObjectiveTask>("ObjectiveTasks");
-            LoadEntries<DBEntryObjectiveTargetBehavior>("ObjectiveTargetsBehaviors");
-            LoadEntries<DBEntryObjectivePreset>("ObjectivePresets"); // Must be loaded after other DBEntryObjective*, as it depends on them
-            LoadEntries<DBEntryTheater>("Theaters");
-            LoadJSONEntries<DBEntryAirbase>("TheatersAirbases");
-            LoadJSONFolderEntries<DBEntrySituation>("Situations");
-            LoadEntries<DBEntryDCSMod>("DCSMods");
+            PrepLoadEntries<DBEntryBriefingDescription>("LoadEntries", "BriefingDescriptions");
+            PrepLoadEntries<DBEntryFeatureMission>("LoadEntries", "MissionFeatures");
+            PrepLoadEntries<DBEntryOptionsMission>("LoadEntries", "OptionsMission");
+            PrepLoadEntries<DBEntryFeatureObjective>("LoadEntries", "ObjectiveFeatures");
+            PrepLoadEntries<DBEntryObjectiveTarget>("LoadEntries", "ObjectiveTargets");
+            PrepLoadEntries<DBEntryObjectiveTask>("LoadEntries", "ObjectiveTasks");
+            PrepLoadEntries<DBEntryObjectiveTargetBehavior>("LoadEntries", "ObjectiveTargetsBehaviors");
+            PrepLoadEntries<DBEntryObjectivePreset>("LoadEntries", "ObjectivePresets"); // Must be loaded after other DBEntryObjective*, as it depends on them
+            PrepLoadEntries<DBEntryTheater>("LoadEntries", "Theaters");
+            PrepLoadEntries<DBEntryAirbase>("LoadJSONEntries", "TheatersAirbases");
+            PrepLoadEntries<DBEntrySituation>("LoadJSONFolderEntries", "Situations");
+            PrepLoadEntries<DBEntryDCSMod>("LoadEntries", "DCSMods");
             LoadJSONEntries<DBEntryCar>("UnitCars", true);
             LoadJSONModEntries<DBEntryCar>("UnitCars", true);
             LoadJSONEntries<DBEntryAircraft>("UnitPlanes", true);
@@ -94,19 +96,59 @@ namespace BriefingRoom4DCS.Data
             LoadJSONEntries<DBEntryStatic>("UnitCargo", true);
             LoadJSONModEntries<DBEntryStatic>("UnitCargo", true);
             LoadJSONEntries<DBEntryStatic>("UnitHeliports", true);
-            LoadJSONEntries<DBEntryTemplate>("Templates");
-            LoadJSONEntries<DBEntryTemplate>("TemplatesCustom");
-            LoadJSONEntries<DBEntryLayout>("Layouts");
-            LoadEntries<DBEntryDefaultUnitList>("DefaultUnitLists");
+            PrepLoadEntries<DBEntryTemplate>("LoadJSONEntries", "Templates");
+            PrepLoadEntries<DBEntryTemplate>("LoadJSONEntries", "TemplatesCustom");
+            PrepLoadEntries<DBEntryLayout>("LoadJSONEntries", "Layouts");
+            PrepLoadEntries<DBEntryDefaultUnitList>("LoadEntries", "DefaultUnitLists");
             LoadEntries<DBEntryCoalition>("Coalitions");
             LoadCustomUnitEntries<DBEntryCoalition>("Coalitions");
-            LoadEntries<DBEntryWeatherPreset>("WeatherPresets");
+            PrepLoadEntries<DBEntryWeatherPreset>("LoadEntries", "WeatherPresets");
+
 
             // Can't start without at least one player-controllable aircraft
-            if (!GetAllEntries<DBEntryJSONUnit>().Any(x => typeof(DBEntryAircraft).Equals(x.GetType()) && ((DBEntryAircraft)x).PlayerControllable))
+            if (!(GetAllEntries<DBEntryJSONUnit>()).Any(x => typeof(DBEntryAircraft).Equals(x.GetType()) && ((DBEntryAircraft)x).PlayerControllable))
                 throw new BriefingRoomException("en", "No player-controllable aircraft found.");
 
             Initialized = true;
+        }
+
+        private void PrepLoadEntries<T>(string type, string subDirectory) where T : DBEntry, new()
+        {
+
+            Type dbType = typeof(T);
+            if (!DBEntries.ContainsKey(dbType))
+                DBEntries.Add(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
+            DBEntries[dbType].Clear();
+            UnloadedEntries[dbType] = new(subDirectory, type);
+        }
+
+        private void CheckAndLoadEntries<T>() where T : DBEntry, new()
+        {
+            Type dbType = typeof(T);
+            if (!UnloadedEntries.ContainsKey(dbType)) return;
+
+            var entry = UnloadedEntries[dbType];
+            UnloadedEntries.Remove(dbType);
+
+            string subDirectory = entry.Item1;
+            string type = entry.Item2;
+            switch (type)
+            {
+                case "LoadEntries":
+                    LoadEntries<T>(subDirectory);
+                    break;
+                case "LoadJSONEntries":
+                    LoadJSONEntries<T>(subDirectory);
+                    break;
+                case "LoadJSONFolderEntries":
+                    LoadJSONFolderEntries<T>(subDirectory);
+                    break;
+                case "LoadCustomUnitEntries":
+                    LoadCustomUnitEntries<T>(subDirectory);
+                    break;
+                default:
+                    throw new BriefingRoomException("en", $"Unknown database type {type}");
+            }
         }
 
         private void LoadEntries<T>(string subDirectory) where T : DBEntry, new()
@@ -241,7 +283,7 @@ namespace BriefingRoom4DCS.Data
                 if (!entry.Load(this, id, filePath)) continue;
                 if (DBEntries[dbType].ContainsKey(id))
                 {
-                    GetEntry<T>(id).Merge(entry);
+                    (GetEntry<T>(id)).Merge(entry);
                     BriefingRoom.PrintToLog($"Updated {shortTypeName} \"{id}\"");
 
                 }
@@ -264,72 +306,83 @@ namespace BriefingRoom4DCS.Data
         }
 
 
-        internal string CheckID<T>(string id, string defaultID = null, bool allowEmptyStr = false, List<string> allowedValues = null) where T : DBEntry
+        internal string CheckID<T>(string id, string defaultID = null, bool allowEmptyStr = false, List<string> allowedValues = null) where T : DBEntry, new()
         {
+
             if (string.IsNullOrEmpty(id) && allowEmptyStr) return "";
             if (allowedValues != null && allowedValues.Contains(id)) return id;
+            CheckAndLoadEntries<T>();
             if (EntryExists<T>(id)) return id;
             if (!string.IsNullOrEmpty(defaultID) && EntryExists<T>(defaultID)) return CheckID<T>(defaultID);
-            if (allowEmptyStr || GetAllEntriesIDs<T>().Length == 0) return "";
-            return GetAllEntriesIDs<T>()[0];
+            if (allowEmptyStr || (GetAllEntriesIDs<T>()).Length == 0) return "";
+            return (GetAllEntriesIDs<T>())[0];
         }
 
-        internal string[] CheckIDs<T>(params string[] ids) where T : DBEntry
+        internal string[] CheckIDs<T>(params string[] ids) where T : DBEntry, new()
         {
             return ids.Intersect(GetAllEntriesIDs<T>(), StringComparer.OrdinalIgnoreCase).Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x).ToArray();
         }
 
-        internal bool EntryExists<T>(string id) where T : DBEntry
+        internal bool EntryExists<T>(string id) where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             return DBEntries[typeof(T)].ContainsKey(id ?? "");
         }
 
-        internal T[] GetAllEntries<T>() where T : DBEntry
+        internal T[] GetAllEntries<T>() where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             return (from entry in DBEntries[typeof(T)].Values select (T)entry).ToArray();
         }
 
-        internal Dictionary<string, T> GetAllEntriesDict<T>() where T : DBEntry
+        internal Dictionary<string, T> GetAllEntriesDict<T>() where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             return DBEntries[typeof(T)].ToDictionary(x => x.Key, x => (T)x.Value);
         }
 
         internal ST[] GetAllEntries<T, ST>()
-            where T : DBEntry
+            where T : DBEntry, new()
             where ST : DBEntry
         {
+            CheckAndLoadEntries<T>();
             return (from entry in DBEntries[typeof(T)].Values where typeof(ST).Equals(entry.GetType()) select (ST)entry).ToArray();
         }
 
-        internal string[] GetAllEntriesIDs<T>() where T : DBEntry
+        internal string[] GetAllEntriesIDs<T>() where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             if (!DBEntries.ContainsKey(typeof(T))) return null;
             return DBEntries[typeof(T)].Keys.ToArray();
         }
 
-        internal T GetEntry<T>(string id) where T : DBEntry
+        internal T GetEntry<T>(string id) where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             id ??= "";
             if (!DBEntries[typeof(T)].ContainsKey(id)) return null;
             return (T)DBEntries[typeof(T)][id];
         }
 
         internal ST GetEntry<T, ST>(string id)
-            where T : DBEntry
+            where T : DBEntry, new()
             where ST : DBEntry
         {
+            CheckAndLoadEntries<T>();
             id ??= "";
             if (!DBEntries[typeof(T)].ContainsKey(id)) return null;
             return (ST)DBEntries[typeof(T)][id];
         }
 
-        internal T[] GetEntries<T>(params string[] ids) where T : DBEntry
+        internal T[] GetEntries<T>(params string[] ids) where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             return (from T entry in GetAllEntries<T>() where ids.Distinct().OrderBy(x => x).Contains(entry.ID) select entry).ToArray();
         }
 
-        internal List<T> GetEntries<T>(List<string> ids) where T : DBEntry
+        internal List<T> GetEntries<T>(List<string> ids) where T : DBEntry, new()
         {
+            CheckAndLoadEntries<T>();
             return (from T entry in GetAllEntries<T>() where ids.Distinct().OrderBy(x => x).Contains(entry.ID) select entry).ToList();
         }
     }

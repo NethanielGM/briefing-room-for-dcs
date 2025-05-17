@@ -314,7 +314,7 @@ namespace BriefingRoom4DCS.Generator
             return (int)(radioFrequency * 1000000.0);
         }
 
-        internal static void CheckDBForMissingEntry<T>(string id, bool allowEmpty = false) where T : DBEntry
+        internal static void CheckDBForMissingEntry<T>(string id, bool allowEmpty = false) where T : DBEntry, new()
         {
             if (string.IsNullOrEmpty(id) && allowEmpty) return;
             if (!Database.Instance.EntryExists<T>(id)) throw new BriefingRoomException("en","DBNotFound", typeof(T).Name, id);
