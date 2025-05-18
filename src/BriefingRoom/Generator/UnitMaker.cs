@@ -733,7 +733,8 @@ namespace BriefingRoom4DCS.Generator
         private static double GetGroupHeading(Coordinates groupCoordinates, Dictionary<string, object> extraSettings)
         {
             if (!extraSettings.ContainsKey("GroupX2"))
-                return 3.141593;
+                return 0.0;
+                // return 3.141593;
             var waypointCoor = new Coordinates((double)extraSettings["GroupX2"], (double)extraSettings["GroupY2"]);
             return Coordinates.ToAngleInRadians(groupCoordinates, waypointCoor);
         }
@@ -804,8 +805,8 @@ namespace BriefingRoom4DCS.Generator
             // it seems that for some reason X&Y are reversed when it comes to this stuff and needs to rotated backawards from heading.
             // Why don't know Maybe ED will announce its a bug and poof or soviet russia x is y and y is x
             // Its late my head hurts, be ware all who venture here.
-            double sinTheta = Math.Sin(Toolbox.TWO_PI - groupHeading);
-            double cosTheta = Math.Cos(Toolbox.TWO_PI - groupHeading);
+            double sinTheta = Math.Sin(Toolbox.TWO_PI/2 - groupHeading);
+            double cosTheta = Math.Cos(Toolbox.TWO_PI/2 - groupHeading);
             return groupCoordinates + new Coordinates(
                 (offsetCoordinates.X * cosTheta) + (offsetCoordinates.Y * sinTheta),
                 (-offsetCoordinates.X * sinTheta) + (offsetCoordinates.Y * cosTheta));

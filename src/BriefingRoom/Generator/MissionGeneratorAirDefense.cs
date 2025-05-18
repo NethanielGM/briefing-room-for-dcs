@@ -96,20 +96,20 @@ namespace BriefingRoom4DCS.Generator
                 DBEntryTheaterTemplateLocation? templateLocation = null;
                 var extraSetting = new Dictionary<string, object>();
 
-                if (airDefenseRange == AirDefenseRange.MediumRange || airDefenseRange == AirDefenseRange.LongRange)
-                {
-                    templateLocation = UnitMakerSpawnPointSelector.GetRandomTemplateLocation(mission, TheaterTemplateLocationType.SAM, centerPoint, commonAirDefenseDB.DistanceFromCenter[(int)side, (int)airDefenseRange],
-                        opposingPoint,
-                        new MinMaxD(commonAirDefenseDB.MinDistanceFromOpposingPoint[(int)side, (int)airDefenseRange], 99999),
-                        GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side));
-                    if (templateLocation.HasValue)
-                    {
-                        spawnPoint = templateLocation.Value.Coordinates;
-                        (units, _) = UnitMaker.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, side, unitFamilies, ref extraSetting);
-                        if (units.Count == 0)
-                            UnitMakerSpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
-                    }
-                }
+                // if (airDefenseRange == AirDefenseRange.MediumRange || airDefenseRange == AirDefenseRange.LongRange)
+                // {
+                //     templateLocation = UnitMakerSpawnPointSelector.GetRandomTemplateLocation(mission, TheaterTemplateLocationType.SAM, centerPoint, commonAirDefenseDB.DistanceFromCenter[(int)side, (int)airDefenseRange],
+                //         opposingPoint,
+                //         new MinMaxD(commonAirDefenseDB.MinDistanceFromOpposingPoint[(int)side, (int)airDefenseRange], 99999),
+                //         GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side));
+                //     if (templateLocation.HasValue)
+                //     {
+                //         spawnPoint = templateLocation.Value.Coordinates;
+                //         (units, _) = UnitMaker.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, side, unitFamilies, ref extraSetting);
+                //         if (units.Count == 0)
+                //             UnitMakerSpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
+                //     }
+                // }
                 
                 if (units.Count == 0)
                 {
