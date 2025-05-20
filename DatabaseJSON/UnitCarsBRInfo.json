@@ -833,7 +833,8 @@
         "type": "Hawk cwar",
         "families": [
             "VehicleSAMMedium",
-            "VehicleStatic"
+            "VehicleStatic",
+            "VehicleSAMcmd"
         ],
         "lowPolly": false,
         "immovable": true
