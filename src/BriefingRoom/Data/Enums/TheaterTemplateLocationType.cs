@@ -23,6 +23,8 @@ namespace BriefingRoom4DCS.Data
     public enum TheaterTemplateLocationType
     {
         SAM,
+        AAA,
+        EWR,
         BASE
     }
 }

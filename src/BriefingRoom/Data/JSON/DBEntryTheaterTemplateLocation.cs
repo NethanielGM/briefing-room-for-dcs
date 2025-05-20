@@ -55,7 +55,7 @@ namespace BriefingRoom4DCS.Data
             return familyMap;
         }
 
-        public Tuple<List<string>,List<DBEntryTemplateUnit>> CreateTemplatePositionMap(Dictionary<UnitFamily, List<string>> familyMap)
+        public Tuple<List<string>, List<DBEntryTemplateUnit>> CreateTemplatePositionMap(Dictionary<UnitFamily, List<string>> familyMap, Boolean tryUseAll = false)
         {
             var positionMap = new List<DBEntryTemplateUnit>();
             var units = new List<string>();
@@ -73,6 +73,13 @@ namespace BriefingRoom4DCS.Data
                 }
 
                 var unitID = Toolbox.RandomFrom(options);
+                if (tryUseAll) // Remove the unitID from all families unless its the last one
+                    familyMap.Keys.ToList().ForEach(x =>
+                    {
+                        if (familyMap[x].Count > 1)
+                            familyMap[x].Remove(unitID);
+                    });
+
                 var templateUnit = new DBEntryTemplateUnit
                 {
                     DCoordinates = unitLocation.Coordinates,

@@ -114,6 +114,7 @@ namespace BriefingRoom4DCS.Generator
             ref Dictionary<string, object> extraSettings
         )
         {
+            Boolean tryUseAll = false;
             DBEntryCoalition unitsCoalitionDB = mission.CoalitionsDB[(int)((side == Side.Ally) ? mission.TemplateRecord.ContextPlayerCoalition : mission.TemplateRecord.ContextPlayerCoalition.GetEnemy())];
             Country country = Country.ALL;
             var unitMap = templateLocation.GetRequiredFamilyMap();
@@ -138,6 +139,7 @@ namespace BriefingRoom4DCS.Generator
                             unitMap[matchingFamilies.First()].Add(unit.DCSID);
                         }
                     }
+                    tryUseAll = true;
                 }
             }
 
@@ -162,7 +164,7 @@ namespace BriefingRoom4DCS.Generator
             }
 
 
-            var (units ,convertedUnitTemplate) = templateLocation.CreateTemplatePositionMap(unitMap);
+            var (units ,convertedUnitTemplate) = templateLocation.CreateTemplatePositionMap(unitMap, tryUseAll);
             extraSettings["TemplatePositionMap"] = convertedUnitTemplate;
             if (country != Country.ALL && unitsCoalitionDB.Countries.Contains(country))
                 extraSettings["Country"] = country;
