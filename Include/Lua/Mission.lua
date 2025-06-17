@@ -277,6 +277,10 @@ mission =
             ["thickness"] = $WEATHERFOGTHICKNESS$,
             ["visibility"] = $WEATHERFOGVISIBILITY$,
         }, -- end of ["fog"]
+        ["fog2"] = 
+		{
+			["mode"] = 2,
+		}, -- end of ["fog2"]
         ["dust_density"] = $WEATHERDUSTDENSITY$,
         ["qnh"] = $WEATHERQNH$,
         ["visibility"] = 
