@@ -279,6 +279,12 @@ namespace BriefingRoom4DCS.Generator
 
         private static void WorldPreloadStage(ref DCSMission mission)
         {
+            if (mission.TemplateRecord.ContextDecade < Decade.Decade1960) // Helicopters were not available in DCS until 1960
+            {
+                BriefingRoom.PrintToLog("Skipping world preload stage for helicopters.");
+                mission.SaveStage(MissionStageName.WorldPreload);
+                return;
+            }
             // DCS Hack to render local area near player airbase
             var extraSettings = new Dictionary<string, object>
             {
@@ -286,6 +292,11 @@ namespace BriefingRoom4DCS.Generator
             };
             var (units, unitDBs) = UnitMaker.GetUnits(ref mission, new List<UnitFamily> { UnitFamily.HelicopterUtility }, 1, Side.Ally, new UnitMakerGroupFlags(), ref extraSettings, true);
             List<DBEntryAirbaseParkingSpot> parkingSpots = null;
+            if (unitDBs.Count == 0)
+            {
+                mission.SaveStage(MissionStageName.WorldPreload);
+                return;
+            }
             try
             {
                 parkingSpots = UnitMakerSpawnPointSelector.GetFreeParkingSpots(
