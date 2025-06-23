@@ -360,6 +360,15 @@
         "immovable": false
     },
     {
+        "type": "Essex",
+        "families": [
+            "ShipCarrierSTOVL"
+        ],
+        "lowPolly": false,
+        "immovable": false
+    },
+    
+    {
         "type": "Type_052B",
         "families": [
             "ShipFrigate",

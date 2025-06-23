@@ -362,6 +362,30 @@
         }
     },
     {
+        "type": "Essex",
+        "displayName": "Essex Class Carrier 1944",
+        "categories": [
+            {
+                "name": "AircraftCarrier"
+            },
+            {
+                "name": "Armed Ship"
+            }
+        ],
+        "module": "World War II PTO Units by Magnitude 3 LLC",
+        "shape": "Essex_Class_Carrier",
+        "helicopterStorage": 1,
+        "planeStorage": 90,
+        "detectionRange": 15000,
+        "threatRange": 4000,
+        "operators": {
+            "USA": [
+                1940,
+                1990
+            ]
+        }
+    },
+    {
         "type": "Forrestal",
         "displayName": "CV-59 Forrestal",
         "categories": [
@@ -1124,7 +1148,7 @@
         "helicopterStorage": 1,
         "planeStorage": 0,
         "detectionRange": 260000,
-        "threatRange": 100000,
+        "threatRange": 150000,
         "operators": {
             "China": [
                 2000,
@@ -1207,8 +1231,8 @@
         ],
         "module": "China Asset Pack by Deka Ironwork Simulations and Eagle Dynamics",
         "shape": "093",
-        "detectionRange": 40000,
-        "threatRange": 40000,
+        "detectionRange": 42000,
+        "threatRange": 42000,
         "operators": {
             "China": [
                 2000,
