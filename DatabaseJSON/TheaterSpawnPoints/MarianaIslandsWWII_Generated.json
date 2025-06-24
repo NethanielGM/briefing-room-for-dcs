@@ -1,0 +1,4888 @@
+[
+  {
+    "coords": [
+      781700.5,
+      18650.94140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      780703.25,
+      18671.3125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      723294.0625,
+      53862.70703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      687731.625,
+      70472.921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      686715,
+      70652.6953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      686714.8125,
+      71743.671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      685541.0625,
+      70912.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      686274.1875,
+      71491.765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      588782.9375,
+      97039.171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      588193.75,
+      99053.734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      587424.9375,
+      95791.703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      587815.1875,
+      99472.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      586893.8125,
+      100409.71875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      585205.875,
+      101212.1796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      585211.4375,
+      101208.921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      585795.625,
+      100982.90625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      584234.8125,
+      101221.4765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      584611.6875,
+      101249.03125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      583071.625,
+      101290.5546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      582884.625,
+      100898.7890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      579995.5,
+      96953.5859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      580223.6875,
+      98669.71875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      581004.75,
+      100362.8046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      579255.875,
+      98109.5859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      516633.84375,
+      108762.9609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      516705.65625,
+      109668.2421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      516513.34375,
+      110509.3046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      516271.6875,
+      107540.703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      515275.25,
+      110087.6015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      515700.5,
+      110673.0390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      515774.40625,
+      111528.9921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      515306.59375,
+      110069.3203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      514733.78125,
+      109632
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      514853.875,
+      110483.390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      515310.46875,
+      111461.5078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      513785.3125,
+      107588.3671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      513700.65625,
+      108669.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      513705.34375,
+      109671.9140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      514261.78125,
+      110570.171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      514574.21875,
+      112353.5
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      512545.3125,
+      107493.34375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      512543.875,
+      108433.953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      512823.34375,
+      109548.9296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      512634.46875,
+      110869.921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      512485.1875,
+      111923.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      511820.5,
+      107450.6484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      511863.5625,
+      108453.4453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      511684.84375,
+      109520.0546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      511704.03125,
+      110673.796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      510700.6875,
+      107670.3515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      508631.21875,
+      105923.515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      508865.5625,
+      106511.4453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      507592.4375,
+      103848.9296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      507701.09375,
+      104673.0546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      507893.0625,
+      105491.1328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      506651.6875,
+      102619.5859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      506600.8125,
+      103570.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      506700.125,
+      104630.6875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      505713.5,
+      102660.90625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      505588.625,
+      103552.1796875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      505763.25,
+      104582.7421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      505589.4375,
+      103585.7578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      504665.71875,
+      103570.0390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      456062.53125,
+      113429.09375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      455624.25,
+      114582.2578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      454762.21875,
+      113608.9140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      454672.03125,
+      114638.6328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      454703.8125,
+      115602.3203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      453725.875,
+      113619.8359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      453600.8125,
+      114571.2890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      453714.1875,
+      115663.6953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      452842.40625,
+      114869.09375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      422702.9375,
+      114672.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      422743.03125,
+      115579.9140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      421784.28125,
+      114571.671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      421715.5,
+      115553.375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      356293.46875,
+      107429.203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      355511.6875,
+      108790.234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      354602.375,
+      108873.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317671.0625,
+      93509.6328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317675.9375,
+      94568.5703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317504.03125,
+      97391.4609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      316929.59375,
+      97994.671875
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      317603,
+      98499.828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317533.53125,
+      99429.0625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317824.9375,
+      100830.96875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      316662.21875,
+      93509.5
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      316616.125,
+      96078.3671875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      316843.625,
+      97130.640625
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      316711.59375,
+      97926.5859375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      316701.65625,
+      98669.5234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      316522.75,
+      99490.0234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      317845.84375,
+      101032.796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      316715.28125,
+      101613.359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      315651.21875,
+      93620.3046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      316284.34375,
+      96246.2734375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      316588.9375,
+      96055.3046875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      316934.09375,
+      97222.8984375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      316400.71875,
+      97556.34375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      315701.3125,
+      98669.46875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      315825.125,
+      99459.359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      315612.65625,
+      100582.640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      314623,
+      99562.1875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      197682.6875,
+      110710.8515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      197702.078125,
+      111668.3046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      196571.46875,
+      109471.40625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      196603.59375,
+      110560.8359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      196674.75,
+      111638.8125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      196581.796875,
+      109445.171875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      196324.78125,
+      109520.7421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      195516.40625,
+      108343.140625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      195603.875,
+      109083.1796875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      193882.484375,
+      105881.3125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      193699.875,
+      106581.2578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      193852.15625,
+      107489.3125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      193820.9375,
+      109946.2890625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      193699.203125,
+      109891.0546875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      192865.125,
+      104567.0703125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      193667.71875,
+      106561.0859375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      192891.328125,
+      106888.09375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      193670.34375,
+      109892.4609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      192898.921875,
+      104543.0859375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      191072.375,
+      104976.7421875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      191802.359375,
+      106568.78125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      191901.296875,
+      107468.453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      190722.609375,
+      100650.984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      190823.234375,
+      101508.8671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      190643.65625,
+      102678.875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      191094.71875,
+      104963.5625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      191013.296875,
+      104985.171875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      189533.96875,
+      101438.2421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      189700.90625,
+      102669.015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      191002.078125,
+      104990
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      191015.453125,
+      104970.5078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      190274.109375,
+      105891.6796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      188702.546875,
+      101673.9296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      188661.34375,
+      102628.359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      189922.21875,
+      104686.4453125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      188801.703125,
+      104922.046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      187711.1875,
+      100570.5078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      187783.859375,
+      101592.3671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      187944.84375,
+      102428.0546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      188480.875,
+      104348.0078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      188104.1875,
+      106299.9609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      186017.625,
+      101559.90625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      186700.203125,
+      101669.890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186753.5,
+      102600.078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186701.203125,
+      103642.625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      187004.046875,
+      106476.1953125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      187922.03125,
+      106092.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186981.640625,
+      106459.7578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      186705.859375,
+      107671.109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186269.546875,
+      100698.1015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      186003.140625,
+      101542.96875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      186704.203125,
+      103168.8828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      185795.140625,
+      103779.3203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186204.65625,
+      104669.9921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      186989.828125,
+      106446.8515625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      185277,
+      107548.1484375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      185864.828125,
+      107779.65625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      185705.96875,
+      100796.4765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184778.109375,
+      100649.6953125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184589.296875,
+      102967.578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184266.6875,
+      103477.6640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184572.40625,
+      103533.0703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      185873.671875,
+      107856.875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184777.28125,
+      107685.046875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184202.765625,
+      100672.953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      184195.765625,
+      102967.4609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184111.328125,
+      102848.203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      184298.96875,
+      103469.0078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      182774.171875,
+      100438.8125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      181988.6875,
+      102344.046875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      183815.6875,
+      103279.46875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      182174.84375,
+      98598.515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      181704,
+      99558.734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      181996.0625,
+      102345.1015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      181412.796875,
+      102556.5625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      181653.078125,
+      102619.34375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      180216.3125,
+      99561.6640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      180690.03125,
+      99854.7109375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      180800.75,
+      100572.0703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      180301.4375,
+      102892.7265625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      181415.859375,
+      102593.9453125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      180840.734375,
+      103440.0859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      180187.0625,
+      99557.953125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      179513.28125,
+      100481.6328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      179965.921875,
+      103381.7890625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      179812.53125,
+      102576.5234375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      179704.703125,
+      103672.4296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      178624.59375,
+      103549.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      177704.53125,
+      92672.625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      176266.84375,
+      93197.328125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      176703.828125,
+      93670.609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      176382.109375,
+      92082.4921875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      176298.03125,
+      93157.7265625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      175380.515625,
+      93599.1328125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      175905.96875,
+      93592.4375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      175175.015625,
+      92954.4375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      174771.171875,
+      92683.28125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      174878.4375,
+      93484.0859375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      174018.5625,
+      89650.6328125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      173863.21875,
+      90656.9375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      174764.640625,
+      92658.7265625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      173993.828125,
+      92473.0859375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      173993.484375,
+      93477.7421875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      172815.234375,
+      88645.546875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      173282.8125,
+      89591.1484375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      173818.4375,
+      90975.6640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      172774.171875,
+      91858.3125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      172818.484375,
+      92659.5078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171814.453125,
+      88675.8203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      172218.46875,
+      91248.28125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171573.015625,
+      90491.96875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171883.015625,
+      91468.8984375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171995,
+      92687.015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      170876.9375,
+      87592.671875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      170565.21875,
+      88754.7578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      170470.734375,
+      89894.3203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171205.09375,
+      90542.15625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171181.359375,
+      91453.4765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      171473.125,
+      92455.5625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      170764.328125,
+      87583.765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      169622.34375,
+      87499.078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      168975.0625,
+      88927.7421875
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      169691.6875,
+      89465.5078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      168915.8125,
+      90945.65625
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      170001.0625,
+      91681.640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      169689.96875,
+      92758.46875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      169069.765625,
+      86764.0234375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      169028.328125,
+      89192.0234375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      168344.875,
+      89838.640625
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      168974.265625,
+      91012.09375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      167944.484375,
+      91695.921875
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      168680.71875,
+      91587.21875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      169086.15625,
+      92789.5703125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      168775.71875,
+      93548.625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      168450.703125,
+      94739.8515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      168793.765625,
+      87087.5625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167904.859375,
+      87498.8203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167447.3125,
+      89931.421875
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      168371.28125,
+      89879.9375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      167807.84375,
+      90682.1015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167915.421875,
+      91727.7734375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      167809.890625,
+      92553.4296875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167998.046875,
+      93492.2890625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167565.296875,
+      94478.921875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167568.3125,
+      87245.21875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167774.84375,
+      88684.8125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      166817.75,
+      88693.625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167441.5,
+      89883.8359375
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      167885.734375,
+      91697.3125
+    ],
+    "BRtype": "LandLarge"
+  },
+  {
+    "coords": [
+      166792.0625,
+      91668
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      167502.9375,
+      92454.796875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      166704.3125,
+      93562.203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      166669.625,
+      94577.5078125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      166165.046875,
+      89549.4375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165715.40625,
+      90563.9140625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165578.046875,
+      91489.5
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      166192.90625,
+      92792.90625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165687.140625,
+      93600.3828125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165832.71875,
+      94501.296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      165699.28125,
+      90583.6796875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165018.59375,
+      90463.6328125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165175.375,
+      93357.1328125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      165822.890625,
+      93589.59375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      164817.421875,
+      93588.8203125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      164754.953125,
+      94619.3046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      163995.5625,
+      92370.0546875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      164281.53125,
+      92972.0703125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      163883.890625,
+      92495.4921875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      163622.59375,
+      93530.5703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      163565.8125,
+      94592.7265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      163299.625,
+      91699.6640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      162598.3125,
+      92494.9140625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      162591.34375,
+      93467.71875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      161666.046875,
+      91796.0625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      162586.578125,
+      93491.5625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      161890.125,
+      93642.4609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      161180.859375,
+      91595.1640625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      161893.296875,
+      93055.5546875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      159690.171875,
+      91651.109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      159822.296875,
+      92549.40625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      159718.71875,
+      92077.3515625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      151931.59375,
+      84461.796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      150532.296875,
+      82833.8515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      150492.6875,
+      83449.390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      150612.125,
+      84810.8125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      149680.6875,
+      81479.59375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      77670.8125,
+      48973.703125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      78102.0859375,
+      48754.1015625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      77469.921875,
+      50056.01953125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      77772.4609375,
+      52266.59765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      77682.890625,
+      51651.6015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      77641.9375,
+      52608.71484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      76492.5078125,
+      45868.79296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      77293.328125,
+      46580.5078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      76574.2109375,
+      47533.6796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      77695.703125,
+      48987.49609375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      77505.109375,
+      50070.71484375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      76600.296875,
+      50563.37890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      77780.359375,
+      52249.5
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      76700.546875,
+      52669.234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75851.2265625,
+      43842.73828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75740.640625,
+      44630.21484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75631.5234375,
+      45599.15234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75792.734375,
+      46579.0703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75770.21875,
+      47473.1796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      76432.515625,
+      48440.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75641.3984375,
+      49581.3671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75318.984375,
+      51748.68359375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      75790.4921875,
+      51580.50390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75565.484375,
+      52531.9765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74603.40625,
+      40512.4453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74902.2265625,
+      41462.2421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74588.09375,
+      44193.62890625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74701.0078125,
+      43613.25
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74720.828125,
+      44611.390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74532.1484375,
+      45830.98046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74922.265625,
+      46645.265625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74883.078125,
+      47572.73828125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74910.9140625,
+      48772.515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74703.625,
+      49673.3984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74704.109375,
+      50671.5859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      75274.0859375,
+      51786.44921875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74742.3671875,
+      52630.56640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73760.375,
+      39611.359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73602.4765625,
+      40552.109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      74364.5078125,
+      41502.125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73814.2734375,
+      42552.01171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73264.828125,
+      44544.4375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      73266.8671875,
+      45144.26953125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74872.921875,
+      46670.87890625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      74918.8671875,
+      47548.12109375
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      73810.671875,
+      47860.8203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73453.671875,
+      48921.51171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73722.8828125,
+      51430.27734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72584.3125,
+      38839.05078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72740.5390625,
+      39582.4453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73112.2265625,
+      40792.5390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72704.5859375,
+      41668.6640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72895.7109375,
+      42479.4453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      73313.984375,
+      45174.09765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      73303.28125,
+      44553.4921875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      72704.7109375,
+      45548.2578125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      72541.046875,
+      46492.2890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      71565.546875,
+      39523.5078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72150.359375,
+      40573.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      71281.109375,
+      42282.14453125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      71850.6484375,
+      42861.71484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      71690.5703125,
+      43569.38671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      72791.0078125,
+      45190.9765625
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      72116.390625,
+      45783.8125
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      71620.2421875,
+      46578.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      70775.0625,
+      41588.2734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      70702,
+      42823.03515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      70703.6640625,
+      43670.0234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      70653.375,
+      44620.9453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      71192.9609375,
+      45643.71484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      69785.0078125,
+      41588.65625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      69492.2734375,
+      42449.42578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      69841.4375,
+      43533.34765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      69833.3046875,
+      44433
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      18114.890625,
+      6919.21875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      17244.529296875,
+      8772.5185546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      16042.90234375,
+      7329.27294921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      17662.0078125,
+      8129.46044921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      17244.888671875,
+      8773.2060546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      16044.654296875,
+      7328.90673828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      16274.8701171875,
+      8349.8681640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      16683.380859375,
+      9148.576171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      15794.517578125,
+      9581.4990234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14714.0283203125,
+      6363.53515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14541.5869140625,
+      5823.92236328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14802.791015625,
+      6568.0498046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14783.21875,
+      8871.818359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      15655.36328125,
+      10582.2587890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14614.7119140625,
+      10549.2275390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14183.267578125,
+      4459.171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      13842.8857421875,
+      5759.7587890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      13792.037109375,
+      6690.31298828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14784.208984375,
+      8869.07421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14185.0234375,
+      10190.8828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14615.01171875,
+      10551.7138671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      14745.1689453125,
+      11303.0263671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      13845.689453125,
+      5760.01904296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      13793.1845703125,
+      6689.52197265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      13223.5185546875,
+      6791.1435546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12460.9638671875,
+      9399.625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12691.1123046875,
+      10183.505859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12485.125,
+      9451.9560546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12700.228515625,
+      10611.541015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12640.0966796875,
+      11608.626953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12891.3359375,
+      12922.7353515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11272.9384765625,
+      5008.4423828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12432.111328125,
+      6953.89794921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11615.2333984375,
+      6838.89794921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11665.1953125,
+      7529.904296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12472.73828125,
+      9402.052734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12303.62890625,
+      9542.0927734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12043.3876953125,
+      10692.8603515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12261.0234375,
+      11840.4443359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12884.7060546875,
+      12990.4990234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12601.4794921875,
+      14058.384765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12354.0322265625,
+      14843.5859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12600.697265625,
+      16812.892578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      12543.1083984375,
+      17008.884765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11255.3125,
+      6272.61962890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10471.609375,
+      5430.1796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10645.017578125,
+      6653.3095703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11780.5556640625,
+      8003.05615234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11152.4208984375,
+      8788.0341796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      11905.1962890625,
+      10170.1865234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10755.0810546875,
+      16400.40234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10161.7353515625,
+      3718.444091796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10482.0634765625,
+      5431.29150390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9832.3818359375,
+      5760.1455078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      10374.7158203125,
+      6462.07861328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9735.3564453125,
+      7480.3056640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9581.4990234375,
+      10050.6181640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9643.9453125,
+      9919.6435546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9611.591796875,
+      16263.1689453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9455.8828125,
+      15750.5029296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9174.8271484375,
+      5131.33544921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9833.1064453125,
+      5758.06884765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9435.2568359375,
+      5649.3388671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9731.3984375,
+      7478.78857421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9211.7763671875,
+      8939.7841796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9185.6865234375,
+      8912.7421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9581.4052734375,
+      10051.150390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      8491.2470703125,
+      15380.169921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      9454.7041015625,
+      15750.9814453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7091.1416015625,
+      3453.189697265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7911.3505859375,
+      8801.7626953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7013.125,
+      14848.8115234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      8815.1376953125,
+      15482.2490234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6810.96240234375,
+      1431.889404296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6571.197265625,
+      2598.324462890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7103.6484375,
+      3453.417236328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7914.365234375,
+      8803.80859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6291.45751953125,
+      9199.041015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6410.64306640625,
+      11540.953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6753.10888671875,
+      13119.5576171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6771.68798828125,
+      12572.087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      7221.900390625,
+      15150.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6712.33056640625,
+      14629.806640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6722.5341796875,
+      2152.532470703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6214.91552734375,
+      3633.088623046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6141.87451171875,
+      8091.4150390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5912.13916015625,
+      7779.2783203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5483.61767578125,
+      8669.833984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5744.3564453125,
+      11049.287109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5590.2626953125,
+      10829.2099609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5572.7333984375,
+      11648.0390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5541.23681640625,
+      12450.5947265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      6715.875,
+      14633.4521484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4673.6064453125,
+      3049.60595703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5095.701171875,
+      2820.3056640625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4134.11572265625,
+      5103.919921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5910.1748046875,
+      7779.37158203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5482.0654296875,
+      8692.6748046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4200.451171875,
+      9138.8876953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4775.00537109375,
+      9558.6923828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4755.18798828125,
+      10551.671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      5734.2880859375,
+      12262.849609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4875.21044921875,
+      12703.38671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4580.51513671875,
+      13778.9736328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3342.639404296875,
+      2479.803466796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4671.92822265625,
+      3050.567138671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4135.947265625,
+      5101.56982421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3204.585693359375,
+      5643.52734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3694.505615234375,
+      7192.16064453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3555.8916015625,
+      6839.36279296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3612.95703125,
+      7581.73486328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3913.259033203125,
+      8479.4150390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      4750.103515625,
+      10548.4423828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3505.2490234375,
+      12358.0078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3662.845947265625,
+      11589.2041015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3611.796875,
+      12562.693359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3703.318603515625,
+      2130.72021484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2733.4140625,
+      2498.59619140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3011.70068359375,
+      3471.33740234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3152.666748046875,
+      4889.21533203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3200.6005859375,
+      5639.93798828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3252.455322265625,
+      6598.607421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3783.85791015625,
+      8092.61474609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3012.172607421875,
+      10413.5
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      3794.8056640625,
+      10141.0244140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2155.22900390625,
+      -890.4276123046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2333.76171875,
+      -36.663814544677734
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2183.270751953125,
+      -530.4367065429688
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2315.19970703125,
+      470.7948913574219
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2785.517578125,
+      2278.62255859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1653.8099365234375,
+      2722.363037109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1702.092529296875,
+      3878.700927734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1935.1541748046875,
+      4558.03564453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2081.2060546875,
+      7051.0615234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2135.893798828125,
+      6663.95458984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1225.664794921875,
+      8650.4296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      2105.125,
+      10001.5234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1613.4310302734375,
+      9782.38671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1232.0836181640625,
+      -1470.94677734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1205.7486572265625,
+      -151.4972686767578
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1905.78466796875,
+      1231.6732177734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      601.2117919921875,
+      1893.8798828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1703.092041015625,
+      3881.796630859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      1723.76318359375,
+      4152.0908203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -56.28348922729492,
+      4948.19189453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      714.0023803710938,
+      7161.99072265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      532.1831665039062,
+      6498.8193359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      751.1878051757812,
+      7560.28955078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      781.1613159179688,
+      8592.412109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -215.40054321289062,
+      -2418.59326171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      281.3945617675781,
+      -1440.9522705078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      262.2032165527344,
+      1073.2882080078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      613.1835327148438,
+      1889.22265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      685.772216796875,
+      1951.3817138671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -976.4027709960938,
+      3492.732421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -289.95751953125,
+      3530.0849609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18.805374145507812,
+      4879.1357421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -348.43505859375,
+      5711.6162109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      364.8505554199219,
+      6512.5595703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1025.5760498046875,
+      -8316.2509765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -699.201171875,
+      -7466.1328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1348.6878662109375,
+      -5176.08837890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -659.8968505859375,
+      -3480.350341796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1376.3446044921875,
+      -2151.48095703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1418.6209716796875,
+      -1079.5906982421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1369.9178466796875,
+      -461.4450988769531
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1507.6199951171875,
+      1958.3616943359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1519.4290771484375,
+      1893.438232421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -287.7792053222656,
+      3528.706787109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1199.2606201171875,
+      3488.967529296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1129.000732421875,
+      4639.591796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1436.0111083984375,
+      5799.94873046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2276.5830078125,
+      -7347.587890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2118.00732421875,
+      -5508.20849609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2389.95556640625,
+      -4468.6953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2206.70654296875,
+      -3416.380126953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2069.039794921875,
+      -2170.401611328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1225.530029296875,
+      -909.7564086914062
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1657.6942138671875,
+      1031.7705078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1746.0064697265625,
+      612.422119140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2215.58544921875,
+      1818.321533203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1785.080078125,
+      2519.96337890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -1456.9210205078125,
+      3998.33203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2288.09765625,
+      4893.9208984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3297.866943359375,
+      -12144.82421875
+    ],
+    "BRtype": "LandMedium"
+  },
+  {
+    "coords": [
+      -3188.185302734375,
+      -11180.0087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2698.9267578125,
+      -9437.837890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3298.1943359375,
+      -7441.7314453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3318.379638671875,
+      -6257.822265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3299.158935546875,
+      -5329.00830078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3134.914306640625,
+      -4488.30078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3447.194091796875,
+      -2019.4864501953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3377.431640625,
+      -2339.605224609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2294.455078125,
+      -858.8991088867188
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3476.276611328125,
+      -567.7128295898438
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2684.14501953125,
+      509.6171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -2056.619384765625,
+      2191.644287109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3134.641357421875,
+      2898.62353515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3385.880859375,
+      3748.81787109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4289.4208984375,
+      -9340.486328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3729.5830078125,
+      -5486.1767578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3719.543212890625,
+      -4497.66015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4235.541015625,
+      -3249.355224609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3448.262451171875,
+      -2018.5030517578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3748.996826171875,
+      -1348.781982421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4438.11279296875,
+      -328.2477722167969
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3818.012939453125,
+      519.0982055664062
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4326.18798828125,
+      1688.4259033203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -3148.900146484375,
+      2951.151611328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4794.28271484375,
+      -17331.07421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5368.85302734375,
+      -16219.0048828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5199.70361328125,
+      -11129.2421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5325.92041015625,
+      -10409.4990234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5519.07763671875,
+      -9121.4052734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4906.2275390625,
+      -3470.35009765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5368.97802734375,
+      -2251.14794921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4084.074951171875,
+      -1071.88623046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4656.34912109375,
+      -516.5431518554688
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -4327.41796875,
+      1692.62890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6246.55859375,
+      -16390.80859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6195.22314453125,
+      -15426.947265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6297.28857421875,
+      -12331.2021484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6405.30615234375,
+      -10438.1943359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6408.77734375,
+      -4441.18212890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -5598.88916015625,
+      -2309.120361328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6389.10107421875,
+      -1551.3238525390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6998.80517578125,
+      -15149.1435546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7515.90625,
+      -11551.740234375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7187.12841796875,
+      -10137.5087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6708.74560546875,
+      -9210.2373046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7199.369140625,
+      -8210.046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7175.16015625,
+      -6446.603515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7067.63623046875,
+      -5569.81396484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7177.048828125,
+      -4550.93359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7267.1630859375,
+      -3359.110595703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -6415.40185546875,
+      -1601.49609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8165.98876953125,
+      -14497.771484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8537.7021484375,
+      -13569.197265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8254.8447265625,
+      -12369.978515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8315.8701171875,
+      -10276.6025390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8168.49267578125,
+      -9469.4580078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8297.6826171875,
+      -8329.01171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8136.21728515625,
+      -7501.22802734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8308.509765625,
+      -6549.79443359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8175.74560546875,
+      -4518.1953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -7757.8193359375,
+      -3520.338134765625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9268.7802734375,
+      -13449.2724609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9349.5126953125,
+      -12569.0947265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9264.16015625,
+      -10368.1171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9194.673828125,
+      -6429.04443359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8644.05859375,
+      -5217.287109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -8624.759765625,
+      -4407.3232421875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9424.05078125,
+      -3118.56103515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9375.0849609375,
+      -2437.819580078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -10124.466796875,
+      -11246.3349609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -10204.951171875,
+      -9178.9541015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -9219.521484375,
+      -4810.84326171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11296.48828125,
+      -14329.5751953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11424.662109375,
+      -13210.91015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11316.8662109375,
+      -12250.9541015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11304.005859375,
+      -11336.1513671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11166.478515625,
+      -9200.5498046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11437.9892578125,
+      -3096.829833984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11729.751953125,
+      -14539.1123046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11314.6650390625,
+      -12248.3974609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -12264.5205078125,
+      -11381.2216796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11166.818359375,
+      -9200.44921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -11104.65234375,
+      -2610.80224609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -12897.48828125,
+      -15236.6171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -13439.2705078125,
+      -14418.5087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -13078.6796875,
+      -10520.298828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -12316.0859375,
+      -7648.150390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -12697.8857421875,
+      -2989.699951171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14085.6796875,
+      -14546.712890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -13939.20703125,
+      -13507.2998046875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14329.1796875,
+      -10109.185546875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14534.65625,
+      -5571.22705078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14379.2763671875,
+      -4348.06298828125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -13354.8056640625,
+      -3041.22119140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -15987.7646484375,
+      -13118.0361328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -15249.4775390625,
+      -10387.5283203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -15285.1962890625,
+      -9369.6708984375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -15108.89453125,
+      -5086.82763671875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14676.0400390625,
+      -4406.02978515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -14276.8974609375,
+      -2938.920166015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16068.064453125,
+      -14077.728515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16108.6044921875,
+      -13116.9697265625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16537.171875,
+      -10429.900390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16275.6611328125,
+      -9348.65625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16355.767578125,
+      -8388.55078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -15568.623046875,
+      -5559.01953125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16068.7626953125,
+      -14066.158203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17299.892578125,
+      -10328.6142578125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17284.4453125,
+      -9288.5205078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17294.662109375,
+      -8328.59375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -16774.4765625,
+      -7481.97802734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17144.259765625,
+      -3227.884033203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18349.322265625,
+      -12400.375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18125.2734375,
+      -11089.3154296875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18296.6484375,
+      -9380.087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18225.98046875,
+      -8158.212890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17144.197265625,
+      -3221.559326171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -17266.638671875,
+      -2911.656005859375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19154.166015625,
+      -15469.44921875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18258.9140625,
+      -12760.087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19299.724609375,
+      -12110.1591796875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19296.697265625,
+      -10328.087890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19336.529296875,
+      -7369.1337890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19206.80859375,
+      -5419.85302734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -19517.833984375,
+      -4560.46337890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -18835.78125,
+      -3448.9912109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20225.17578125,
+      -12401.8994140625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20269.658203125,
+      -9357.78515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20237.5078125,
+      -8226.46484375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20295.4921875,
+      -7331.703125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20329.142578125,
+      -4358.60205078125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -21204.626953125,
+      -14449.3515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -21214.083984375,
+      -12137.7412109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -21148.84375,
+      -10518.486328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -20587.97265625,
+      -9537.677734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -21295.275390625,
+      -8349.6064453125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -21238.9375,
+      -4396.82177734375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22168.79296875,
+      -14176.28515625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22408.19140625,
+      -13480.8203125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22535.119140625,
+      -11550.1015625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22458.18359375,
+      -6487.72412109375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22538.98046875,
+      -5569.93359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22626.923828125,
+      -13539.0068359375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -22424.263671875,
+      -9710.326171875
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -23285.53515625,
+      -6517.6025390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -24165.22265625,
+      -10179.1474609375
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -24124.720703125,
+      -9307.6328125
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -25487.49609375,
+      -11521.390625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -25445.888671875,
+      -9478.8212890625
+    ],
+    "BRtype": "LandSmall"
+  },
+  {
+    "coords": [
+      -25296.7578125,
+      -7076.3623046875
+    ],
+    "BRtype": "LandSmall"
+  }
+]

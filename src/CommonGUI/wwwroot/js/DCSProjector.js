@@ -32,6 +32,12 @@ const config = {
     false_northing: -1491840.000000048,
     scale_factor: 0.9996,
   },
+    MarianaIslandsWWII: {
+    central_meridian: 147,
+    false_easting: 238417.99999989968,
+    false_northing: -1491840.000000048,
+    scale_factor: 0.9996,
+  },
   Nevada: {
     central_meridian: -117,
     false_easting: -193996.80999964548,
