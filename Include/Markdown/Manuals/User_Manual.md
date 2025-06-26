@@ -117,7 +117,7 @@ Set of tabs for each flyable set of aircraft.
 
 **Count**: How many Max 4.
 
-**Payload**: What weapons (extra options addable through custom configs)?
+**Payload**: What weapons *BR attempts to load your custom settings fom SaveGames on C drive override location by configuring `SaveGamePath` in `Database\Common.ini` (Local Install Only)*
 
 **Starting Setup**: Runway, Parking Hot or Cold.
 
@@ -125,7 +125,7 @@ Set of tabs for each flyable set of aircraft.
 
 **Country**: Where is the aircraft from?
 
-**Livery**: What paint job do you have (extra options addable through custom configs)?
+**Livery**: What paint job do you have *BR attempts to load your custom settings fom SaveGames on C drive override location by configuring `SaveGamePath` in `Database\Common.ini` (Local Install Only)*
 
 **AI wingmen**: If on only first unit will be playable rest will be AI.
 

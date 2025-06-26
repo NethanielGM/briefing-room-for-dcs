@@ -136,21 +136,21 @@ namespace BriefingRoom4DCS.Data
 
             }
 
-            
+
             missingDCSDataWarnings(supportData, itemMap, "Aircraft");
 
 
             return itemMap;
         }
 
-        public DBEntryAircraft() {}
+        public DBEntryAircraft() { }
 
         internal Dictionary<int, Dictionary<string, object>> GetPylonsObject(string aircraftPayload)
         {
             var payload = Payloads.Find(x => x.name == aircraftPayload);
             if (payload == null)
                 return new Dictionary<int, Dictionary<string, object>>();
-            return payload.pylons.ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID  }, {"settings", x.settings} });
+            return payload.pylons.ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID }, { "settings", x.settings } });
         }
 
         internal Dictionary<int, Dictionary<string, object>> GetPylonsObject(DCSTask task)
@@ -158,21 +158,15 @@ namespace BriefingRoom4DCS.Data
             if (Payloads.Count == 0)
                 return new Dictionary<int, Dictionary<string, object>>();
             var payload = Toolbox.RandomFrom(Payloads.Where(x => x.tasks.Contains((int)task)).ToList()) ?? Toolbox.RandomFrom(Payloads);
-            return payload.pylons.Where(x => x != null).ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID }, {"settings", x.settings} });
+            return payload.pylons.Where(x => x != null).ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID }, { "settings", x.settings } });
         }
 
         internal void GetDCSPayloads()
         {
-            var userPath = Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
-            string folderPath;
-            if (Directory.Exists(Path.Join(userPath, "Saved Games", "DCS.openbeta")))
-            {
-                folderPath = Path.Join(userPath, "Saved Games", "DCS.openbeta", "MissionEditor", "UnitPayloads");
-            }
-            else
-            {
-                folderPath = Path.Join(userPath, "Saved Games", "DCS", "MissionEditor", "UnitPayloads");
-            }
+
+
+            var folderPath = Path.Join(getSaveGamePath(), "MissionEditor", "UnitPayloads");
+
             if (!File.Exists(Path.Join(folderPath, $"{DCSID}.lua")))
                 return;
 
@@ -239,16 +233,8 @@ namespace BriefingRoom4DCS.Data
 
         internal void GetDCSLiveries()
         {
-            var userPath = Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
-            string folderPath;
-            if (Directory.Exists(Path.Join(userPath, "Saved Games", "DCS.openbeta")))
-            {
-                folderPath = Path.Join(userPath, "Saved Games", "DCS.openbeta", "Liveries");
-            }
-            else
-            {
-                folderPath = Path.Join(userPath, "Saved Games", "DCS", "Liveries");
-            }
+            var folderPath = Path.Join(getSaveGamePath(), "Liveries");
+
             if (!Directory.Exists(Path.Join(folderPath, $"{DCSID}")))
                 return;
 
@@ -274,6 +260,18 @@ namespace BriefingRoom4DCS.Data
                 }
             }
 
+        }
+
+        private string getSaveGamePath()
+        {
+            if (string.IsNullOrEmpty(Database.Instance.Common.DCSSaveGamePath))
+                return Database.Instance.Common.DCSSaveGamePath;
+
+            var userPath = Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
+            if (Directory.Exists(Path.Join(userPath, "Saved Games", "DCS.openbeta")))
+                return Path.Join(userPath, "Saved Games", "DCS.openbeta");
+            else
+                return Path.Join(userPath, "Saved Games", "DCS");
         }
     }
 }

@@ -46,7 +46,8 @@ namespace BriefingRoom4DCS.Data
         internal DBCommonNames Names { get; private set; }
         internal DBCommonWind[] Wind { get; private set; }
         internal DBCommonBriefing Briefing { get; private set; }
-        internal DBCommonFrontLine FrontLine { get; private set;}
+        internal DBCommonFrontLine FrontLine { get; private set; }
+        internal string DCSSaveGamePath { get; private set; } = string.Empty;
 
         internal DatabaseCommon() { }
 
@@ -67,17 +68,15 @@ namespace BriefingRoom4DCS.Data
             MinCampaignMissions = commonIni.GetValue<int>("Limits", "MinCampaignMissions");
             MaxCampaignMissions = commonIni.GetValue<int>("Limits", "MaxCampaignMissions");
             DropOffDistanceMeters = commonIni.GetValue<int>("Limits", "DropOffDistanceMeters");
+            DCSSaveGamePath = commonIni.GetValue("Include", "SaveGamePath", "");
 
             HoldTimesInMinutes = new Dictionary<Amount, MinMaxI>();
             foreach (Amount amount in Toolbox.GetEnumValues<Amount>())
                 HoldTimesInMinutes[amount] = commonIni.GetValue<MinMaxI>("HoldTimeMinutes", amount.ToString());
-            
-            HoldSizesInNauticalMiles =  new Dictionary<Amount, MinMaxI>();
+
+            HoldSizesInNauticalMiles = new Dictionary<Amount, MinMaxI>();
             foreach (Amount amount in Toolbox.GetEnumValues<Amount>())
                 HoldSizesInNauticalMiles[amount] = commonIni.GetValue<MinMaxI>("HoldSizeNauticalMiles", amount.ToString());
-
-
-           
 
             foreach (string f in CommonOGG)
                 if (!File.Exists(Path.Combine(BRPaths.INCLUDE_OGG, $"{f}.ogg")))
@@ -107,7 +106,5 @@ namespace BriefingRoom4DCS.Data
             for (i = 0; i < Wind.Length; i++)
                 Wind[i] = new DBCommonWind(windIni, ((Wind)i).ToString());
         }
-
-
     }
 }
