@@ -41,6 +41,7 @@ namespace BriefingRoom4DCS.Data
         internal int DetectionRange { get; init; }
         internal int ThreatRangeMin { get; init; }
         internal int ThreatRange { get; init; }
+        internal bool IsMod { get { return !DBEntryDCSMod.CORE_MODS.Contains(Module) && !string.IsNullOrEmpty(Module); } }
 
         override internal DatabaseEntryInfo GetDBEntryInfo()
         {

@@ -122,7 +122,7 @@ namespace BriefingRoom4DCS.Data
 
             var validUnits = SelectValidUnits(langKey, families, decade, unitMods, unitBanList, allowLowPolly, blockSuppliers, allowStatic, allowDefaults: allowDefaults);
 
-            if (validUnits is null)
+            if (validUnits is null || validUnits.Count == 0)
                 return new(Country.ALL, new List<string>());
 
             switch (category)
@@ -151,18 +151,20 @@ namespace BriefingRoom4DCS.Data
 
             selectableUnits = validUnits[country];
 
+            if(selectableUnits.Count == 0)
+                 return new(Country.ALL, new List<string>());
 
             // Different unit types allowed in the group, pick a random type for each unit.
-            if (allowDifferentUnitTypes)
-            {
-                if (lowUnitVariation)
-                    selectableUnits = new List<string> { Toolbox.RandomFrom(selectableUnits), Toolbox.RandomFrom(selectableUnits) };
-                List<string> selectedUnits = new();
-                for (int i = 0; i < count; i++)
-                    selectedUnits.Add(Toolbox.RandomFrom(selectableUnits));
+                if (allowDifferentUnitTypes)
+                {
+                    if (lowUnitVariation)
+                        selectableUnits = new List<string> { Toolbox.RandomFrom(selectableUnits), Toolbox.RandomFrom(selectableUnits) };
+                    List<string> selectedUnits = new();
+                    for (int i = 0; i < count; i++)
+                        selectedUnits.Add(Toolbox.RandomFrom(selectableUnits));
 
-                return new(country, selectedUnits.ToList());
-            }
+                    return new(country, selectedUnits.ToList());
+                }
 
             // Different unit types NOT allowed in the group, pick a random type and fill the whole array with it.
             string unit = Toolbox.RandomFrom(selectableUnits);
@@ -234,7 +236,10 @@ namespace BriefingRoom4DCS.Data
                 validUnits.AddRange(options);
             }
             if (validUnits.Count == 0)
-                BriefingRoom.PrintTranslatableWarning(langKey, "NoDefautUnitsFound",UIDisplayName.Get(langKey), decade, string.Join(", ", families));
+            {
+                BriefingRoom.PrintTranslatableWarning(langKey, "NoDefautUnitsFound", UIDisplayName.Get(langKey), decade, string.Join(", ", families));
+                return new Dictionary<Country, List<string>>();
+            }
             else
                 BriefingRoom.PrintTranslatableWarning(langKey, "DefaultUnitNeeded", UIDisplayName.Get(langKey), string.Join(", ", validUnits), decade, string.Join(", ", families));
             return new Dictionary<Country, List<string>> { { Country.ALL, validUnits } };
