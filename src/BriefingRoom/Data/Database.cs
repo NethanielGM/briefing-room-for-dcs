@@ -117,7 +117,7 @@ namespace BriefingRoom4DCS.Data
 
             Type dbType = typeof(T);
             if (!DBEntries.ContainsKey(dbType))
-                DBEntries.Add(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
+                DBEntries.TryAdd(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
             DBEntries[dbType].Clear();
             UnloadedEntries[dbType] = new(subDirectory, type);
         }
@@ -163,7 +163,7 @@ namespace BriefingRoom4DCS.Data
             string shortTypeName = dbType.Name[7..].ToLower();
 
             if (!DBEntries.ContainsKey(dbType))
-                DBEntries.Add(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
+                DBEntries.TryAdd(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
 
             DBEntries[dbType].Clear();
 
@@ -174,7 +174,7 @@ namespace BriefingRoom4DCS.Data
                 if (DBEntries[dbType].ContainsKey(id)) continue;
                 T entry = new();
                 if (!entry.Load(this, id, filePath)) continue;
-                DBEntries[dbType].Add(id, entry);
+                DBEntries[dbType].TryAdd(id, entry);
                 BriefingRoom.PrintToLog($"Loaded {shortTypeName} \"{id}\"");
             }
             BriefingRoom.PrintToLog($"Found {DBEntries[dbType].Count} database entries of type \"{typeof(T).Name}\"");
@@ -203,7 +203,7 @@ namespace BriefingRoom4DCS.Data
 
 
             if (!DBEntries.ContainsKey(dbType))
-                DBEntries.Add(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
+                DBEntries.TryAdd(dbType, new Dictionary<string, DBEntry>(StringComparer.InvariantCultureIgnoreCase));
             Dictionary<string, DBEntry> entries = new T() switch
             {
                 DBEntryAirbase a => DBEntries[dbType].Concat(DBEntryAirbase.LoadJSON(filePath, Language)).ToDictionary(pair => pair.Key, pair => pair.Value),
@@ -289,7 +289,7 @@ namespace BriefingRoom4DCS.Data
                 }
                 else
                 {
-                    DBEntries[dbType].Add(id, entry);
+                    DBEntries[dbType].TryAdd(id, entry);
                     BriefingRoom.PrintToLog($"Loaded {shortTypeName} \"{id}\"");
                 }
             }
