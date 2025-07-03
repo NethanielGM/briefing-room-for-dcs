@@ -22,7 +22,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BriefingRoom4DCS.Data.JSON;
 using Newtonsoft.Json;
 
@@ -122,11 +125,11 @@ namespace BriefingRoom4DCS.Data
         {
 
             if (_SpawnPoints != null) return _SpawnPoints;
-            var spawnPointsJsonFilePath = Path.Combine(BRPaths.DATABASEJSON, "TheaterSpawnPoints", $"{DCSID}.json");
+            var spawnPointsJsonFilePath = Path.Combine(BRPaths.DATABASEJSON, "TheaterSpawnPoints", $"{DCSID}.json.gz");
             if (!File.Exists(spawnPointsJsonFilePath))
                 throw new BriefingRoomException("en", $"{DCSID} Missing SpawnPoint JSON Data. File not found: {spawnPointsJsonFilePath}");
 
-            _SpawnPoints = JsonConvert.DeserializeObject<List<SpawnPoint>>(File.ReadAllText(spawnPointsJsonFilePath)).Select(x =>
+            _SpawnPoints = ReadSpawnPointsFromFile(spawnPointsJsonFilePath).Select(x =>
                 new DBEntryTheaterSpawnPoint
                 {
                     Coordinates = new Coordinates(x.coords),
@@ -135,10 +138,10 @@ namespace BriefingRoom4DCS.Data
             ).ToArray();
             BriefingRoom.PrintToLog($"{DCSID} loaded {_SpawnPoints.Length} spawn points");
 
-            var spawnPointsGeneratedJsonFilePath = Path.Combine(BRPaths.DATABASEJSON, "TheaterSpawnPoints", $"{DCSID}_Generated.json");
+            var spawnPointsGeneratedJsonFilePath = Path.Combine(BRPaths.DATABASEJSON, "TheaterSpawnPoints", $"{DCSID}_Generated.json.gz");
             if (File.Exists(spawnPointsGeneratedJsonFilePath))
             {
-                var generatedSpawnPoints = JsonConvert.DeserializeObject<List<SpawnPoint>>(File.ReadAllText(spawnPointsGeneratedJsonFilePath)).Select(x =>
+                var generatedSpawnPoints = ReadSpawnPointsFromFile(spawnPointsGeneratedJsonFilePath).Select(x =>
                     new DBEntryTheaterSpawnPoint
                     {
                         Coordinates = new Coordinates(x.coords),
@@ -148,10 +151,17 @@ namespace BriefingRoom4DCS.Data
                 BriefingRoom.PrintToLog($"{DCSID} loaded {generatedSpawnPoints.Length} generated spawn points");
                 _SpawnPoints = _SpawnPoints.Concat(generatedSpawnPoints).ToArray();
                 BriefingRoom.PrintToLog($"{DCSID} total {SpawnPoints.Length} spawn points");
-
             }
             return _SpawnPoints;
+        }
 
+        private List<SpawnPoint> ReadSpawnPointsFromFile(string filePath)
+        {
+             using FileStream compressedFileStream = File.Open(filePath, FileMode.Open);
+            using var decompressor = new GZipStream(compressedFileStream, CompressionMode.Decompress);
+            using var resultStream = new MemoryStream();
+            decompressor.CopyTo(resultStream);
+            return JsonConvert.DeserializeObject<List<SpawnPoint>>(Encoding.ASCII.GetString(resultStream.ToArray()));
         }
 
         private static MinMaxI? ParseMinMaxTime(string[] timeValues)
