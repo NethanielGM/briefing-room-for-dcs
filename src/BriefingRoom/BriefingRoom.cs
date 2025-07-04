@@ -69,10 +69,12 @@ namespace BriefingRoom4DCS
 
 
             OnMessageLogged = logHandler;
-            if (nukeDB) 
+            if (nukeDB)
             {
                 Database.Reset();
-            } else {
+            }
+            else
+            {
                 Database.Instance.Initialize();
             }
             LanguageDB = Database.Instance.Language;
@@ -88,7 +90,8 @@ namespace BriefingRoom4DCS
             return Database.Instance.GetAllEntries<DBEntryJSONUnit>().Where(x => x.Families.Contains(family)).Select(x => x.ID).ToList();
         }
 
-        public DatabaseEntryInfo[] GetDatabaseEntriesInfo(DatabaseEntryType entryType, string parameter = "") {
+        public DatabaseEntryInfo[] GetDatabaseEntriesInfo(DatabaseEntryType entryType, string parameter = "")
+        {
             return GetDatabaseEntriesInfo(LanguageKey, entryType, parameter);
         }
 
@@ -166,9 +169,10 @@ namespace BriefingRoom4DCS
             return null;
         }
 
-         public DatabaseEntryInfo? GetSingleDatabaseEntryInfo(DatabaseEntryType entryType, string id) {
+        public DatabaseEntryInfo? GetSingleDatabaseEntryInfo(DatabaseEntryType entryType, string id)
+        {
             return GetSingleDatabaseEntryInfo(LanguageKey, entryType, id);
-         }
+        }
 
         public static DatabaseEntryInfo? GetSingleDatabaseEntryInfo(string langKey, DatabaseEntryType entryType, string id)
         {
@@ -193,9 +197,17 @@ namespace BriefingRoom4DCS
         public static List<string> GetAircraftPayloads(string aircraftID) =>
             Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Payloads.Select(x => x.name).Distinct().Order().ToList();
 
-         public static List<SpawnPoint> GetTheaterSpawnPoints(string theaterID) =>
-            Database.Instance.GetEntry<DBEntryTheater>(theaterID).SpawnPoints.Select(x => x.ToSpawnPoint()).ToList();
+        public static List<SpawnPoint> GetTheaterSpawnPoints(string theaterID) =>
+           Database.Instance.GetEntry<DBEntryTheater>(theaterID).SpawnPoints.Select(x => x.ToSpawnPoint()).ToList();
 
+        public static Tuple<List<List<double[]>>, List<List<double[]>>> GetTheaterWaterZones(string theaterID)
+        {
+            var theater = Database.Instance.GetEntry<DBEntryTheater>(theaterID);
+            return new Tuple<List<List<double[]>>, List<List<double[]>>>(
+                theater.WaterCoordinates.Select(x => x.Select(y => y.ToArray()).ToList()).ToList(),
+                theater.WaterExclusionCoordinates.Select(x => x.Select(y => y.ToArray()).ToList()).ToList()
+                );
+        }
 
         public static string GetAlias(int index) => Toolbox.GetAlias(index);
 
@@ -219,7 +231,7 @@ namespace BriefingRoom4DCS
             return CampaignGenerator.Generate(LanguageKey, new CampaignTemplate(templateFilePath));
         }
 
-        public  DCSCampaign GenerateCampaign(CampaignTemplate template)
+        public DCSCampaign GenerateCampaign(CampaignTemplate template)
         {
             return CampaignGenerator.Generate(LanguageKey, template);
         }
@@ -260,33 +272,37 @@ namespace BriefingRoom4DCS
             return Toolbox.PATH_USER_DOCS;
         }
 
-        public string Translate(string key){
-                if(LanguageDB == null)
-                    return key;
-                return LanguageDB.Translate(LanguageKey, key);
-            }
-        public string Translate(string key, params object[] args) {
-            if(LanguageDB == null)
-                    return key;
+        public string Translate(string key)
+        {
+            if (LanguageDB == null)
+                return key;
+            return LanguageDB.Translate(LanguageKey, key);
+        }
+        public string Translate(string key, params object[] args)
+        {
+            if (LanguageDB == null)
+                return key;
             var template = LanguageDB.Translate(LanguageKey, key);
             return string.Format(template, args);
         }
 
-        public static string Translate(string langKey, string key){
-                if(LanguageDB == null)
-                    return key;
-                return LanguageDB.Translate(langKey, key);
-            }
-        public static string Translate(string langKey, string key, params object[] args) {
-            if(LanguageDB == null)
-                    return key;
+        public static string Translate(string langKey, string key)
+        {
+            if (LanguageDB == null)
+                return key;
+            return LanguageDB.Translate(langKey, key);
+        }
+        public static string Translate(string langKey, string key, params object[] args)
+        {
+            if (LanguageDB == null)
+                return key;
             var template = LanguageDB.Translate(langKey, key);
             return string.Format(template, args);
         }
 
-        internal static void PrintTranslatableWarning(string langKey,string key, params object[] args)
+        internal static void PrintTranslatableWarning(string langKey, string key, params object[] args)
         {
-           PrintToLog(Translate(langKey, key, args), LogMessageErrorLevel.Warning);
+            PrintToLog(Translate(langKey, key, args), LogMessageErrorLevel.Warning);
         }
 
 

@@ -6,7 +6,7 @@ const situationMapLayers = {
 
 let leafSituationMap, drawnItems, SPGroupS, SPGroupM, SPGroupL;
 
-async function RenderEditorMap(map, spawnPoints, airbaseData) {
+async function RenderEditorMap(map, spawnPoints, airbaseData, landWaterZones) {
   console.log("SpawnPoints", spawnPoints.length);
   if (leafSituationMap) {
     leafSituationMap.off();
@@ -20,12 +20,15 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
     SPGroupS = new L.layerGroup();
     SPGroupM = new L.layerGroup();
     SPGroupL = new L.layerGroup();
+    LangGroup = new L.layerGroup();
     L.easyButton(
       "oi oi-dial",
       function (btn, map) {
         ToggleSPLayer("S");
       },
-      `Spawn Points Small (${spawnPoints.filter(x => x.bRtype == "LandSmall").length})`
+      `Spawn Points Small (${
+        spawnPoints.filter((x) => x.bRtype == "LandSmall").length
+      })`
     ).addTo(leafSituationMap);
 
     L.easyButton(
@@ -33,14 +36,25 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
       function (btn, map) {
         ToggleSPLayer("M");
       },
-      `Spawn Points Med (${spawnPoints.filter(x => x.bRtype == "LandMedium").length})`
+      `Spawn Points Med (${
+        spawnPoints.filter((x) => x.bRtype == "LandMedium").length
+      })`
     ).addTo(leafSituationMap);
     L.easyButton(
       "oi oi-dial",
       function (btn, map) {
         ToggleSPLayer("L");
       },
-      `Spawn Points Large (${spawnPoints.filter(x => x.bRtype == "LandLarge").length})`
+      `Spawn Points Large (${
+        spawnPoints.filter((x) => x.bRtype == "LandLarge").length
+      })`
+    ).addTo(leafSituationMap);
+    L.easyButton(
+      "oi oi-droplet",
+      function (btn, map) {
+        ToggleLandBounds();
+      },
+      "Land Water Zones"
     ).addTo(leafSituationMap);
   } catch (error) {
     console.warn(error);
@@ -114,9 +128,35 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
       );
     });
   });
+
+  const waterZones = landWaterZones.item1;
+  const waterExclusionZones = landWaterZones.item2;
+  const projector = GetDCSMapProjector(map);
+
+  waterZones.forEach((zone) => {
+    zone = zone.map((x) => DCStoLatLong(x, projector).reverse());
+    var layer = L.polygon(zone, {
+      color: "blue",
+      fillColor: "blue",
+      fillOpacity: 0.2,
+    });
+    layer.addTo(LangGroup);
+  });
+
+  waterExclusionZones.forEach((zone) => {
+    zone = zone.map((x) => DCStoLatLong(x, projector).reverse());
+    var layer = L.polygon(zone, {
+      color: "yellow",
+      fillColor: "yellow",
+      fillOpacity: 0.2,
+    });
+    layer.addTo(LangGroup);
+  });
+
   let totalL = 0;
   let totalM = 0;
   let totalS = 0;
+
   const addSP = (sp) => {
     let iconType = "GREEN_AIRBASE";
     let SPGroup = SPGroupM;
@@ -150,14 +190,23 @@ async function RenderEditorMap(map, spawnPoints, airbaseData) {
       })
     );
   };
+
   const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-  }
-  shuffle(spawnPoints)
+  };
+  shuffle(spawnPoints);
   spawnPoints.forEach(addSP);
+}
+
+function ToggleLandBounds() {
+  if (LangGroup._map) {
+    LangGroup.remove();
+    return;
+  }
+  LangGroup.addTo(leafSituationMap);
 }
 
 function ToggleSPLayer(size) {
