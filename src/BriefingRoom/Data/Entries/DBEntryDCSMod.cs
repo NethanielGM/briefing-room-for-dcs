@@ -73,7 +73,8 @@ namespace BriefingRoom4DCS.Data
             "OH58D AI by Polychop-Simulations",
             "CH-47F bl.1 AI",
             "Yak-52 AI by Eagle Dynamics",
-            "F4U-1D AI by Magnitude 3 LLC"
+            "F4U-1D AI by Magnitude 3 LLC",
+            "Mirage F1 Assets by Aerges"
         };
 
         internal string Module { get; private set; }
