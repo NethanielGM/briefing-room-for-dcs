@@ -164,7 +164,7 @@ namespace BriefingRoom4DCS.Generator
             }
 
 
-            var (units ,convertedUnitTemplate) = templateLocation.CreateTemplatePositionMap(unitMap, tryUseAll);
+            var (units, convertedUnitTemplate) = templateLocation.CreateTemplatePositionMap(unitMap, tryUseAll);
             extraSettings["TemplatePositionMap"] = convertedUnitTemplate;
             if (country != Country.ALL && unitsCoalitionDB.Countries.Contains(country))
                 extraSettings["Country"] = country;
@@ -236,7 +236,7 @@ namespace BriefingRoom4DCS.Generator
                 Coalition.Red => Country.CombinedJointTaskForcesRed,
                 _ => Toolbox.RandomFrom(mission.CoalitionsCountries[(int)Coalition.Neutral]),
             };
-            var country = (Country)extraSettings.GetValueOrDefault("Country", defaultCountry); 
+            var country = (Country)extraSettings.GetValueOrDefault("Country", defaultCountry);
             var isUsingSkynet = mission.TemplateRecord.MissionFeatures.Contains("SkynetIADS");
             var groupName = GeneratorTools.GetGroupName(mission.LangKey, mission.GroupID, unitFamily, side, isUsingSkynet);
             UnitCallsign? callsign = null;
@@ -260,7 +260,7 @@ namespace BriefingRoom4DCS.Generator
                 );
 
             var firstUnitID = mission.UnitID;
-            var firstUnitDB = units.Select(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x)).FirstOrDefault(x => x != null, null) ?? throw new BriefingRoomException(mission.LangKey, "CantFindUnits",units[0]);
+            var firstUnitDB = units.Select(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x)).FirstOrDefault(x => x != null, null) ?? throw new BriefingRoomException(mission.LangKey, "CantFindUnits", units[0]);
             if (unitFamily.GetUnitCategory().IsAircraft())
             {
                 callsign = UnitMakerCallsignGenerator.GetCallsign(ref mission, (DBEntryAircraft)firstUnitDB, country, side, isUsingSkynet, extraSettings.GetValueOrDefault("OverrideCallsignName", "").ToString(), (int)extraSettings.GetValueOrDefault("OverrideCallsignNumber", 1));
@@ -272,7 +272,7 @@ namespace BriefingRoom4DCS.Generator
 
                 var aircraftUnitDB = (DBEntryAircraft)firstUnitDB;
                 var payloadName = extraSettings.GetValueOrDefault("Payload", "").ToString();
-                extraSettings["Pylons"] = !String.IsNullOrEmpty(payloadName) && payloadName != "default" ? aircraftUnitDB.GetPylonsObject(payloadName) : aircraftUnitDB.GetPylonsObject((DCSTask)extraSettings.GetValueOrDefault("DCSTask", DCSTask.Nothing));
+                extraSettings["Pylons"] = !String.IsNullOrEmpty(payloadName) && payloadName != "default" ? aircraftUnitDB.GetPylonsObject(payloadName) : aircraftUnitDB.GetPylonsObject((DCSTask)extraSettings.GetValueOrDefault("DCSTask", DCSTask.Nothing), mission.TemplateRecord.ContextDecade);
             }
 
             GetLivery(ref mission, firstUnitDB, country, coalition, ref extraSettings);
@@ -311,7 +311,8 @@ namespace BriefingRoom4DCS.Generator
                 if (unitMakerGroupFlags.HasFlag(UnitMakerGroupFlags.ImmediateAircraftSpawn))
                 {
                     dCSGroup.Name += "-IQ-";
-                    if (unitMakerGroupFlags.HasFlag(UnitMakerGroupFlags.ScrambleStart)) {
+                    if (unitMakerGroupFlags.HasFlag(UnitMakerGroupFlags.ScrambleStart))
+                    {
                         dCSGroup.LateActivation = false;
                         dCSGroup.Uncontrolled = false;
                     }
@@ -532,7 +533,8 @@ namespace BriefingRoom4DCS.Generator
             if (unitMakerGroupFlags.HasFlag(UnitMakerGroupFlags.EmbeddedAirDefense) && unitFamily != UnitFamily.StaticStructureOffshore)
             {
                 List<string> airDefenseUnits = GeneratorTools.GetEmbeddedAirDefenseUnits(mission.LangKey, mission.TemplateRecord, side, unitFamily.GetUnitCategory());
-                if (airDefenseUnits.Count > 0) {
+                if (airDefenseUnits.Count > 0)
+                {
                     var dCSGroup = CreateGroup(
                             ref mission,
                             "Vehicle",
@@ -736,7 +738,7 @@ namespace BriefingRoom4DCS.Generator
         {
             if (!extraSettings.ContainsKey("GroupX2"))
                 return 0.0;
-                // return 3.141593;
+            // return 3.141593;
             var waypointCoor = new Coordinates((double)extraSettings["GroupX2"], (double)extraSettings["GroupY2"]);
             return Coordinates.ToAngleInRadians(groupCoordinates, waypointCoor);
         }
@@ -807,8 +809,8 @@ namespace BriefingRoom4DCS.Generator
             // it seems that for some reason X&Y are reversed when it comes to this stuff and needs to rotated backawards from heading.
             // Why don't know Maybe ED will announce its a bug and poof or soviet russia x is y and y is x
             // Its late my head hurts, be ware all who venture here.
-            double sinTheta = Math.Sin(Toolbox.TWO_PI/2 - groupHeading);
-            double cosTheta = Math.Cos(Toolbox.TWO_PI/2 - groupHeading);
+            double sinTheta = Math.Sin(Toolbox.TWO_PI / 2 - groupHeading);
+            double cosTheta = Math.Cos(Toolbox.TWO_PI / 2 - groupHeading);
             return groupCoordinates + new Coordinates(
                 (offsetCoordinates.X * cosTheta) + (offsetCoordinates.Y * sinTheta),
                 (-offsetCoordinates.X * sinTheta) + (offsetCoordinates.Y * cosTheta));

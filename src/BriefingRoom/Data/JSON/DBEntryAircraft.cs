@@ -163,11 +163,23 @@ namespace BriefingRoom4DCS.Data
             return payload.pylons.ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID }, { "settings", x.settings } });
         }
 
-        internal Dictionary<int, Dictionary<string, object>> GetPylonsObject(DCSTask task)
+        internal Dictionary<int, Dictionary<string, object>> GetPylonsObject(DCSTask task, Decade decade)
         {
             if (Payloads.Count == 0)
                 return new Dictionary<int, Dictionary<string, object>>();
-            var payload = Toolbox.RandomFrom(Payloads.Where(x => x.tasks.Contains((int)task)).ToList()) ?? Toolbox.RandomFrom(Payloads);
+            var options = Payloads.Where(x => x.tasks.Contains((int)task) && (int)x.decade <= (int)decade).ToList();
+            if (options.Count == 0)
+            {
+                options = Payloads.Where(x => (int)x.decade <= (int)decade).ToList();
+                if (options.Count == 0)
+                {
+                    BriefingRoom.PrintToLog($"No payloads found for {DCSID} with task {task} and decade {(int)decade}. Using all available payloads.", LogMessageErrorLevel.Warning);
+                    options = Payloads.Where(x => x.tasks.Contains((int)task)).ToList();
+                    if (options.Count == 0)
+                        options = Payloads;
+                }
+            }
+            var payload = Toolbox.RandomFrom(options);
             return payload.pylons.Where(x => x != null).ToDictionary(x => x.num, x => new Dictionary<string, object> { { "CLSID", x.CLSID }, { "settings", x.settings } });
         }
 
