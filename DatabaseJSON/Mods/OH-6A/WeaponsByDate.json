@@ -1,0 +1,12 @@
+[
+  { "decade": 1960, "clsid": "{OH-6_CAMRIG}" },
+  { "decade": 1960, "clsid": "{OH-6 M134 Door}" },
+  { "decade": 1960, "clsid": "{OH-6 M134 Minigun}" },
+  { "decade": 1960, "clsid": "{OH6_XM158}" },
+  { "decade": 1960, "clsid": "{OH-6 M60 Door}" },
+  { "decade": 1960, "clsid": "{OH6_SMOKE_BLUE}" },
+  { "decade": 1960, "clsid": "{OH6_FRAG}" },
+  { "decade": 1960, "clsid": "{OH6_SMOKE_GREEN}" },
+  { "decade": 1960, "clsid": "{OH6_SMOKE_RED}" },
+  { "decade": 1960, "clsid": "{OH6_SMOKE_YELLOW}" }
+]

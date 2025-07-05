@@ -1,0 +1,7 @@
+[
+  { "decade": 2010, "clsid": "{UH60_SEAT_CARGO_ALL}" },
+  { "decade": 2010, "clsid": "{UH60_SEAT_CARGO_REAR}" },
+  { "decade": 2010, "clsid": "{UH60_SEAT_GUNNER_R}" },
+  { "decade": 2010, "clsid": "{UH60_SEAT_GUNNER_L}" },
+  { "decade": 2010, "clsid": "{UH60_FUEL_TANK_230}" }
+]

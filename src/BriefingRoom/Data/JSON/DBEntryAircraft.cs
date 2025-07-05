@@ -79,7 +79,7 @@ namespace BriefingRoom4DCS.Data
             var itemMap = new Dictionary<string, DBEntry>(StringComparer.InvariantCulture);
             var data = JsonConvert.DeserializeObject<List<Aircraft>>(File.ReadAllText(filepath));
             var supportData = JsonConvert.DeserializeObject<List<BRInfo>>(File.ReadAllText($"{filepath.Replace(".json", "")}BRInfo.json")).ToDictionary(x => x.type, x => x);
-
+            Dictionary<string, Tuple<int, Decade>> missingCSLIDcount = new Dictionary<string, Tuple<int, Decade>>(StringComparer.InvariantCulture);
             foreach (var aircraft in data)
             {
                 var id = aircraft.type;
@@ -131,11 +131,21 @@ namespace BriefingRoom4DCS.Data
                     LowPolly = supportInfo.lowPolly
                 };
                 DBaircraft.GetDCSPayloads();
+                DBaircraft.ApplyPayloadDates(ref missingCSLIDcount);
                 DBaircraft.GetDCSLiveries();
                 itemMap.Add(id, DBaircraft);
 
             }
-
+            if (missingCSLIDcount.Count > 0)
+            {
+                var ordered = missingCSLIDcount.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+                var msg = $"Aircraft missing CLSID info: ";
+                foreach (var item in ordered)
+                {
+                    msg += $"\n  {{ \"decade\": null, \"decadeGuess\": {(int)item.Value.Item2}, \"clsid\": \"{item.Key}\"}}, ({item.Value.Item1}) ";
+                }
+                BriefingRoom.PrintToLog(msg, LogMessageErrorLevel.Warning);
+            }
 
             missingDCSDataWarnings(supportData, itemMap, "Aircraft");
 
@@ -272,6 +282,40 @@ namespace BriefingRoom4DCS.Data
                 return Path.Join(userPath, "Saved Games", "DCS.openbeta");
             else
                 return Path.Join(userPath, "Saved Games", "DCS");
+        }
+
+        private void ApplyPayloadDates(ref Dictionary<string, Tuple<int, Decade>> missingCLSIDMap)
+        {
+            if (Payloads.Count == 0)
+                return;
+
+            foreach (var payload in Payloads)
+            {
+                payload.decade = Decade.Decade1940;
+                foreach (var pylon in payload.pylons)
+                {
+                    if (pylon.CLSID == null || pylon.CLSID == "")
+                        continue;
+                    var info = Database.Instance.GetEntry<DBEntryWeaponByDecade>(pylon.CLSID);
+                    if (info == null)
+                    {
+                        var youngestDecade = Operators.Values.Select(x => x.start).Min();
+                        if (missingCLSIDMap.ContainsKey(pylon.CLSID))
+                        {
+                            if (missingCLSIDMap[pylon.CLSID].Item2 < youngestDecade)
+                                youngestDecade = missingCLSIDMap[pylon.CLSID].Item2;
+                            missingCLSIDMap[pylon.CLSID] = new Tuple<int, Decade>(missingCLSIDMap[pylon.CLSID].Item1 + 1, youngestDecade);
+                        }
+                        else
+                            missingCLSIDMap.Add(pylon.CLSID, new Tuple<int, Decade>(1, youngestDecade));
+                        continue;
+                    }
+                    if (info.StartDecade > payload.decade)
+                    {
+                        payload.decade = info.StartDecade;
+                    }
+                }
+            }
         }
     }
 }

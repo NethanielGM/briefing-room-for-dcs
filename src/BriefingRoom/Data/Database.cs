@@ -83,6 +83,9 @@ namespace BriefingRoom4DCS.Data
             PrepLoadEntries<DBEntryAirbase>("LoadJSONEntries", "TheatersAirbases");
             PrepLoadEntries<DBEntrySituation>("LoadJSONFolderEntries", "Situations");
             PrepLoadEntries<DBEntryDCSMod>("LoadEntries", "DCSMods");
+            LoadJSONEntries<DBEntryWeaponByDecade>("WeaponsByDate");
+            LoadJSONEntries<DBEntryWeaponByDecade>("WeaponsByDate_custom");
+            LoadJSONModEntries<DBEntryWeaponByDecade>("WeaponsByDate", false);
             LoadJSONEntries<DBEntryCar>("UnitCars", true);
             LoadJSONModEntries<DBEntryCar>("UnitCars", true);
             LoadJSONEntries<DBEntryAircraft>("UnitPlanes", true);
@@ -215,6 +218,7 @@ namespace BriefingRoom4DCS.Data
                 DBEntryTemplate a => DBEntries[dbType].Concat(DBEntryTemplate.LoadJSON(filePath, Language)).ToDictionary(pair => pair.Key, pair => pair.Value),
                 DBEntryLayout a => DBEntries[dbType].Concat(DBEntryLayout.LoadJSON(filePath, Language)).ToDictionary(pair => pair.Key, pair => pair.Value),
                 DBEntrySituation a => DBEntries[dbType].Concat(DBEntrySituation.LoadJSON(filePath, Language)).ToDictionary(pair => pair.Key, pair => pair.Value),
+                DBEntryWeaponByDecade a => DBEntries[dbType].Concat(DBEntryWeaponByDecade.LoadJSON(filePath, Language)).ToDictionary(pair => pair.Key, pair => pair.Value),
                 _ => throw new BriefingRoomException("en", $"JSON type {dbType} not implemented."),
             };
             DBEntries[dbType] = entries;

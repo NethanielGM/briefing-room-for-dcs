@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BriefingRoom4DCS.Template;
 
 
 namespace BriefingRoom4DCS.Data.JSON
@@ -65,6 +66,7 @@ namespace BriefingRoom4DCS.Data.JSON
         public List<int?> tasks { get; set; }
         public string name { get; set; }
         public string displayName { get; set; }
+        public Decade decade { get; set; }
     }
 
     public class CallSign

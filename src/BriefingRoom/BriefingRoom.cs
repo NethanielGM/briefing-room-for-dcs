@@ -194,8 +194,8 @@ namespace BriefingRoom4DCS
 
         public static List<string> GetAircraftCallsigns(string aircraftID, Country country) => Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).CallSigns[country].Select(x => x).Distinct().Order().ToList();
 
-        public static List<string> GetAircraftPayloads(string aircraftID) =>
-            Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Payloads.Select(x => x.name).Distinct().Order().ToList();
+        public static List<Tuple<string, Decade>> GetAircraftPayloads(string aircraftID) =>
+            Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Payloads.Select(x => new Tuple<string, Decade>(x.name,x.decade)).Distinct().Order().ToList();
 
         public static List<SpawnPoint> GetTheaterSpawnPoints(string theaterID) =>
            Database.Instance.GetEntry<DBEntryTheater>(theaterID).SpawnPoints.Select(x => x.ToSpawnPoint()).ToList();
