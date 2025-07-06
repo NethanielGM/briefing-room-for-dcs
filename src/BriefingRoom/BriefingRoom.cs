@@ -50,6 +50,7 @@ namespace BriefingRoom4DCS
 
         public const int MAXFILESIZE = 50000000;
 
+        public static string DCSSaveGamePath { get; private set; } = string.Empty;
 
 
         public delegate void LogHandler(string message, LogMessageErrorLevel errorLevel);
@@ -67,7 +68,7 @@ namespace BriefingRoom4DCS
             foreach (var key in ini.GetKeysInSection("Languages"))
                 AvailableLanguagesMap.AddIfKeyUnused(key, ini.GetValue<string>("Languages", key));
 
-
+            getSaveGamePath();
             OnMessageLogged = logHandler;
             if (nukeDB)
             {
@@ -195,7 +196,7 @@ namespace BriefingRoom4DCS
         public static List<string> GetAircraftCallsigns(string aircraftID, Country country) => Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).CallSigns[country].Select(x => x).Distinct().Order().ToList();
 
         public static List<Tuple<string, Decade>> GetAircraftPayloads(string aircraftID) =>
-            Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Payloads.Select(x => new Tuple<string, Decade>(x.name,x.decade)).Distinct().Order().ToList();
+            Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Payloads.Select(x => new Tuple<string, Decade>(x.name, x.decade)).Distinct().Order().ToList();
 
         public static List<SpawnPoint> GetTheaterSpawnPoints(string theaterID) =>
            Database.Instance.GetEntry<DBEntryTheater>(theaterID).SpawnPoints.Select(x => x.ToSpawnPoint()).ToList();
@@ -316,6 +317,38 @@ namespace BriefingRoom4DCS
         public static void ReloadDatabase()
         {
             Database.Reset();
+        }
+
+        private void getSaveGamePath()
+        {
+            if(!string.IsNullOrEmpty(DCSSaveGamePath))
+                return;
+            var userPath = Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
+            if (Directory.Exists(Path.Join(userPath, "Saved Games", "DCS.openbeta")))
+            {
+                DCSSaveGamePath = Path.Join(userPath, "Saved Games", "DCS.openbeta");
+                return;
+            }
+            if (Directory.Exists(Path.Join(userPath, "Saved Games", "DCS")))
+            {
+                DCSSaveGamePath = Path.Join(userPath, "Saved Games", "DCS");
+                return;
+            }
+
+        }
+
+        public bool SetDCSSaveGamePath(string path)
+        {
+            if (
+                Directory.Exists(path) &&
+                Directory.Exists(Path.Join(path, "MissionEditor", "UnitPayloads")) &&
+                Directory.Exists(Path.Join(path, "Liveries")))
+            {
+                DCSSaveGamePath = path;
+                Database.Reset();
+                return true;
+            }
+            return false;
         }
     }
 }

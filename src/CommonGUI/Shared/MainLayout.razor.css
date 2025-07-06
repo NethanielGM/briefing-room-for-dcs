@@ -74,3 +74,17 @@
         padding-right: 1.5rem !important;
     }
 }
+
+.save-path-success > label,
+.save-path-error > label {
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.save-path-error > input {
+    background-color: lightcoral;
+}
+
+.save-path-success > input {
+    background-color: lightgreen;
+}

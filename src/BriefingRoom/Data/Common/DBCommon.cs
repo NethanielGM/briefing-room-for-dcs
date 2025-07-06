@@ -47,7 +47,7 @@ namespace BriefingRoom4DCS.Data
         internal DBCommonWind[] Wind { get; private set; }
         internal DBCommonBriefing Briefing { get; private set; }
         internal DBCommonFrontLine FrontLine { get; private set; }
-        internal string DCSSaveGamePath { get; private set; } = string.Empty;
+        
 
         internal DatabaseCommon() { }
 
@@ -68,7 +68,6 @@ namespace BriefingRoom4DCS.Data
             MinCampaignMissions = commonIni.GetValue<int>("Limits", "MinCampaignMissions");
             MaxCampaignMissions = commonIni.GetValue<int>("Limits", "MaxCampaignMissions");
             DropOffDistanceMeters = commonIni.GetValue<int>("Limits", "DropOffDistanceMeters");
-            DCSSaveGamePath = commonIni.GetValue("Include", "SaveGamePath", "");
 
             HoldTimesInMinutes = new Dictionary<Amount, MinMaxI>();
             foreach (Amount amount in Toolbox.GetEnumValues<Amount>())

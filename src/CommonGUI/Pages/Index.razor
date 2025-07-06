@@ -27,6 +27,25 @@
       </select>
 
     </div>
+     @if (!BriefingRoom.RUNNING_IN_DOCKER)
+                {
+                     <div class="form-group language-selector index @((Layout.saveState.HasValue ? (Layout.saveState.Value ? "save-path-success" : "save-path-error") : ""))">
+                        <label><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("SaveGameLocation")  
+                        @if(Layout.saveState.HasValue)
+                            {
+                                @if (Layout.saveState.Value)
+                                {
+                                    <span class="oi oi-check"></span>
+                                }
+                                else
+                                {
+                                    <span class="oi oi-x"></span>
+                                }
+                            }</label>
+                            <input class="form-control" type="text" @onchange="e => Layout.getDCSSaveGamePath((string)e.Value)" placeholder="@(string.IsNullOrEmpty(BriefingRoom.DCSSaveGamePath) ? "e.g: C:\\Users\\<USER>\\Saved Games\\DCS.openbeta" : BriefingRoom.DCSSaveGamePath)" />
+                    </div>
+                    <div>&nbsp;</div>
+                }
     <div class="row flex-justify-spaced">
       <a href="@BriefingRoom.DISCORD_URL" target="_blank" class="col-1 img-link"><img alt="Discord"
           src="_content/CommonGUI/img/discord-icon-svgrepo-com.svg"></a>

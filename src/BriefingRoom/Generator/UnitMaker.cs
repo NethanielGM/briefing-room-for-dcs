@@ -130,7 +130,7 @@ namespace BriefingRoom4DCS.Generator
                         var unitDB = Database.Instance.GetEntry<DBEntryJSONUnit>(unit.DCSID);
                         if (unitDB == null)
                         {
-                            BriefingRoom.PrintToLog("Unit not found in template: " + unit.DCSID, LogMessageErrorLevel.Warning);
+                            BriefingRoom.PrintTranslatableWarning(mission.LangKey, "UnitNotFoundInTemplate", unit.DCSID);
                             continue;
                         }
                         var matchingFamilies = unitDB.Families.Intersect(unitMap.Keys).ToList();

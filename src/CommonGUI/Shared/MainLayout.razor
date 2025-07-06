@@ -3,17 +3,36 @@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
 <CascadingValue Value="this">
-    <div class="page @((darkmode? "darkMode" : ""))">
+    <div class="page @((darkmode ? "darkMode" : ""))">
         <div class="sidebar">
             <NavMenu />
         </div>
 
         <div class="main">
             <div class="top-row px-4">
+                @if (!BriefingRoom.RUNNING_IN_DOCKER)
+                {
+                     <div class="form-group language-selector @((saveState.HasValue ? (saveState.Value ? "save-path-success" : "save-path-error") : ""))">
+                        <label><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("SaveGameLocation")  
+                        @if(saveState.HasValue)
+                            {
+                                @if (saveState.Value)
+                                {
+                                    <span class="oi oi-check"></span>
+                                }
+                                else
+                                {
+                                    <span class="oi oi-x"></span>
+                                }
+                            }</label>
+                            <input class="form-control" type="text" @onchange="e => getDCSSaveGamePath((string)e.Value)" placeholder="@(string.IsNullOrEmpty(BriefingRoom.DCSSaveGamePath) ? "e.g: C:\\Users\\<USER>\\Saved Games\\DCS.openbeta" : BriefingRoom.DCSSaveGamePath)" />
+                    </div>
+                    <div>&nbsp;</div>
+                }
                 <div class="form-group language-selector">
                     <label>@briefingRoom.Translate("Language") <a href="https://poeditor.com/join/project/MJES2FW5lh"
-                            class="img-link-tiny" target="_blank"><img
-                                src="_content/CommonGUI/img/poeditor.svg" alt="poeditor.com" /></a></label>
+                            class="img-link-tiny" target="_blank"><img src="_content/CommonGUI/img/poeditor.svg"
+                                alt="poeditor.com" /></a></label>
                     <select class="form-control" value=@briefingRoom.LanguageKey
                         @onchange="eventArgs => SetLanguage((string)eventArgs.Value)">
                         @foreach (var key in BriefingRoom.AvailableLanguagesMap.Keys)
@@ -21,7 +40,6 @@
                             <option value="@key">@BriefingRoom.AvailableLanguagesMap[key]</option>
                         }
                     </select>
-
                 </div>
                 @if (BriefingRoom.RUNNING_IN_DOCKER)
                 {
@@ -31,7 +49,7 @@
                 <a href="@BriefingRoom.DISCORD_URL" target="_blank" class="img-link"><img alt="Discord"
                         src="_content/CommonGUI/img/discord-icon-svgrepo-com.svg"></a>
                 <a href="@BriefingRoom.REPO_URL" target="_blank" class="img-link"><img alt="Github"
-                        src="_content/CommonGUI/img/github-mark@((darkmode? "-white" : "")).svg"></a>
+                        src="_content/CommonGUI/img/github-mark@((darkmode ? "-white" : "")).svg"></a>
                 <a href="https://www.patreon.com/bePatron?u=99514930" target="_blank" class="img-link"><img
                         alt="Become a Patron!" src="_content/CommonGUI/img/patreon-icon.png"></a>
                 @if (BriefingRoom.RUNNING_IN_DOCKER)
@@ -50,12 +68,12 @@
                 <label class="bulb">
                     <input type="checkbox" checked=@darkmode
                         @onchange="eventArgs => SetDarkMode((bool)eventArgs.Value)" />
-                    <span class="oi oi-@((darkmode? "sun" : "moon"))"></span>
+                    <span class="oi oi-@((darkmode ? "sun" : "moon"))"></span>
                 </label>
                 <label class="bulb" style="margin-bottom: 3px">
                     <input type="checkbox" checked=@autoLoadPreviousState
                         @onchange="eventArgs => SetAutoLoadPreviousState((bool)eventArgs.Value)" />
-                    <span class="oi oi-aperture" style="color: @((autoLoadPreviousState? "inherit" : "gray"));"></span>
+                    <span class="oi oi-aperture" style="color: @((autoLoadPreviousState ? "inherit" : "gray"));"></span>
                 </label>
             </div>
 
@@ -70,6 +88,8 @@
 @code {
     public bool darkmode = false;
     public bool autoLoadPreviousState = false;
+
+    public bool? saveState = null;
 
     public static List<Tuple<DateTime, LogMessageErrorLevel, string>> logs = new List<Tuple<DateTime, LogMessageErrorLevel,
     string>>();
@@ -90,6 +110,11 @@
                 darkmode = await localStorage.GetItemAsync<bool>("DCSUseDarkMode");
                 autoLoadPreviousState = await localStorage.GetItemAsync<bool>("DCSAutoLoadPreviousState");
                 briefingRoom.LanguageKey = await localStorage.GetItemAsync<string>("DCSLanguage");
+                var path = await localStorage.GetItemAsync<string>("DCSSaveGamePath");
+                if(path != null)
+                {
+                    getDCSSaveGamePath(path);
+                }
                 if (string.IsNullOrEmpty(briefingRoom.LanguageKey))
                     briefingRoom.LanguageKey = "en";
             }
@@ -137,6 +162,23 @@
         }
         catch (System.Exception)
         {
+        }
+        StateHasChanged();
+    }
+
+    public void getDCSSaveGamePath(string path)
+    {
+        saveState = briefingRoom.SetDCSSaveGamePath(path);
+        if(saveState.HasValue && saveState.Value)
+        {
+            try
+            {
+                localStorage.SetItemAsync("DCSSaveGamePath", path);
+            }
+            catch (System.Exception)
+            {
+                // Ignore errors, we will try again next time.
+            }
         }
         StateHasChanged();
     }
