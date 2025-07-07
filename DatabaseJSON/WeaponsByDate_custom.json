@@ -113,922 +113,6 @@
   { "decade": 1960, "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}" },
   { "decade": 1940, "clsid": "{PTB_450}" },
 
-  { "decade": null, "decadeGuess": 1960, "clsid": "M134_SIDE_L" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "M134_SIDE_R" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{GIAT_M621_APHE}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{TELSON8_SNEBT251}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_R2}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_L2}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SA342_Mistral_R2}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SA342_Mistral_L2}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SA342_Mistral_R1}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SA342_Mistral_L1}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_R2_M}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_L2_M}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_R1_M}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{HOT3_L1_M}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{7B8DCEB4-820B-4015-9B48-1028A4195692}"
-  },
-  { "decade": null, "decadeGuess": 1990, "clsid": "OH58D_FIM_92_L" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "OH58D_AGM_114_L" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "<CLEAN-200.5>" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "M134_L" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "M134_R" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{7AEC222D-C523-425e-B714-719C0D1EB14D}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RBK_500U_OAB_2_5RT}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{9M114 Shturm-V-2 Rack}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{FN_HMP400}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "FAS}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "OH58D_FIM_92_R" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{M260_A_M151_B_M257}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{INV-SMOKE-RED}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{INV-SMOKE-BLUE}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "OH58D_AGM_114_R" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{M260_M151}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{M260_M229}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "GUV_YakB_GSHP" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "XM158_MK5" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{UB-32A-24}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RBK_250_275_AO_1SCH}" },
-  {
-    "decade": null,
-    "decadeGuess": 1990,
-    "clsid": "{M261_OUTBOARD_AB_M151_E_M274}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1990,
-    "clsid": "{M261_OUTBOARD_AB_M151_E_M257}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1990,
-    "clsid": "{M261_INBOARD_DE_M151_C_M257}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1990,
-    "clsid": "{M261_INBOARD_DE_M151_C_M274}"
-  },
-  { "decade": null, "decadeGuess": 1990, "clsid": "B_8V20A_OM" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{M260_APKWS_M151}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "OH58D_M3P_L500" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{APU_68_S-24}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MBDA_MistralD}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MBDA_MistralG}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{FAS}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "M260_HYDRA_WP" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{EFT_230GAL}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "GUV_VOG" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "B_8V20A_OFP2" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{IR_Deflector}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{3DFB7321-AB0E-11d7-9897-000476191836}"
-  },
-
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{4xAN-M64_on_InvCountedAttachmentPoints}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "ER_4_SC50" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AB_250_2_SD_10A}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AB_250_2_SD_2}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AB_500_1_SD_10A}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{SC_250_T1_L2}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{SC_500_L2}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{SD_250_Stg}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{SD_500_A}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{FW_190_R4M_RGHT_WING}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{FW_190_R4M_LEFT_WING}" },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{MOSSIE_4_British_HE_60LBSAPNo2_3INCHNo1_ON_LEFT_WING_RAILS}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{MOSSIE_4_British_HE_60LBSAPNo2_3INCHNo1_ON_RIGHT_WING_RAILS}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{MOSSIE_2_British_HE_60LBFNo1_3INCHNo1_ON_LEFT_WING_RAILS}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{MOSSIE_2_British_HE_60LBFNo1_3INCHNo1_ON_RIGHT_WING_RAILS}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{P47_5_HVARS_ON_LEFT_WING_RAILS}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{P47_5_HVARS_ON_RIGHT_WING_RAILS}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_ALE_40_0_0}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-1A_MER_1x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-2A_MER_1x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-2BA_MER_1x}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{C42EE4C3-355C-4B83-8B22-B39430B8F4AE}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LYSBOMB_V7H}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LYSBOMB_V7V}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Robot24}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{CE2_SMOKE_WHITE}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_VINTEN}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRD_4_250_4xMK76}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_TRAVELPOD}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RN-24}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RN-28}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SMOKE_WHITE}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{SMOKE-RED-AVIOJET}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{SMOKE-YELLOW-AVIOJET}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{MAK79_MK20 2L}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{MAK79_MK20 2R}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{1C2B16EB-8EB0-43de-8788-8EBB2D70B8BC}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{AWW-13}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_H6_250_2_N12" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_H6_250_2_N24" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{D3F65166-1AB8-490f-AF2F-2FB6E22568B4}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{D3F65166-1AB8-490f-AF2F-2FB6E22568B1}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{INV-SMOKE-WHITE}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{Eclair}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{M2KC_BAP100_18_RACK}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{APK_9}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{MBD3_U6_3*FAB-250_fwd}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_2L*MK-82_Snakeye}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_2R*MK-82_Snakeye}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_BLU107_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_BLU107_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_CBU_87_x_3}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_CBU_87_x_3}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_CBU_97_x_3}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_BDU50LGB_x_2}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_BDU50LGB_x_2}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_GBU_12_x_4}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_MK82LD_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_CBU_87_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_GBU_10_x_2}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_CBU_100_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_MK82AR_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_MK82AR_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_GBU_54_x_3}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_R_GBU_54_x_3}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B13_5_S13OF_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B13_5_S13OF_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{S25_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{S25_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8TsM_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8TsM_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_TYPE200_DUAL_L" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_TYPE200_DUAL_R" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "SC_501_SC250" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AIS_ASQ_T50}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{Tiny_Tim_Corsair}" },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_SAP_500LB_Bomb_Mk5}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_GP_500LB_Bomb_Mk5}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_MC_250LB_Bomb_Mk2_on_Handley_Page_Type_B_Cut_Bar}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_GP_500LB_Bomb_Mk4_Short}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_GP_500LB_Bomb_Mk4_Short_on_Handley_Page_Type_B_Cut_Bar}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{3xM8_ROCKETS_IN_TUBES}" },
-  {
-    "decade": null,
-    "decadeGuess": 1950,
-    "clsid": "{696CFFC4-0BDE-42A8-BE4B-0BE3D9DD723C}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1950,
-    "clsid": "{4CD2BB0F-5493-44EF-A927-9760350F7BA1}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{1C97B4A0-AA3B-43A8-8EE7-D11071457185}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{8B9E3FD0-F034-4A07-B6CE-C269884CC71B}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-2A_MER_2x_Right}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-2A_MER_2x_Left}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_M117_MER_3x_Right}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_M117_MER_3x_Left}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-2BA_MER_2x_Right}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-2BA_MER_2x_Left}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_ROCKEYE_3x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_LAU-68_MK5_1x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_BLU-107B_3x_SWA}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-1A_MER_2x_Right}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-1A_MER_2x_Left}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{U22}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BK90MJ1}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Rb15_HB}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LYSBOMB_S7V}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Rb04}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_BDU33 3L}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_BDU33 3R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK82 3L}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK82 3R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK81 3L}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK81 3R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{PHXBRU3242_2*LAU10 LS}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{PHXBRU3242_2*LAU10 RS}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU3242_2*SUU25 R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU3242_SUU25}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{F14-ECA}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{F14-ALQ167}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_ANM3_L}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BLG66_BELOUGA_AC}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LR25_ARF8M3_HEI}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{UB-16_S5M}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BRU-42A_2*GBU-12_SIDE_RIGHT}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BRU-42A_2*GBU-12_SIDE_LEFT}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU-42_3*Mk-82LD}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "BR_500" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "BIN_200" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2X_CBU-99}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2X_MK-82_Snakeye}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2X_ROCKEYE}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2*LAU61}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2*LAU68_MK5}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0519A263-0AB6-11d6-9193-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0519A262-0AB6-11d6-9193-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{F4920E62-A99A-11d8-9897-000476191836}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{MBD3_U6_5*FAB-250}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BDAD04AA-4D4A-4E51-B958-180A89F963CF}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{AD5E5863-08FC-4283-B92C-162E2B2BD3FF}"
-  },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_2L*MK-82AIR}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_2R*MK-82AIR}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_3*MK-82}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_3*MK-82AIR}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{TER_9A_3*MK-82_Snakeye}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "LAU3_WP61" },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU_117_TGM_65D" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU_117_TGM_65H" },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{LAU-131x3 - 7 AGR-20 M282}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_MK82LD_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_GBU_12_x_4}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{CFT_L_CBU_100_x_6}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{FAB_250_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{FAB_250_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{FAB_500_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{FAB_500_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8KOM_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8KOM_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8OFP2_DUAL_L}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{B8M1_20_S8OFP2_DUAL_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_C-802AK" },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "DIS_MK_82S_DUAL_GDJ_II19_L"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "DIS_MK_82S_DUAL_GDJ_II19_R"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "DIS_LAU68_MK5_DUAL_GDJ_II19_L"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "DIS_LAU68_MK5_DUAL_GDJ_II19_R"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_RKT_90_UG" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_TYPE200" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_LS_6_250_DUAL_L" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_LS_6_250_DUAL_R" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_LS_6_100_DUAL_L" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_LS_6_100_DUAL_R" },
-  { "decade": null, "decadeGuess": 2010, "clsid": "DIS_AKD-10" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "SC_501_SC500" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{MER-5E_MK82x5}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{MER-5E_Mk82SNAKEYEx5}" },
-  {
-    "decade": null,
-    "decadeGuess": 1950,
-    "clsid": "{0290F5DE-014A-4BB1-9843-D717749B1DED}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_M117_MER_5x}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_MK-83_MER_3x_Ripple}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-52B_MER_3x_Right}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-52B_MER_3x_Left}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-87_MER_3x_Right}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_CBU-87_MER_3x_Left}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Rb04_HB}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{U22A}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LYSBOMB_S7H}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_ANM3_R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SPS-141-100}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU-42_2*MK-20_RIGHT}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU-42_2*MK-20_LEFT}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{SMOKE-SYSTEM-AVIOJET}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{12429ECF-03F0-4DF6-BCBD-5D38B6343DE1}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{WGr21}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "I16_FAB_100SV" },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_SAP_250LB_Bomb_Mk5_on_Handley_Page_Type_B_Cut_Bar}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{British_MC_500LB_Bomb_Mk1_Short_on_Handley_Page_Type_B_Cut_Bar}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AN_M65}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{HVAR_SMOKE_GENERATOR}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "FAB_50" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "PTB600_MIG15" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{2x Mk-82 SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_BLU-107B_6x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_LAU-68_MK5_3x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-82_3x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-83_MER_2x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-83_3x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-52B_2x_SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_ROCKEYE_2x_SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_LAU-68_WP156_1x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-82_Snakeye_3x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_LAU-3_MK5_3x}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{M71BOMB}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_BDU33 4}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK82 4}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MAK79_MK81 4}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU3242_2*LAU10 R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU3242_LAU10}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BLU107B_DURANDAL}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SMOKE-RED-MB339}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SMOKE-GREEN-MB339}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{PTB_490C_MIG21}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{UB-32_S5M}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "CBLS-200" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "BR_250" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{PTB_350L_L39}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{3E35F8C1-052D-11d6-9191-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{414E383A-59EB-41BC-8566-2B5E0788ED1F}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0519A261-0AB6-11d6-9193-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU_117_CATM_65K" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU_117_TGM_65G" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_CM-802AKG" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_GB6_HE" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_LAU-3_WP156_MER_3x}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_ROCKEYE_6x}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_AKG_DLPOD" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_BRM1_90" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_SD-10_DUAL_L" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{B83CB620-5BBE-4BEA-910C-EB605A327EF9}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-87_MER_4x}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-87_2x_SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_CBU-52B_2x}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_F4E_MK-82_Snakeye_2x_SWA}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_BLU-107B_3x}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{KB}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{AKAN}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{F14-TARPS}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{LR25_ARF8M3_API}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Matra155RocketPod}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{14_3_M2_6xBAP100}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{14_3_M2_6xBAT120}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{08164777-5E9C-4B08-B48E-5AA7AFB246E2}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{UPK-23-250 MiG-21}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{8C3F26A2-FA0F-11d5-9190-00A0249B6F00}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU-42_3*Mk-82SNAKEYE}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BRU33_2*LAU10}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_DF4B_YJ12" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_GDJ_YJ83K" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_MER6_250_3_N6" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{53BE25A4-C86C-4571-9BC0-47D668349595}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{PTB_150L_L39}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{FAB-100x2}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{Matra_S530D}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{5A1AC2B4-CA4B-4D09-A1AF-AC52FBC4B60B}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{TWIN_B13L_5OF}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_GB6_TSP" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_GB6" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "CATM-9M" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_DEFA553_R}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{MB339_DEFA553_L}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{AN-M3}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{B1EF6B0E-3D91-4047-A7A5-A99E7D8B4A8B}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_SD-10_DUAL_R" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{DT75GAL}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "{F86ANM64}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "FAB_100M" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "PTB300_MIG15" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "PTB400_MIG15" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "PTB760_MIG19" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{LAU3_FFAR_MK5HEAT}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-82_Snakeye_6x}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RB75T}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{M71BOMBD}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU3242_3*BDU33}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU-32 MK-82AIR}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{7210496B-7B81-4B52-80D6-8529ECF847CD}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{AV8BNA_AERO1D}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{BLG66_AC}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0B9ABA77-93B8-45FC-9C63-82AFB2CB50A4}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_GDJ_KD63" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{M2KC_RPL_522}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{C0FF4842-FBAC-11d5-9190-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{3DFB7320-AB0E-11d7-9897-000476191836}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{TWIN_S25}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{TWIN_B_8M1_S_8_OFP2}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{E1AAE713-5FC3-4CAA-9FF5-3FDCFB899E33}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU_131x3_HYDRA_70_M156" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{BDU-50LD}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-82_6x}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{SMOKE-WHITE-MB339}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{16602053-4A12-40A2-B214-AB60D481B20E}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AN_M57}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_GBU-12_2x_SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_MK-82_2x_SWA}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_M117_3x}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{RB75}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{ARAKM70BHE}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{1461CD18-429A-42A9-A21F-4C621ECD4573}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{7575BA0B-7294-4844-857B-031A144B2595}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{PK-3}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0DA03783-61E4-40B2-8FAE-6AEE0A5C5AAE}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{6D778860-7BB8-4ACB-9E95-BA772C6BBC2C}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{0519A264-0AB6-11d6-9193-00A0249B6F00}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_LS_6_500" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{HB_F4E_LAU-3_MK5_MER_3x}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_SPJ_POD" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "LAU3_HE5" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "{PTB_120_F86F35}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{GBU_8_B}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Robot05}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{M2KC_08_RPL541}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{M2KC_02_RPL541}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{E659C4BE-2CD8-4472-8C08-3F28ACB61A8A}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{414DA830-B61A-4F9E-B71B-C2F6832E1D7A}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{F-15E_AAQ-13_LANTIRN}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "{ORO57K_S5M_HEFRAG}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{UB-16-57UMP}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_SD-10" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_C-701IR" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_C-701T" },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{HVAR_USN_Mk28_Mod4_Corsair}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{AN-M64}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "{PTB_200_F86F35}" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{LAU3_FFAR_WP156}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{BRU-32 MK-20}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{PTB_490_MIG21}" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "DIS_DF4A_KD20" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{BDU-50LGB}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{PTB_800_MIG21}" },
-  { "decade": null, "decadeGuess": 1990, "clsid": "{BRU-42_3*Mk-82AIR}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "I16_RS_82" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "LAU-105_1*CATM-9M_R" },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{C-101-DEFA553}" },
-  { "decade": null, "decadeGuess": 1940, "clsid": "LAU3_HE151" },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{AIM-9M}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{8C3F26A1-FA0F-11d5-9190-00A0249B6F00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{EF124821-F9BB-4314-A153-E0E2FE1162C4}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{7D7EC917-05F6-49D4-8045-61FC587DD019}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "BRU-42_3*BDU-33" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{BDU-50HD}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{RKL609_R}" },
-  { "decade": null, "decadeGuess": 2000, "clsid": "{RKL609_L}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{44EE8698-89F9-48EE-AF36-5FD31896A82D}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{ASO-2}" },
-  { "decade": null, "decadeGuess": 1950, "clsid": "{HVARx2}" },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Robot24J}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{44EE8698-89F9-48EE-AF36-5FD31896A82C}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{TWIN_B_8M1_S_8KOM}" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{8A0BE8AE-58D4-4572-9263-3144C0D06364}"
-  },
-  { "decade": null, "decadeGuess": 1960, "clsid": "{SUU_23_POD}" },
-  {
-    "decade": null,
-    "decadeGuess": 1970,
-    "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{F99BEC1A-869D-4AC7-9730-FBA0E3B1F5FC}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{MMagicII}" },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
-  },
-  { "decade": null, "decadeGuess": 1980, "clsid": "{GAU_12_Equalizer}" },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{HB_PAVE_SPIKE_FAST_ON_ADAPTER_IN_AERO7}"
-  },
-  { "decade": null, "decadeGuess": 2000, "clsid": "DIS_WMD7" },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{6C0D552F-570B-42ff-9F6D-F10D9C1D4E1C}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{E92CBFE5-C153-11d8-9897-000476191836}"
-  },
-  { "decade": null, "decadeGuess": 1940, "clsid": "{CBU-52B}" },
-  {
-    "decade": null,
-    "decadeGuess": 1940,
-    "clsid": "{00F5DAC4-0466-4122-998F-B1A298E34113}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1960,
-    "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
-  },
-  { "decade": null, "decadeGuess": 1970, "clsid": "{Robot74}" },
-  {
-    "decade": null,
-    "decadeGuess": 2000,
-    "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{BD289E34-DF84-4C5E-9220-4B14C346E79D}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{A5BAEAB7-6FAF-4236-AF72-0FD900F493F9}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{2BEC576B-CDF5-4B7F-961F-B0FA4312B841}"
-  },
-  {
-    "decade": null,
-    "decadeGuess": 1980,
-    "clsid": "{29A828E2-C6BB-11d8-9897-000476191836}"
-  },
-
   { "decade": 1980, "clsid": "CLB4-PYLON-SAMP400LD" },
   { "decade": 1980, "clsid": "CLB4-PYLON-SAMP250HD" },
   { "decade": 1980, "clsid": "{CLB4_SAMP250LD}" },
@@ -1048,5 +132,1753 @@
   { "decade": 1980, "clsid": "{SAMP250HD}" },
   { "decade": 1980, "clsid": "{MATRA_F1_SNEBT256}" },
   { "decade": 1980, "clsid": "PTB-1200-F1" },
-  { "decade": 1980, "clsid": "{R550_Magic_1}" }
+  { "decade": 1980, "clsid": "{R550_Magic_1}" },
+
+  { "decade": 1990, "clsid": "OH58D_AGM_114_L" },
+  { "decade": 1990, "clsid": "OH58D_AGM_114_R" },
+  {
+    "decade": 1980,
+    "clsid": "OH58D_FIM_92_L"
+  },
+  {
+    "decade": 1980,
+    "clsid": "OH58D_FIM_92_R"
+  },
+  {
+    "decade": 1940,
+    "clsid": "OH58D_M3P_L500"
+  },
+  {
+    "decade": 1960,
+    "clsid": "M134_SIDE_L"
+  },
+  {
+    "decade": 1960,
+    "clsid": "M134_SIDE_R"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{GIAT_M621_APHE}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{TELSON8_SNEBT251}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_R2}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_L2}"
+  },
+  {
+    "decade": 190,
+    "clsid": "{SA342_Mistral_R2}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{SA342_Mistral_L2}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{SA342_Mistral_R1}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{SA342_Mistral_L1}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_R2_M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_L2_M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_R1_M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HOT3_L1_M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{7B8DCEB4-820B-4015-9B48-1028A4195692}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "<CLEAN-200.5>"
+  },
+  {
+    "decade": 1960,
+    "clsid": "M134_L"
+  },
+  {
+    "decade": 1960,
+    "clsid": "M134_R"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{7AEC222D-C523-425e-B714-719C0D1EB14D}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{RBK_500U_OAB_2_5RT}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{9M114 Shturm-V-2 Rack}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{FN_HMP400}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M260_A_M151_B_M257}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{INV-SMOKE-RED}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{INV-SMOKE-BLUE}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{M260_M151}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{M260_M229}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "GUV_YakB_GSHP"
+  },
+  {
+    "decade": 1950,
+    "clsid": "XM158_MK5"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{UB-32A-24}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{RBK_250_275_AO_1SCH}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M261_OUTBOARD_AB_M151_E_M274}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M261_OUTBOARD_AB_M151_E_M257}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M261_INBOARD_DE_M151_C_M257}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M261_INBOARD_DE_M151_C_M274}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "B_8V20A_OM"
+  },
+  {
+    "decade": 2010,
+    "clsid": "{M260_APKWS_M151}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{APU_68_S-24}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{FAS}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "M260_HYDRA_WP"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{EFT_230GAL}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "GUV_VOG"
+  },
+  {
+    "decade": 1980,
+    "clsid": "B_8V20A_OFP2"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{IR_Deflector}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{3DFB7321-AB0E-11d7-9897-000476191836}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{4xAN-M64_on_InvCountedAttachmentPoints}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "ER_4_SC50"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AB_250_2_SD_10A}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AB_250_2_SD_2}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AB_500_1_SD_10A}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{SC_250_T1_L2}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{SC_500_L2}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{SD_250_Stg}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{SD_500_A}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FW_190_R4M_RGHT_WING}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FW_190_R4M_LEFT_WING}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MOSSIE_4_British_HE_60LBSAPNo2_3INCHNo1_ON_LEFT_WING_RAILS}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MOSSIE_4_British_HE_60LBSAPNo2_3INCHNo1_ON_RIGHT_WING_RAILS}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MOSSIE_2_British_HE_60LBFNo1_3INCHNo1_ON_LEFT_WING_RAILS}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MOSSIE_2_British_HE_60LBFNo1_3INCHNo1_ON_RIGHT_WING_RAILS}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{P47_5_HVARS_ON_LEFT_WING_RAILS}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{P47_5_HVARS_ON_RIGHT_WING_RAILS}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_ALE_40_0_0}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-1A_MER_1x}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2A_MER_1x}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2BA_MER_1x}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "{C42EE4C3-355C-4B83-8B22-B39430B8F4AE}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LYSBOMB_V7H}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LYSBOMB_V7V}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{Robot24}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CE2_SMOKE_WHITE}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_VINTEN}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRD_4_250_4xMK76}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_TRAVELPOD}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{RN-24}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{RN-28}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{SMOKE_WHITE}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{SMOKE-RED-AVIOJET}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{SMOKE-YELLOW-AVIOJET}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{MAK79_MK20 2L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{MAK79_MK20 2R}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{1C2B16EB-8EB0-43de-8788-8EBB2D70B8BC}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{AWW-13}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "DIS_H6_250_2_N12"
+  },
+  {
+    "decade": 1940,
+    "clsid": "DIS_H6_250_2_N24"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{D3F65166-1AB8-490f-AF2F-2FB6E22568B4}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{D3F65166-1AB8-490f-AF2F-2FB6E22568B1}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{INV-SMOKE-WHITE}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{Eclair}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{M2KC_BAP100_18_RACK}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{APK_9}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MBD3_U6_3*FAB-250_fwd}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_2L*MK-82_Snakeye}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_2R*MK-82_Snakeye}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_R_BLU107_x_6}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_L_BLU107_x_6}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{CFT_R_CBU_87_x_3}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{CFT_L_CBU_87_x_3}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{CFT_R_CBU_97_x_3}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{CFT_L_BDU50LGB_x_2}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{CFT_R_BDU50LGB_x_2}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_R_GBU_12_x_4}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{CFT_R_MK82LD_x_6}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{CFT_R_CBU_87_x_6}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_R_GBU_10_x_2}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_R_CBU_100_x_6}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{CFT_L_MK82AR_x_6}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{CFT_R_MK82AR_x_6}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{CFT_L_GBU_54_x_3}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{CFT_R_GBU_54_x_3}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B13_5_S13OF_DUAL_R}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B13_5_S13OF_DUAL_L}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{S25_DUAL_R}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{S25_DUAL_L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8TsM_DUAL_L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8TsM_DUAL_R}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "DIS_TYPE200_DUAL_L"
+  },
+  {
+    "decade": 1970,
+    "clsid": "DIS_TYPE200_DUAL_R"
+  },
+  {
+    "decade": 1940,
+    "clsid": "SC_501_SC250"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{AIS_ASQ_T50}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_SAP_500LB_Bomb_Mk5}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_GP_500LB_Bomb_Mk5}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_MC_250LB_Bomb_Mk2_on_Handley_Page_Type_B_Cut_Bar}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_GP_500LB_Bomb_Mk4_Short}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_GP_500LB_Bomb_Mk4_Short_on_Handley_Page_Type_B_Cut_Bar}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{3xM8_ROCKETS_IN_TUBES}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{696CFFC4-0BDE-42A8-BE4B-0BE3D9DD723C}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{4CD2BB0F-5493-44EF-A927-9760350F7BA1}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{1C97B4A0-AA3B-43A8-8EE7-D11071457185}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{8B9E3FD0-F034-4A07-B6CE-C269884CC71B}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2A_MER_2x_Right}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2A_MER_2x_Left}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_M117_MER_3x_Right}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_M117_MER_3x_Left}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2BA_MER_2x_Right}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-2BA_MER_2x_Left}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_ROCKEYE_3x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-68_MK5_1x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_BLU-107B_3x_SWA}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-1A_MER_2x_Right}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_CBU-1A_MER_2x_Left}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{U22}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BK90MJ1}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{Rb15_HB}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LYSBOMB_S7V}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{Rb04}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MAK79_BDU33 3L}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MAK79_BDU33 3R}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK82 3L}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK82 3R}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK81 3L}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK81 3R}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{PHXBRU3242_2*LAU10 LS}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{PHXBRU3242_2*LAU10 RS}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU3242_2*SUU25 R}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU3242_SUU25}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{F14-ECA}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{F14-ALQ167}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_ANM3_L}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BLG66_BELOUGA_AC}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LR25_ARF8M3_HEI}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{UB-16_S5M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU-42A_2*GBU-12_SIDE_RIGHT}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU-42A_2*GBU-12_SIDE_LEFT}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-42_3*Mk-82LD}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "BR_500"
+  },
+  {
+    "decade": 1940,
+    "clsid": "BIN_200"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{BRU33_2X_CBU-99}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU33_2X_MK-82_Snakeye}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU33_2X_ROCKEYE}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU33_2*LAU61}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU33_2*LAU68_MK5}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{0519A263-0AB6-11d6-9193-00A0249B6F00}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{0519A262-0AB6-11d6-9193-00A0249B6F00}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{F4920E62-A99A-11d8-9897-000476191836}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MBD3_U6_5*FAB-250}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{BDAD04AA-4D4A-4E51-B958-180A89F963CF}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AD5E5863-08FC-4283-B92C-162E2B2BD3FF}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_2L*MK-82AIR}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_2R*MK-82AIR}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_3*MK-82}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_3*MK-82AIR}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{TER_9A_3*MK-82_Snakeye}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "LAU3_WP61"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "LAU_117_TGM_65D"
+  },
+  {
+    "decade": 2000,
+    "clsid": "LAU_117_TGM_65H"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+  },
+  {
+    "decade": 2010,
+    "clsid": "{LAU-131x3 - 7 AGR-20 M282}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{CFT_L_MK82LD_x_6}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_L_GBU_12_x_4}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CFT_L_CBU_100_x_6}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FAB_250_DUAL_L}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FAB_250_DUAL_R}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FAB_500_DUAL_L}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FAB_500_DUAL_R}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8KOM_DUAL_L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8KOM_DUAL_R}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8OFP2_DUAL_L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B8M1_20_S8OFP2_DUAL_R}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_C-802AK"
+  },
+  {
+    "decade": 1950,
+    "clsid": "DIS_MK_82S_DUAL_GDJ_II19_L"
+  },
+  {
+    "decade": 1950,
+    "clsid": "DIS_MK_82S_DUAL_GDJ_II19_R"
+  },
+  {
+    "decade": 1950,
+    "clsid": "DIS_LAU68_MK5_DUAL_GDJ_II19_L"
+  },
+  {
+    "decade": 1950,
+    "clsid": "DIS_LAU68_MK5_DUAL_GDJ_II19_R"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_RKT_90_UG"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_TYPE200"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_LS_6_250_DUAL_L"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_LS_6_250_DUAL_R"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_LS_6_100_DUAL_L"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_LS_6_100_DUAL_R"
+  },
+  {
+    "decade": 2010,
+    "clsid": "DIS_AKD-10"
+  },
+  {
+    "decade": 1940,
+    "clsid": "SC_501_SC500"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MER-5E_MK82x5}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MER-5E_Mk82SNAKEYEx5}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{0290F5DE-014A-4BB1-9843-D717749B1DED}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_M117_MER_5x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-83_MER_3x_Ripple}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_CBU-52B_MER_3x_Right}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_CBU-52B_MER_3x_Left}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{HB_F4E_CBU-87_MER_3x_Right}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{HB_F4E_CBU-87_MER_3x_Left}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{Rb04_HB}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{U22A}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LYSBOMB_S7H}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_ANM3_R}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{SPS-141-100}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU-42_2*MK-20_RIGHT}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU-42_2*MK-20_LEFT}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{SMOKE-SYSTEM-AVIOJET}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{12429ECF-03F0-4DF6-BCBD-5D38B6343DE1}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{WGr21}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "I16_FAB_100SV"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_SAP_250LB_Bomb_Mk5_on_Handley_Page_Type_B_Cut_Bar}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{British_MC_500LB_Bomb_Mk1_Short_on_Handley_Page_Type_B_Cut_Bar}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AN_M65}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{HVAR_SMOKE_GENERATOR}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "FAB_50"
+  },
+  {
+    "decade": 1940,
+    "clsid": "PTB600_MIG15"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_BLU-107B_6x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-68_MK5_3x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_3x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-83_MER_2x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-83_3x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_CBU-52B_2x_SWA}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_ROCKEYE_2x_SWA}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-68_WP156_1x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_Snakeye_3x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-3_MK5_3x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M71BOMB}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{MAK79_BDU33 4}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK82 4}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{MAK79_MK81 4}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU3242_2*LAU10 R}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU3242_LAU10}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BLU107B_DURANDAL}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{SMOKE-RED-MB339}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{SMOKE-GREEN-MB339}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_490C_MIG21}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{UB-32_S5M}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "CBLS-200"
+  },
+  {
+    "decade": 1940,
+    "clsid": "BR_250"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_350L_L39}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{3E35F8C1-052D-11d6-9191-00A0249B6F00}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{414E383A-59EB-41BC-8566-2B5E0788ED1F}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{0519A261-0AB6-11d6-9193-00A0249B6F00}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "LAU_117_CATM_65K"
+  },
+  {
+    "decade": 1970,
+    "clsid": "LAU_117_TGM_65G"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_CM-802AKG"
+  },
+  {
+    "decade": 1940,
+    "clsid": "DIS_GB6_HE"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-3_WP156_MER_3x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_ROCKEYE_6x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "DIS_AKG_DLPOD"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_BRM1_90"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_SD-10_DUAL_L"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{B83CB620-5BBE-4BEA-910C-EB605A327EF9}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{HB_F4E_CBU-87_MER_4x}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{HB_F4E_CBU-87_2x_SWA}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_CBU-52B_2x}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_Snakeye_2x_SWA}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_BLU-107B_3x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{KB}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{AKAN}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{F14-TARPS}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{LR25_ARF8M3_API}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{Matra155RocketPod}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{14_3_M2_6xBAP100}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{14_3_M2_6xBAT120}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{08164777-5E9C-4B08-B48E-5AA7AFB246E2}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{UPK-23-250 MiG-21}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{8C3F26A2-FA0F-11d5-9190-00A0249B6F00}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-42_3*Mk-82SNAKEYE}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU33_2*LAU10}"
+  },
+  {
+    "decade": 2010,
+    "clsid": "DIS_DF4B_YJ12"
+  },
+  {
+    "decade": 1990,
+    "clsid": "DIS_GDJ_YJ83K"
+  },
+  {
+    "decade": 1940,
+    "clsid": "DIS_MER6_250_3_N6"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{53BE25A4-C86C-4571-9BC0-47D668349595}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_150L_L39}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{FAB-100x2}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{Matra_S530D}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{5A1AC2B4-CA4B-4D09-A1AF-AC52FBC4B60B}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{TWIN_B13L_5OF}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "DIS_GB6_TSP"
+  },
+  {
+    "decade": 1980,
+    "clsid": "DIS_GB6"
+  },
+  {
+    "decade": 1980,
+    "clsid": "CATM-9M"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_DEFA553_R}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{MB339_DEFA553_L}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AN-M3}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{B1EF6B0E-3D91-4047-A7A5-A99E7D8B4A8B}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_SD-10_DUAL_R"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{DT75GAL}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{F86ANM64}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "FAB_100M"
+  },
+  {
+    "decade": 1940,
+    "clsid": "PTB300_MIG15"
+  },
+  {
+    "decade": 1940,
+    "clsid": "PTB400_MIG15"
+  },
+  {
+    "decade": 1940,
+    "clsid": "PTB760_MIG19"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{LAU3_FFAR_MK5HEAT}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_Snakeye_6x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{RB75T}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{M71BOMBD}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{BRU3242_3*BDU33}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-32 MK-82AIR}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{7210496B-7B81-4B52-80D6-8529ECF847CD}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AV8BNA_AERO1D}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BLG66_AC}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{0B9ABA77-93B8-45FC-9C63-82AFB2CB50A4}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "DIS_GDJ_KD63"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{M2KC_RPL_522}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{C0FF4842-FBAC-11d5-9190-00A0249B6F00}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{3DFB7320-AB0E-11d7-9897-000476191836}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{TWIN_S25}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{TWIN_B_8M1_S_8_OFP2}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{E1AAE713-5FC3-4CAA-9FF5-3FDCFB899E33}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "LAU_131x3_HYDRA_70_M156"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{BDU-50LD}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_6x}"
+  },
+  {
+    "decade": 19470,
+    "clsid": "{SMOKE-WHITE-MB339}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{16602053-4A12-40A2-B214-AB60D481B20E}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AN_M57}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_F4E_GBU-12_2x_SWA}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_MK-82_2x_SWA}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{HB_F4E_M117_3x}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{RB75}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{ARAKM70BHE}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{1461CD18-429A-42A9-A21F-4C621ECD4573}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{7575BA0B-7294-4844-857B-031A144B2595}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{PK-3}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "{0DA03783-61E4-40B2-8FAE-6AEE0A5C5AAE}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{6D778860-7BB8-4ACB-9E95-BA772C6BBC2C}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{0519A264-0AB6-11d6-9193-00A0249B6F00}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_LS_6_500"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{HB_F4E_LAU-3_MK5_MER_3x}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_SPJ_POD"
+  },
+  {
+    "decade": 1940,
+    "clsid": "LAU3_HE5"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_120_F86F35}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{GBU_8_B}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{Robot05}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{M2KC_08_RPL541}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{M2KC_02_RPL541}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{E659C4BE-2CD8-4472-8C08-3F28ACB61A8A}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{414DA830-B61A-4F9E-B71B-C2F6832E1D7A}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{F-15E_AAQ-13_LANTIRN}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{ORO57K_S5M_HEFRAG}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{UB-16-57UMP}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_SD-10"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_C-701IR"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_C-701T"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{HVAR_USN_Mk28_Mod4_Corsair}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{AN-M64}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_200_F86F35}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{LAU3_FFAR_WP156}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{BRU-32 MK-20}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_490_MIG21}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_DF4A_KD20"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}"
+  },
+  {
+    "decade": 1990,
+    "clsid": "{BDU-50LGB}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{PTB_800_MIG21}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{BRU-42_3*Mk-82AIR}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "I16_RS_82"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "LAU-105_1*CATM-9M_R"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{C-101-DEFA553}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "LAU3_HE151"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{AIM-9M}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{8C3F26A1-FA0F-11d5-9190-00A0249B6F00}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{EF124821-F9BB-4314-A153-E0E2FE1162C4}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{7D7EC917-05F6-49D4-8045-61FC587DD019}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "BRU-42_3*BDU-33"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{BDU-50HD}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "{RKL609_R}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "{RKL609_L}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{44EE8698-89F9-48EE-AF36-5FD31896A82D}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{ASO-2}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{HVARx2}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{Robot24J}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{44EE8698-89F9-48EE-AF36-5FD31896A82C}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{TWIN_B_8M1_S_8KOM}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{8A0BE8AE-58D4-4572-9263-3144C0D06364}"
+  },
+  {
+    "decade": 1960,
+    "clsid": "{SUU_23_POD}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{F99BEC1A-869D-4AC7-9730-FBA0E3B1F5FC}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{MMagicII}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{GAU_12_Equalizer}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{HB_PAVE_SPIKE_FAST_ON_ADAPTER_IN_AERO7}"
+  },
+  {
+    "decade": 2000,
+    "clsid": "DIS_WMD7"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{6C0D552F-570B-42ff-9F6D-F10D9C1D4E1C}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{E92CBFE5-C153-11d8-9897-000476191836}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{CBU-52B}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{00F5DAC4-0466-4122-998F-B1A298E34113}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+  },
+  {
+    "decade": 1970,
+    "clsid": "{Robot74}"
+  },
+  {
+    "decade": 1950,
+    "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+  },
+  {
+    "decade": 1980,
+    "clsid": "{BD289E34-DF84-4C5E-9220-4B14C346E79D}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{A5BAEAB7-6FAF-4236-AF72-0FD900F493F9}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{2BEC576B-CDF5-4B7F-961F-B0FA4312B841}"
+  },
+  {
+    "decade": 1940,
+    "clsid": "{29A828E2-C6BB-11d8-9897-000476191836}"
+  },
+  { "decade": 1940, "clsid": "{Tiny_Tim_Corsair}" },
+  { "decade": 1950, "clsid": "{2x Mk-82 SWA}" },
+  { "decade": 1970, "clsid": "FAS}" },
+  { "decade": 1990, "clsid": "{MBDA_MistralD}" },
+  { "decade": 1990, "clsid": "{MBDA_MistralG}" }
 ]
