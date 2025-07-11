@@ -33,19 +33,19 @@ namespace BriefingRoom4DCS
         {
             foreach (var item in dict)
             {
-                this.Add(item.Key, item.Value);
+                Add(item.Key, item.Value);
             }
-            this.AddOverrides(langDB, classId, id, key);
+            AddOverrides(langDB, classId, id, key);
         }
         public LanguageString(string value)
         {
-            this.Add("en", value);
+            Add("en", value);
         }
 
         public LanguageString(DatabaseLanguage langDB, string classId, string id, string key, string defaultValue)
         {
-            this.Add("en", defaultValue);
-            this.AddOverrides(langDB, classId, id, key);
+            Add("en", defaultValue);
+            AddOverrides(langDB, classId, id, key);
         }
 
         internal void AddOverrides(DatabaseLanguage langDB, string classId, string id, string key)
@@ -63,8 +63,9 @@ namespace BriefingRoom4DCS
         }
         public string Get(string langKey)
         {
-            if (this.ContainsKey(langKey)) return this[langKey];
-            if (this.ContainsKey("en")) return this["en"];
+            if (string.IsNullOrEmpty(langKey)) return this["en"];
+            if (ContainsKey(langKey)) return this[langKey];
+            if (ContainsKey("en")) return this["en"];
             return $"";
         }
 
