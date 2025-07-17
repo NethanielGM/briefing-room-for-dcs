@@ -513,6 +513,8 @@
         } catch (Exception ex){
             Console.WriteLine(ex);
             errorMessage = ex.Message;
+            if(ex.InnerException != null)
+                errorMessage += " " + ex.InnerException.Message;
         } finally{
             spinner = false;
             StateHasChanged();
