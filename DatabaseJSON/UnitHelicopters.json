@@ -3534,9 +3534,18 @@
     "height": 3.9,
     "length": 17.27,
     "paintSchemes": {
-      "2": ["Black", "Marines", "Standard"],
-      "3": ["Turkey", "Turkey 2"],
-      "15": ["Standard"]
+      "2": [
+        "Black",
+        "Marines",
+        "Standard"
+      ],
+      "3": [
+        "Turkey",
+        "Turkey 2"
+      ],
+      "15": [
+        "Standard"
+      ]
     },
     "payloadPresets": [
       {
@@ -3550,7 +3559,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "14xHYDRA-70 WP",
         "name": "14xHYDRA-70 WP"
       },
@@ -3565,7 +3576,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "38xHYDRA-70 WP",
         "name": "38xHYDRA-70 WP"
       },
@@ -3588,7 +3601,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xBGM-71, 14xHYDRA-70",
         "name": "8xBGM-71, 14xHYDRA-70"
       },
@@ -3611,7 +3628,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xBGM-71, 14xHYDRA-70 WP",
         "name": "8xBGM-71, 14xHYDRA-70 WP"
       },
@@ -3634,7 +3653,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xBGM-71, 38xHYDRA-70 WP",
         "name": "8xBGM-71, 38xHYDRA-70 WP"
       },
@@ -3649,7 +3670,11 @@
             "num": 3
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "14xHYDRA-70",
         "name": "14xHYDRA-70"
       },
@@ -3664,7 +3689,11 @@
             "num": 3
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "38xHYDRA-70",
         "name": "38xHYDRA-70"
       },
@@ -3679,7 +3708,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114",
         "name": "8xAGM-114"
       },
@@ -3702,7 +3735,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "28xHYDRA-70",
         "name": "28xHYDRA-70"
       },
@@ -3725,7 +3762,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114, 14xHYDRA-70",
         "name": "8xAGM-114, 14xHYDRA-70"
       },
@@ -3748,7 +3789,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70 WP",
         "name": "8xAGM-114, 38xHYDRA-70 WP"
       },
@@ -3763,7 +3806,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xBGM-71",
         "name": "8xBGM-71"
       },
@@ -3786,7 +3833,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xAGM-114, 14xHYDRA-70 WP",
         "name": "8xAGM-114, 14xHYDRA-70 WP"
       },
@@ -3809,7 +3858,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "76xHYDRA-70",
         "name": "76xHYDRA-70"
       },
@@ -3832,7 +3885,12 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32, 30],
+        "tasks": [
+          18,
+          31,
+          32,
+          30
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70",
         "name": "8xAGM-114, 38xHYDRA-70"
       },
@@ -3855,7 +3913,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xBGM-71, 38xHYDRA-70",
         "name": "8xBGM-71, 38xHYDRA-70"
       }
@@ -3901,13 +3963,34 @@
     "shape": "AH-1W",
     "width": 14.64,
     "operators": {
-      "USA": [1980, 2020],
-      "Turkey": [1990, 2020],
-      "USAFAggressors": [1970, 2020],
-      "Israel": [1970, 2020],
-      "Iran": [1970, 2020],
-      "Jordan": [1970, 2020],
-      "UnitedNationsPeacekeepers": [1970, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "Turkey": [
+        1990,
+        2020
+      ],
+      "USAFAggressors": [
+        1970,
+        2020
+      ],
+      "Israel": [
+        1970,
+        2020
+      ],
+      "Iran": [
+        1970,
+        2020
+      ],
+      "Jordan": [
+        1970,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1970,
+        2020
+      ]
     }
   },
   {
@@ -7445,11 +7528,22 @@
     "height": 4.15,
     "length": 17.87,
     "paintSchemes": {
-      "2": ["standard", "standard dirty"],
-      "4": ["ah-64_a_green uk"],
-      "10": ["ah-64_a_green neth"],
-      "15": ["ah-64_a_green isr"],
-      "31": ["greek army"]
+      "2": [
+        "standard",
+        "standard dirty"
+      ],
+      "4": [
+        "ah-64_a_green uk"
+      ],
+      "10": [
+        "ah-64_a_green neth"
+      ],
+      "15": [
+        "ah-64_a_green isr"
+      ],
+      "31": [
+        "greek army"
+      ]
     },
     "payloadPresets": [
       {
@@ -7463,7 +7557,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114",
         "name": "8xAGM-114"
       },
@@ -7478,7 +7576,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "38xHYDRA-70 WP",
         "name": "38xHYDRA-70 WP"
       },
@@ -7501,7 +7601,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "76xHYDRA-70",
         "name": "76xHYDRA-70"
       },
@@ -7524,7 +7628,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70 WP",
         "name": "8xAGM-114, 38xHYDRA-70 WP"
       },
@@ -7539,7 +7645,11 @@
             "num": 3
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "38xHYDRA-70",
         "name": "38xHYDRA-70"
       },
@@ -7562,7 +7672,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70",
         "name": "8xAGM-114, 38xHYDRA-70"
       },
@@ -7585,7 +7699,12 @@
             "num": 1
           }
         ],
-        "tasks": [18, 31, 32, 30],
+        "tasks": [
+          18,
+          31,
+          32,
+          30
+        ],
         "displayName": "AGM-114K*16",
         "name": "AGM-114K*16"
       }
@@ -7631,16 +7750,46 @@
     "shape": "AH-64A",
     "width": 14.63,
     "operators": {
-      "USA": [1980, 2010],
-      "UK": [1980, 2010],
-      "USAFAggressors": [1980, 2010],
-      "TheNetherlands": [1990, 2010],
-      "Israel": [1990, 2020],
-      "Egypt": [1990, 2010],
-      "Greece": [1990, 2020],
-      "SaudiArabia": [1990, 2010],
-      "UnitedArabEmirates": [1990, 2010],
-      "UnitedNationsPeacekeepers": [1980, 2010]
+      "USA": [
+        1980,
+        2010
+      ],
+      "UK": [
+        1980,
+        2010
+      ],
+      "USAFAggressors": [
+        1980,
+        2010
+      ],
+      "TheNetherlands": [
+        1990,
+        2010
+      ],
+      "Israel": [
+        1990,
+        2020
+      ],
+      "Egypt": [
+        1990,
+        2010
+      ],
+      "Greece": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        1990,
+        2010
+      ],
+      "UnitedArabEmirates": [
+        1990,
+        2010
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2010
+      ]
     }
   },
   {
@@ -11178,11 +11327,21 @@
     "height": 4.15,
     "length": 17.87,
     "paintSchemes": {
-      "2": ["standard"],
-      "4": ["ah-64_d_green uk"],
-      "10": ["ah-64_d_green neth"],
-      "15": ["ah-64_d_isr"],
-      "31": ["greek army"]
+      "2": [
+        "standard"
+      ],
+      "4": [
+        "ah-64_d_green uk"
+      ],
+      "10": [
+        "ah-64_d_green neth"
+      ],
+      "15": [
+        "ah-64_d_isr"
+      ],
+      "31": [
+        "greek army"
+      ]
     },
     "payloadPresets": [
       {
@@ -11204,7 +11363,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "76xHYDRA-70",
         "name": "76xHYDRA-70"
       },
@@ -11219,7 +11382,11 @@
             "num": 3
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "38xHYDRA-70",
         "name": "38xHYDRA-70"
       },
@@ -11234,7 +11401,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "38xHYDRA-70 WP",
         "name": "38xHYDRA-70 WP"
       },
@@ -11249,7 +11418,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114",
         "name": "8xAGM-114"
       },
@@ -11272,7 +11445,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70 WP",
         "name": "8xAGM-114, 38xHYDRA-70 WP"
       },
@@ -11295,7 +11470,12 @@
             "num": 1
           }
         ],
-        "tasks": [18, 31, 32, 30],
+        "tasks": [
+          18,
+          31,
+          32,
+          30
+        ],
         "displayName": "AGM-114K*16",
         "name": "AGM-114K*16"
       },
@@ -11318,7 +11498,11 @@
             "num": 4
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "8xAGM-114, 38xHYDRA-70",
         "name": "8xAGM-114, 38xHYDRA-70"
       }
@@ -11364,21 +11548,66 @@
     "shape": "AH-64D",
     "width": 14.63,
     "operators": {
-      "USA": [1990, 2020],
-      "UK": [2000, 2020],
-      "USAFAggressors": [1990, 2020],
-      "TheNetherlands": [2000, 2020],
-      "Israel": [2000, 2020],
-      "Egypt": [2010, 2020],
-      "Greece": [2000, 2020],
-      "Japan": [2000, 2020],
-      "SaudiArabia": [2010, 2020],
-      "Indonesia": [1990, 2020],
-      "Kuwait": [2000, 2020],
-      "UnitedArabEmirates": [2010, 2020],
-      "UnitedNationsPeacekeepers": [1990, 2020],
-      "Qatar": [2010, 2020],
-      "SouthKorea": [2010, 2020]
+      "USA": [
+        1990,
+        2020
+      ],
+      "UK": [
+        2000,
+        2020
+      ],
+      "USAFAggressors": [
+        1990,
+        2020
+      ],
+      "TheNetherlands": [
+        2000,
+        2020
+      ],
+      "Israel": [
+        2000,
+        2020
+      ],
+      "Egypt": [
+        2010,
+        2020
+      ],
+      "Greece": [
+        2000,
+        2020
+      ],
+      "Japan": [
+        2000,
+        2020
+      ],
+      "SaudiArabia": [
+        2010,
+        2020
+      ],
+      "Indonesia": [
+        1990,
+        2020
+      ],
+      "Kuwait": [
+        2000,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        2010,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1990,
+        2020
+      ],
+      "Qatar": [
+        2010,
+        2020
+      ],
+      "SouthKorea": [
+        2010,
+        2020
+      ]
     }
   },
   {
@@ -19957,8 +20186,12 @@
     "height": 4.15,
     "length": 17.87,
     "paintSchemes": {
-      "0": ["default livery"],
-      "1": ["default livery"],
+      "0": [
+        "default livery"
+      ],
+      "1": [
+        "default livery"
+      ],
       "2": [
         "default livery",
         "12th Combat Aviation Brigade Griffins",
@@ -19979,109 +20212,287 @@
         "Ghostriders, 1-151st ATKHB SCNG - Gray TADS",
         "Wolfpack, 1-82 ARB"
       ],
-      "3": ["default livery"],
+      "3": [
+        "default livery"
+      ],
       "4": [
         "default livery",
         "662 Squadron 3 Regiment AAC UK - ZJ171",
         "664 Squadron 9 Regiment AAC UK"
       ],
-      "5": ["default livery"],
-      "6": ["default livery"],
-      "7": ["default livery"],
-      "8": ["default livery"],
-      "9": ["default livery"],
+      "5": [
+        "default livery"
+      ],
+      "6": [
+        "default livery"
+      ],
+      "7": [
+        "default livery"
+      ],
+      "8": [
+        "default livery"
+      ],
+      "9": [
+        "default livery"
+      ],
       "10": [
         "default livery",
         "301 Squadron Redskins, Royal Netherlands Air Force"
       ],
-      "11": ["default livery"],
-      "12": ["default livery"],
-      "13": ["default livery"],
-      "15": ["default livery", "IAF 113th Hornet Squadron"],
-      "16": ["default livery"],
-      "17": ["default livery"],
-      "18": ["default livery"],
-      "19": ["default livery"],
-      "20": ["default livery"],
-      "21": ["default livery"],
-      "22": ["default livery"],
-      "23": ["default livery"],
-      "24": ["default livery"],
-      "25": ["default livery"],
-      "26": ["default livery"],
-      "27": ["default livery"],
-      "28": ["default livery"],
-      "29": ["default livery", "Egyptian Air Force"],
-      "30": ["default livery"],
+      "11": [
+        "default livery"
+      ],
+      "12": [
+        "default livery"
+      ],
+      "13": [
+        "default livery"
+      ],
+      "15": [
+        "default livery",
+        "IAF 113th Hornet Squadron"
+      ],
+      "16": [
+        "default livery"
+      ],
+      "17": [
+        "default livery"
+      ],
+      "18": [
+        "default livery"
+      ],
+      "19": [
+        "default livery"
+      ],
+      "20": [
+        "default livery"
+      ],
+      "21": [
+        "default livery"
+      ],
+      "22": [
+        "default livery"
+      ],
+      "23": [
+        "default livery"
+      ],
+      "24": [
+        "default livery"
+      ],
+      "25": [
+        "default livery"
+      ],
+      "26": [
+        "default livery"
+      ],
+      "27": [
+        "default livery"
+      ],
+      "28": [
+        "default livery"
+      ],
+      "29": [
+        "default livery",
+        "Egyptian Air Force"
+      ],
+      "30": [
+        "default livery"
+      ],
       "31": [
         "default livery",
         "1st Attack Helicopter Battalion, Hellenic Army Aviation",
         "Pegasus Display Team - ES1008, Hellenic Army Aviation"
       ],
-      "32": ["default livery"],
-      "33": ["default livery", "Indian Air Force - Gray"],
-      "34": ["default livery"],
-      "35": ["default livery"],
+      "32": [
+        "default livery"
+      ],
+      "33": [
+        "default livery",
+        "Indian Air Force - Gray"
+      ],
+      "34": [
+        "default livery"
+      ],
+      "35": [
+        "default livery"
+      ],
       "36": [
         "default livery",
         "1st Combat Helicopter Unit, Japanese Ground SDF"
       ],
-      "37": ["default livery"],
-      "38": ["default livery"],
-      "39": ["default livery"],
-      "40": ["default livery"],
-      "41": ["default livery"],
-      "42": ["default livery", "Saudi Arabian National Guard"],
-      "43": ["default livery"],
-      "44": ["default livery"],
-      "45": ["default livery", "Republic of Korea Army"],
-      "46": ["default livery"],
-      "47": ["default livery"],
-      "48": ["default livery"],
-      "49": ["default livery"],
-      "50": ["default livery"],
-      "51": ["default livery"],
-      "52": ["default livery"],
-      "53": ["default livery"],
-      "54": ["default livery"],
-      "55": ["default livery"],
-      "56": ["default livery"],
-      "57": ["default livery"],
-      "58": ["default livery"],
-      "59": ["default livery"],
-      "60": ["default livery", "11th Squadron/Serbu, Indonesian Army"],
-      "61": ["default livery"],
-      "62": ["default livery"],
-      "63": ["default livery"],
-      "64": ["default livery"],
-      "65": ["default livery"],
-      "66": ["default livery"],
-      "67": ["default livery"],
-      "68": ["default livery"],
-      "69": ["default livery"],
-      "70": ["default livery"],
-      "71": ["default livery"],
-      "72": ["default livery", "Qatar Emiri Air Force"],
-      "73": ["default livery"],
-      "74": ["default livery", "UAE Armed Forces - Olive Drab"],
-      "75": ["default livery"],
-      "76": ["default livery"],
-      "77": ["default livery"],
-      "78": ["default livery"],
-      "79": ["default livery"],
-      "80": ["default livery"],
-      "81": ["default livery"],
-      "82": ["default livery"],
-      "83": ["default livery"],
-      "84": ["default livery"],
-      "85": ["default livery"],
-      "86": ["default livery"],
-      "87": ["default livery"],
-      "88": ["default livery"],
-      "89": ["default livery"],
-      "90": ["default livery"],
-      "91": ["default livery"],
-      "92": ["default livery"]
+      "37": [
+        "default livery"
+      ],
+      "38": [
+        "default livery"
+      ],
+      "39": [
+        "default livery"
+      ],
+      "40": [
+        "default livery"
+      ],
+      "41": [
+        "default livery"
+      ],
+      "42": [
+        "default livery",
+        "Saudi Arabian National Guard"
+      ],
+      "43": [
+        "default livery"
+      ],
+      "44": [
+        "default livery"
+      ],
+      "45": [
+        "default livery",
+        "Republic of Korea Army"
+      ],
+      "46": [
+        "default livery"
+      ],
+      "47": [
+        "default livery"
+      ],
+      "48": [
+        "default livery"
+      ],
+      "49": [
+        "default livery"
+      ],
+      "50": [
+        "default livery"
+      ],
+      "51": [
+        "default livery"
+      ],
+      "52": [
+        "default livery"
+      ],
+      "53": [
+        "default livery"
+      ],
+      "54": [
+        "default livery"
+      ],
+      "55": [
+        "default livery"
+      ],
+      "56": [
+        "default livery"
+      ],
+      "57": [
+        "default livery"
+      ],
+      "58": [
+        "default livery"
+      ],
+      "59": [
+        "default livery"
+      ],
+      "60": [
+        "default livery",
+        "11th Squadron/Serbu, Indonesian Army"
+      ],
+      "61": [
+        "default livery"
+      ],
+      "62": [
+        "default livery"
+      ],
+      "63": [
+        "default livery"
+      ],
+      "64": [
+        "default livery"
+      ],
+      "65": [
+        "default livery"
+      ],
+      "66": [
+        "default livery"
+      ],
+      "67": [
+        "default livery"
+      ],
+      "68": [
+        "default livery"
+      ],
+      "69": [
+        "default livery"
+      ],
+      "70": [
+        "default livery"
+      ],
+      "71": [
+        "default livery"
+      ],
+      "72": [
+        "default livery",
+        "Qatar Emiri Air Force"
+      ],
+      "73": [
+        "default livery"
+      ],
+      "74": [
+        "default livery",
+        "UAE Armed Forces - Olive Drab"
+      ],
+      "75": [
+        "default livery"
+      ],
+      "76": [
+        "default livery"
+      ],
+      "77": [
+        "default livery"
+      ],
+      "78": [
+        "default livery"
+      ],
+      "79": [
+        "default livery"
+      ],
+      "80": [
+        "default livery"
+      ],
+      "81": [
+        "default livery"
+      ],
+      "82": [
+        "default livery"
+      ],
+      "83": [
+        "default livery"
+      ],
+      "84": [
+        "default livery"
+      ],
+      "85": [
+        "default livery"
+      ],
+      "86": [
+        "default livery"
+      ],
+      "87": [
+        "default livery"
+      ],
+      "88": [
+        "default livery"
+      ],
+      "89": [
+        "default livery"
+      ],
+      "90": [
+        "default livery"
+      ],
+      "91": [
+        "default livery"
+      ],
+      "92": [
+        "default livery"
+      ]
     },
     "panelRadio": [
       {
@@ -20304,7 +20715,13 @@
             "num": 5
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * Fuel Tank 230 gal",
         "name": "2 * Fuel Tank 230 gal"
       },
@@ -20335,7 +20752,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: M151 (6PD), 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * M261: M151 (6PD), 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20366,7 +20789,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "4 * Hellfire station: 4*AGM-114K",
         "name": "4 * Hellfire station: 4*AGM-114K"
       },
@@ -20397,7 +20826,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "4 * M261: M151 (6PD)",
         "name": "4 * M261: M151 (6PD)"
       },
@@ -20428,7 +20863,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: M151 (6PD), 2 * Fuel Tank 230 gal",
         "name": "2 * M261: M151 (6PD), 2 * Fuel Tank 230 gal"
       },
@@ -20459,7 +20900,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * Fuel Tank 230 gal, 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * Fuel Tank 230 gal, 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20490,7 +20937,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: A/B - M151 (6PD), E - M274 (6SK), 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * M261: A/B - M151 (6PD), E - M274 (6SK), 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20517,7 +20970,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: A/B - M151 (6PD), E - M257 (6IL), 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * M261: A/B - M151 (6PD), E - M257 (6IL), 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20548,7 +21007,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: C - M257 (6IL), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * M261: C - M257 (6IL), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20579,7 +21044,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: C - M274 (6SK), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114K",
         "name": "2 * M261: C - M274 (6SK), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114K"
       },
@@ -20610,7 +21081,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: M151 (6PD), 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * M261: M151 (6PD), 2 * Hellfire station: 4*AGM-114L"
       },
@@ -20641,7 +21118,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "4 * Hellfire station: 4*AGM-114L",
         "name": "4 * Hellfire station: 4*AGM-114L"
       },
@@ -20672,7 +21155,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * Fuel Tank 230 gal, 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * Fuel Tank 230 gal, 2 * Hellfire station: 4*AGM-114L"
       },
@@ -20703,7 +21192,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: A/B - M151 (6PD), E - M274 (6SK), 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * M261: A/B - M151 (6PD), E - M274 (6SK), 2 * Hellfire station: 4*AGM-114L"
       },
@@ -20734,7 +21229,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: A/B - M151 (6PD), E - M257 (6IL), 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * M261: A/B - M151 (6PD), E - M257 (6IL), 2 * Hellfire station: 4*AGM-114L"
       },
@@ -20765,7 +21266,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: C - M257 (6IL), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * M261: C - M257 (6IL), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114L"
       },
@@ -20796,7 +21303,13 @@
             "num": 6
           }
         ],
-        "tasks": [16, 30, 31, 18, 32],
+        "tasks": [
+          16,
+          30,
+          31,
+          18,
+          32
+        ],
         "displayName": "2 * M261: C - M274 (6SK), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114L",
         "name": "2 * M261: C - M274 (6SK), D/E - M151 (6PD), 2 * Hellfire station: 4*AGM-114L"
       }
@@ -20909,19 +21422,58 @@
     "shape": "AH-64D_bl2",
     "width": 14.63,
     "operators": {
-      "USA": [1990, 2020],
-      "UK": [2000, 2020],
-      "TheNetherlands": [2000, 2020],
-      "Israel": [2000, 2020],
-      "Egypt": [2010, 2020],
-      "Greece": [2000, 2020],
-      "Japan": [2000, 2020],
-      "SaudiArabia": [2010, 2020],
-      "Indonesia": [1990, 2020],
-      "Kuwait": [2000, 2020],
-      "UnitedArabEmirates": [2010, 2020],
-      "Qatar": [2010, 2020],
-      "SouthKorea": [2010, 2020]
+      "USA": [
+        1990,
+        2020
+      ],
+      "UK": [
+        2000,
+        2020
+      ],
+      "TheNetherlands": [
+        2000,
+        2020
+      ],
+      "Israel": [
+        2000,
+        2020
+      ],
+      "Egypt": [
+        2010,
+        2020
+      ],
+      "Greece": [
+        2000,
+        2020
+      ],
+      "Japan": [
+        2000,
+        2020
+      ],
+      "SaudiArabia": [
+        2010,
+        2020
+      ],
+      "Indonesia": [
+        1990,
+        2020
+      ],
+      "Kuwait": [
+        2000,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        2010,
+        2020
+      ],
+      "Qatar": [
+        2010,
+        2020
+      ],
+      "SouthKorea": [
+        2010,
+        2020
+      ]
     }
   },
   {
@@ -24459,98 +25011,288 @@
     "height": 5.998,
     "length": 28.3,
     "paintSchemes": {
-      "0": ["Egyptian Air Force"],
-      "1": ["Egyptian Air Force"],
-      "2": ["Egyptian Air Force", "standard"],
-      "3": ["Egyptian Air Force"],
-      "4": ["Egyptian Air Force", "ch-47_green uk"],
-      "5": ["Egyptian Air Force"],
-      "6": ["Egyptian Air Force"],
-      "7": ["Egyptian Air Force"],
-      "8": ["Egyptian Air Force"],
-      "9": ["Egyptian Air Force", "ch-47_green spain"],
-      "10": ["Egyptian Air Force", "ch-47_green neth"],
-      "11": ["Egyptian Air Force"],
-      "12": ["Egyptian Air Force"],
-      "13": ["Egyptian Air Force"],
-      "15": ["Egyptian Air Force"],
-      "16": ["Egyptian Air Force"],
-      "17": ["Egyptian Air Force"],
-      "18": ["Egyptian Air Force"],
-      "19": ["Egyptian Air Force"],
-      "20": ["Egyptian Air Force"],
-      "21": ["Egyptian Air Force", "RAAF CH-47D"],
-      "22": ["Egyptian Air Force"],
-      "23": ["Egyptian Air Force"],
-      "24": ["Egyptian Air Force"],
-      "25": ["Egyptian Air Force"],
-      "26": ["Egyptian Air Force"],
-      "27": ["Egyptian Air Force"],
-      "28": ["Egyptian Air Force"],
-      "29": ["Egyptian Air Force"],
-      "30": ["Egyptian Air Force"],
-      "31": ["Egyptian Air Force", "Greek Army"],
-      "32": ["Egyptian Air Force"],
-      "33": ["Egyptian Air Force"],
-      "34": ["Egyptian Air Force"],
-      "35": ["Egyptian Air Force"],
-      "36": ["Egyptian Air Force"],
-      "37": ["Egyptian Air Force"],
-      "38": ["Egyptian Air Force"],
-      "39": ["Egyptian Air Force"],
-      "40": ["Egyptian Air Force"],
-      "41": ["Egyptian Air Force"],
-      "42": ["Egyptian Air Force"],
-      "43": ["Egyptian Air Force"],
-      "44": ["Egyptian Air Force"],
-      "45": ["Egyptian Air Force"],
-      "46": ["Egyptian Air Force"],
-      "47": ["Egyptian Air Force"],
-      "48": ["Egyptian Air Force"],
-      "49": ["Egyptian Air Force"],
-      "50": ["Egyptian Air Force"],
-      "51": ["Egyptian Air Force"],
-      "52": ["Egyptian Air Force"],
-      "53": ["Egyptian Air Force"],
-      "54": ["Egyptian Air Force"],
-      "55": ["Egyptian Air Force"],
-      "56": ["Egyptian Air Force"],
-      "57": ["Egyptian Air Force"],
-      "58": ["Egyptian Air Force"],
-      "59": ["Egyptian Air Force"],
-      "60": ["Egyptian Air Force"],
-      "61": ["Egyptian Air Force"],
-      "62": ["Egyptian Air Force"],
-      "63": ["Egyptian Air Force"],
-      "64": ["Egyptian Air Force"],
-      "65": ["Egyptian Air Force"],
-      "66": ["Egyptian Air Force"],
-      "67": ["Egyptian Air Force"],
-      "68": ["Egyptian Air Force"],
-      "69": ["Egyptian Air Force"],
-      "70": ["Egyptian Air Force"],
-      "71": ["Egyptian Air Force"],
-      "72": ["Egyptian Air Force"],
-      "73": ["Egyptian Air Force"],
-      "74": ["Egyptian Air Force"],
-      "75": ["Egyptian Air Force"],
-      "76": ["Egyptian Air Force"],
-      "77": ["Egyptian Air Force"],
-      "78": ["Egyptian Air Force"],
-      "79": ["Egyptian Air Force"],
-      "80": ["Egyptian Air Force"],
-      "81": ["Egyptian Air Force"],
-      "82": ["Egyptian Air Force"],
-      "83": ["Egyptian Air Force"],
-      "84": ["Egyptian Air Force"],
-      "85": ["Egyptian Air Force"],
-      "86": ["Egyptian Air Force"],
-      "87": ["Egyptian Air Force"],
-      "88": ["Egyptian Air Force"],
-      "89": ["Egyptian Air Force"],
-      "90": ["Egyptian Air Force"],
-      "91": ["Egyptian Air Force"],
-      "92": ["Egyptian Air Force"]
+      "0": [
+        "Egyptian Air Force"
+      ],
+      "1": [
+        "Egyptian Air Force"
+      ],
+      "2": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "3": [
+        "Egyptian Air Force"
+      ],
+      "4": [
+        "Egyptian Air Force",
+        "ch-47_green uk"
+      ],
+      "5": [
+        "Egyptian Air Force"
+      ],
+      "6": [
+        "Egyptian Air Force"
+      ],
+      "7": [
+        "Egyptian Air Force"
+      ],
+      "8": [
+        "Egyptian Air Force"
+      ],
+      "9": [
+        "Egyptian Air Force",
+        "ch-47_green spain"
+      ],
+      "10": [
+        "Egyptian Air Force",
+        "ch-47_green neth"
+      ],
+      "11": [
+        "Egyptian Air Force"
+      ],
+      "12": [
+        "Egyptian Air Force"
+      ],
+      "13": [
+        "Egyptian Air Force"
+      ],
+      "15": [
+        "Egyptian Air Force"
+      ],
+      "16": [
+        "Egyptian Air Force"
+      ],
+      "17": [
+        "Egyptian Air Force"
+      ],
+      "18": [
+        "Egyptian Air Force"
+      ],
+      "19": [
+        "Egyptian Air Force"
+      ],
+      "20": [
+        "Egyptian Air Force"
+      ],
+      "21": [
+        "Egyptian Air Force",
+        "RAAF CH-47D"
+      ],
+      "22": [
+        "Egyptian Air Force"
+      ],
+      "23": [
+        "Egyptian Air Force"
+      ],
+      "24": [
+        "Egyptian Air Force"
+      ],
+      "25": [
+        "Egyptian Air Force"
+      ],
+      "26": [
+        "Egyptian Air Force"
+      ],
+      "27": [
+        "Egyptian Air Force"
+      ],
+      "28": [
+        "Egyptian Air Force"
+      ],
+      "29": [
+        "Egyptian Air Force"
+      ],
+      "30": [
+        "Egyptian Air Force"
+      ],
+      "31": [
+        "Egyptian Air Force",
+        "Greek Army"
+      ],
+      "32": [
+        "Egyptian Air Force"
+      ],
+      "33": [
+        "Egyptian Air Force"
+      ],
+      "34": [
+        "Egyptian Air Force"
+      ],
+      "35": [
+        "Egyptian Air Force"
+      ],
+      "36": [
+        "Egyptian Air Force"
+      ],
+      "37": [
+        "Egyptian Air Force"
+      ],
+      "38": [
+        "Egyptian Air Force"
+      ],
+      "39": [
+        "Egyptian Air Force"
+      ],
+      "40": [
+        "Egyptian Air Force"
+      ],
+      "41": [
+        "Egyptian Air Force"
+      ],
+      "42": [
+        "Egyptian Air Force"
+      ],
+      "43": [
+        "Egyptian Air Force"
+      ],
+      "44": [
+        "Egyptian Air Force"
+      ],
+      "45": [
+        "Egyptian Air Force"
+      ],
+      "46": [
+        "Egyptian Air Force"
+      ],
+      "47": [
+        "Egyptian Air Force"
+      ],
+      "48": [
+        "Egyptian Air Force"
+      ],
+      "49": [
+        "Egyptian Air Force"
+      ],
+      "50": [
+        "Egyptian Air Force"
+      ],
+      "51": [
+        "Egyptian Air Force"
+      ],
+      "52": [
+        "Egyptian Air Force"
+      ],
+      "53": [
+        "Egyptian Air Force"
+      ],
+      "54": [
+        "Egyptian Air Force"
+      ],
+      "55": [
+        "Egyptian Air Force"
+      ],
+      "56": [
+        "Egyptian Air Force"
+      ],
+      "57": [
+        "Egyptian Air Force"
+      ],
+      "58": [
+        "Egyptian Air Force"
+      ],
+      "59": [
+        "Egyptian Air Force"
+      ],
+      "60": [
+        "Egyptian Air Force"
+      ],
+      "61": [
+        "Egyptian Air Force"
+      ],
+      "62": [
+        "Egyptian Air Force"
+      ],
+      "63": [
+        "Egyptian Air Force"
+      ],
+      "64": [
+        "Egyptian Air Force"
+      ],
+      "65": [
+        "Egyptian Air Force"
+      ],
+      "66": [
+        "Egyptian Air Force"
+      ],
+      "67": [
+        "Egyptian Air Force"
+      ],
+      "68": [
+        "Egyptian Air Force"
+      ],
+      "69": [
+        "Egyptian Air Force"
+      ],
+      "70": [
+        "Egyptian Air Force"
+      ],
+      "71": [
+        "Egyptian Air Force"
+      ],
+      "72": [
+        "Egyptian Air Force"
+      ],
+      "73": [
+        "Egyptian Air Force"
+      ],
+      "74": [
+        "Egyptian Air Force"
+      ],
+      "75": [
+        "Egyptian Air Force"
+      ],
+      "76": [
+        "Egyptian Air Force"
+      ],
+      "77": [
+        "Egyptian Air Force"
+      ],
+      "78": [
+        "Egyptian Air Force"
+      ],
+      "79": [
+        "Egyptian Air Force"
+      ],
+      "80": [
+        "Egyptian Air Force"
+      ],
+      "81": [
+        "Egyptian Air Force"
+      ],
+      "82": [
+        "Egyptian Air Force"
+      ],
+      "83": [
+        "Egyptian Air Force"
+      ],
+      "84": [
+        "Egyptian Air Force"
+      ],
+      "85": [
+        "Egyptian Air Force"
+      ],
+      "86": [
+        "Egyptian Air Force"
+      ],
+      "87": [
+        "Egyptian Air Force"
+      ],
+      "88": [
+        "Egyptian Air Force"
+      ],
+      "89": [
+        "Egyptian Air Force"
+      ],
+      "90": [
+        "Egyptian Air Force"
+      ],
+      "91": [
+        "Egyptian Air Force"
+      ],
+      "92": [
+        "Egyptian Air Force"
+      ]
     },
     "payloadPresets": [],
     "displayName": "CH-47D",
@@ -24574,28 +25316,94 @@
     "shape": "CH-47D",
     "width": 18.3,
     "operators": {
-      "USA": [1980, 2020],
-      "Turkey": [2010, 2020],
-      "UK": [1980, 2020],
-      "USAFAggressors": [1980, 2020],
-      "Canada": [1980, 2020],
-      "Spain": [1980, 2020],
-      "TheNetherlands": [2000, 2020],
-      "Italy": [1980, 2020],
-      "Australia": [1990, 2020],
-      "Egypt": [1980, 2020],
-      "Greece": [1980, 2020],
-      "Iran": [1980, 2020],
-      "Japan": [1990, 2020],
-      "SaudiArabia": [2010, 2020],
-      "Thailand": [1990, 2020],
-      "Morocco": [1990, 2020],
-      "UnitedArabEmirates": [2000, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Argentina": [1980, 2000],
-      "Austria": [2010, 2020],
-      "India": [1980, 2020],
-      "SouthKorea": [1990, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "Turkey": [
+        2010,
+        2020
+      ],
+      "UK": [
+        1980,
+        2020
+      ],
+      "USAFAggressors": [
+        1980,
+        2020
+      ],
+      "Canada": [
+        1980,
+        2020
+      ],
+      "Spain": [
+        1980,
+        2020
+      ],
+      "TheNetherlands": [
+        2000,
+        2020
+      ],
+      "Italy": [
+        1980,
+        2020
+      ],
+      "Australia": [
+        1990,
+        2020
+      ],
+      "Egypt": [
+        1980,
+        2020
+      ],
+      "Greece": [
+        1980,
+        2020
+      ],
+      "Iran": [
+        1980,
+        2020
+      ],
+      "Japan": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        2010,
+        2020
+      ],
+      "Thailand": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1990,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        2000,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Argentina": [
+        1980,
+        2000
+      ],
+      "Austria": [
+        2010,
+        2020
+      ],
+      "India": [
+        1980,
+        2020
+      ],
+      "SouthKorea": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -28382,17 +29190,17 @@
     "categories": [],
     "module": "CH-47F bl.1 AI",
     "tasks": [
-      {
+   {
         "Name": "Reconnaissance",
         "OldID": "Reconnaissance",
         "WorldID": 17
       },
-      {
+     {
         "Name": "Escort",
         "OldID": "Escort",
         "WorldID": 18
       },
-      {
+       {
         "Name": "Transport",
         "OldID": "Transport",
         "WorldID": 35
@@ -28421,28 +29229,94 @@
     "shape": "CH-47F_bl1",
     "width": 18.3,
     "operators": {
-      "USA": [1980, 2020],
-      "Turkey": [2010, 2020],
-      "UK": [1980, 2020],
-      "USAFAggressors": [1980, 2020],
-      "Canada": [1980, 2020],
-      "Spain": [1980, 2020],
-      "TheNetherlands": [2000, 2020],
-      "Italy": [1980, 2020],
-      "Australia": [1990, 2020],
-      "Egypt": [1980, 2020],
-      "Greece": [1980, 2020],
-      "Iran": [1980, 2020],
-      "Japan": [1990, 2020],
-      "SaudiArabia": [2010, 2020],
-      "Thailand": [1990, 2020],
-      "Morocco": [1990, 2020],
-      "UnitedArabEmirates": [2000, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Argentina": [1980, 2000],
-      "Austria": [2010, 2020],
-      "India": [1980, 2020],
-      "SouthKorea": [1990, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "Turkey": [
+        2010,
+        2020
+      ],
+      "UK": [
+        1980,
+        2020
+      ],
+      "USAFAggressors": [
+        1980,
+        2020
+      ],
+      "Canada": [
+        1980,
+        2020
+      ],
+      "Spain": [
+        1980,
+        2020
+      ],
+      "TheNetherlands": [
+        2000,
+        2020
+      ],
+      "Italy": [
+        1980,
+        2020
+      ],
+      "Australia": [
+        1990,
+        2020
+      ],
+      "Egypt": [
+        1980,
+        2020
+      ],
+      "Greece": [
+        1980,
+        2020
+      ],
+      "Iran": [
+        1980,
+        2020
+      ],
+      "Japan": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        2010,
+        2020
+      ],
+      "Thailand": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1990,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        2000,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Argentina": [
+        1980,
+        2000
+      ],
+      "Austria": [
+        2010,
+        2020
+      ],
+      "India": [
+        1980,
+        2020
+      ],
+      "SouthKorea": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -31980,7 +32854,9 @@
     "height": 7.83,
     "length": 30.18,
     "paintSchemes": {
-      "2": ["standard"]
+      "2": [
+        "standard"
+      ]
     },
     "payloadPresets": [],
     "displayName": "CH-53E",
@@ -32004,10 +32880,22 @@
     "shape": "CH-53E",
     "width": 24.08,
     "operators": {
-      "USA": [1980, 2020],
-      "USAFAggressors": [1980, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Japan": [1990, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "USAFAggressors": [
+        1980,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Japan": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -35545,10 +36433,18 @@
     "height": 5.2,
     "length": 15.92,
     "paintSchemes": {
-      "0": ["standard"],
-      "1": ["Ukraine camo 1"],
-      "27": ["China PLANAF"],
-      "70": ["standard"]
+      "0": [
+        "standard"
+      ],
+      "1": [
+        "Ukraine camo 1"
+      ],
+      "27": [
+        "China PLANAF"
+      ],
+      "70": [
+        "standard"
+      ]
     },
     "payloadPresets": [],
     "displayName": "Ka-27",
@@ -35570,19 +36466,58 @@
     "shape": "KA-27",
     "width": 15.9,
     "operators": {
-      "Russia": [1980, 2020],
-      "Ukraine": [1980, 2020],
-      "China": [2000, 2020],
-      "India": [1980, 2020],
-      "SouthKorea": [1990, 2020],
-      "Syria": [1990, 2020],
-      "Yemen": [2000, 2020],
-      "Vietnam": [2010, 2020],
-      "Yugoslavia": [1980, 2020],
-      "USSR": [1980, 2020],
-      "Algeria": [1990, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Spain": [1990, 2020]
+      "Russia": [
+        1980,
+        2020
+      ],
+      "Ukraine": [
+        1980,
+        2020
+      ],
+      "China": [
+        2000,
+        2020
+      ],
+      "India": [
+        1980,
+        2020
+      ],
+      "SouthKorea": [
+        1990,
+        2020
+      ],
+      "Syria": [
+        1990,
+        2020
+      ],
+      "Yemen": [
+        2000,
+        2020
+      ],
+      "Vietnam": [
+        2010,
+        2020
+      ],
+      "Yugoslavia": [
+        1980,
+        2020
+      ],
+      "USSR": [
+        1980,
+        2020
+      ],
+      "Algeria": [
+        1990,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Spain": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -39135,36 +40070,90 @@
         "Standard Army (Worn)",
         "Worn Black"
       ],
-      "1": ["Fictional Ukraine Demo", "Ukraine camo 1", "Ukraine camo 1 dirt"],
-      "2": ["US army", "US marines 1", "US marines 2"],
+      "1": [
+        "Fictional Ukraine Demo",
+        "Ukraine camo 1",
+        "Ukraine camo 1 dirt"
+      ],
+      "2": [
+        "US army",
+        "US marines 1",
+        "US marines 2"
+      ],
       "3": [
         "Fictional Light Gray Scheme",
         "Fictional Turkey 1",
         "Fictional Turkey scheme",
         "Fictional desert 1 scheme"
       ],
-      "4": ["UK camo"],
-      "5": ["Armee de Terre 1", "Armee de Terre 2", "Armee de Terre Desert"],
-      "6": ["German 8320", "German 8332"],
-      "8": ["ВВС Канады"],
-      "9": ["SAF Arido", "SAF Boscoso", "SAF Standard"],
-      "10": ["RNAF", "RNAF wooded"],
-      "11": ["Belgium SAR", "Belgium camo", "Belgium olive"],
-      "12": ["Norway camo"],
-      "13": ["Denmark camo", "NAVY trainer (Denmark)"],
-      "15": ["IAF camo 1", "IAF camo 2", "IAF camo 3"],
-      "16": ["Georgia camo"],
-      "18": ["Fictional Abkhazian 1"],
-      "19": ["Osetian AA"],
-      "20": ["Aeronautica Militare", "Esercito Italiano"],
-      "21": ["Worn Black"],
+      "4": [
+        "UK camo"
+      ],
+      "5": [
+        "Armee de Terre 1",
+        "Armee de Terre 2",
+        "Armee de Terre Desert"
+      ],
+      "6": [
+        "German 8320",
+        "German 8332"
+      ],
+      "8": [
+        "ВВС Канады"
+      ],
+      "9": [
+        "SAF Arido",
+        "SAF Boscoso",
+        "SAF Standard"
+      ],
+      "10": [
+        "RNAF",
+        "RNAF wooded"
+      ],
+      "11": [
+        "Belgium SAR",
+        "Belgium camo",
+        "Belgium olive"
+      ],
+      "12": [
+        "Norway camo"
+      ],
+      "13": [
+        "Denmark camo",
+        "NAVY trainer (Denmark)"
+      ],
+      "15": [
+        "IAF camo 1",
+        "IAF camo 2",
+        "IAF camo 3"
+      ],
+      "16": [
+        "Georgia camo"
+      ],
+      "18": [
+        "Fictional Abkhazian 1"
+      ],
+      "19": [
+        "Osetian AA"
+      ],
+      "20": [
+        "Aeronautica Militare",
+        "Esercito Italiano"
+      ],
+      "21": [
+        "Worn Black"
+      ],
       "31": [
         "Greek Army Aviation (Fictional)",
         "Hellenic Navy Aviation (Fictional)",
         "Hellenic Navy Aviation 2 (Fictional)"
       ],
-      "46": ["Fictional Swedish Scheme"],
-      "70": ["Algerian AF Desert"]
+      "46": [
+        "Fictional Swedish Scheme"
+      ],
+      "70": [
+        "Algerian AF Desert"
+      ]
     },
     "panelRadio": [
       {
@@ -39337,7 +40326,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "CAS",
         "displayName": "4xFAB-500",
         "name": "4xFAB-500"
@@ -39361,7 +40352,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 2xKMGU AP",
         "name": "2xFuel tank, 2xKMGU AP"
@@ -39385,7 +40378,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "80xS-8 TsM",
         "name": "80xS-8 TsM"
       },
@@ -39408,7 +40403,10 @@
             "num": 4
           }
         ],
-        "tasks": [32, 18],
+        "tasks": [
+          32,
+          18
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 40xS-8",
         "name": "2xFuel tank, 40xS-8"
@@ -39432,7 +40430,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "CAS",
         "displayName": "80xS-8",
         "name": "80xS-8"
@@ -39456,7 +40458,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "CAS",
         "displayName": "4xKMGU AT",
         "name": "4xKMGU AT"
@@ -39472,7 +40476,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xKMGU AP",
         "name": "2xKMGU AP"
       },
@@ -39495,7 +40501,10 @@
             "num": 4
           }
         ],
-        "tasks": [32, 18],
+        "tasks": [
+          32,
+          18
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 12x9A4172",
         "name": "2xFuel tank, 12x9A4172"
@@ -39519,7 +40528,10 @@
             "num": 4
           }
         ],
-        "tasks": [32, 18],
+        "tasks": [
+          32,
+          18
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 2xUPK-23",
         "name": "2xFuel tank, 2xUPK-23"
@@ -39543,7 +40555,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Anti Tank",
         "displayName": "12x9A4172, 40xS-8",
         "name": "12x9A4172, 40xS-8"
@@ -39567,7 +40583,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Anti Tank",
         "displayName": "12x9A4172, 2xKMGU AT",
         "name": "12x9A4172, 2xKMGU AT"
@@ -39591,7 +40611,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "CAS",
         "displayName": "4xKMGU AP",
         "name": "4xKMGU AP"
@@ -39615,7 +40637,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "Deep strike",
         "displayName": "2xFAB-250, 2xFuel tank",
         "name": "2xFAB-250, 2xFuel tank"
@@ -39639,7 +40663,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "12x9A4172, 2xFAB-500",
         "name": "12x9A4172, 2xFAB-500"
       },
@@ -39662,7 +40688,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "CAS",
         "displayName": "20xS-13",
         "name": "20xS-13"
@@ -39678,7 +40708,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Weight-reduced",
         "displayName": "40xS-8",
         "name": "40xS-8"
@@ -39702,7 +40736,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Anti Tank",
         "displayName": "12x9A4172, 2xUPK-23",
         "name": "12x9A4172, 2xUPK-23"
@@ -39718,7 +40756,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xKMGU AT",
         "name": "2xKMGU AT"
       },
@@ -39729,7 +40769,10 @@
             "num": 1
           }
         ],
-        "tasks": [32, 18],
+        "tasks": [
+          32,
+          18
+        ],
         "category": "Weight-reduced",
         "displayName": "6x9A4172",
         "name": "6x9A4172"
@@ -39753,7 +40796,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 2xKMGU AT",
         "name": "2xFuel tank, 2xKMGU AT"
@@ -39777,7 +40822,9 @@
             "num": 4
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "category": "Ferry",
         "displayName": "4xFuel tank",
         "name": "4xFuel tank"
@@ -39801,7 +40848,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "2xKMGU AP, 12x9A4172",
         "name": "2xKMGU AP, 12x9A4172"
       },
@@ -39816,7 +40867,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Weight-reduced",
         "displayName": "12x9A4172",
         "name": "12x9A4172"
@@ -39832,7 +40887,9 @@
             "num": 3
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "category": "Ferry",
         "displayName": "2xFuel tank",
         "name": "2xFuel tank"
@@ -39856,7 +40913,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "40xS-8 TsM, 12x9A4172",
         "name": "40xS-8 TsM, 12x9A4172"
       },
@@ -39871,7 +40930,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-500",
         "name": "2xFAB-500"
       },
@@ -39894,7 +40955,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "40xS-8 TsM, 2xFuel tank",
         "name": "40xS-8 TsM, 2xFuel tank"
       },
@@ -39917,7 +40980,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "CAS",
         "displayName": "4xUPK-23",
         "name": "4xUPK-23"
@@ -39933,7 +41000,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Weight-reduced",
         "displayName": "10xS-13",
         "name": "10xS-13"
@@ -39949,7 +41020,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "40xS-8 TsM",
         "name": "40xS-8 TsM"
       },
@@ -39964,7 +41037,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Weight-reduced",
         "displayName": "2xUPK-23",
         "name": "2xUPK-23"
@@ -39988,7 +41065,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 2xFAB-500",
         "name": "2xFuel tank, 2xFAB-500"
@@ -40004,7 +41083,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-250",
         "name": "2xFAB-250"
       },
@@ -40027,7 +41108,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "category": "CAS",
         "displayName": "4xFAB-250",
         "name": "4xFAB-250"
@@ -40051,7 +41134,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "category": "Deep strike",
         "displayName": "2xFuel tank, 10xS-13",
         "name": "2xFuel tank, 10xS-13"
@@ -40075,7 +41162,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-250, 12x9A4172",
         "name": "2xFAB-250, 12x9A4172"
       },
@@ -40098,7 +41187,12 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "category": "Anti Tank",
         "displayName": "12x9A4172, 10xS-13",
         "name": "12x9A4172, 10xS-13"
@@ -40146,8 +41240,14 @@
     "shape": "KA-50",
     "width": 14.4,
     "operators": {
-      "Russia": [1990, 2020],
-      "USSR": [1990, 2020]
+      "Russia": [
+        1990,
+        2020
+      ],
+      "USSR": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -43696,97 +44796,354 @@
         "Standart camo n/a 2000-2001 Chechnya",
         "Standart black Russian Air Force"
       ],
-      "1": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "2": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "3": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "4": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "5": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "6": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "7": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "8": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "9": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "10": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "11": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "12": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "13": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "15": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "16": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "17": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "18": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "19": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "20": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "21": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "22": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "23": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "24": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "25": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "26": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "27": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "28": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "29": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "30": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "31": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "32": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "33": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "34": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "35": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "36": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "37": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "38": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "39": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "40": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "41": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "42": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "43": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "44": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "45": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "46": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "47": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "48": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "49": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "50": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "51": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "52": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "53": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "54": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "55": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "56": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "57": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "58": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "59": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "60": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "61": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "62": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "63": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "64": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "65": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "66": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "67": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "68": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "69": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "70": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "71": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "72": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "73": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "74": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "75": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "76": ["Black neutral n/a", "Standart camo n/a 2000-2001 Chechnya"],
-      "77": ["Black neutral n/a"],
-      "78": ["Black neutral n/a"],
-      "79": ["Black neutral n/a"],
-      "80": ["Black neutral n/a"],
-      "81": ["Black neutral n/a"],
-      "82": ["Black neutral n/a"],
-      "83": ["Black neutral n/a"],
-      "84": ["Black neutral n/a"],
-      "85": ["Black neutral n/a"],
-      "86": ["Black neutral n/a"],
-      "87": ["Black neutral n/a"],
-      "88": ["Black neutral n/a"],
-      "89": ["Black neutral n/a"],
-      "90": ["Black neutral n/a"],
-      "91": ["Black neutral n/a"],
-      "92": ["Black neutral n/a"]
+      "1": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "2": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "3": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "4": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "5": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "6": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "7": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "8": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "9": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "10": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "11": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "12": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "13": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "15": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "16": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "17": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "18": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "19": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "20": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "21": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "22": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "23": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "24": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "25": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "26": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "27": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "28": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "29": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "30": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "31": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "32": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "33": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "34": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "35": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "36": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "37": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "38": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "39": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "40": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "41": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "42": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "43": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "44": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "45": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "46": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "47": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "48": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "49": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "50": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "51": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "52": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "53": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "54": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "55": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "56": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "57": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "58": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "59": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "60": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "61": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "62": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "63": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "64": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "65": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "66": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "67": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "68": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "69": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "70": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "71": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "72": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "73": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "74": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "75": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "76": [
+        "Black neutral n/a",
+        "Standart camo n/a 2000-2001 Chechnya"
+      ],
+      "77": [
+        "Black neutral n/a"
+      ],
+      "78": [
+        "Black neutral n/a"
+      ],
+      "79": [
+        "Black neutral n/a"
+      ],
+      "80": [
+        "Black neutral n/a"
+      ],
+      "81": [
+        "Black neutral n/a"
+      ],
+      "82": [
+        "Black neutral n/a"
+      ],
+      "83": [
+        "Black neutral n/a"
+      ],
+      "84": [
+        "Black neutral n/a"
+      ],
+      "85": [
+        "Black neutral n/a"
+      ],
+      "86": [
+        "Black neutral n/a"
+      ],
+      "87": [
+        "Black neutral n/a"
+      ],
+      "88": [
+        "Black neutral n/a"
+      ],
+      "89": [
+        "Black neutral n/a"
+      ],
+      "90": [
+        "Black neutral n/a"
+      ],
+      "91": [
+        "Black neutral n/a"
+      ],
+      "92": [
+        "Black neutral n/a"
+      ]
     },
     "panelRadio": [
       {
@@ -43951,7 +45308,9 @@
             "num": 5
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xIgla",
         "name": "4xIgla"
       },
@@ -43982,7 +45341,10 @@
             "num": 2
           }
         ],
-        "tasks": [30, 31],
+        "tasks": [
+          30,
+          31
+        ],
         "displayName": "2xKh-25ML, 10xS-13, 4xIgla",
         "name": "2xKh-25ML, 10xS-13, 4xIgla"
       },
@@ -44013,7 +45375,10 @@
             "num": 2
           }
         ],
-        "tasks": [31, 18],
+        "tasks": [
+          31,
+          18
+        ],
         "displayName": "12x9A4172, 40xS-8KOM, 4xIgla",
         "name": "12x9A4172, 40xS-8KOM, 4xIgla"
       },
@@ -44044,7 +45409,10 @@
             "num": 2
           }
         ],
-        "tasks": [31, 32],
+        "tasks": [
+          31,
+          32
+        ],
         "displayName": "12x9A4172, 40xS-8OFP, 4xIgla",
         "name": "12x9A4172, 40xS-8OFP, 4xIgla"
       },
@@ -44075,7 +45443,10 @@
             "num": 2
           }
         ],
-        "tasks": [31, 32],
+        "tasks": [
+          31,
+          32
+        ],
         "displayName": "12x9A4172, 40xS-13, 4xIgla",
         "name": "12x9A4172, 40xS-13, 4xIgla"
       },
@@ -44106,7 +45477,11 @@
             "num": 1
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "80xS-8KOM, 4xIgla",
         "name": "80xS-8KOM, 4xIgla"
       },
@@ -44137,7 +45512,11 @@
             "num": 1
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "80xS-8OFP, 4xIgla",
         "name": "80xS-8OFP, 4xIgla"
       },
@@ -44168,7 +45547,10 @@
             "num": 1
           }
         ],
-        "tasks": [31, 32],
+        "tasks": [
+          31,
+          32
+        ],
         "displayName": "20xS-20, 4xIgla",
         "name": "20xS-20, 4xIgla"
       },
@@ -44199,7 +45581,9 @@
             "num": 1
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xUPK-23, 4xIgla",
         "name": "4xUPK-23, 4xIgla"
       },
@@ -44230,7 +45614,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "10xS-13, 2xFAB-500, 4xIgla",
         "name": "10xS-13, 2xFAB-500, 4xIgla"
       },
@@ -44261,7 +45647,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "10xS-13, 2xFAB-250, 4xIgla",
         "name": "10xS-13, 2xFAB-250, 4xIgla"
       },
@@ -44292,7 +45680,9 @@
             "num": 1
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "80xS-8OM, 4xIgla",
         "name": "80xS-8OM, 4xIgla"
       },
@@ -44323,7 +45713,9 @@
             "num": 1
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "80xS-8TsM, 4xIgla",
         "name": "80xS-8TsM, 4xIgla"
       },
@@ -44354,7 +45746,9 @@
             "num": 2
           }
         ],
-        "tasks": [18],
+        "tasks": [
+          18
+        ],
         "displayName": "40xS-8OFP, 2xFuel, 4xIgla",
         "name": "40xS-8OFP, 2xFuel, 4xIgla"
       },
@@ -44385,7 +45779,9 @@
             "num": 2
           }
         ],
-        "tasks": [18],
+        "tasks": [
+          18
+        ],
         "displayName": "12x9A4172, 2xFuel, 4xIgla",
         "name": "12x9A4172, 2xFuel, 4xIgla"
       }
@@ -44460,8 +45856,14 @@
     "shape": "Ka-50_3",
     "width": 14.4,
     "operators": {
-      "Russia": [1990, 2020],
-      "USSR": [1990, 2020]
+      "Russia": [
+        1990,
+        2020
+      ],
+      "USSR": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -49694,36 +51096,96 @@
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "2": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "3": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "4": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "5": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "2": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "3": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "4": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "5": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "6": [
         "GDR Mi-24P No. 3xx Bort",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "7": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "8": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "9": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "10": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "11": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "12": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "13": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "15": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "7": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "8": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "9": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "10": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "11": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "12": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "13": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "15": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "16": [
         "Georgian Air Force",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "17": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "18": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "19": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "20": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "21": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "22": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "23": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "24": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "17": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "18": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "19": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "20": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "21": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "22": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "23": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "24": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "25": [
         "Bulgarian Air Force 129",
         "United Nations",
@@ -49734,64 +51196,175 @@
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "27": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "28": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "27": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "28": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "29": [
         "Egyptian Air Force",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "30": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "31": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "32": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "33": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "34": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "30": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "31": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "32": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "33": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "34": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "35": [
         "Iraqi Army Air Corps",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "36": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "37": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "38": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "39": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "36": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "37": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "38": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "39": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "40": [
         "Polish 49 PSB",
         "Polish 56 BLot",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "41": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "42": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "43": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "44": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "45": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "46": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "41": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "42": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "43": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "44": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "45": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "46": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "47": [
         "Syrian Air Force",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "48": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "49": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "50": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "51": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "52": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "53": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "54": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "55": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "56": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "57": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "58": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "59": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "60": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "61": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "62": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "63": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "64": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "65": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "66": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "67": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "48": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "49": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "50": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "51": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "52": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "53": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "54": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "55": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "56": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "57": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "58": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "59": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "60": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "61": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "62": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "63": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "64": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "65": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "66": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "67": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "68": [
         "RF Air Force Standard",
         "USSR Air Force",
@@ -49801,38 +51374,104 @@
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "69": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "70": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "71": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "72": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "73": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "74": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "75": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "76": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "77": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "69": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "70": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "71": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "72": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "73": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "74": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "75": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "76": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "77": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "78": [
         "GDR Mi-24P No. 3xx Bort",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "79": ["United Nations", "'United States Coast Guard' Mi-24"],
+      "79": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
       "80": [
         "Azerbaijan Army 1993 Static Bort",
         "United Nations",
         "'United States Coast Guard' Mi-24"
       ],
-      "81": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "82": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "83": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "84": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "85": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "86": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "87": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "88": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "89": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "90": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "91": ["United Nations", "'United States Coast Guard' Mi-24"],
-      "92": ["United Nations", "'United States Coast Guard' Mi-24"]
+      "81": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "82": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "83": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "84": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "85": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "86": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "87": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "88": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "89": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "90": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "91": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ],
+      "92": [
+        "United Nations",
+        "'United States Coast Guard' Mi-24"
+      ]
     },
     "panelRadio": [
       {
@@ -50033,7 +51672,10 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32],
+        "tasks": [
+          31,
+          32
+        ],
         "displayName": "2xB8V20 (S-8KOM)+8xATGM 9M114",
         "name": "2xB8V20 (S-8KOM)+8xATGM 9M114"
       },
@@ -50056,7 +51698,10 @@
             "num": 3
           }
         ],
-        "tasks": [31, 18],
+        "tasks": [
+          31,
+          18
+        ],
         "displayName": "2xB8V20 ( S-8KOM)+4xATGM 9M114",
         "name": "2xB8V20 ( S-8KOM)+4xATGM 9M114"
       },
@@ -50087,7 +51732,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xB8V20 (S-8KOM)+4xATGM 9M114",
         "name": "4xB8V20 (S-8KOM)+4xATGM 9M114"
       },
@@ -50118,7 +51765,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xB8V20 (S-8KOM)+2xBombs-250+4xATGM 9M114",
         "name": "2xB8V20 (S-8KOM)+2xBombs-250+4xATGM 9M114"
       },
@@ -50141,7 +51790,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xB8V20 (S-8OFP2)+4xATGM 9M114",
         "name": "2xB8V20 (S-8OFP2)+4xATGM 9M114"
       },
@@ -50172,7 +51823,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xUB-32A (S-5KO)+4xATGM 9M114",
         "name": "4xUB-32A (S-5KO)+4xATGM 9M114"
       },
@@ -50203,7 +51856,9 @@
             "num": 2
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xGUV-1 AP30+4xATGM 9M114",
         "name": "4xGUV-1 AP30+4xATGM 9M114"
       },
@@ -50226,7 +51881,9 @@
             "num": 3
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xGUV-1 AP30+4xATGM 9M114",
         "name": "2xGUV-1 AP30+4xATGM 9M114"
       },
@@ -50249,7 +51906,10 @@
             "num": 6
           }
         ],
-        "tasks": [31, 18],
+        "tasks": [
+          31,
+          18
+        ],
         "displayName": "2xGUV-1 (GUN 12.7+2x7.62) +4xATGM 9M114",
         "name": "2xGUV-1 (GUN 12.7+2x7.62) +4xATGM 9M114"
       },
@@ -50280,7 +51940,10 @@
             "num": 2
           }
         ],
-        "tasks": [31, 32],
+        "tasks": [
+          31,
+          32
+        ],
         "displayName": "2xKMGU (96 AO 2.5RT)+8xATGM 9M114",
         "name": "2xKMGU (96 AO 2.5RT)+8xATGM 9M114"
       },
@@ -50303,7 +51966,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 30, 32],
+        "tasks": [
+          31,
+          30,
+          32
+        ],
         "displayName": "2xB-13L+4xATGM 9M114",
         "name": "2xB-13L+4xATGM 9M114"
       },
@@ -50326,7 +51993,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 30, 32],
+        "tasks": [
+          31,
+          30,
+          32
+        ],
         "displayName": "2xS-24B+4xATGM 9M114",
         "name": "2xS-24B+4xATGM 9M114"
       },
@@ -50357,7 +52028,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 30, 32],
+        "tasks": [
+          31,
+          30,
+          32
+        ],
         "displayName": "4xS-24B+4xATGM 9M114",
         "name": "4xS-24B+4xATGM 9M114"
       },
@@ -50380,7 +52055,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xBombs-500+4xATGM 9M114",
         "name": "2xBombs-500+4xATGM 9M114"
       },
@@ -50411,7 +52088,9 @@
             "num": 5
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xBombs-250+4ATGM 9M114",
         "name": "4xBombs-250+4ATGM 9M114"
       },
@@ -50434,7 +52113,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xRBK-500 (PTAB-1M)+4xATGM 9M114",
         "name": "2xRBK-500 (PTAB-1M)+4xATGM 9M114"
       },
@@ -50457,7 +52138,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2xRBK-500U (OAB 2.5RT)+4xATGM 9M114",
         "name": "2xRBK-500U (OAB 2.5RT)+4xATGM 9M114"
       },
@@ -50488,7 +52171,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xRBK-250 (42 PTAB 2.5M) +4ATGM 9M114",
         "name": "4xRBK-250 (42 PTAB 2.5M) +4ATGM 9M114"
       },
@@ -50519,7 +52204,9 @@
             "num": 6
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4xRBK-250-275 (150 AO-1SCh)+4ATGM 9M114",
         "name": "4xRBK-250-275 (150 AO-1SCh)+4ATGM 9M114"
       },
@@ -50550,7 +52237,9 @@
             "num": 6
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xPTB-450 Fuel tank",
         "name": "4xPTB-450 Fuel tank"
       }
@@ -50667,38 +52356,134 @@
     "shape": "Mi-24P",
     "width": 17.3,
     "operators": {
-      "Russia": [1970, 2020],
-      "Ukraine": [1970, 2020],
-      "Georgia": [1990, 2020],
-      "Abkhazia": [2000, 2020],
-      "Belarus": [1970, 2020],
-      "Hungary": [1980, 2020],
-      "Kazakhstan": [1970, 2020],
-      "Sudan": [1990, 2020],
-      "Indonesia": [2000, 2020],
-      "Ethiopia": [1990, 2020],
-      "USSR": [1970, 2020],
-      "GDR": [1970, 2020],
-      "Cyprus": [2000, 2020],
-      "Nigeria": [1970, 2020],
-      "Peru": [1970, 2020],
-      "Algeria": [2000, 2000],
-      "Bulgaria": [1980, 2020],
-      "Croatia": [1990, 2010],
-      "Cuba": [1980, 2020],
-      "CzechRepublic": [1970, 1990],
-      "Egypt": [1990, 2020],
-      "India": [1990, 2020],
-      "Iraq": [1990, 2020],
-      "Libya": [1990, 2020],
-      "NorthKorea": [1990, 2020],
-      "Pakistan": [1990, 2020],
-      "Poland": [1990, 2020],
-      "Serbia": [1990, 2010],
-      "Slovakia": [1990, 2010],
-      "Syria": [1990, 2020],
-      "Yemen": [2000, 2020],
-      "Yugoslavia": [1970, 2020]
+      "Russia": [
+        1970,
+        2020
+      ],
+      "Ukraine": [
+        1970,
+        2020
+      ],
+      "Georgia": [
+        1990,
+        2020
+      ],
+      "Abkhazia": [
+        2000,
+        2020
+      ],
+      "Belarus": [
+        1970,
+        2020
+      ],
+      "Hungary": [
+        1980,
+        2020
+      ],
+      "Kazakhstan": [
+        1970,
+        2020
+      ],
+      "Sudan": [
+        1990,
+        2020
+      ],
+      "Indonesia": [
+        2000,
+        2020
+      ],
+      "Ethiopia": [
+        1990,
+        2020
+      ],
+      "USSR": [
+        1970,
+        2020
+      ],
+      "GDR": [
+        1970,
+        2020
+      ],
+      "Cyprus": [
+        2000,
+        2020
+      ],
+      "Nigeria": [
+        1970,
+        2020
+      ],
+      "Peru": [
+        1970,
+        2020
+      ],
+      "Algeria": [
+        2000,
+        2000
+      ],
+      "Bulgaria": [
+        1980,
+        2020
+      ],
+      "Croatia": [
+        1990,
+        2010
+      ],
+      "Cuba": [
+        1980,
+        2020
+      ],
+      "CzechRepublic": [
+        1970,
+        1990
+      ],
+      "Egypt": [
+        1990,
+        2020
+      ],
+      "India": [
+        1990,
+        2020
+      ],
+      "Iraq": [
+        1990,
+        2020
+      ],
+      "Libya": [
+        1990,
+        2020
+      ],
+      "NorthKorea": [
+        1990,
+        2020
+      ],
+      "Pakistan": [
+        1990,
+        2020
+      ],
+      "Poland": [
+        1990,
+        2020
+      ],
+      "Serbia": [
+        1990,
+        2010
+      ],
+      "Slovakia": [
+        1990,
+        2010
+      ],
+      "Syria": [
+        1990,
+        2020
+      ],
+      "Yemen": [
+        2000,
+        2020
+      ],
+      "Yugoslavia": [
+        1970,
+        2020
+      ]
     }
   },
   {
@@ -54242,17 +56027,31 @@
         "Russia FSB",
         "Russia MVD"
       ],
-      "1": ["UN (Ukraine based)", "Ukraine"],
-      "16": ["Standard (Georgia)"],
-      "18": ["Abkhazia"],
-      "19": ["Fictional RSO"],
-      "68": ["Russia Army Aviation", "Russia Army Aviation (faded)"],
+      "1": [
+        "UN (Ukraine based)",
+        "Ukraine"
+      ],
+      "16": [
+        "Standard (Georgia)"
+      ],
+      "18": [
+        "Abkhazia"
+      ],
+      "19": [
+        "Fictional RSO"
+      ],
+      "68": [
+        "Russia Army Aviation",
+        "Russia Army Aviation (faded)"
+      ],
       "70": [
         "Algerian AF Black",
         "Algerian AF New Desert",
         "Algerian AF Old Desert"
       ],
-      "82": ["UN (Ukraine based)"]
+      "82": [
+        "UN (Ukraine based)"
+      ]
     },
     "payloadPresets": [
       {
@@ -54266,7 +56065,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-500",
         "name": "2xFAB-500"
       },
@@ -54281,7 +56082,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "10xS-13",
         "name": "10xS-13"
       },
@@ -54296,7 +56101,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-250",
         "name": "2xFAB-250"
       },
@@ -54319,7 +56126,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4x9M114, 2xFuel tank",
         "name": "4x9M114, 2xFuel tank"
       },
@@ -54342,7 +56153,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "128xS-5",
         "name": "128xS-5"
       },
@@ -54365,7 +56180,9 @@
             "num": 5
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "80xS-8 TsM",
         "name": "80xS-8 TsM"
       },
@@ -54388,7 +56205,9 @@
             "num": 6
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "4x9M114, 40xS-8 TsM",
         "name": "4x9M114, 40xS-8 TsM"
       },
@@ -54403,7 +56222,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "64xS-5",
         "name": "64xS-5"
       },
@@ -54426,7 +56249,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "8x9M114",
         "name": "8x9M114"
       },
@@ -54457,7 +56284,12 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "displayName": "4x9M114, 80xS-8",
         "name": "4x9M114, 80xS-8"
       },
@@ -54488,7 +56320,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4x9M114, 128xS-5",
         "name": "4x9M114, 128xS-5"
       },
@@ -54503,7 +56339,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xKMGU AP",
         "name": "2xKMGU AP"
       },
@@ -54526,7 +56364,9 @@
             "num": 5
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "displayName": "4xFuel tank",
         "name": "4xFuel tank"
       },
@@ -54549,7 +56389,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4xUPK-23",
         "name": "4xUPK-23"
       },
@@ -54572,7 +56416,12 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "displayName": "4x9M114, 10xS-13",
         "name": "4x9M114, 10xS-13"
       },
@@ -54603,7 +56452,9 @@
             "num": 6
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "4x9M114, 80xS-8 TsM",
         "name": "4x9M114, 80xS-8 TsM"
       },
@@ -54618,7 +56469,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4x9M114",
         "name": "4x9M114"
       },
@@ -54641,7 +56496,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "80xS-8",
         "name": "80xS-8"
       },
@@ -54656,7 +56515,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "40xS-8 TsM",
         "name": "40xS-8 TsM"
       },
@@ -54687,7 +56548,9 @@
             "num": 6
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "8x9M114, 40xS-8 TsM",
         "name": "8x9M114, 40xS-8 TsM"
       },
@@ -54718,7 +56581,12 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "displayName": "8x9M114, 10xS-13",
         "name": "8x9M114, 10xS-13"
       },
@@ -54733,7 +56601,9 @@
             "num": 4
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "displayName": "2xFuel tank",
         "name": "2xFuel tank"
       },
@@ -54764,7 +56634,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4x9M114, 4xUPK-23",
         "name": "4x9M114, 4xUPK-23"
       },
@@ -54779,7 +56653,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "2xUPK-23",
         "name": "2xUPK-23"
       },
@@ -54810,7 +56688,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "8x9M114, 64xS-5",
         "name": "8x9M114, 64xS-5"
       },
@@ -54841,7 +56723,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "8x9M114, 40xS-8",
         "name": "8x9M114, 40xS-8"
       },
@@ -54864,7 +56750,11 @@
             "num": 5
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "20xS-13",
         "name": "20xS-13"
       },
@@ -54879,7 +56769,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "40xS-8",
         "name": "40xS-8"
       },
@@ -54910,7 +56804,11 @@
             "num": 6
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "8x9M114, 2xUPK-23",
         "name": "8x9M114, 2xUPK-23"
       }
@@ -54961,41 +56859,146 @@
     "shape": "MI-24W",
     "width": 17.3,
     "operators": {
-      "Russia": [1970, 2020],
-      "Ukraine": [1970, 2020],
-      "Georgia": [1990, 2020],
-      "Abkhazia": [2000, 2020],
-      "SouthOssetia": [1970, 2020],
-      "Belarus": [1970, 2020],
-      "Bulgaria": [1980, 2020],
-      "CzechRepublic": [1970, 1990],
-      "Croatia": [1990, 2010],
-      "Egypt": [1990, 2020],
-      "Hungary": [1980, 2020],
-      "India": [1990, 2020],
-      "Kazakhstan": [1970, 2020],
-      "Slovakia": [1990, 2010],
-      "Syria": [1990, 2020],
-      "Yemen": [2000, 2020],
-      "Sudan": [1990, 2020],
-      "Ethiopia": [1990, 2020],
-      "USSR": [1970, 2020],
-      "Algeria": [2000, 2000],
-      "Cuba": [1980, 2020],
-      "UnitedNationsPeacekeepers": [1970, 2020],
-      "Nigeria": [1970, 2020],
-      "Peru": [1970, 2020],
-      "Cyprus": [2000, 2020],
-      "GDR": [1970, 2020],
-      "Indonesia": [2000, 2020],
-      "Iraq": [1990, 2020],
-      "Libya": [1990, 2020],
-      "NorthKorea": [1990, 2020],
-      "Pakistan": [1990, 2020],
-      "Poland": [1990, 2020],
-      "Serbia": [1990, 2010],
-      "Yugoslavia": [1970, 2020],
-      "Afghanistan": [1990, 2020]
+      "Russia": [
+        1970,
+        2020
+      ],
+      "Ukraine": [
+        1970,
+        2020
+      ],
+      "Georgia": [
+        1990,
+        2020
+      ],
+      "Abkhazia": [
+        2000,
+        2020
+      ],
+      "SouthOssetia": [
+        1970,
+        2020
+      ],
+      "Belarus": [
+        1970,
+        2020
+      ],
+      "Bulgaria": [
+        1980,
+        2020
+      ],
+      "CzechRepublic": [
+        1970,
+        1990
+      ],
+      "Croatia": [
+        1990,
+        2010
+      ],
+      "Egypt": [
+        1990,
+        2020
+      ],
+      "Hungary": [
+        1980,
+        2020
+      ],
+      "India": [
+        1990,
+        2020
+      ],
+      "Kazakhstan": [
+        1970,
+        2020
+      ],
+      "Slovakia": [
+        1990,
+        2010
+      ],
+      "Syria": [
+        1990,
+        2020
+      ],
+      "Yemen": [
+        2000,
+        2020
+      ],
+      "Sudan": [
+        1990,
+        2020
+      ],
+      "Ethiopia": [
+        1990,
+        2020
+      ],
+      "USSR": [
+        1970,
+        2020
+      ],
+      "Algeria": [
+        2000,
+        2000
+      ],
+      "Cuba": [
+        1980,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1970,
+        2020
+      ],
+      "Nigeria": [
+        1970,
+        2020
+      ],
+      "Peru": [
+        1970,
+        2020
+      ],
+      "Cyprus": [
+        2000,
+        2020
+      ],
+      "GDR": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        2000,
+        2020
+      ],
+      "Iraq": [
+        1990,
+        2020
+      ],
+      "Libya": [
+        1990,
+        2020
+      ],
+      "NorthKorea": [
+        1990,
+        2020
+      ],
+      "Pakistan": [
+        1990,
+        2020
+      ],
+      "Poland": [
+        1990,
+        2020
+      ],
+      "Serbia": [
+        1990,
+        2010
+      ],
+      "Yugoslavia": [
+        1970,
+        2020
+      ],
+      "Afghanistan": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -60213,98 +62216,289 @@
     "height": 12.9,
     "length": 40.854,
     "paintSchemes": {
-      "0": ["RF Air Force", "Russia_FSB", "Russia_MVD", "United Nations"],
-      "1": ["7th Separate Brigade of AA (Kalinov)", "United Nations"],
-      "2": ["United Nations"],
-      "3": ["United Nations"],
-      "4": ["United Nations"],
-      "5": ["United Nations"],
-      "6": ["United Nations"],
-      "7": ["United Nations"],
-      "8": ["United Nations"],
-      "9": ["United Nations"],
-      "10": ["United Nations"],
-      "11": ["United Nations"],
-      "12": ["United Nations"],
-      "13": ["United Nations"],
-      "15": ["United Nations"],
-      "16": ["United Nations"],
-      "17": ["United Nations"],
-      "18": ["United Nations"],
-      "19": ["United Nations"],
-      "20": ["United Nations"],
-      "21": ["United Nations"],
-      "22": ["United Nations"],
-      "23": ["United Nations"],
-      "24": ["United Nations"],
-      "25": ["United Nations"],
-      "26": ["United Nations"],
-      "27": ["China Flying Dragon Aviation", "United Nations"],
-      "28": ["United Nations"],
-      "29": ["United Nations"],
-      "30": ["United Nations"],
-      "31": ["United Nations"],
-      "32": ["United Nations"],
-      "33": ["United Nations"],
-      "34": ["United Nations"],
-      "35": ["United Nations"],
-      "36": ["United Nations"],
-      "37": ["United Nations"],
-      "38": ["United Nations"],
-      "39": ["United Nations"],
-      "40": ["United Nations"],
-      "41": ["United Nations"],
-      "42": ["United Nations"],
-      "43": ["United Nations"],
-      "44": ["United Nations"],
-      "45": ["United Nations"],
-      "46": ["United Nations"],
-      "47": ["United Nations"],
-      "48": ["United Nations"],
-      "49": ["United Nations"],
-      "50": ["United Nations"],
-      "51": ["United Nations"],
-      "52": ["United Nations"],
-      "53": ["United Nations"],
-      "54": ["United Nations"],
-      "55": ["United Nations"],
-      "56": ["United Nations"],
-      "57": ["United Nations"],
-      "58": ["United Nations"],
-      "59": ["United Nations"],
-      "60": ["United Nations"],
-      "61": ["United Nations"],
-      "62": ["United Nations"],
-      "63": ["United Nations"],
-      "64": ["United Nations"],
-      "65": ["United Nations"],
-      "66": ["United Nations"],
-      "67": ["United Nations"],
-      "68": ["RF Air Force", "United Nations"],
-      "69": ["United Nations"],
-      "70": ["Algerian AF SL-22 ", "United Nations"],
-      "71": ["United Nations"],
-      "72": ["United Nations"],
-      "73": ["United Nations"],
-      "74": ["United Nations"],
-      "75": ["United Nations"],
-      "76": ["United Nations"],
-      "77": ["United Nations"],
-      "78": ["United Nations"],
-      "79": ["United Nations"],
-      "80": ["United Nations"],
-      "81": ["United Nations"],
-      "82": ["United Nations"],
-      "83": ["United Nations"],
-      "84": ["United Nations"],
-      "85": ["United Nations"],
-      "86": ["United Nations"],
-      "87": ["United Nations"],
-      "88": ["United Nations"],
-      "89": ["United Nations"],
-      "90": ["United Nations"],
-      "91": ["United Nations"],
-      "92": ["United Nations"]
+      "0": [
+        "RF Air Force",
+        "Russia_FSB",
+        "Russia_MVD",
+        "United Nations"
+      ],
+      "1": [
+        "7th Separate Brigade of AA (Kalinov)",
+        "United Nations"
+      ],
+      "2": [
+        "United Nations"
+      ],
+      "3": [
+        "United Nations"
+      ],
+      "4": [
+        "United Nations"
+      ],
+      "5": [
+        "United Nations"
+      ],
+      "6": [
+        "United Nations"
+      ],
+      "7": [
+        "United Nations"
+      ],
+      "8": [
+        "United Nations"
+      ],
+      "9": [
+        "United Nations"
+      ],
+      "10": [
+        "United Nations"
+      ],
+      "11": [
+        "United Nations"
+      ],
+      "12": [
+        "United Nations"
+      ],
+      "13": [
+        "United Nations"
+      ],
+      "15": [
+        "United Nations"
+      ],
+      "16": [
+        "United Nations"
+      ],
+      "17": [
+        "United Nations"
+      ],
+      "18": [
+        "United Nations"
+      ],
+      "19": [
+        "United Nations"
+      ],
+      "20": [
+        "United Nations"
+      ],
+      "21": [
+        "United Nations"
+      ],
+      "22": [
+        "United Nations"
+      ],
+      "23": [
+        "United Nations"
+      ],
+      "24": [
+        "United Nations"
+      ],
+      "25": [
+        "United Nations"
+      ],
+      "26": [
+        "United Nations"
+      ],
+      "27": [
+        "China Flying Dragon Aviation",
+        "United Nations"
+      ],
+      "28": [
+        "United Nations"
+      ],
+      "29": [
+        "United Nations"
+      ],
+      "30": [
+        "United Nations"
+      ],
+      "31": [
+        "United Nations"
+      ],
+      "32": [
+        "United Nations"
+      ],
+      "33": [
+        "United Nations"
+      ],
+      "34": [
+        "United Nations"
+      ],
+      "35": [
+        "United Nations"
+      ],
+      "36": [
+        "United Nations"
+      ],
+      "37": [
+        "United Nations"
+      ],
+      "38": [
+        "United Nations"
+      ],
+      "39": [
+        "United Nations"
+      ],
+      "40": [
+        "United Nations"
+      ],
+      "41": [
+        "United Nations"
+      ],
+      "42": [
+        "United Nations"
+      ],
+      "43": [
+        "United Nations"
+      ],
+      "44": [
+        "United Nations"
+      ],
+      "45": [
+        "United Nations"
+      ],
+      "46": [
+        "United Nations"
+      ],
+      "47": [
+        "United Nations"
+      ],
+      "48": [
+        "United Nations"
+      ],
+      "49": [
+        "United Nations"
+      ],
+      "50": [
+        "United Nations"
+      ],
+      "51": [
+        "United Nations"
+      ],
+      "52": [
+        "United Nations"
+      ],
+      "53": [
+        "United Nations"
+      ],
+      "54": [
+        "United Nations"
+      ],
+      "55": [
+        "United Nations"
+      ],
+      "56": [
+        "United Nations"
+      ],
+      "57": [
+        "United Nations"
+      ],
+      "58": [
+        "United Nations"
+      ],
+      "59": [
+        "United Nations"
+      ],
+      "60": [
+        "United Nations"
+      ],
+      "61": [
+        "United Nations"
+      ],
+      "62": [
+        "United Nations"
+      ],
+      "63": [
+        "United Nations"
+      ],
+      "64": [
+        "United Nations"
+      ],
+      "65": [
+        "United Nations"
+      ],
+      "66": [
+        "United Nations"
+      ],
+      "67": [
+        "United Nations"
+      ],
+      "68": [
+        "RF Air Force",
+        "United Nations"
+      ],
+      "69": [
+        "United Nations"
+      ],
+      "70": [
+        "Algerian AF SL-22 ",
+        "United Nations"
+      ],
+      "71": [
+        "United Nations"
+      ],
+      "72": [
+        "United Nations"
+      ],
+      "73": [
+        "United Nations"
+      ],
+      "74": [
+        "United Nations"
+      ],
+      "75": [
+        "United Nations"
+      ],
+      "76": [
+        "United Nations"
+      ],
+      "77": [
+        "United Nations"
+      ],
+      "78": [
+        "United Nations"
+      ],
+      "79": [
+        "United Nations"
+      ],
+      "80": [
+        "United Nations"
+      ],
+      "81": [
+        "United Nations"
+      ],
+      "82": [
+        "United Nations"
+      ],
+      "83": [
+        "United Nations"
+      ],
+      "84": [
+        "United Nations"
+      ],
+      "85": [
+        "United Nations"
+      ],
+      "86": [
+        "United Nations"
+      ],
+      "87": [
+        "United Nations"
+      ],
+      "88": [
+        "United Nations"
+      ],
+      "89": [
+        "United Nations"
+      ],
+      "90": [
+        "United Nations"
+      ],
+      "91": [
+        "United Nations"
+      ],
+      "92": [
+        "United Nations"
+      ]
     },
     "payloadPresets": [],
     "displayName": "Mi-26",
@@ -60328,20 +62522,62 @@
     "shape": "MI-26",
     "width": 32,
     "operators": {
-      "Russia": [1980, 2020],
-      "Ukraine": [1990, 2020],
-      "Belarus": [1980, 2020],
-      "China": [1980, 2020],
-      "India": [1980, 2020],
-      "Kazakhstan": [1980, 2020],
-      "Venezuela": [2010, 2020],
-      "Mexico": [2000, 2020],
-      "Jordan": [2020, 2020],
-      "USSR": [1980, 2020],
-      "Algeria": [2010, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Peru": [1980, 2020],
-      "NorthKorea": [1990, 2020]
+      "Russia": [
+        1980,
+        2020
+      ],
+      "Ukraine": [
+        1990,
+        2020
+      ],
+      "Belarus": [
+        1980,
+        2020
+      ],
+      "China": [
+        1980,
+        2020
+      ],
+      "India": [
+        1980,
+        2020
+      ],
+      "Kazakhstan": [
+        1980,
+        2020
+      ],
+      "Venezuela": [
+        2010,
+        2020
+      ],
+      "Mexico": [
+        2000,
+        2020
+      ],
+      "Jordan": [
+        2020,
+        2020
+      ],
+      "USSR": [
+        1980,
+        2020
+      ],
+      "Algeria": [
+        2010,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Peru": [
+        1980,
+        2020
+      ],
+      "NorthKorea": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -63879,8 +66115,378 @@
     "height": 5.087,
     "length": 17.87,
     "paintSchemes": {
-      "0": ["Night", "Standard"],
-      "70": ["Algerian AF Desert SC-11", "Algerian AF Desert SC-12"]
+      "0": [
+        "Night",
+        "Standard",
+        "black",
+        "desert"
+      ],
+      "1": [
+        "black",
+        "desert"
+      ],
+      "2": [
+        "black",
+        "desert"
+      ],
+      "3": [
+        "black",
+        "desert"
+      ],
+      "4": [
+        "black",
+        "desert"
+      ],
+      "5": [
+        "black",
+        "desert"
+      ],
+      "6": [
+        "black",
+        "desert"
+      ],
+      "7": [
+        "black",
+        "desert"
+      ],
+      "8": [
+        "black",
+        "desert"
+      ],
+      "9": [
+        "black",
+        "desert"
+      ],
+      "10": [
+        "black",
+        "desert"
+      ],
+      "11": [
+        "black",
+        "desert"
+      ],
+      "12": [
+        "black",
+        "desert"
+      ],
+      "13": [
+        "black",
+        "desert"
+      ],
+      "15": [
+        "black",
+        "desert"
+      ],
+      "16": [
+        "black",
+        "desert"
+      ],
+      "17": [
+        "black",
+        "desert"
+      ],
+      "18": [
+        "black",
+        "desert"
+      ],
+      "19": [
+        "black",
+        "desert"
+      ],
+      "20": [
+        "black",
+        "desert"
+      ],
+      "21": [
+        "black",
+        "desert"
+      ],
+      "22": [
+        "black",
+        "desert"
+      ],
+      "23": [
+        "black",
+        "desert"
+      ],
+      "24": [
+        "black",
+        "desert"
+      ],
+      "25": [
+        "black",
+        "desert"
+      ],
+      "26": [
+        "black",
+        "desert"
+      ],
+      "27": [
+        "black",
+        "desert"
+      ],
+      "28": [
+        "black",
+        "desert"
+      ],
+      "29": [
+        "black",
+        "desert"
+      ],
+      "30": [
+        "black",
+        "desert"
+      ],
+      "31": [
+        "black",
+        "desert"
+      ],
+      "32": [
+        "black",
+        "desert"
+      ],
+      "33": [
+        "black",
+        "desert"
+      ],
+      "34": [
+        "black",
+        "desert"
+      ],
+      "35": [
+        "black",
+        "desert"
+      ],
+      "36": [
+        "black",
+        "desert"
+      ],
+      "37": [
+        "black",
+        "desert"
+      ],
+      "38": [
+        "black",
+        "desert"
+      ],
+      "39": [
+        "black",
+        "desert"
+      ],
+      "40": [
+        "black",
+        "desert"
+      ],
+      "41": [
+        "black",
+        "desert"
+      ],
+      "42": [
+        "black",
+        "desert"
+      ],
+      "43": [
+        "black",
+        "desert"
+      ],
+      "44": [
+        "black",
+        "desert"
+      ],
+      "45": [
+        "black",
+        "desert"
+      ],
+      "46": [
+        "black",
+        "desert"
+      ],
+      "47": [
+        "black",
+        "desert"
+      ],
+      "48": [
+        "black",
+        "desert"
+      ],
+      "49": [
+        "black",
+        "desert"
+      ],
+      "50": [
+        "black",
+        "desert"
+      ],
+      "51": [
+        "black",
+        "desert"
+      ],
+      "52": [
+        "black",
+        "desert"
+      ],
+      "53": [
+        "black",
+        "desert"
+      ],
+      "54": [
+        "black",
+        "desert"
+      ],
+      "55": [
+        "black",
+        "desert"
+      ],
+      "56": [
+        "black",
+        "desert"
+      ],
+      "57": [
+        "black",
+        "desert"
+      ],
+      "58": [
+        "black",
+        "desert"
+      ],
+      "59": [
+        "black",
+        "desert"
+      ],
+      "60": [
+        "black",
+        "desert"
+      ],
+      "61": [
+        "black",
+        "desert"
+      ],
+      "62": [
+        "black",
+        "desert"
+      ],
+      "63": [
+        "black",
+        "desert"
+      ],
+      "64": [
+        "black",
+        "desert"
+      ],
+      "65": [
+        "black",
+        "desert"
+      ],
+      "66": [
+        "black",
+        "desert"
+      ],
+      "67": [
+        "black",
+        "desert"
+      ],
+      "68": [
+        "black",
+        "desert"
+      ],
+      "69": [
+        "black",
+        "desert"
+      ],
+      "70": [
+        "Algerian AF Desert SC-11",
+        "Algerian AF Desert SC-12",
+        "black",
+        "desert"
+      ],
+      "71": [
+        "black",
+        "desert"
+      ],
+      "72": [
+        "black",
+        "desert"
+      ],
+      "73": [
+        "black",
+        "desert"
+      ],
+      "74": [
+        "black",
+        "desert"
+      ],
+      "75": [
+        "black",
+        "desert"
+      ],
+      "76": [
+        "black",
+        "desert"
+      ],
+      "77": [
+        "black",
+        "desert"
+      ],
+      "78": [
+        "black",
+        "desert"
+      ],
+      "79": [
+        "black",
+        "desert"
+      ],
+      "80": [
+        "black",
+        "desert"
+      ],
+      "81": [
+        "black",
+        "desert"
+      ],
+      "82": [
+        "black",
+        "desert"
+      ],
+      "83": [
+        "black",
+        "desert"
+      ],
+      "84": [
+        "black",
+        "desert"
+      ],
+      "85": [
+        "black",
+        "desert"
+      ],
+      "86": [
+        "black",
+        "desert"
+      ],
+      "87": [
+        "black",
+        "desert"
+      ],
+      "88": [
+        "black",
+        "desert"
+      ],
+      "89": [
+        "black",
+        "desert"
+      ],
+      "90": [
+        "black",
+        "desert"
+      ],
+      "91": [
+        "black",
+        "desert"
+      ],
+      "92": [
+        "black",
+        "desert"
+      ]
     },
     "payloadPresets": [
       {
@@ -63894,7 +66500,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-250",
         "name": "2xFAB-250"
       },
@@ -63917,7 +66525,9 @@
             "num": 4
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "displayName": "4xFuel tank",
         "name": "4xFuel tank"
       },
@@ -63940,7 +66550,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "80xS-8",
         "name": "80xS-8"
       },
@@ -63963,7 +66577,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xKMGU AP",
         "name": "4xKMGU AP"
       },
@@ -63986,7 +66602,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "4xUPK-23",
         "name": "4xUPK-23"
       },
@@ -64009,7 +66629,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "16x9M114, 2xKMGU AT",
         "name": "16x9M114, 2xKMGU AT"
       },
@@ -64032,7 +66656,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xFAB-500",
         "name": "4xFAB-500"
       },
@@ -64055,7 +66681,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "16x9M114, 2xFAB-500",
         "name": "16x9M114, 2xFAB-500"
       },
@@ -64070,7 +66698,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "40xS-8",
         "name": "40xS-8"
       },
@@ -64085,7 +66717,9 @@
             "num": 3
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "40xS-8 TsM",
         "name": "40xS-8 TsM"
       },
@@ -64100,7 +66734,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xKMGU AP",
         "name": "2xKMGU AP"
       },
@@ -64115,7 +66751,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "2xUPK-23",
         "name": "2xUPK-23"
       },
@@ -64138,7 +66778,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "16x9M114, 2xUPK-23",
         "name": "16x9M114, 2xUPK-23"
       },
@@ -64153,7 +66797,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-500",
         "name": "2xFAB-500"
       },
@@ -64176,7 +66822,12 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "displayName": "16x9M114, 40xS-8",
         "name": "16x9M114, 40xS-8"
       },
@@ -64191,7 +66842,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "16x9M114",
         "name": "16x9M114"
       },
@@ -64214,7 +66869,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "20xS-13",
         "name": "20xS-13"
       },
@@ -64237,7 +66896,11 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "16x9M114, 2xKMGU AP",
         "name": "16x9M114, 2xKMGU AP"
       },
@@ -64260,7 +66923,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xFAB-250",
         "name": "4xFAB-250"
       },
@@ -64283,7 +66948,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4xKMGU AT",
         "name": "4xKMGU AT"
       },
@@ -64306,7 +66973,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "16x9M114, 40xS-8 TsM",
         "name": "16x9M114, 40xS-8 TsM"
       },
@@ -64329,7 +66998,9 @@
             "num": 4
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "80xS-8 TsM",
         "name": "80xS-8 TsM"
       },
@@ -64344,7 +67015,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xKMGU AT",
         "name": "2xKMGU AT"
       },
@@ -64355,7 +67028,11 @@
             "num": 1
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "9x9M114",
         "name": "9x9M114"
       },
@@ -64370,7 +67047,9 @@
             "num": 3
           }
         ],
-        "tasks": [15],
+        "tasks": [
+          15
+        ],
         "displayName": "2xFuel tank",
         "name": "2xFuel tank"
       },
@@ -64385,7 +67064,11 @@
             "num": 3
           }
         ],
-        "tasks": [31, 32, 18],
+        "tasks": [
+          31,
+          32,
+          18
+        ],
         "displayName": "10xS-13",
         "name": "10xS-13"
       },
@@ -64408,7 +67091,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2xFAB-250, 16x9M114",
         "name": "2xFAB-250, 16x9M114"
       },
@@ -64431,13 +67116,20 @@
             "num": 4
           }
         ],
-        "tasks": [31, 32, 18, 30],
+        "tasks": [
+          31,
+          32,
+          18,
+          30
+        ],
         "displayName": "16x9M114, 10xS-13",
         "name": "16x9M114, 10xS-13"
       }
     ],
-    "displayName": "Mi-28N",
+    "EPLRS": true,
+    "displayName": "Mi-28N [CH]",
     "categories": [],
+    "module": "Currenthill Assets Pack",
     "tasks": [
       {
         "Name": "CAS",
@@ -64463,24 +67155,47 @@
         "Name": "Anti-ship Strike",
         "OldID": "Antiship Strike",
         "WorldID": 30
+      },
+      {
+        "Name": "Transport",
+        "OldID": "Transport",
+        "WorldID": 35
+      },
+      {
+        "Name": "Reconnaissance",
+        "OldID": "Reconnaissance",
+        "WorldID": 17
       }
     ],
     "fuel": 1500,
     "flares": 128,
-    "chaff": 0,
+    "chaff": 64,
     "radio": {
-      "frequency": 127.5,
+      "frequency": 124,
       "modulation": 0
     },
+    "ammoType": 3,
     "maxAlt": 2990,
     "cruiseSpeed": 261,
-    "shape": "Mi-28",
+    "shape": "CHAP_Mi28N",
     "width": 17.2,
     "operators": {
-      "Russia": [2000, 2020],
-      "Iraq": [2010, 2020],
-      "Algeria": [2000, 2020],
-      "UnitedNationsPeacekeepers": [2000, 2020]
+      "Russia": [
+        2000,
+        2020
+      ],
+      "Iraq": [
+        2010,
+        2020
+      ],
+      "Algeria": [
+        2000,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        2000,
+        2020
+      ]
     }
   },
   {
@@ -70505,7 +73220,9 @@
             "num": 2
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4 x B8",
         "name": "4 x B8"
       },
@@ -70536,7 +73253,9 @@
             "num": 1
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "4 x B8 + 2GUV_AP-30 (GrL 30mm)",
         "name": "4 x B8 + 2GUV_AP-30 (GrL 30mm)"
       },
@@ -70567,7 +73286,9 @@
             "num": 1
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2 x UPK +2 x B8",
         "name": "2 x UPK +2 x B8"
       },
@@ -70598,7 +73319,9 @@
             "num": 3
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2 xB8 + 2GUV_YaKB (MG-12.7+7.62)+ 2GUV_AP-30 (GrL 30mm)",
         "name": "2 xB8 + 2GUV_YaKB (MG-12.7+7.62)+ 2GUV_AP-30 (GrL 30mm)"
       },
@@ -70629,7 +73352,9 @@
             "num": 1
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "6 x FAB-100",
         "name": "6 x FAB-100"
       },
@@ -70652,7 +73377,9 @@
             "num": 4
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2 x B8 + 2 x UPK-23-250",
         "name": "2 x B8 + 2 x UPK-23-250"
       },
@@ -70667,7 +73394,9 @@
             "num": 2
           }
         ],
-        "tasks": [32],
+        "tasks": [
+          32
+        ],
         "displayName": "2 x UPK--23-250",
         "name": "2 x UPK--23-250"
       }
@@ -70751,51 +73480,186 @@
     "shape": "MI-8MT",
     "width": 21.33,
     "operators": {
-      "Russia": [1960, 2020],
-      "Ukraine": [1960, 2020],
-      "Turkey": [1960, 2020],
-      "Georgia": [2010, 2020],
-      "Insurgents": [2010, 2020],
-      "Abkhazia": [1960, 2020],
-      "SouthOssetia": [1960, 2020],
-      "Belarus": [1960, 2020],
-      "Bulgaria": [1960, 2020],
-      "CzechRepublic": [1960, 2020],
-      "China": [1970, 2020],
-      "Croatia": [1960, 2020],
-      "Egypt": [1960, 2020],
-      "Greece": [1960, 2020],
-      "Hungary": [1960, 2020],
-      "India": [2010, 2020],
-      "Iran": [2010, 2020],
-      "Kazakhstan": [1960, 2020],
-      "Poland": [2010, 2020],
-      "Romania": [1960, 2020],
-      "Serbia": [1960, 2020],
-      "Mexico": [1990, 2020],
-      "Indonesia": [1960, 2020],
-      "Chile": [1960, 2020],
-      "USSR": [1960, 2020],
-      "Algeria": [1960, 2020],
-      "Cuba": [1960, 2020],
-      "UnitedNationsPeacekeepers": [1960, 2020],
-      "Argentina": [1960, 2020],
-      "Cyprus": [1960, 2020],
-      "Slovenia": [1960, 2020],
-      "Ghana": [1960, 2020],
-      "Nigeria": [1960, 2020],
-      "Peru": [1960, 2020],
-      "Ecuador": [1960, 2020],
-      "Ethiopia": [1960, 2020],
-      "GDR": [1960, 2020],
-      "Iraq": [1960, 2020],
-      "Libya": [1960, 2020],
-      "NorthKorea": [1960, 2020],
-      "Pakistan": [1960, 2020],
-      "Slovakia": [1960, 2020],
-      "Sudan": [1960, 2020],
-      "Syria": [1960, 2020],
-      "Afghanistan": [1960, 2020]
+      "Russia": [
+        1960,
+        2020
+      ],
+      "Ukraine": [
+        1960,
+        2020
+      ],
+      "Turkey": [
+        1960,
+        2020
+      ],
+      "Georgia": [
+        2010,
+        2020
+      ],
+      "Insurgents": [
+        2010,
+        2020
+      ],
+      "Abkhazia": [
+        1960,
+        2020
+      ],
+      "SouthOssetia": [
+        1960,
+        2020
+      ],
+      "Belarus": [
+        1960,
+        2020
+      ],
+      "Bulgaria": [
+        1960,
+        2020
+      ],
+      "CzechRepublic": [
+        1960,
+        2020
+      ],
+      "China": [
+        1970,
+        2020
+      ],
+      "Croatia": [
+        1960,
+        2020
+      ],
+      "Egypt": [
+        1960,
+        2020
+      ],
+      "Greece": [
+        1960,
+        2020
+      ],
+      "Hungary": [
+        1960,
+        2020
+      ],
+      "India": [
+        2010,
+        2020
+      ],
+      "Iran": [
+        2010,
+        2020
+      ],
+      "Kazakhstan": [
+        1960,
+        2020
+      ],
+      "Poland": [
+        2010,
+        2020
+      ],
+      "Romania": [
+        1960,
+        2020
+      ],
+      "Serbia": [
+        1960,
+        2020
+      ],
+      "Mexico": [
+        1990,
+        2020
+      ],
+      "Indonesia": [
+        1960,
+        2020
+      ],
+      "Chile": [
+        1960,
+        2020
+      ],
+      "USSR": [
+        1960,
+        2020
+      ],
+      "Algeria": [
+        1960,
+        2020
+      ],
+      "Cuba": [
+        1960,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1960,
+        2020
+      ],
+      "Argentina": [
+        1960,
+        2020
+      ],
+      "Cyprus": [
+        1960,
+        2020
+      ],
+      "Slovenia": [
+        1960,
+        2020
+      ],
+      "Ghana": [
+        1960,
+        2020
+      ],
+      "Nigeria": [
+        1960,
+        2020
+      ],
+      "Peru": [
+        1960,
+        2020
+      ],
+      "Ecuador": [
+        1960,
+        2020
+      ],
+      "Ethiopia": [
+        1960,
+        2020
+      ],
+      "GDR": [
+        1960,
+        2020
+      ],
+      "Iraq": [
+        1960,
+        2020
+      ],
+      "Libya": [
+        1960,
+        2020
+      ],
+      "NorthKorea": [
+        1960,
+        2020
+      ],
+      "Pakistan": [
+        1960,
+        2020
+      ],
+      "Slovakia": [
+        1960,
+        2020
+      ],
+      "Sudan": [
+        1960,
+        2020
+      ],
+      "Syria": [
+        1960,
+        2020
+      ],
+      "Afghanistan": [
+        1960,
+        2020
+      ]
     }
   },
   {
@@ -74345,7 +77209,11 @@
             "num": 2
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "2xAGM-114, 7xHYDRA-70",
         "name": "2xAGM-114, 7xHYDRA-70"
       },
@@ -74360,7 +77228,11 @@
             "num": 2
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "4xAGM-114",
         "name": "4xAGM-114"
       },
@@ -74375,7 +77247,11 @@
             "num": 2
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "M-3, 7xHYDRA-70",
         "name": "M-3, 7xHYDRA-70"
       },
@@ -74390,7 +77266,11 @@
             "num": 2
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "2xAGM-114, M-3",
         "name": "2xAGM-114, M-3"
       },
@@ -74405,7 +77285,11 @@
             "num": 2
           }
         ],
-        "tasks": [18, 31, 32],
+        "tasks": [
+          18,
+          31,
+          32
+        ],
         "displayName": "14xHYDRA-70",
         "name": "14xHYDRA-70"
       },
@@ -74420,7 +77304,9 @@
             "num": 2
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "displayName": "14xHYDRA-70 WP",
         "name": "14xHYDRA-70 WP"
       },
@@ -74435,7 +77321,9 @@
             "num": 1
           }
         ],
-        "tasks": [16],
+        "tasks": [
+          16
+        ],
         "name": "New Payload"
       }
     ],
@@ -74480,17 +77368,50 @@
     "shape": "OH-58D",
     "width": 10.53,
     "operators": {
-      "USA": [1990, 2020],
-      "USAFAggressors": [1990, 2020],
-      "Croatia": [2000, 2020],
-      "Iran": [1990, 2020],
-      "SaudiArabia": [2000, 2020],
-      "UnitedNationsPeacekeepers": [1990, 2020],
-      "Australia": [2000, 2020],
-      "Austria": [2000, 2020],
-      "Canada": [2000, 2020],
-      "Greece": [2000, 2020],
-      "Turkey": [2000, 2020]
+      "USA": [
+        1990,
+        2020
+      ],
+      "USAFAggressors": [
+        1990,
+        2020
+      ],
+      "Croatia": [
+        2000,
+        2020
+      ],
+      "Iran": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        2000,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1990,
+        2020
+      ],
+      "Australia": [
+        2000,
+        2020
+      ],
+      "Austria": [
+        2000,
+        2020
+      ],
+      "Canada": [
+        2000,
+        2020
+      ],
+      "Greece": [
+        2000,
+        2020
+      ],
+      "Turkey": [
+        2000,
+        2020
+      ]
     }
   },
   {
@@ -90679,7 +93600,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "4x Stinger",
         "name": "4x Stinger"
       },
@@ -90694,7 +93624,16 @@
             "num": 1
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x Stinger, Gun",
         "name": "2x Stinger, Gun"
       },
@@ -90709,7 +93648,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "4x Hellfire",
         "name": "4x Hellfire"
       },
@@ -90724,7 +93672,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x Hellfire, Gun",
         "name": "2x Hellfire, Gun"
       },
@@ -90739,7 +93696,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "H10 Rockets, Gun",
         "name": "H10 Rockets, Gun"
       },
@@ -90754,7 +93720,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "H17 Rockets, Gun",
         "name": "H17 Rockets, Gun"
       },
@@ -90769,7 +93744,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x H10 Rockets",
         "name": "2x H10 Rockets"
       },
@@ -90784,7 +93768,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x H17 Rockets",
         "name": "2x H17 Rockets"
       },
@@ -90799,7 +93792,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x APKWS",
         "name": "2x APKWS"
       },
@@ -90814,7 +93816,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "APKWS, Gun",
         "name": "APKWS, Gun"
       },
@@ -90829,7 +93840,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x H10 / ILLUM Rockets",
         "name": "2x H10 / ILLUM Rockets"
       },
@@ -90844,7 +93864,16 @@
             "num": 5
           }
         ],
-        "tasks": [11, 31, 32, 16, 18, 35, 30, 17],
+        "tasks": [
+          11,
+          31,
+          32,
+          16,
+          18,
+          35,
+          30,
+          17
+        ],
         "displayName": "2x Hellfire, APKWS",
         "name": "2x Hellfire, APKWS"
       }
@@ -90948,17 +93977,50 @@
     "shape": "OH58D",
     "width": 10.668,
     "operators": {
-      "USA": [1990, 2020],
-      "USAFAggressors": [1990, 2020],
-      "Croatia": [2000, 2020],
-      "Iran": [1990, 2020],
-      "SaudiArabia": [2000, 2020],
-      "UnitedNationsPeacekeepers": [1990, 2020],
-      "Australia": [2000, 2020],
-      "Austria": [2000, 2020],
-      "Canada": [2000, 2020],
-      "Greece": [2000, 2020],
-      "Turkey": [2000, 2020]
+      "USA": [
+        1990,
+        2020
+      ],
+      "USAFAggressors": [
+        1990,
+        2020
+      ],
+      "Croatia": [
+        2000,
+        2020
+      ],
+      "Iran": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        2000,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1990,
+        2020
+      ],
+      "Australia": [
+        2000,
+        2020
+      ],
+      "Austria": [
+        2000,
+        2020
+      ],
+      "Canada": [
+        2000,
+        2020
+      ],
+      "Greece": [
+        2000,
+        2020
+      ],
+      "Turkey": [
+        2000,
+        2020
+      ]
     }
   },
   {
@@ -97975,7 +101037,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "M621, 8x SNEB68 EAP, IR Deflector, Sand Filter",
         "name": "M621, 8x SNEB68 EAP, IR Deflector, Sand Filter"
       },
@@ -97998,7 +101062,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2x HMP400, IR Deflector, Sand Filter",
         "name": "2x HMP400, IR Deflector, Sand Filter"
       },
@@ -98021,7 +101087,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4x HOT3, IR Deflector, Sand Filter",
         "name": "4x HOT3, IR Deflector, Sand Filter"
       },
@@ -98044,7 +101112,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4x Mistral, IR Deflector, Sand Filter",
         "name": "4x Mistral, IR Deflector, Sand Filter"
       },
@@ -98067,7 +101137,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2x Mistral, IR Deflector, Sand Filter",
         "name": "2x Mistral, IR Deflector, Sand Filter"
       },
@@ -98082,7 +101154,9 @@
             "num": 7
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "Display Team Smoke, Red & Blue",
         "name": "Display Team Smoke, Red & Blue"
       }
@@ -98143,22 +101217,70 @@
     "shape": "SA342L",
     "width": 10.5,
     "operators": {
-      "UK": [1970, 2020],
-      "France": [1970, 2020],
-      "Egypt": [1970, 2020],
-      "Iraq": [1970, 2020],
-      "Serbia": [1970, 2020],
-      "Syria": [1970, 2020],
-      "Tunisia": [1990, 2020],
-      "Morocco": [1970, 2020],
-      "Indonesia": [1970, 1990],
-      "Yugoslavia": [1980, 1990],
-      "Kuwait": [1970, 2020],
-      "Qatar": [1980, 2020],
-      "UnitedArabEmirates": [1980, 2020],
-      "Lebanon": [1980, 2020],
-      "Cyprus": [1990, 2020],
-      "Ecuador": [1970, 1990]
+      "UK": [
+        1970,
+        2020
+      ],
+      "France": [
+        1970,
+        2020
+      ],
+      "Egypt": [
+        1970,
+        2020
+      ],
+      "Iraq": [
+        1970,
+        2020
+      ],
+      "Serbia": [
+        1970,
+        2020
+      ],
+      "Syria": [
+        1970,
+        2020
+      ],
+      "Tunisia": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        1970,
+        1990
+      ],
+      "Yugoslavia": [
+        1980,
+        1990
+      ],
+      "Kuwait": [
+        1970,
+        2020
+      ],
+      "Qatar": [
+        1980,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        1980,
+        2020
+      ],
+      "Lebanon": [
+        1980,
+        2020
+      ],
+      "Cyprus": [
+        1990,
+        2020
+      ],
+      "Ecuador": [
+        1970,
+        1990
+      ]
     }
   },
   {
@@ -105175,7 +108297,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "4x HOT3, IR Deflector, Sand Filter",
         "name": "4x HOT3, IR Deflector, Sand Filter"
       },
@@ -105198,7 +108322,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "2x HOT3, IR Deflector, Sand Filter",
         "name": "2x HOT3, IR Deflector, Sand Filter"
       },
@@ -105213,7 +108339,9 @@
             "num": 7
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "Display Team Smoke, Red & Blue",
         "name": "Display Team Smoke, Red & Blue"
       }
@@ -105270,22 +108398,70 @@
     "shape": "SA342M",
     "width": 10.5,
     "operators": {
-      "UK": [1970, 2020],
-      "France": [1970, 2020],
-      "Egypt": [1970, 2020],
-      "Iraq": [1970, 2020],
-      "Serbia": [1970, 2020],
-      "Syria": [1970, 2020],
-      "Tunisia": [1990, 2020],
-      "Morocco": [1970, 2020],
-      "Indonesia": [1970, 1990],
-      "Yugoslavia": [1980, 1990],
-      "Kuwait": [1970, 2020],
-      "Qatar": [1980, 2020],
-      "UnitedArabEmirates": [1980, 2020],
-      "Lebanon": [1980, 2020],
-      "Cyprus": [1990, 2020],
-      "Ecuador": [1970, 1990]
+      "UK": [
+        1970,
+        2020
+      ],
+      "France": [
+        1970,
+        2020
+      ],
+      "Egypt": [
+        1970,
+        2020
+      ],
+      "Iraq": [
+        1970,
+        2020
+      ],
+      "Serbia": [
+        1970,
+        2020
+      ],
+      "Syria": [
+        1970,
+        2020
+      ],
+      "Tunisia": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        1970,
+        1990
+      ],
+      "Yugoslavia": [
+        1980,
+        1990
+      ],
+      "Kuwait": [
+        1970,
+        2020
+      ],
+      "Qatar": [
+        1980,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        1980,
+        2020
+      ],
+      "Lebanon": [
+        1980,
+        2020
+      ],
+      "Cyprus": [
+        1990,
+        2020
+      ],
+      "Ecuador": [
+        1970,
+        1990
+      ]
     }
   },
   {
@@ -112294,7 +115470,9 @@
             "num": 4
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "IR Deflector, Sand Filter",
         "name": "IR Deflector, Sand Filter"
       },
@@ -112309,7 +115487,9 @@
             "num": 7
           }
         ],
-        "tasks": [31],
+        "tasks": [
+          31
+        ],
         "displayName": "Display Team Smoke, Red & Blue",
         "name": "Display Team Smoke, Red & Blue"
       }
@@ -112367,22 +115547,70 @@
     "shape": "SA342Minigun",
     "width": 10.5,
     "operators": {
-      "UK": [1970, 2020],
-      "France": [1970, 2020],
-      "Egypt": [1970, 2020],
-      "Iraq": [1970, 2020],
-      "Serbia": [1970, 2020],
-      "Syria": [1970, 2020],
-      "Tunisia": [1990, 2020],
-      "Morocco": [1970, 2020],
-      "Indonesia": [1970, 1990],
-      "Yugoslavia": [1980, 1990],
-      "Kuwait": [1970, 2020],
-      "Qatar": [1980, 2020],
-      "UnitedArabEmirates": [1980, 2020],
-      "Lebanon": [1980, 2020],
-      "Cyprus": [1990, 2020],
-      "Ecuador": [1970, 1990]
+      "UK": [
+        1970,
+        2020
+      ],
+      "France": [
+        1970,
+        2020
+      ],
+      "Egypt": [
+        1970,
+        2020
+      ],
+      "Iraq": [
+        1970,
+        2020
+      ],
+      "Serbia": [
+        1970,
+        2020
+      ],
+      "Syria": [
+        1970,
+        2020
+      ],
+      "Tunisia": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        1970,
+        1990
+      ],
+      "Yugoslavia": [
+        1980,
+        1990
+      ],
+      "Kuwait": [
+        1970,
+        2020
+      ],
+      "Qatar": [
+        1980,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        1980,
+        2020
+      ],
+      "Lebanon": [
+        1980,
+        2020
+      ],
+      "Cyprus": [
+        1990,
+        2020
+      ],
+      "Ecuador": [
+        1970,
+        1990
+      ]
     }
   },
   {
@@ -115921,9 +119149,15 @@
     "height": 3.192,
     "length": 11.97,
     "paintSchemes": {
-      "0": ["russia fictional"],
-      "2": ["us marines fictional"],
-      "4": ["uk fictional"],
+      "0": [
+        "russia fictional"
+      ],
+      "2": [
+        "us marines fictional"
+      ],
+      "4": [
+        "uk fictional"
+      ],
       "5": [
         "Combat desert",
         "Portuguese modern Fictional",
@@ -115933,14 +119167,31 @@
         "tiger meet 2",
         "training"
       ],
-      "6": ["germany fictional"],
-      "10": ["RNLAF fictional"],
-      "15": ["israel fictional"],
-      "31": ["greece cyprus fictional desert"],
-      "43": ["serbia fictional", "yugoslav fictional"],
-      "47": ["syria fictional"],
-      "77": ["Portuguese modern Fictional"],
-      "84": ["Cyprus air force"]
+      "6": [
+        "germany fictional"
+      ],
+      "10": [
+        "RNLAF fictional"
+      ],
+      "15": [
+        "israel fictional"
+      ],
+      "31": [
+        "greece cyprus fictional desert"
+      ],
+      "43": [
+        "serbia fictional",
+        "yugoslav fictional"
+      ],
+      "47": [
+        "syria fictional"
+      ],
+      "77": [
+        "Portuguese modern Fictional"
+      ],
+      "84": [
+        "Cyprus air force"
+      ]
     },
     "panelRadio": [
       {
@@ -116015,7 +119266,9 @@
             "num": 4
           }
         ],
-        "tasks": [18],
+        "tasks": [
+          18
+        ],
         "displayName": "Mistral x 4",
         "name": "Mistral x 4"
       },
@@ -116042,7 +119295,9 @@
             "num": 6
           }
         ],
-        "tasks": [18],
+        "tasks": [
+          18
+        ],
         "displayName": "Mistral x 4, IR Deflector",
         "name": "Mistral x 4, IR Deflector"
       },
@@ -116073,7 +119328,9 @@
             "num": 6
           }
         ],
-        "tasks": [18],
+        "tasks": [
+          18
+        ],
         "displayName": "Mistral x 4, IR Deflector, Sand Filter",
         "name": "Mistral x 4, IR Deflector, Sand Filter"
       }
@@ -116120,22 +119377,70 @@
     "shape": "SA342Mistral",
     "width": 10.5,
     "operators": {
-      "UK": [1970, 2020],
-      "France": [1970, 2020],
-      "Egypt": [1970, 2020],
-      "Iraq": [1970, 2020],
-      "Serbia": [1970, 2020],
-      "Syria": [1970, 2020],
-      "Tunisia": [1990, 2020],
-      "Morocco": [1970, 2020],
-      "Indonesia": [1970, 1990],
-      "Yugoslavia": [1980, 1990],
-      "Kuwait": [1970, 2020],
-      "Qatar": [1980, 2020],
-      "UnitedArabEmirates": [1980, 2020],
-      "Lebanon": [1980, 2020],
-      "Cyprus": [1990, 2020],
-      "Ecuador": [1970, 1990]
+      "UK": [
+        1970,
+        2020
+      ],
+      "France": [
+        1970,
+        2020
+      ],
+      "Egypt": [
+        1970,
+        2020
+      ],
+      "Iraq": [
+        1970,
+        2020
+      ],
+      "Serbia": [
+        1970,
+        2020
+      ],
+      "Syria": [
+        1970,
+        2020
+      ],
+      "Tunisia": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        1970,
+        1990
+      ],
+      "Yugoslavia": [
+        1980,
+        1990
+      ],
+      "Kuwait": [
+        1970,
+        2020
+      ],
+      "Qatar": [
+        1980,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        1980,
+        2020
+      ],
+      "Lebanon": [
+        1980,
+        2020
+      ],
+      "Cyprus": [
+        1990,
+        2020
+      ],
+      "Ecuador": [
+        1970,
+        1990
+      ]
     }
   },
   {
@@ -119673,98 +122978,282 @@
     "height": 6.807,
     "length": 30.207,
     "paintSchemes": {
-      "0": ["standard"],
-      "1": ["standard"],
-      "2": ["standard"],
-      "3": ["standard"],
-      "4": ["standard"],
-      "5": ["standard"],
-      "6": ["standard"],
-      "7": ["standard"],
-      "8": ["standard"],
-      "9": ["standard"],
-      "10": ["standard"],
-      "11": ["standard"],
-      "12": ["standard"],
-      "13": ["standard"],
-      "15": ["standard"],
-      "16": ["standard"],
-      "17": ["standard"],
-      "18": ["standard"],
-      "19": ["standard"],
-      "20": ["standard"],
-      "21": ["standard"],
-      "22": ["standard"],
-      "23": ["standard"],
-      "24": ["standard"],
-      "25": ["standard"],
-      "26": ["standard"],
-      "27": ["standard"],
-      "28": ["standard"],
-      "29": ["standard"],
-      "30": ["standard"],
-      "31": ["standard"],
-      "32": ["standard"],
-      "33": ["standard"],
-      "34": ["standard"],
-      "35": ["standard"],
-      "36": ["standard"],
-      "37": ["standard"],
-      "38": ["standard"],
-      "39": ["standard"],
-      "40": ["standard"],
-      "41": ["standard"],
-      "42": ["standard"],
-      "43": ["standard"],
-      "44": ["standard"],
-      "45": ["standard"],
-      "46": ["standard"],
-      "47": ["standard"],
-      "48": ["standard"],
-      "49": ["standard"],
-      "50": ["standard"],
-      "51": ["standard"],
-      "52": ["standard"],
-      "53": ["standard"],
-      "54": ["standard"],
-      "55": ["standard"],
-      "56": ["standard"],
-      "57": ["standard"],
-      "58": ["standard"],
-      "59": ["standard"],
-      "60": ["standard"],
-      "61": ["standard"],
-      "62": ["standard"],
-      "63": ["standard"],
-      "64": ["standard"],
-      "65": ["standard"],
-      "66": ["standard"],
-      "67": ["standard"],
-      "68": ["standard"],
-      "69": ["standard"],
-      "70": ["standard"],
-      "71": ["standard"],
-      "72": ["standard"],
-      "73": ["standard"],
-      "74": ["standard"],
-      "75": ["standard"],
-      "76": ["standard"],
-      "77": ["standard"],
-      "78": ["standard"],
-      "79": ["standard"],
-      "80": ["standard"],
-      "81": ["standard"],
-      "82": ["standard"],
-      "83": ["standard"],
-      "84": ["standard"],
-      "85": ["standard"],
-      "86": ["standard"],
-      "87": ["standard"],
-      "88": ["standard"],
-      "89": ["standard"],
-      "90": ["standard"],
-      "91": ["standard"],
-      "92": ["standard"]
+      "0": [
+        "standard"
+      ],
+      "1": [
+        "standard"
+      ],
+      "2": [
+        "standard"
+      ],
+      "3": [
+        "standard"
+      ],
+      "4": [
+        "standard"
+      ],
+      "5": [
+        "standard"
+      ],
+      "6": [
+        "standard"
+      ],
+      "7": [
+        "standard"
+      ],
+      "8": [
+        "standard"
+      ],
+      "9": [
+        "standard"
+      ],
+      "10": [
+        "standard"
+      ],
+      "11": [
+        "standard"
+      ],
+      "12": [
+        "standard"
+      ],
+      "13": [
+        "standard"
+      ],
+      "15": [
+        "standard"
+      ],
+      "16": [
+        "standard"
+      ],
+      "17": [
+        "standard"
+      ],
+      "18": [
+        "standard"
+      ],
+      "19": [
+        "standard"
+      ],
+      "20": [
+        "standard"
+      ],
+      "21": [
+        "standard"
+      ],
+      "22": [
+        "standard"
+      ],
+      "23": [
+        "standard"
+      ],
+      "24": [
+        "standard"
+      ],
+      "25": [
+        "standard"
+      ],
+      "26": [
+        "standard"
+      ],
+      "27": [
+        "standard"
+      ],
+      "28": [
+        "standard"
+      ],
+      "29": [
+        "standard"
+      ],
+      "30": [
+        "standard"
+      ],
+      "31": [
+        "standard"
+      ],
+      "32": [
+        "standard"
+      ],
+      "33": [
+        "standard"
+      ],
+      "34": [
+        "standard"
+      ],
+      "35": [
+        "standard"
+      ],
+      "36": [
+        "standard"
+      ],
+      "37": [
+        "standard"
+      ],
+      "38": [
+        "standard"
+      ],
+      "39": [
+        "standard"
+      ],
+      "40": [
+        "standard"
+      ],
+      "41": [
+        "standard"
+      ],
+      "42": [
+        "standard"
+      ],
+      "43": [
+        "standard"
+      ],
+      "44": [
+        "standard"
+      ],
+      "45": [
+        "standard"
+      ],
+      "46": [
+        "standard"
+      ],
+      "47": [
+        "standard"
+      ],
+      "48": [
+        "standard"
+      ],
+      "49": [
+        "standard"
+      ],
+      "50": [
+        "standard"
+      ],
+      "51": [
+        "standard"
+      ],
+      "52": [
+        "standard"
+      ],
+      "53": [
+        "standard"
+      ],
+      "54": [
+        "standard"
+      ],
+      "55": [
+        "standard"
+      ],
+      "56": [
+        "standard"
+      ],
+      "57": [
+        "standard"
+      ],
+      "58": [
+        "standard"
+      ],
+      "59": [
+        "standard"
+      ],
+      "60": [
+        "standard"
+      ],
+      "61": [
+        "standard"
+      ],
+      "62": [
+        "standard"
+      ],
+      "63": [
+        "standard"
+      ],
+      "64": [
+        "standard"
+      ],
+      "65": [
+        "standard"
+      ],
+      "66": [
+        "standard"
+      ],
+      "67": [
+        "standard"
+      ],
+      "68": [
+        "standard"
+      ],
+      "69": [
+        "standard"
+      ],
+      "70": [
+        "standard"
+      ],
+      "71": [
+        "standard"
+      ],
+      "72": [
+        "standard"
+      ],
+      "73": [
+        "standard"
+      ],
+      "74": [
+        "standard"
+      ],
+      "75": [
+        "standard"
+      ],
+      "76": [
+        "standard"
+      ],
+      "77": [
+        "standard"
+      ],
+      "78": [
+        "standard"
+      ],
+      "79": [
+        "standard"
+      ],
+      "80": [
+        "standard"
+      ],
+      "81": [
+        "standard"
+      ],
+      "82": [
+        "standard"
+      ],
+      "83": [
+        "standard"
+      ],
+      "84": [
+        "standard"
+      ],
+      "85": [
+        "standard"
+      ],
+      "86": [
+        "standard"
+      ],
+      "87": [
+        "standard"
+      ],
+      "88": [
+        "standard"
+      ],
+      "89": [
+        "standard"
+      ],
+      "90": [
+        "standard"
+      ],
+      "91": [
+        "standard"
+      ],
+      "92": [
+        "standard"
+      ]
     },
     "payloadPresets": [],
     "displayName": "SH-3W",
@@ -119788,23 +123277,74 @@
     "shape": "SH-3",
     "width": 18.91,
     "operators": {
-      "Argentina": [1960, 2020],
-      "India": [1960, 2020],
-      "Indonesia": [1960, 2020],
-      "Iran": [1960, 2020],
-      "Malaysia": [1960, 2020],
-      "Peru": [1960, 2020],
-      "Ukraine": [1960, 2020],
-      "USA": [1960, 2020],
-      "Venezuela": [1960, 2020],
-      "Brazil": [1960, 2010],
-      "Canada": [1960, 2010],
-      "Denmark": [1960, 2010],
-      "Iraq": [1960, 2010],
-      "Italy": [1960, 2010],
-      "Japan": [1960, 2010],
-      "SaudiArabia": [1960, 2010],
-      "Spain": [1960, 2010]
+      "Argentina": [
+        1960,
+        2020
+      ],
+      "India": [
+        1960,
+        2020
+      ],
+      "Indonesia": [
+        1960,
+        2020
+      ],
+      "Iran": [
+        1960,
+        2020
+      ],
+      "Malaysia": [
+        1960,
+        2020
+      ],
+      "Peru": [
+        1960,
+        2020
+      ],
+      "Ukraine": [
+        1960,
+        2020
+      ],
+      "USA": [
+        1960,
+        2020
+      ],
+      "Venezuela": [
+        1960,
+        2020
+      ],
+      "Brazil": [
+        1960,
+        2010
+      ],
+      "Canada": [
+        1960,
+        2010
+      ],
+      "Denmark": [
+        1960,
+        2010
+      ],
+      "Iraq": [
+        1960,
+        2010
+      ],
+      "Italy": [
+        1960,
+        2010
+      ],
+      "Japan": [
+        1960,
+        2010
+      ],
+      "SaudiArabia": [
+        1960,
+        2010
+      ],
+      "Spain": [
+        1960,
+        2010
+      ]
     }
   },
   {
@@ -123342,8 +126882,12 @@
     "height": 4.893,
     "length": 18.654,
     "paintSchemes": {
-      "2": ["standard"],
-      "31": ["Hellenic Navy"]
+      "2": [
+        "standard"
+      ],
+      "31": [
+        "Hellenic Navy"
+      ]
     },
     "payloadPresets": [
       {
@@ -123353,7 +126897,9 @@
             "num": 1
           }
         ],
-        "tasks": [30],
+        "tasks": [
+          30
+        ],
         "displayName": "AGM-119",
         "name": "AGM-119"
       }
@@ -123384,21 +126930,66 @@
     "shape": "SH-60B",
     "width": 16.4,
     "operators": {
-      "USA": [1980, 2020],
-      "USAFAggressors": [1980, 2020],
-      "Australia": [1990, 2020],
-      "Greece": [1990, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Brazil": [1990, 2020],
-      "Denmark": [1990, 2020],
-      "India": [1990, 2020],
-      "Israel": [1990, 2020],
-      "Japan": [1990, 2020],
-      "SaudiArabia": [1990, 2020],
-      "SouthKorea": [1990, 2020],
-      "Spain": [1990, 2020],
-      "Thailand": [1990, 2020],
-      "Turkey": [1990, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "USAFAggressors": [
+        1980,
+        2020
+      ],
+      "Australia": [
+        1990,
+        2020
+      ],
+      "Greece": [
+        1990,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Brazil": [
+        1990,
+        2020
+      ],
+      "Denmark": [
+        1990,
+        2020
+      ],
+      "India": [
+        1990,
+        2020
+      ],
+      "Israel": [
+        1990,
+        2020
+      ],
+      "Japan": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        1990,
+        2020
+      ],
+      "SouthKorea": [
+        1990,
+        2020
+      ],
+      "Spain": [
+        1990,
+        2020
+      ],
+      "Thailand": [
+        1990,
+        2020
+      ],
+      "Turkey": [
+        1990,
+        2020
+      ]
     }
   },
   {
@@ -128616,8 +132207,13 @@
     "height": 4.41,
     "length": 17.62,
     "paintSchemes": {
-      "0": ["RF Air Force Broken", "RF Air Force Grey"],
-      "1": ["Ukrainian Army"],
+      "0": [
+        "RF Air Force Broken",
+        "RF Air Force Grey"
+      ],
+      "1": [
+        "Ukrainian Army"
+      ],
       "2": [
         "Army Standard",
         "Olive drab",
@@ -128632,34 +132228,78 @@
         "[Civilian] NASA",
         "[Civilian] VIP"
       ],
-      "3": ["Turkish Air Force"],
-      "4": ["Olive drab"],
-      "5": ["French Army"],
-      "6": ["Luftwaffe"],
-      "8": ["Canadian Force"],
-      "9": ["Spanish Army", "Spanish UN"],
-      "10": ["Royal Netherlands AF"],
-      "11": ["Olive drab"],
-      "12": ["Norwegian Coast Guard (235)", "Norwegian UN", "Olive drab"],
-      "13": ["Olive drab"],
-      "15": ["Israel Army"],
-      "16": ["Georgian AF Camo", "Georgian Air Force"],
-      "17": ["Olive drab"],
-      "18": ["Olive drab"],
-      "19": ["Olive drab"],
+      "3": [
+        "Turkish Air Force"
+      ],
+      "4": [
+        "Olive drab"
+      ],
+      "5": [
+        "French Army"
+      ],
+      "6": [
+        "Luftwaffe"
+      ],
+      "8": [
+        "Canadian Force"
+      ],
+      "9": [
+        "Spanish Army",
+        "Spanish UN"
+      ],
+      "10": [
+        "Royal Netherlands AF"
+      ],
+      "11": [
+        "Olive drab"
+      ],
+      "12": [
+        "Norwegian Coast Guard (235)",
+        "Norwegian UN",
+        "Olive drab"
+      ],
+      "13": [
+        "Olive drab"
+      ],
+      "15": [
+        "Israel Army"
+      ],
+      "16": [
+        "Georgian AF Camo",
+        "Georgian Air Force"
+      ],
+      "17": [
+        "Olive drab"
+      ],
+      "18": [
+        "Olive drab"
+      ],
+      "19": [
+        "Olive drab"
+      ],
       "20": [
         "15В° Stormo S.A.R -Soccorso",
         "E.I. 4В° Regg. ALTAIR",
         "Marina Militare s.n. 80951 7-20"
       ],
-      "21": ["RAAF 171 Sqn", "RAAF 1968", "Royal Australian Navy"],
+      "21": [
+        "RAAF 171 Sqn",
+        "RAAF 1968",
+        "Royal Australian Navy"
+      ],
       "31": [
         "Greek Army Aviation",
         "Greek Army Aviation Medic",
         "Hellenic Airforce - S.A.R."
       ],
-      "70": ["Algerian AF BV-32"],
-      "82": ["Norwegian UN", "Spanish UN", "USA UN"]
+      "70": [
+        "Algerian AF BV-32"
+      ],
+      "82": [
+        "Norwegian UN",
+        "Spanish UN",
+        "USA UN"
+      ]
     },
     "panelRadio": [
       {
@@ -128793,7 +132433,12 @@
             "num": 6
           }
         ],
-        "tasks": [32, 31, 35, 16],
+        "tasks": [
+          32,
+          31,
+          35,
+          16
+        ],
         "displayName": "M134 Minigun*2, XM158*2",
         "name": "M134 Minigun*2, XM158*2"
       },
@@ -128824,7 +132469,9 @@
             "num": 4
           }
         ],
-        "tasks": [35],
+        "tasks": [
+          35
+        ],
         "name": "New Payload"
       }
     ],
@@ -128881,59 +132528,218 @@
     "shape": "AB-212",
     "width": 14.7,
     "operators": {
-      "USA": [1960, 2020],
-      "Turkey": [1970, 2020],
-      "UK": [1960, 2020],
-      "France": [1960, 2020],
-      "Germany": [1970, 2020],
-      "USAFAggressors": [1960, 2020],
-      "Canada": [1970, 2020],
-      "Spain": [1960, 2020],
-      "TheNetherlands": [1960, 2020],
-      "Belgium": [1960, 2020],
-      "Norway": [1960, 2020],
-      "Denmark": [1960, 2020],
-      "Israel": [1960, 2000],
-      "Georgia": [2000, 2020],
-      "Insurgents": [1960, 2020],
-      "Abkhazia": [1960, 2020],
-      "SouthOssetia": [1960, 2020],
-      "Italy": [1970, 2020],
-      "Australia": [1970, 2000],
-      "Greece": [1970, 2020],
-      "Iran": [1960, 2020],
-      "Japan": [1970, 2020],
-      "Kazakhstan": [1960, 2020],
-      "SaudiArabia": [1970, 2020],
-      "Yemen": [2010, 2020],
-      "Vietnam": [1970, 2020],
-      "Venezuela": [1970, 2020],
-      "Thailand": [1970, 2020],
-      "Jordan": [1990, 2020],
-      "Indonesia": [1960, 2020],
-      "Honduras": [1970, 2020],
-      "Chile": [1970, 2020],
-      "Brazil": [1970, 2020],
-      "Algeria": [1960, 2020],
-      "Oman": [1970, 2020],
-      "UnitedArabEmirates": [1960, 2020],
-      "SouthAfrica": [1960, 2020],
-      "Lebanon": [1970, 2020],
-      "UnitedNationsPeacekeepers": [1960, 2020],
-      "Argentina": [1970, 2020],
-      "Slovenia": [1960, 2020],
-      "Bolivia": [1960, 2020],
-      "Ghana": [1960, 2020],
-      "Nigeria": [1960, 2020],
-      "Peru": [1960, 2020],
-      "Ecuador": [1960, 2020],
-      "Austria": [1970, 2000],
-      "Ethiopia": [1970, 2020],
-      "Iraq": [1970, 2020],
-      "Morocco": [1980, 2020],
-      "Pakistan": [1970, 2020],
-      "SouthKorea": [1970, 2020],
-      "Sweden": [1970, 2010]
+      "USA": [
+        1960,
+        2020
+      ],
+      "Turkey": [
+        1970,
+        2020
+      ],
+      "UK": [
+        1960,
+        2020
+      ],
+      "France": [
+        1960,
+        2020
+      ],
+      "Germany": [
+        1970,
+        2020
+      ],
+      "USAFAggressors": [
+        1960,
+        2020
+      ],
+      "Canada": [
+        1970,
+        2020
+      ],
+      "Spain": [
+        1960,
+        2020
+      ],
+      "TheNetherlands": [
+        1960,
+        2020
+      ],
+      "Belgium": [
+        1960,
+        2020
+      ],
+      "Norway": [
+        1960,
+        2020
+      ],
+      "Denmark": [
+        1960,
+        2020
+      ],
+      "Israel": [
+        1960,
+        2000
+      ],
+      "Georgia": [
+        2000,
+        2020
+      ],
+      "Insurgents": [
+        1960,
+        2020
+      ],
+      "Abkhazia": [
+        1960,
+        2020
+      ],
+      "SouthOssetia": [
+        1960,
+        2020
+      ],
+      "Italy": [
+        1970,
+        2020
+      ],
+      "Australia": [
+        1970,
+        2000
+      ],
+      "Greece": [
+        1970,
+        2020
+      ],
+      "Iran": [
+        1960,
+        2020
+      ],
+      "Japan": [
+        1970,
+        2020
+      ],
+      "Kazakhstan": [
+        1960,
+        2020
+      ],
+      "SaudiArabia": [
+        1970,
+        2020
+      ],
+      "Yemen": [
+        2010,
+        2020
+      ],
+      "Vietnam": [
+        1970,
+        2020
+      ],
+      "Venezuela": [
+        1970,
+        2020
+      ],
+      "Thailand": [
+        1970,
+        2020
+      ],
+      "Jordan": [
+        1990,
+        2020
+      ],
+      "Indonesia": [
+        1960,
+        2020
+      ],
+      "Honduras": [
+        1970,
+        2020
+      ],
+      "Chile": [
+        1970,
+        2020
+      ],
+      "Brazil": [
+        1970,
+        2020
+      ],
+      "Algeria": [
+        1960,
+        2020
+      ],
+      "Oman": [
+        1970,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        1960,
+        2020
+      ],
+      "SouthAfrica": [
+        1960,
+        2020
+      ],
+      "Lebanon": [
+        1970,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1960,
+        2020
+      ],
+      "Argentina": [
+        1970,
+        2020
+      ],
+      "Slovenia": [
+        1960,
+        2020
+      ],
+      "Bolivia": [
+        1960,
+        2020
+      ],
+      "Ghana": [
+        1960,
+        2020
+      ],
+      "Nigeria": [
+        1960,
+        2020
+      ],
+      "Peru": [
+        1960,
+        2020
+      ],
+      "Ecuador": [
+        1960,
+        2020
+      ],
+      "Austria": [
+        1970,
+        2000
+      ],
+      "Ethiopia": [
+        1970,
+        2020
+      ],
+      "Iraq": [
+        1970,
+        2020
+      ],
+      "Morocco": [
+        1980,
+        2020
+      ],
+      "Pakistan": [
+        1970,
+        2020
+      ],
+      "SouthKorea": [
+        1970,
+        2020
+      ],
+      "Sweden": [
+        1970,
+        2010
+      ]
     }
   },
   {
@@ -132471,98 +136277,302 @@
     "height": 4.893,
     "length": 18.654,
     "paintSchemes": {
-      "0": ["Egyptian Air Force", "standard"],
-      "1": ["Egyptian Air Force", "standard"],
-      "2": ["Egyptian Air Force", "standard"],
-      "3": ["Egyptian Air Force", "standard"],
-      "4": ["Egyptian Air Force", "standard"],
-      "5": ["Egyptian Air Force", "standard"],
-      "6": ["Egyptian Air Force", "standard"],
-      "7": ["Egyptian Air Force"],
-      "8": ["Egyptian Air Force", "standard"],
-      "9": ["Egyptian Air Force", "standard"],
-      "10": ["Egyptian Air Force", "standard"],
-      "11": ["Egyptian Air Force", "standard"],
-      "12": ["Egyptian Air Force", "standard"],
-      "13": ["Egyptian Air Force", "standard"],
-      "15": ["Egyptian Air Force", "ISRAIL_UN", "standard"],
-      "16": ["Egyptian Air Force", "standard"],
-      "17": ["Egyptian Air Force"],
-      "18": ["Egyptian Air Force", "standard"],
-      "19": ["Egyptian Air Force", "standard"],
-      "20": ["Egyptian Air Force", "standard"],
-      "21": ["Egyptian Air Force"],
-      "22": ["Egyptian Air Force"],
-      "23": ["Egyptian Air Force"],
-      "24": ["Egyptian Air Force"],
-      "25": ["Egyptian Air Force"],
-      "26": ["Egyptian Air Force"],
-      "27": ["Egyptian Air Force"],
-      "28": ["Egyptian Air Force"],
-      "29": ["Egyptian Air Force"],
-      "30": ["Egyptian Air Force"],
-      "31": ["Egyptian Air Force"],
-      "32": ["Egyptian Air Force"],
-      "33": ["Egyptian Air Force"],
-      "34": ["Egyptian Air Force"],
-      "35": ["Egyptian Air Force"],
-      "36": ["Egyptian Air Force"],
-      "37": ["Egyptian Air Force"],
-      "38": ["Egyptian Air Force"],
-      "39": ["Egyptian Air Force"],
-      "40": ["Egyptian Air Force"],
-      "41": ["Egyptian Air Force"],
-      "42": ["Egyptian Air Force"],
-      "43": ["Egyptian Air Force"],
-      "44": ["Egyptian Air Force"],
-      "45": ["Egyptian Air Force"],
-      "46": ["Egyptian Air Force"],
-      "47": ["Egyptian Air Force"],
-      "48": ["Egyptian Air Force"],
-      "49": ["Egyptian Air Force"],
-      "50": ["Egyptian Air Force"],
-      "51": ["Egyptian Air Force"],
-      "52": ["Egyptian Air Force"],
-      "53": ["Egyptian Air Force"],
-      "54": ["Egyptian Air Force"],
-      "55": ["Egyptian Air Force"],
-      "56": ["Egyptian Air Force"],
-      "57": ["Egyptian Air Force"],
-      "58": ["Egyptian Air Force"],
-      "59": ["Egyptian Air Force"],
-      "60": ["Egyptian Air Force"],
-      "61": ["Egyptian Air Force"],
-      "62": ["Egyptian Air Force"],
-      "63": ["Egyptian Air Force"],
-      "64": ["Egyptian Air Force"],
-      "65": ["Egyptian Air Force"],
-      "66": ["Egyptian Air Force"],
-      "67": ["Egyptian Air Force"],
-      "68": ["Egyptian Air Force"],
-      "69": ["Egyptian Air Force"],
-      "70": ["Egyptian Air Force"],
-      "71": ["Egyptian Air Force"],
-      "72": ["Egyptian Air Force"],
-      "73": ["Egyptian Air Force"],
-      "74": ["Egyptian Air Force"],
-      "75": ["Egyptian Air Force"],
-      "76": ["Egyptian Air Force"],
-      "77": ["Egyptian Air Force"],
-      "78": ["Egyptian Air Force"],
-      "79": ["Egyptian Air Force"],
-      "80": ["Egyptian Air Force"],
-      "81": ["Egyptian Air Force"],
-      "82": ["Egyptian Air Force", "ISRAIL_UN"],
-      "83": ["Egyptian Air Force"],
-      "84": ["Egyptian Air Force"],
-      "85": ["Egyptian Air Force"],
-      "86": ["Egyptian Air Force"],
-      "87": ["Egyptian Air Force"],
-      "88": ["Egyptian Air Force"],
-      "89": ["Egyptian Air Force"],
-      "90": ["Egyptian Air Force"],
-      "91": ["Egyptian Air Force"],
-      "92": ["Egyptian Air Force"]
+      "0": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "1": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "2": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "3": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "4": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "5": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "6": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "7": [
+        "Egyptian Air Force"
+      ],
+      "8": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "9": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "10": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "11": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "12": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "13": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "15": [
+        "Egyptian Air Force",
+        "ISRAIL_UN",
+        "standard"
+      ],
+      "16": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "17": [
+        "Egyptian Air Force"
+      ],
+      "18": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "19": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "20": [
+        "Egyptian Air Force",
+        "standard"
+      ],
+      "21": [
+        "Egyptian Air Force"
+      ],
+      "22": [
+        "Egyptian Air Force"
+      ],
+      "23": [
+        "Egyptian Air Force"
+      ],
+      "24": [
+        "Egyptian Air Force"
+      ],
+      "25": [
+        "Egyptian Air Force"
+      ],
+      "26": [
+        "Egyptian Air Force"
+      ],
+      "27": [
+        "Egyptian Air Force"
+      ],
+      "28": [
+        "Egyptian Air Force"
+      ],
+      "29": [
+        "Egyptian Air Force"
+      ],
+      "30": [
+        "Egyptian Air Force"
+      ],
+      "31": [
+        "Egyptian Air Force"
+      ],
+      "32": [
+        "Egyptian Air Force"
+      ],
+      "33": [
+        "Egyptian Air Force"
+      ],
+      "34": [
+        "Egyptian Air Force"
+      ],
+      "35": [
+        "Egyptian Air Force"
+      ],
+      "36": [
+        "Egyptian Air Force"
+      ],
+      "37": [
+        "Egyptian Air Force"
+      ],
+      "38": [
+        "Egyptian Air Force"
+      ],
+      "39": [
+        "Egyptian Air Force"
+      ],
+      "40": [
+        "Egyptian Air Force"
+      ],
+      "41": [
+        "Egyptian Air Force"
+      ],
+      "42": [
+        "Egyptian Air Force"
+      ],
+      "43": [
+        "Egyptian Air Force"
+      ],
+      "44": [
+        "Egyptian Air Force"
+      ],
+      "45": [
+        "Egyptian Air Force"
+      ],
+      "46": [
+        "Egyptian Air Force"
+      ],
+      "47": [
+        "Egyptian Air Force"
+      ],
+      "48": [
+        "Egyptian Air Force"
+      ],
+      "49": [
+        "Egyptian Air Force"
+      ],
+      "50": [
+        "Egyptian Air Force"
+      ],
+      "51": [
+        "Egyptian Air Force"
+      ],
+      "52": [
+        "Egyptian Air Force"
+      ],
+      "53": [
+        "Egyptian Air Force"
+      ],
+      "54": [
+        "Egyptian Air Force"
+      ],
+      "55": [
+        "Egyptian Air Force"
+      ],
+      "56": [
+        "Egyptian Air Force"
+      ],
+      "57": [
+        "Egyptian Air Force"
+      ],
+      "58": [
+        "Egyptian Air Force"
+      ],
+      "59": [
+        "Egyptian Air Force"
+      ],
+      "60": [
+        "Egyptian Air Force"
+      ],
+      "61": [
+        "Egyptian Air Force"
+      ],
+      "62": [
+        "Egyptian Air Force"
+      ],
+      "63": [
+        "Egyptian Air Force"
+      ],
+      "64": [
+        "Egyptian Air Force"
+      ],
+      "65": [
+        "Egyptian Air Force"
+      ],
+      "66": [
+        "Egyptian Air Force"
+      ],
+      "67": [
+        "Egyptian Air Force"
+      ],
+      "68": [
+        "Egyptian Air Force"
+      ],
+      "69": [
+        "Egyptian Air Force"
+      ],
+      "70": [
+        "Egyptian Air Force"
+      ],
+      "71": [
+        "Egyptian Air Force"
+      ],
+      "72": [
+        "Egyptian Air Force"
+      ],
+      "73": [
+        "Egyptian Air Force"
+      ],
+      "74": [
+        "Egyptian Air Force"
+      ],
+      "75": [
+        "Egyptian Air Force"
+      ],
+      "76": [
+        "Egyptian Air Force"
+      ],
+      "77": [
+        "Egyptian Air Force"
+      ],
+      "78": [
+        "Egyptian Air Force"
+      ],
+      "79": [
+        "Egyptian Air Force"
+      ],
+      "80": [
+        "Egyptian Air Force"
+      ],
+      "81": [
+        "Egyptian Air Force"
+      ],
+      "82": [
+        "Egyptian Air Force",
+        "ISRAIL_UN"
+      ],
+      "83": [
+        "Egyptian Air Force"
+      ],
+      "84": [
+        "Egyptian Air Force"
+      ],
+      "85": [
+        "Egyptian Air Force"
+      ],
+      "86": [
+        "Egyptian Air Force"
+      ],
+      "87": [
+        "Egyptian Air Force"
+      ],
+      "88": [
+        "Egyptian Air Force"
+      ],
+      "89": [
+        "Egyptian Air Force"
+      ],
+      "90": [
+        "Egyptian Air Force"
+      ],
+      "91": [
+        "Egyptian Air Force"
+      ],
+      "92": [
+        "Egyptian Air Force"
+      ]
     },
     "payloadPresets": [],
     "displayName": "UH-60A",
@@ -132586,32 +136596,110 @@
     "shape": "UH-60A",
     "width": 16.4,
     "operators": {
-      "USA": [1980, 2020],
-      "Turkey": [1990, 2020],
-      "USAFAggressors": [1980, 2020],
-      "Israel": [1990, 2020],
-      "Australia": [1980, 2020],
-      "Austria": [2000, 2020],
-      "Egypt": [1990, 2020],
-      "Japan": [1990, 2020],
-      "SaudiArabia": [2010, 2020],
-      "SouthKorea": [1990, 2020],
-      "Thailand": [1990, 2020],
-      "Morocco": [1990, 2020],
-      "Mexico": [1990, 2020],
-      "Malaysia": [1990, 2020],
-      "Jordan": [2000, 2020],
-      "Chile": [2020, 2020],
-      "Brazil": [2000, 2020],
-      "Bahrain": [1990, 2020],
-      "UnitedArabEmirates": [2010, 2020],
-      "UnitedNationsPeacekeepers": [1980, 2020],
-      "Argentina": [1980, 2020],
-      "China": [1980, 2020],
-      "Croatia": [1990, 2020],
-      "Slovakia": [1990, 2020],
-      "Sweden": [1990, 2020],
-      "Afghanistan": [2020, 2020]
+      "USA": [
+        1980,
+        2020
+      ],
+      "Turkey": [
+        1990,
+        2020
+      ],
+      "USAFAggressors": [
+        1980,
+        2020
+      ],
+      "Israel": [
+        1990,
+        2020
+      ],
+      "Australia": [
+        1980,
+        2020
+      ],
+      "Austria": [
+        2000,
+        2020
+      ],
+      "Egypt": [
+        1990,
+        2020
+      ],
+      "Japan": [
+        1990,
+        2020
+      ],
+      "SaudiArabia": [
+        2010,
+        2020
+      ],
+      "SouthKorea": [
+        1990,
+        2020
+      ],
+      "Thailand": [
+        1990,
+        2020
+      ],
+      "Morocco": [
+        1990,
+        2020
+      ],
+      "Mexico": [
+        1990,
+        2020
+      ],
+      "Malaysia": [
+        1990,
+        2020
+      ],
+      "Jordan": [
+        2000,
+        2020
+      ],
+      "Chile": [
+        2020,
+        2020
+      ],
+      "Brazil": [
+        2000,
+        2020
+      ],
+      "Bahrain": [
+        1990,
+        2020
+      ],
+      "UnitedArabEmirates": [
+        2010,
+        2020
+      ],
+      "UnitedNationsPeacekeepers": [
+        1980,
+        2020
+      ],
+      "Argentina": [
+        1980,
+        2020
+      ],
+      "China": [
+        1980,
+        2020
+      ],
+      "Croatia": [
+        1990,
+        2020
+      ],
+      "Slovakia": [
+        1990,
+        2020
+      ],
+      "Sweden": [
+        1990,
+        2020
+      ],
+      "Afghanistan": [
+        2020,
+        2020
+      ]
     }
   }
 ]

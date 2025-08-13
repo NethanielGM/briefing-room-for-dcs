@@ -1734,5 +1734,12 @@
   {
     "decade": 1980,
     "clsid": "{F789E86A-EE2E-4E6B-B81E-D5E5F903B6ED}"
-  }
+  },
+  { "decade": 1940, "clsid": "{175_USgal_Corsair_droptank_aux}" },
+  { "decade": 2000, "clsid": "{CHAP_Kh555x6}" },
+  { "decade": 1940, "clsid": "{Tiny_Tim_Corsair_L}" },
+  { "decade": 1940, "clsid": "{Tiny_Tim_Corsair_R}" },
+  { "decade": 1940, "clsid": "{ASM_N_2}" },
+  { "decade": 2000, "clsid": "{Kh-101}" },
+  { "decade": 2000, "clsid": "{Kh-555}" }
 ]

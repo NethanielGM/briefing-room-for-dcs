@@ -133,7 +133,7 @@
   {
     "type": "Tu-95MS",
     "families": ["PlaneBomber"],
-    "lowPolly": true,
+    "lowPolly": false,
     "playerControllable": false
   },
   {

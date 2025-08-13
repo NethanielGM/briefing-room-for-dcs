@@ -1870,5 +1870,136 @@
     "families": ["VehicleAPC"],
     "lowPolly": false,
     "immovable": false
+  },
+  {
+    "type": "CHAP_T90M",
+    "families": ["VehicleMBT"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_T64BV",
+    "families": ["VehicleMBT"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_PantsirS1",
+    "families": ["VehicleSAMShort"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_MATV",
+    "families": ["VehicleTransport"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M142_GMLRS_M30",
+    "families": ["VehicleArtillery"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M142_GMLRS_M31",
+    "families": ["VehicleArtillery"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M142_ATACMS_M48",
+    "families": ["VehicleArtillery", "VehicleMissile"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M142_ATACMS_M39A1",
+    "families": ["VehicleArtillery", "VehicleMissile"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_T84OplotM",
+    "families": ["VehicleMBT"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_TorM2",
+    "families": ["VehicleSAMShort"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_BMPT",
+    "families": ["VehicleMBT"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_TOS1A",
+    "families": ["VehicleArtillery"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M1130",
+    "families": ["VehicleAPC"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_M1083",
+    "families": ["VehicleTransport"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_FV107",
+    "families": ["VehicleAPC"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_FV101",
+    "families": ["VehicleAPC"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_9K720_Cluster",
+    "families": ["VehicleMissile"],
+    "lowPolly": false,
+    "immovable": false
+  },
+  {
+    "type": "CHAP_9K720_HE",
+    "families": ["VehicleMissile"],
+    "lowPolly": false,
+    "immovable": false
+  },
+    {
+    "type": "CHAP_IRISTSLM_CP",
+    "families": ["VehicleSAMMedium", "VehicleSAMCmd"],
+    "lowPolly": false,
+    "immovable": false
+  },
+    {
+    "type": "CHAP_IRISTSLM_LN",
+   "families": ["VehicleSAMMedium", "VehicleStatic", "VehicleSAMLauncher"],
+    "lowPolly": false,
+    "immovable": false
+  },
+    {
+    "type": "CHAP_IRISTSLM_STR",
+        "families": [
+      "VehicleSAMMedium",
+      "VehicleStatic",
+      "VehicleSAMsr",
+      "VehicleSAMtr"
+    ],
+    "lowPolly": false,
+    "immovable": false
   }
 ]

@@ -5857,5 +5857,61 @@
                 "heading": 0
             }
         ]
+    },
+        {
+        "country": "Germany",
+        "name": "IRISTSLM",
+        "type": "vehicle",
+        "units": [
+            {
+                "dx": 0,
+                "dy": 0,
+                "name": "CHAP_IRISTSLM_CP",
+                "skill": "High",
+                "heading": 6.2765352930821
+            },
+            {
+                "dx": -14.042657040991,
+                "dy": 54.532318175887,
+                "name": "CHAP_IRISTSLM_LN",
+                "skill": "High",
+                "heading": 2.3561944901923
+            },
+            {
+                "dx": 51.255698199675,
+                "dy": -5.1489742484409,
+                "name": "CHAP_IRISTSLM_LN",
+                "skill": "High",
+                "heading": 6.2765352930821
+            },
+            {
+                "dx": 29.255535502103,
+                "dy": 55.936583879986,
+                "name": "CHAP_IRISTSLM_LN",
+                "skill": "High",
+                "heading": 1.5707963267949
+            },
+            {
+                "dx": 21.063985561486,
+                "dy": 15.680967029068,
+                "name": "CHAP_IRISTSLM_STR",
+                "skill": "High",
+                "heading": 6.2765352930821
+            },
+            {
+                "dx": -18.499094251951,
+                "dy": -14.299637664692,
+                "name": "M 818",
+                "skill": "High",
+                "heading": 1.5707963267949
+            },
+            {
+                "dx": -7.042956299847,
+                "dy": -18.311686379602,
+                "name": "M 818",
+                "skill": "High",
+                "heading": 1.5707963267949
+            }
+        ]
     }
 ]

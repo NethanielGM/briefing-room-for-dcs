@@ -458,5 +458,17 @@
         ],
         "lowPolly": false,
         "immovable": false
+    },
+        {
+        "type": "CHAP_Project22160",
+        "families": ["ShipFrigate"],
+        "lowPolly": false,
+        "immovable": false
+    },
+            {
+        "type": "CHAP_Project22160_TorM2KM",
+        "families": ["ShipFrigate"],
+        "lowPolly": false,
+        "immovable": false
     }
 ]
