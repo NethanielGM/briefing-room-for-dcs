@@ -1,1257 +1,1285 @@
 [
-    {
-        "type": "KC130J",
-        "callsigns": {
-            "0": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "2": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "3": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "4": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "5": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "6": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "7": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "8": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "9": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "10": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "11": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "12": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "13": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "15": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "16": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "20": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "21": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "22": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "23": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "25": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "26": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "28": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "29": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "30": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "31": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "32": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "33": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "34": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "35": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "36": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "37": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "38": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "39": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "40": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "41": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "42": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "43": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "44": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "45": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "46": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "47": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "48": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "49": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "50": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "51": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "52": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "53": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "54": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "55": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "56": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "57": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "58": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "59": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "60": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "61": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "62": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "63": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "64": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "65": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "66": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "69": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "70": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "71": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "72": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "73": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "74": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "75": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "76": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "77": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "78": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "79": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "80": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "81": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "82": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "83": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "84": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "85": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "86": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "87": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "88": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "89": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ],
-            "90": [
-                {
-                    "WorldID": 1,
-                    "Name": "Texaco"
-                },
-                {
-                    "WorldID": 2,
-                    "Name": "Arco"
-                },
-                {
-                    "WorldID": 3,
-                    "Name": "Shell"
-                }
-            ]
+  {
+    "type": "KC130J",
+    "callsigns": {
+      "0": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
         },
-        "height": 11.66,
-        "length": 29.79,
-        "paintSchemes": {},
-        "payloadPresets": [],
-        "displayName": "KC-130J",
-        "categories": [
-            "{8A302789-A55D-4897-B647-66493FA6826F}",
-            "Tanker"
-        ],
-        "module": "UH-60L",
-        "tasks": [
-            {
-                "OldID": "Refueling",
-                "Name": "Refueling",
-                "WorldID": 13
-            }
-        ],
-        "fuel": 30000,
-        "flares": 60,
-        "chaff": 120,
-        "radio": {
-            "frequency": 251,
-            "modulation": 0
+        {
+          "Name": "Arco",
+          "WorldID": 2
         },
-        "maxAlt": 9315,
-        "cruiseSpeed": 61.7333,
-        "shape": "kc-130",
-        "width": 40.4,
-        "operators": {
-            "USA": [
-                1960,
-                2020
-            ],
-            "France": [
-                2020,
-                2020
-            ],
-            "Canada": [
-                1960,
-                2020
-            ],
-            "Spain": [
-                1970,
-                2020
-            ],
-            "Israel": [
-                1970,
-                2020
-            ],
-            "Italy": [
-                2000,
-                2020
-            ],
-            "Japan": [
-                2010,
-                2020
-            ],
-            "SaudiArabia": [
-                1970,
-                2020
-            ],
-            "Sweden": [
-                1970,
-                2020
-            ],
-            "Morocco": [
-                1980,
-                2020
-            ],
-            "Malaysia": [
-                1970,
-                2020
-            ],
-            "Libya": [
-                1970,
-                2020
-            ],
-            "Indonesia": [
-                1980,
-                2020
-            ],
-            "Brazil": [
-                1980,
-                2020
-            ],
-            "Kuwait": [
-                2010,
-                2020
-            ],
-            "Argentina": [
-                1980,
-                2020
-            ],
-            "Peru": [
-                1960,
-                2020
-            ],
-            "Chile": [
-                2010,
-                2020
-            ]
+        {
+          "Name": "Shell",
+          "WorldID": 3
         }
+      ],
+      "2": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "3": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "4": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "5": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "6": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "7": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "8": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "9": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "10": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "11": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "12": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "13": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "15": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "16": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "20": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "21": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "22": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "23": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "25": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "26": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "28": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "29": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "30": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "31": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "32": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "33": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "34": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "35": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "36": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "37": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "38": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "39": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "40": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "41": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "42": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "43": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "44": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "45": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "46": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "47": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "48": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "49": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "50": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "51": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "52": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "53": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "54": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "55": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "56": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "57": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "58": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "59": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "60": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "61": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "62": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "63": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "64": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "65": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "66": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "69": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "70": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "71": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "72": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "73": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "74": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "75": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "76": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "77": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "78": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "79": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "80": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "81": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "82": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "83": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "84": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "85": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "86": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "87": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "88": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "89": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "90": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "91": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ],
+      "92": [
+        {
+          "Name": "Texaco",
+          "WorldID": 1
+        },
+        {
+          "Name": "Arco",
+          "WorldID": 2
+        },
+        {
+          "Name": "Shell",
+          "WorldID": 3
+        }
+      ]
+    },
+    "height": 11.66,
+    "length": 29.79,
+    "paintSchemes": {},
+    "payloadPresets": [],
+    "displayName": "KC-130J",
+    "categories": [
+      "{8A302789-A55D-4897-B647-66493FA6826F}",
+      "Tanker"
+    ],
+    "module": "UH-60L",
+    "tasks": [
+      {
+        "Name": "Refueling",
+        "OldID": "Refueling",
+        "WorldID": 13
+      }
+    ],
+    "fuel": 30000,
+    "flares": 60,
+    "chaff": 120,
+    "radio": {
+      "frequency": 251,
+      "modulation": 0
+    },
+    "maxAlt": 9315,
+    "cruiseSpeed": 51.7333,
+    "shape": "kc-130",
+    "width": 40.4,
+    "operators": {
+      "USA": [
+        1960,
+        2020
+      ],
+      "France": [
+        2020,
+        2020
+      ],
+      "Canada": [
+        1960,
+        2020
+      ],
+      "Spain": [
+        1970,
+        2020
+      ],
+      "Israel": [
+        1970,
+        2020
+      ],
+      "Italy": [
+        2000,
+        2020
+      ],
+      "Japan": [
+        2010,
+        2020
+      ],
+      "SaudiArabia": [
+        1970,
+        2020
+      ],
+      "Sweden": [
+        1970,
+        2020
+      ],
+      "Morocco": [
+        1980,
+        2020
+      ],
+      "Malaysia": [
+        1970,
+        2020
+      ],
+      "Libya": [
+        1970,
+        2020
+      ],
+      "Indonesia": [
+        1980,
+        2020
+      ],
+      "Brazil": [
+        1980,
+        2020
+      ],
+      "Kuwait": [
+        2010,
+        2020
+      ],
+      "Argentina": [
+        1980,
+        2020
+      ],
+      "Peru": [
+        1960,
+        2020
+      ],
+      "Chile": [
+        2010,
+        2020
+      ]
     }
+  }
 ]

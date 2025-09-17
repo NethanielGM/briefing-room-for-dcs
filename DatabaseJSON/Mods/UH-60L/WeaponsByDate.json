@@ -1,7 +1,19 @@
 [
-  { "decade": 2010, "clsid": "{UH60_SEAT_CARGO_ALL}" },
-  { "decade": 2010, "clsid": "{UH60_SEAT_CARGO_REAR}" },
-  { "decade": 2010, "clsid": "{UH60_SEAT_GUNNER_R}" },
-  { "decade": 2010, "clsid": "{UH60_SEAT_GUNNER_L}" },
-  { "decade": 2010, "clsid": "{UH60_FUEL_TANK_230}" }
+  { "decade": 1970, "clsid": "{UH60_SEAT_CARGO_ALL}" },
+  { "decade": 1970, "clsid": "{UH60_SEAT_CARGO_REAR}" },
+  { "decade": 1970, "clsid": "{UH60_SEAT_GUNNER_R}" },
+  { "decade": 1970, "clsid": "{UH60_SEAT_GUNNER_L}" },
+  { "decade": 1970, "clsid": "{UH60_FUEL_TANK_230}" },
+  { "decade": 1970, "clsid": "{UH60L_M2_GUNNER}" },
+  { "decade": 1970, "clsid": "{UH60L_M60_GUNNER}" },
+  { "decade": 1970, "clsid": "{UH60_FUEL_TANK_450}" },
+  { "decade": 1970, "clsid": "{UH60_FUEL_TANK_200}" },
+  { "decade": 1970, "clsid": "{UH60_M230_RIGHT}" },
+  { "decade": 1970, "clsid": "{UH60_GAU19_RIGHT}" },
+  { "decade": 1970, "clsid": "{M261_M151_M433}" },
+  { "decade": 1970, "clsid": "{UH60_M134_LEFT}" },
+  { "decade": 1970, "clsid": "{UH60_M134_RIGHT}" },
+  { "decade": 1970, "clsid": "UH60_LWL12_M151" },
+  { "decade": 1970, "clsid": "{UH60_M230_LEFT}" },
+  { "decade": 1970, "clsid": "{UH60L_M134_GUNNER}" }
 ]
