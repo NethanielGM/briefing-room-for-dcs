@@ -85,7 +85,7 @@ namespace BriefingRoom4DCS.Data
                 var id = aircraft.type;
                 if (!supportData.ContainsKey(id))
                 {
-                    BriefingRoom.PrintToLog($"Aircraft missing {aircraft.module} {id} info data.", LogMessageErrorLevel.Warning);
+                    BriefingRoom.PrintToLog($"Aircraft missing \"{aircraft.module}\" \"{id}\" info data.", LogMessageErrorLevel.Warning);
                     continue;
                 }
                 var supportInfo = supportData[id];

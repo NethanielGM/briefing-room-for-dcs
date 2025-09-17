@@ -227,6 +227,12 @@
     "playerControllable": true
   },
   {
+    "type": "MiG-29 Fulcrum",
+    "families": ["PlaneFighter", "PlaneStrike"],
+    "lowPolly": false,
+    "playerControllable": true
+  },
+  {
     "type": "Tu-142",
     "families": ["PlaneBomber"],
     "lowPolly": true,

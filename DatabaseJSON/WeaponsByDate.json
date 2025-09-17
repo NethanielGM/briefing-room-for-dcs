@@ -1741,5 +1741,8 @@
   { "decade": 1940, "clsid": "{Tiny_Tim_Corsair_R}" },
   { "decade": 1940, "clsid": "{ASM_N_2}" },
   { "decade": 2000, "clsid": "{Kh-101}" },
-  { "decade": 2000, "clsid": "{Kh-555}" }
+  { "decade": 2000, "clsid": "{Kh-555}" },
+  { "decade": 1980, "clsid": "{PTB_1500_MIG29A}" },
+  { "decade": 1980, "clsid": "{R_60}" },
+  { "decade": 1980, "clsid": "B-8M1 - 20 S-8OFP2" }
 ]

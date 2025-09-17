@@ -1979,21 +1979,21 @@
     "lowPolly": false,
     "immovable": false
   },
-    {
+  {
     "type": "CHAP_IRISTSLM_CP",
     "families": ["VehicleSAMMedium", "VehicleSAMCmd"],
     "lowPolly": false,
     "immovable": false
   },
-    {
+  {
     "type": "CHAP_IRISTSLM_LN",
-   "families": ["VehicleSAMMedium", "VehicleStatic", "VehicleSAMLauncher"],
+    "families": ["VehicleSAMMedium", "VehicleStatic", "VehicleSAMLauncher"],
     "lowPolly": false,
     "immovable": false
   },
-    {
+  {
     "type": "CHAP_IRISTSLM_STR",
-        "families": [
+    "families": [
       "VehicleSAMMedium",
       "VehicleStatic",
       "VehicleSAMsr",
@@ -2001,5 +2001,35 @@
     ],
     "lowPolly": false,
     "immovable": false
+  },
+  {
+    "type": "GPS_Spoofer_Blue",
+    "families": ["VehicleStatic"],
+    "lowPolly": false,
+    "immovable": true
+  },
+  {
+    "type": "GPS_Spoofer_Red",
+    "families": ["VehicleStatic"],
+    "lowPolly": false,
+    "immovable": true
+  },
+  {
+    "type": "rsbn_beacon",
+    "families": ["VehicleAirfield", "VehicleStatic"],
+    "lowPolly": false,
+    "immovable": true
+  },
+  {
+    "type": "prmg_gp_beacon",
+    "families": ["VehicleAirfield", "VehicleStatic"],
+    "lowPolly": false,
+    "immovable": true
+  },
+  {
+    "type": "prmg_loc_beacon",
+    "families": ["VehicleAirfield", "VehicleStatic"],
+    "lowPolly": false,
+    "immovable": true
   }
 ]

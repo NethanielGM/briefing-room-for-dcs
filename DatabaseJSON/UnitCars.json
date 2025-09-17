@@ -46513,6 +46513,40 @@
     }
   },
   {
+    "type": "GPS_Spoofer_Blue",
+    "category": "Unarmed",
+    "paintSchemes": {},
+    "displayName": "GPS Spoofer NATO",
+    "module": "TechWeaponPack",
+    "shape": "patriot-ag",
+    "threatRange": 0,
+    "operators": {
+      "USA": [
+        2010,
+        2020
+      ]
+    }
+  },
+  {
+    "type": "GPS_Spoofer_Red",
+    "category": "Unarmed",
+    "paintSchemes": {},
+    "displayName": "GPS Spoofer RF",
+    "module": "TechWeaponPack",
+    "shape": "ZIL_SKP-11",
+    "threatRange": 0,
+    "operators": {
+      "Russia": [
+        2010,
+        2020
+      ],
+      "China": [
+        2010,
+        2020
+      ]
+    }
+  },
+  {
     "type": "Gepard",
     "category": "Air Defence",
     "paintSchemes": {
@@ -176797,6 +176831,38 @@
     }
   },
   {
+    "type": "prmg_gp_beacon",
+    "category": "Unarmed",
+    "paintSchemes": {},
+    "displayName": "PRMG Glidepath car",
+    "module": "TechWeaponPack",
+    "shape": "PRMG-5_GRM",
+    "detectionRange": 0,
+    "threatRange": 0,
+    "operators": {
+      "ALL": [
+        1980,
+        2020
+      ]
+    }
+  },
+  {
+    "type": "prmg_loc_beacon",
+    "category": "Unarmed",
+    "paintSchemes": {},
+    "displayName": "PRMG Localizer car",
+    "module": "TechWeaponPack",
+    "shape": "PRMG-5_KRM",
+    "detectionRange": 0,
+    "threatRange": 0,
+    "operators": {
+      "ALL": [
+        1980,
+        2020
+      ]
+    }
+  },
+  {
     "type": "r11_volvo_drivable",
     "category": "Unarmed",
     "paintSchemes": {},
@@ -178970,6 +179036,22 @@
         2020
       ],
       "UnitedNationsPeacekeepers": [
+        1970,
+        2020
+      ]
+    }
+  },
+  {
+    "type": "rsbn_beacon",
+    "category": "Unarmed",
+    "paintSchemes": {},
+    "displayName": "RSBN car",
+    "module": "TechWeaponPack",
+    "shape": "rsbn",
+    "detectionRange": 0,
+    "threatRange": 0,
+    "operators": {
+      "ALL": [
         1970,
         2020
       ]

@@ -75,7 +75,8 @@ namespace BriefingRoom4DCS.Data
             "Yak-52 AI by Eagle Dynamics",
             "F4U-1D AI by Magnitude 3 LLC",
             "Mirage F1 Assets by Aerges",
-            "Currenthill Assets Pack"
+            "Currenthill Assets Pack",
+            "MiG-29 Fulcrum AI",
         };
 
         internal string Module { get; private set; }
