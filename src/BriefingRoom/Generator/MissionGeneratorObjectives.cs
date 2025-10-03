@@ -271,6 +271,15 @@ namespace BriefingRoom4DCS.Generator
             if (mission.TemplateRecord.MissionFeatures.Contains("ContextScrambleStart") && !taskDB.UICategory.ContainsValue("Transport"))
                 targetGroupInfo.Value.DCSGroup.LateActivation = false;
 
+            if (taskDB.IsEscort() && !targetDB.UnitCategory.IsAircraft())
+            {
+                targetGroupInfo.Value.DCSGroups.ForEach((grp) =>
+                {
+                    grp.LateActivation = true;
+                    grp.Visible = true;
+                });
+            }
+
             if (task.ProgressionActivation)
             {
                 targetGroupInfo.Value.DCSGroups.ForEach((grp) =>
