@@ -1520,7 +1520,11 @@ function briefingRoom.mission.objectivesTriggersCommon.registerEscortNearTrigger
         local vec2p = briefingRoom.mission.objectives[objectiveIndex].waypoint
         local vec2u = dcsExtensions.toVec2(unit:getPoint())
         local distance = dcsExtensions.getDistance(vec2p, vec2u);
-        if distance < 500 then
+        local trigDistanceMeters = briefingRoom.mission.objectiveDropDistanceMeters;
+        if unit:inAir() then
+          trigDistanceMeters = briefingRoom.mission.objectiveDropDistanceMeters * 10
+        end
+        if distance < trigDistanceMeters then
           table.removeValue(briefingRoom.mission.objectives[objectiveIndex].unitNames, u)
           if table.count(briefingRoom.mission.objectives[objectiveIndex].unitNames) < 1 then -- all target units destroyed, objective complete
             briefingRoom.radioManager.play("$LANG_PILOT$: $LANG_ESCORTCOMPLETE$", "RadioPilotEscortComplete")
