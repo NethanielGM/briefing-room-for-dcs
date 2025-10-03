@@ -641,32 +641,32 @@ namespace BriefingRoom4DCS.Generator
             var LiveryId = extraSettings.GetValueOrDefault("Livery", "default").ToString();
             if (LiveryId != "default")
                 return;
-            var options = unitDB.Liveries.GetValueOrDefault(country, new List<string> { "default" });
+            var options = unitDB.Liveries.GetValueOrDefault(country, new List<Tuple<string, string>> { Tuple.Create("default", "default") });
             if ((country == Country.CombinedJointTaskForcesBlue || country == Country.CombinedJointTaskForcesRed) && options.Count == 1)
             {
                 foreach (var coalitionCountry in mission.CoalitionsCountries[(int)coalition])
                 {
-                    options.AddRange(unitDB.Liveries.GetValueOrDefault(coalitionCountry, new List<string> { }));
+                    options.AddRange(unitDB.Liveries.GetValueOrDefault(coalitionCountry, new List<Tuple<string, string>> { }));
                 }
             }
             if (DBEntryTheater.DESERT_MAPS.Contains(mission.TheaterID))
             {
-                var subset = options.Where(x => x.ToLower().Contains("desert")).ToList();
+                var subset = options.Where(x => x.Item2.ToLower().Contains("desert")).ToList();
                 if (subset.Count > 0)
                     options = subset;
             }
             else
             {
-                var subset = options.Where(x => !x.ToLower().Contains("desert")).ToList();
+                var subset = options.Where(x => !x.Item2.ToLower().Contains("desert")).ToList();
                 if (subset.Count > 0)
                     options = subset;
             }
 
             var season = Toolbox.GetSeasonFromMonth(int.Parse(mission.GetValue("DateMonth")));
-            var seasonSubset = options.Where(x => x.ToLower().Contains(season.ToString().ToLower())).ToList();
+            var seasonSubset = options.Where(x => x.Item2.ToLower().Contains(season.ToString().ToLower())).ToList();
             if (seasonSubset.Count > 0)
                 options = seasonSubset;
-            extraSettings["Livery"] = Toolbox.RandomFrom(options);
+            extraSettings["Livery"] = Toolbox.RandomFrom(options).Item1;
         }
 
 

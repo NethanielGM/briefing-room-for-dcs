@@ -29,7 +29,7 @@ namespace BriefingRoom4DCS.Data
     internal class DBEntryJSONUnit : DBEntry
     {
         internal string DCSID { get; init; }
-        internal Dictionary<Country, List<string>> Liveries { get; init; } = new Dictionary<Country, List<string>> { };
+        internal Dictionary<Country, List<Tuple<string, string>>> Liveries { get; init; } = new Dictionary<Country, List<Tuple<string, string>>> { };
         internal Dictionary<Country, (Decade start, Decade end)> Operators { get; init; }
         internal string Module { get; init; }
         internal UnitCategory Category { get { return Families[0].GetUnitCategory(); } }

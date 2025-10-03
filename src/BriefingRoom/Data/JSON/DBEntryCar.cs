@@ -40,7 +40,17 @@ namespace BriefingRoom4DCS.Data
         internal static Dictionary<string, DBEntry> LoadJSON(string filepath, DatabaseLanguage LangDB)
         {
             var itemMap = new Dictionary<string, DBEntry>(StringComparer.InvariantCulture);
-            var data = JsonConvert.DeserializeObject<List<Car>>(File.ReadAllText(filepath));
+            var data = new List<Car>();
+            var text = File.ReadAllText(filepath);
+            try
+            {
+                data = JsonConvert.DeserializeObject<List<Car>>(text);
+            }
+            catch (JsonSerializationException e)
+            {
+                var legacyData = JsonConvert.DeserializeObject<List<CarLegacy>>(text);
+                data = legacyData.Select(x => x.getCar()).ToList();
+            }
             var supportData = JsonConvert.DeserializeObject<List<BRInfo>>(File.ReadAllText(filepath.Replace(".json", "BRInfo.json"))).ToDictionary(x => x.type, x => x);
             foreach (var car in data)
             {
@@ -57,7 +67,7 @@ namespace BriefingRoom4DCS.Data
                     ID = id,
                     UIDisplayName = new LanguageString(LangDB, GetLanguageClassName(typeof(DBEntryCar)), id, "displayName",car.displayName),
                     DCSID = car.type,
-                    Liveries = car.paintSchemes.ToDictionary(pair => (Country)Enum.Parse(typeof(Country), pair.Key.Replace(" ", ""), true), pair => pair.Value),
+                    Liveries = car.paintSchemes.ToDictionary(pair => (Country)Enum.Parse(typeof(Country), pair.Key.Replace(" ", ""), true), pair => pair.Value.Select(x => Tuple.Create(x[0], x[1])).ToList()),
                     Operators = GetOperationalCountries(car),
                     DCSCategory = car.category,
                     Module = car.module,

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using BriefingRoom4DCS.Template;
 
 
@@ -34,7 +36,7 @@ namespace BriefingRoom4DCS.Data.JSON
 
     public class Aircraft : Unit
     {
-        public Dictionary<string, List<string>> paintSchemes { get; set; }
+        public Dictionary<string, List<List<string>>> paintSchemes { get; set; }
         public List<Payload> payloadPresets { get; set; }
         public List<Task> tasks { get; set; }
         public double fuel { get; set; }
@@ -51,6 +53,40 @@ namespace BriefingRoom4DCS.Data.JSON
         public double width { get; set; }
         public double length { get; set; }
         public Dictionary<string, List<CallSign>> callsigns { get; set; }
+    }
+
+    public class AircraftLegacy : Aircraft
+    {
+        public Dictionary<string, List<string>> paintSchemes { get; set; }
+
+        public Aircraft getAircraft()
+        {
+            return new Aircraft
+            {
+                type = this.type,
+                displayName = this.displayName,
+                module = this.module,
+                shape = this.shape,
+                maxAlt = this.maxAlt,
+                cruiseSpeed = this.cruiseSpeed,
+                fuel = this.fuel,
+                flares = this.flares,
+                chaff = this.chaff,
+                radio = this.radio,
+                tasks = this.tasks,
+                panelRadio = this.panelRadio,
+                extraProps = this.extraProps,
+                EPLRS = this.EPLRS,
+                ammoType = this.ammoType,
+                height = this.height,
+                width = this.width,
+                length = this.length,
+                callsigns = this.callsigns,
+                paintSchemes = this.paintSchemes.ToDictionary(pair => pair.Key, pair => pair.Value.Select(x => new List<string> { x, x }).ToList()),
+                payloadPresets = this.payloadPresets,
+                Operators = this.Operators
+            };
+        }
     }
 
     public class Task

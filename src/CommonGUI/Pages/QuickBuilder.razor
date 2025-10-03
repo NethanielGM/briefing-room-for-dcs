@@ -134,7 +134,7 @@
                                 <option value="default">@briefingRoom.Translate("Default")</option>
                                 @foreach (var item in BriefingRoom.GetAircraftLiveries(flight.Aircraft))
                                 {
-                                    <option value="@item">@item</option>
+                                    <option value="@item.Item1">@item.Item2</option>
                                 }
                             </select>
                         </div>

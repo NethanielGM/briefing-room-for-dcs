@@ -187,10 +187,10 @@ namespace BriefingRoom4DCS
                  select databaseEntryInfo).First();
         }
 
-        public static List<string> GetAircraftLiveries(string aircraftID) =>
+        public static List<Tuple<string, string>> GetAircraftLiveries(string aircraftID) =>
             Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).Liveries
             .Select(x => x.Value)
-            .Aggregate(new List<string>(), (acc, x) => { acc.AddRange(x); return acc; })
+            .Aggregate(new List<Tuple<string, string>>(), (acc, x) => { acc.AddRange(x); return acc; })
             .Distinct().Order().ToList();
 
         public static List<string> GetAircraftCallsigns(string aircraftID, Country country) => Database.Instance.GetEntry<DBEntryJSONUnit, DBEntryAircraft>(aircraftID).CallSigns[country].Select(x => x).Distinct().Order().ToList();

@@ -26,6 +26,7 @@ using System.Linq;
 using BriefingRoom4DCS.Data.JSON;
 using BriefingRoom4DCS.Template;
 using LuaTableSerializer;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 namespace BriefingRoom4DCS.Data
@@ -77,7 +78,16 @@ namespace BriefingRoom4DCS.Data
         internal static Dictionary<string, DBEntry> LoadJSON(string filepath, DatabaseLanguage LangDB)
         {
             var itemMap = new Dictionary<string, DBEntry>(StringComparer.InvariantCulture);
-            var data = JsonConvert.DeserializeObject<List<Aircraft>>(File.ReadAllText(filepath));
+            var data = new List<Aircraft>();
+            try
+            {
+                data = JsonConvert.DeserializeObject<List<Aircraft>>(File.ReadAllText(filepath));
+            }
+            catch (JsonSerializationException)
+            {
+                var legacyData = JsonConvert.DeserializeObject<List<AircraftLegacy>>(File.ReadAllText(filepath));
+                data = legacyData.Select(x => x.getAircraft()).ToList();
+            }
             var supportData = JsonConvert.DeserializeObject<List<BRInfo>>(File.ReadAllText($"{filepath.Replace(".json", "")}BRInfo.json")).ToDictionary(x => x.type, x => x);
             Dictionary<string, Tuple<int, Decade>> missingCSLIDcount = new Dictionary<string, Tuple<int, Decade>>(StringComparer.InvariantCulture);
             foreach (var aircraft in data)
@@ -97,7 +107,7 @@ namespace BriefingRoom4DCS.Data
                     ID = id,
                     UIDisplayName = new LanguageString(LangDB, GetLanguageClassName(typeof(DBEntryAircraft)), id, "displayName", modAircraft ? $"{aircraft.displayName} [{aircraft.module}] " : aircraft.displayName),
                     DCSID = aircraft.type,
-                    Liveries = aircraft.paintSchemes.ToDictionary(pair => (Country)Enum.Parse(typeof(Country), pair.Key.Replace(" ", ""), true), pair => pair.Value),
+                    Liveries = aircraft.paintSchemes.ToDictionary(pair => (Country)Enum.Parse(typeof(Country), pair.Key.Replace(" ", ""), true), pair => pair.Value.Select(x => Tuple.Create(x[0], x[1])).ToList()),
                     Operators = GetOperationalCountries(aircraft),
                     Module = aircraft.module,
                     Tasks = aircraft.tasks.Where(x => x is not null).Select(x => (DCSTask)x.WorldID).ToList(),
@@ -263,10 +273,10 @@ namespace BriefingRoom4DCS.Data
             foreach (var item in Directory.GetFiles(Path.Join(folderPath, $"{DCSID}"), "*.*", SearchOption.TopDirectoryOnly))
             {
                 var rawFileName = item.Replace(".zip", "").Split("\\").Last();
-                Liveries.AddIfKeyUnused(Country.ALL, new List<string>());
-                if (!Liveries[Country.ALL].Contains(rawFileName))
+                Liveries.AddIfKeyUnused(Country.ALL, new List<Tuple<string, string>>());
+                if (!Liveries[Country.ALL].Contains(Tuple.Create(rawFileName, rawFileName)))
                 {
-                    Liveries[Country.ALL].Add(rawFileName);
+                    Liveries[Country.ALL].Add(Tuple.Create(rawFileName, rawFileName));
                     BriefingRoom.PrintToLog($"Imported Livery {rawFileName} for {DCSID}");
                 }
             }
@@ -274,10 +284,10 @@ namespace BriefingRoom4DCS.Data
             foreach (var item in Directory.GetFiles(Path.Join(folderPath, $"{DCSID}"), "description.lua", SearchOption.AllDirectories))
             {
                 var rawFileName = item.Replace("description.lua", "").Split("\\")[^2];
-                Liveries.AddIfKeyUnused(Country.ALL, new List<string>());
-                if (!Liveries[Country.ALL].Contains(rawFileName))
+                Liveries.AddIfKeyUnused(Country.ALL, new List<Tuple<string, string>>());
+                if (!Liveries[Country.ALL].Contains(Tuple.Create(rawFileName, rawFileName)))
                 {
-                    Liveries[Country.ALL].Add(rawFileName);
+                    Liveries[Country.ALL].Add(Tuple.Create(rawFileName, rawFileName));
                     BriefingRoom.PrintToLog($"Imported Livery {rawFileName} for {DCSID}");
                 }
             }
