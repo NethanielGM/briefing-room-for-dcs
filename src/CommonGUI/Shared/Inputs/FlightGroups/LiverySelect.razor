@@ -1,0 +1,23 @@
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="flex-block form-group">
+    <label>@briefingRoom.Translate("Livery")</label>
+    <select class="form-control selectpicker" value="@Livery" @onchange="OnLiveryChanged">
+        <option value="default">@briefingRoom.Translate("Default")</option>
+        @foreach (Tuple<string, string> item in BriefingRoom.GetAircraftLiveries(Aircraft))
+        {
+            <option value="@item.Item1">@item.Item2</option>
+        }
+    </select>
+</div>
+@code {
+    [Parameter] public string Aircraft { get; set; }
+    [Parameter] public string Livery { get; set; }
+    [Parameter] public EventCallback<string> LiveryChanged { get; set; }
+
+    private async Task OnLiveryChanged(ChangeEventArgs e)
+    {
+        Livery = e.Value.ToString();
+        await LiveryChanged.InvokeAsync(Livery);
+    }
+}

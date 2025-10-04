@@ -1,0 +1,15 @@
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+<input type="checkbox" checked=@Value @onchange="OnValueChanged" />
+<span>@briefingRoom.Translate(Label)</span>
+
+@code {
+    [Parameter] public string Label { get; set; }
+    [Parameter] public bool Value { get; set; }
+    [Parameter] public EventCallback<bool> ValueChanged { get; set; }
+
+    private async Task OnValueChanged(ChangeEventArgs eventArgs)
+    {
+        Value = (bool)eventArgs.Value;
+        await ValueChanged.InvokeAsync(Value);
+    }
+}

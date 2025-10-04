@@ -1,0 +1,15 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="generator-block">
+    <h3>@briefingRoom.Translate("DynamicCargo")</h3>
+    <InputEnum ClassString="flex-block" @bind-Value="Template.AirbaseDynamicCargo" EnumType="DsAirbase" />
+    <div class="flex-block form-group">
+        <CheckboxWrapped @bind-Value=@Template.CarrierDynamicCargo Label="CarrierDynamicSpawn" />
+    </div>
+</div>
+
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+}

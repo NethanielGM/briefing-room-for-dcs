@@ -1,0 +1,24 @@
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="form-group flex-block">
+    <label>@briefingRoom.Translate("Payload")</label>
+    <select class="form-control selectpicker" value="@Payload" @onchange="OnPayloadChanged">
+        <option value="default">@briefingRoom.Translate("Default")</option>
+        <option value="EMPTY">@briefingRoom.Translate("Empty")</option>
+        @foreach (Tuple<string, Template.Decade> item in BriefingRoom.GetAircraftPayloads(Aircraft))
+        {
+            <option value="@item.Item1">@item.Item1 (@((int)item.Item2)s)</option>
+        }
+    </select>
+</div>
+@code {
+    [Parameter] public string Payload { get; set; }
+    [Parameter] public string Aircraft { get; set; }
+    [Parameter] public EventCallback<string> PayloadChanged { get; set; }
+
+    private async Task OnPayloadChanged(ChangeEventArgs e)
+    {
+        Payload = e.Value.ToString();
+        await PayloadChanged.InvokeAsync(Payload);
+    }
+}

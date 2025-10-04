@@ -2,7 +2,7 @@ using BriefingRoom4DCS.Template;
 
 namespace BriefingRoom4DCS.GUI.Utils
 {
-    internal class FlightGroupUtils
+    public class FlightGroupUtils
     {
         internal FlightGroupUtils() { }
         internal MissionTemplateFlightGroup Tab { get; set; }

@@ -1,0 +1,18 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+&nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTask,
+        @objective.Task).Value.Name.Get(briefingRoom.LanguageKey)
+    &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTarget,
+        @objective.Target).Value.Name.Get(briefingRoom.LanguageKey)
+    &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTargetBehavior,
+        @objective.TargetBehavior).Value.Name.Get(briefingRoom.LanguageKey)
+    &nbsp;@BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, objective.TargetCount)
+    &nbsp;@briefingRoom.Translate("Options"):
+    &nbsp;@string.Join(", ", @objective.Options.Select(x => BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey,
+        x)))
+
+@code {
+    [Parameter] public MissionTemplateSubTask objective { get; set; }
+}

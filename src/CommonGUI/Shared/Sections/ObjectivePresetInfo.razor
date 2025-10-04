@@ -1,0 +1,15 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<p class="custom-warning"><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("QuickBuilderCustomObjective"):
+   <ObjectiveSubTaskPresetInfo objective="objective" />
+   <br />
+    &nbsp;@briefingRoom.Translate("Features"):
+    &nbsp;@string.Join(", ", @objective.Features.Select(x =>
+        briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveFeature,
+        x).Value.Name.Get(briefingRoom.LanguageKey)))
+</p>
+@code {
+    [Parameter] public MissionTemplateObjective objective { get; set; }
+}

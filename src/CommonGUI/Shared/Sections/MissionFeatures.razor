@@ -1,0 +1,18 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+
+<InputEnum Label="Fog of war" @bind-Value="Template.OptionsFogOfWar" EnumType="FogOfWar" />
+<div class="form-group">
+    <h4>@briefingRoom.Translate("MissionFeatures")</h4>
+    <CheckBoxList Data="briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.MissionFeature).ToList()"
+        TextField="@(item =>item.Name.Get(briefingRoom.LanguageKey))"
+        DescriptionField="@(item => item.Description.Get(briefingRoom.LanguageKey))"
+        GroupingField="@(item => item.Category.Get(briefingRoom.LanguageKey))" ValueField="@(item =>item.ID)"
+        SelectedValues="Template.MissionFeatures" TItem="DatabaseEntryInfo" TItemOutput="string">
+    </CheckBoxList>
+</div>
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+}

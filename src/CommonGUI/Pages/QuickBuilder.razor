@@ -3,6 +3,9 @@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
 @using BriefingRoom4DCS
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.Context
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.FlightGroups
+@using BriefingRoom4DCS.GUI.Common.Shared.Sections
 @using BriefingRoom4DCS.Template
 @using BriefingRoom4DCS.Mission
 @using System.Globalization
@@ -23,21 +26,7 @@
 <div class="generator-group">
     @if(showGenerator) {
     <div class="generator-form">
-        <div>
-            @if (!string.IsNullOrEmpty(tempateMessage))
-            {
-                <div class="alert alert-info notification" role="info">
-                    @tempateMessage
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(errorMessage))
-            {
-                <div class="alert alert-danger" role="alert">
-                    @briefingRoom.Translate("Error"): @errorMessage
-                </div>
-            }
-            <hr>
-        </div>
+        <AlertMessages TemplateMessage="@templateMessage" ErrorMessage="@errorMessage" />
         <EditForm Model="Template" OnSubmit="GenerateMissionAsync">
             <DataAnnotationsValidator />
             <ValidationSummary />
@@ -47,32 +36,8 @@
             <div id="context" class="generator-block">
                 <h3>@briefingRoom.Translate("Context")</h3>
                 <div class="generator-group flex-justify-spaced flex-margin-fix">
-                    <div class="form-group flex-block">
-                        <label>@briefingRoom.Translate("BlueCoalition")</label>
-                        <BlazoredTypeahead SearchMethod="builderUtils.SearchCoalition" @bind-Value="Template.ContextCoalitionBlue"
-                            EnableDropDown="true" ConvertMethod="Typeahead.ConvertDB" DisableClear="true"
-                            MaximumSuggestions="1000">
-                            <SelectedTemplate Context="coalitionId">
-                                 @builderUtils.GetCoalitionDisplayName(@coalitionId)
-                            </SelectedTemplate>
-                            <ResultTemplate Context="coalition">
-                                @coalition.Name.Get(briefingRoom.LanguageKey)
-                            </ResultTemplate>
-                        </BlazoredTypeahead>
-                    </div>
-                    <div class="form-group flex-block">
-                        <label>@briefingRoom.Translate("RedCoalition")</label>
-                        <BlazoredTypeahead SearchMethod="builderUtils.SearchCoalition" @bind-Value="Template.ContextCoalitionRed"
-                            EnableDropDown="true" ConvertMethod="Typeahead.ConvertDB" DisableClear="true"
-                            MaximumSuggestions="1000">
-                            <SelectedTemplate Context="coalitionId">
-                                 @builderUtils.GetCoalitionDisplayName(@coalitionId)
-                            </SelectedTemplate>
-                            <ResultTemplate Context="coalition">
-                                @coalition.Name.Get(briefingRoom.LanguageKey)
-                            </ResultTemplate>
-                        </BlazoredTypeahead>
-                    </div>
+                    <CoalitionInput Label="BlueCoalition" builderUtils="@builderUtils" @bind-CoalitionId="@Template.ContextCoalitionBlue" />
+                    <CoalitionInput Label="RedCoalition" builderUtils="@builderUtils" @bind-CoalitionId="@Template.ContextCoalitionRed" />
                     <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TimePeriod") @bind-Value="Template.ContextDecade"
                         EnumType="Decade" />
                 </div>
@@ -117,41 +82,14 @@
                                 <a @onclick="() => ClearCarrierHint(flight.Carrier)" >@briefingRoom.Translate("RemoveCarrierHint")</a>
                             </p>
                         }
+                       <PayloadSelect @bind-Payload="flight.Payload" Aircraft="@flight.Aircraft" />
+                       <LiverySelect @bind-Livery="flight.Livery" Aircraft="@flight.Aircraft" />
                         <div class="form-group flex-block">
-                            <label>@briefingRoom.Translate("Payload")</label>
-                            <select class="form-control selectpicker" @bind=flight.Payload>
-                                <option value="default">@briefingRoom.Translate("Default")</option>
-                                <option value="EMPTY">@briefingRoom.Translate("Empty")</option>
-                                @foreach (var item in BriefingRoom.GetAircraftPayloads(flight.Aircraft))
-                                {
-                                    <option value="@item.Item1">@item.Item1 (@((int)item.Item2)s)</option> // Blazor needs to know what values it binds to!
-                                }
-                            </select>
-                        </div>
-                        <div class="flex-block form-group">
-                            <label>@briefingRoom.Translate("Livery")</label>
-                            <select class="form-control selectpicker" @bind=flight.Livery>
-                                <option value="default">@briefingRoom.Translate("Default")</option>
-                                @foreach (var item in BriefingRoom.GetAircraftLiveries(flight.Aircraft))
-                                {
-                                    <option value="@item.Item1">@item.Item2</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="form-group flex-block">
-                            <label class="checkbox-wrapper row-checkbox">
-                                <input type="checkbox" checked=@flight.AIWingmen
-                                @onchange="eventArgs => { flight.AIWingmen = (bool)eventArgs.Value; StateHasChanged();}" />
-                                <span>@briefingRoom.Translate("AIWingmen")</span>
-                            </label>
-                             @if(Template.PlayerFlightGroups.First() != flight)
-                            {
-                                <label class="checkbox-wrapper row-checkbox">
-                                    <input type="checkbox" checked=@flight.Hostile
-                                        @onchange="eventArgs => { flight.Hostile = (bool)eventArgs.Value; StateHasChanged();}" />
-                                        <span>@briefingRoom.Translate("Hostile")</span>
-                                </label>
-                            }
+                            <CheckboxWrapped @bind-Value=@flight.AIWingmen Label="AIWingmen" />
+                                        @if(Template.PlayerFlightGroups.First() != flight)
+                                        {
+                                            <CheckboxWrapped @bind-Value=@flight.Hostile Label="Hostile" />
+                                        }
                         </div>
                         <div class="form-group flex-box">
                             <button type="button" class="btn btn-secondary row-button"
@@ -169,95 +107,32 @@
                 }
                 <hr />
             </div>  
-            <div class="generator-block">
-                <h3>@briefingRoom.Translate("DynamicSpawn")</h3>
-                <div>&nbsp;<span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("DynamicSpawnWarn")&nbsp;</div>
-                <InputEnum ClassString="flex-block" @bind-Value="Template.AirbaseDynamicSpawn" EnumType="DsAirbase"/>
-                <div class="flex-block form-group">
-                     <label class="checkbox-wrapper">
-                                    <input type="checkbox" checked=@Template.CarrierDynamicSpawn
-                                        @onchange="eventArgs => { Template.CarrierDynamicSpawn = (bool)eventArgs.Value; StateHasChanged();}" />
-                                        <span>@briefingRoom.Translate("CarrierDynamicSpawn")</span>
-                                </label>
-                        <label class="checkbox-wrapper">
-                        <input type="checkbox" checked=@Template.DSAllowHotStart
-                            @onchange="eventArgs => { Template.DSAllowHotStart = (bool)eventArgs.Value; StateHasChanged();}" />
-                            <span>@briefingRoom.Translate("DSAllowHotStart")</span>
-                    </label>
-                </div>
-            </div>
+            <DynamicSpawn Template="Template" />
             <hr/>
-            <div class="generator-block">
-                <h3>@briefingRoom.Translate("DynamicCargo")</h3>
-                <InputEnum ClassString="flex-block" @bind-Value="Template.AirbaseDynamicCargo" EnumType="DsAirbase"/>
-                <div class="flex-block form-group">
-                        <label class="checkbox-wrapper">
-                        <input type="checkbox" checked=@Template.CarrierDynamicCargo
-                            @onchange="eventArgs => { Template.CarrierDynamicCargo = (bool)eventArgs.Value; StateHasChanged();}" />
-                            
-                            <span>@briefingRoom.Translate("CarrierDynamicSpawn")</span>
-                    </label>
-                </div>
-            </div>
+            <DynamicCargo Template="Template" />
             <hr/>
             <div id="objectives" class="generator-block">
                 <h3>@briefingRoom.Translate("Objectives")</h3>
-                <div class="generator-group flex-justify-spaced flex-margin-fix">
-                    <div class="flex-block">
-                        <h6>@briefingRoom.Translate("ObjectiveDistance")</h6>
-                        <div class="min-max">
-                            <label>@briefingRoom.Translate("Min")</label>
-                            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveDistanceMin">
-                            </InputNumber>
-                        </div>
-                        <div class="min-max">
-                            <label>@briefingRoom.Translate("Max")</label>
-                            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveDistanceMax">
-                            </InputNumber>
-                        </div>
-                    </div>
-                    <div class="flex-block">
-                            <h6>@briefingRoom.Translate("ObjectiveSeperation")</h6>
-                        <div class="min-max">
-                            <label>@briefingRoom.Translate("Min")</label>
-                            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveSeparationMin">
-                            </InputNumber>
-                        </div>
-                        <div class="min-max">
-                            <label>@briefingRoom.Translate("Max")</label>
-                            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveSeparationMax">
-                            </InputNumber>
-                        </div>
-                    </div>
-                </div>
+                <ObjectiveDistances Template="Template" />
                 <h4>@briefingRoom.Translate("Tasks")</h4>
                 @foreach (var objective in Template.Objectives)
                 {
-                    <div class="generator-group flex-justify-spaced flex-margin-fix">
-                        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Objective") @bind-Value="objective.Preset" DataBaseType="DatabaseEntryType.ObjectivePreset" HasDescription />
-                        <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TargetCount") @bind-Value="objective.TargetCount" EnumType="Amount" />
-                        <div class="form-group flex-box">
-                            <button type="button" class="btn btn-secondary row-button" @onclick="() => objectiveUtil.AddSubTask(objective)">+ @briefingRoom.Translate("Nearby")</button>
-                            <button type="button" class="btn btn-secondary row-button"
-                            @onclick="() => objectiveUtil.CloneObjective(objective, ref Template)"  title="Clone Objective"><span class="oi oi-layers"></span></button>
-                            @if (Template.Objectives.Count > 1)
-                            {
-                                <button type="button" class="btn btn-secondary row-button"
-                                @onclick="() => objectiveUtil.RemoveObjective(objective, ref Template)"><span class="oi oi-x"></span></button>
-                            }
-                        </div>
-                    </div>
+                     @if (Template.Objectives.Count > 1) {
+                        <ObjectiveTaskRow objective="objective" Template="Template" objectiveUtil="objectiveUtil"
+                            CloneCallback="() => { objectiveUtil.CloneObjective(objective, Template); StateHasChanged(); }"
+                            NearbyCallback="() => { objectiveUtil.AddSubTask(objective, true); StateHasChanged(); }"
+                            DeleteCallback="() => { objectiveUtil.RemoveObjective(objective,  Template); StateHasChanged(); }"
+                        />
+                     } else {
+                        <ObjectiveTaskRow objective="objective" Template="Template" objectiveUtil="objectiveUtil"
+                            CloneCallback="() => { objectiveUtil.CloneObjective(objective, Template); StateHasChanged(); }"
+                            NearbyCallback="() => { objectiveUtil.AddSubTask(objective, true); StateHasChanged(); }"
+                           
+                        />
+                     }
+
                     @if(!objective.HasPreset){
-                        <p class="custom-warning"><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("QuickBuilderCustomObjective"):
-                            &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTask, @objective.Task).Value.Name.Get(briefingRoom.LanguageKey)
-                            &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTarget, @objective.Target).Value.Name.Get(briefingRoom.LanguageKey)
-                            &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTargetBehavior, @objective.TargetBehavior).Value.Name.Get(briefingRoom.LanguageKey)
-                            &nbsp;@BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, objective.TargetCount)
-                            &nbsp;@briefingRoom.Translate("Options"):
-                                &nbsp;@string.Join(", ", @objective.Options.Select(x => BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, x)))<br/>
-                            &nbsp;@briefingRoom.Translate("Features"):
-                                &nbsp;@string.Join(", ", @objective.Features.Select(x => briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveFeature, x).Value.Name.Get(briefingRoom.LanguageKey)))
-                        </p>
+                        <ObjectivePresetInfo objective="objective" />
                     }
                     @if(objective.CoordinateHint[0] != 0 && objective.CoordinateHint[1] != 0)
                     {
@@ -273,42 +148,23 @@
                     }
                     @foreach (var subTask in objective.SubTasks)
                     {
-                        <div class="generator-group flex-justify-spaced flex-margin-fix tabbed">
-                            <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Objective") @bind-Value="subTask.Preset" DataBaseType="DatabaseEntryType.ObjectivePreset" HasDescription />
-                            <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TargetCount") @bind-Value="subTask.TargetCount" EnumType="Amount" />
-                            <div class="form-group flex-box">
-                                <button type="button" class="btn btn-secondary row-button"
-                                @onclick="() => objectiveUtil.CloneObjectiveSubTask(subTask, objective)"  title="Clone Objective"><span class="oi oi-layers"></span></button>
-                                <button type="button" class="btn btn-secondary row-button"
-                                @onclick="() => objectiveUtil.RemoveSubTask(objective, subTask)"><span class="oi oi-x"></span></button>
-                            </div>
-                        </div>
+                        <ObjectiveTaskRow Tabbed objective="subTask" Template="Template" objectiveUtil="objectiveUtil"
+                        CloneCallback="() => { objectiveUtil.CloneObjectiveSubTask(subTask, objective); StateHasChanged(); }"
+                        DeleteCallback="() => { objectiveUtil.RemoveSubTask(objective, subTask); StateHasChanged(); }" />
                         @if(!subTask.HasPreset){
                             <p class="custom-warning tabbed"><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("QuickBuilderCustomObjective"):
-                                &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTask, @subTask.Task).Value.Name.Get(briefingRoom.LanguageKey)
-                                &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTarget, @subTask.Target).Value.Name.Get(briefingRoom.LanguageKey)
-                                &nbsp;@briefingRoom.GetSingleDatabaseEntryInfo(DatabaseEntryType.ObjectiveTargetBehavior, @subTask.TargetBehavior).Value.Name.Get(briefingRoom.LanguageKey)
-                                &nbsp;@BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, subTask.TargetCount)
-                                &nbsp;@briefingRoom.Translate("Options"):
-                                    &nbsp;@string.Join(", ", @subTask.Options.Select(x => BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, x)))<br/>
+                                <ObjectiveSubTaskPresetInfo objective="subTask" />
                             </p>
                         }
                     }
                 }
-                <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddObjective(ref Template)">+ @briefingRoom.Translate("Task")</button> 
+                <button type="button" class="btn btn-secondary form-control" @onclick="() => objectiveUtil.AddObjective( Template)">+ @briefingRoom.Translate("Task")</button> 
                 <hr />
             </div>
             <div id="mission-features" class="generator-block row">
                 <div class="col-6">
                     <h3>@briefingRoom.Translate("Options")</h3>
-                        <InputEnum Label="Fog of war" @bind-Value="Template.OptionsFogOfWar" EnumType="FogOfWar"/>
-                    <h3>@briefingRoom.Translate("MissionFeatures")</h3>
-                    <CheckBoxList
-                        Data="briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.MissionFeature).ToList()"
-                        TextField="@(item =>item.Name.Get(briefingRoom.LanguageKey))" DescriptionField="@(item => item.Description.Get(briefingRoom.LanguageKey))"
-                        GroupingField="@(item => item.Category.Get(briefingRoom.LanguageKey))" ValueField="@(item =>item.ID)"
-                        SelectedValues="Template.MissionFeatures" TItem="DatabaseEntryInfo" TItemOutput="string">
-                    </CheckBoxList>
+             <MissionFeatures Template="Template" />
                 </div>
                 <div class="col-6">
                     <h5><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("InheritedSettings")</h5>
@@ -392,7 +248,7 @@
     private MissionTemplate Template;
     private DCSMission mission;
     private string errorMessage;
-    private string tempateMessage;
+    private string templateMessage;
     private bool showGenerator = true;
     private static readonly string DEFAULT_TEMPLATE_FILEPATH = $"{BriefingRoom.GetBriefingRoomRootPath()}Default.brt";
     private TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -405,6 +261,7 @@
     {
         builderUtils = new BuilderUtils(briefingRoom);
         Template = new MissionTemplate();
+        Template.Objectives[0].Preset = "Interdiction";
         flightGroupUtil.Tab = Template.PlayerFlightGroups[0];
         objectiveUtil.Tab = Template.Objectives[0];
     }
@@ -424,7 +281,7 @@
                     throw new Exception("Template is null");
                 }
                 Template.LoadFromString(Encoding.Default.GetString(templateBytes));
-                tempateMessage = "Loaded Previous Template State";
+                templateMessage = "Loaded Previous Template State";
                 clearTemplateMessageDelay();
                 StateHasChanged();
             }
@@ -441,7 +298,7 @@
     private async void clearTemplateMessageDelay()
     {
         await Task.Delay(1000);
-        tempateMessage = "";
+        templateMessage = "";
         StateHasChanged();
     }
 
@@ -468,7 +325,7 @@
             Template.LoadFromString(data);
             Template.BriefingMissionName = "";
             Template.BriefingMissionDescription = "";
-            tempateMessage = "Template Loaded";
+            templateMessage = "Template Loaded";
             clearTemplateMessageDelay();
 
         }
@@ -484,13 +341,13 @@
         var fileBytes = Template.GetIniBytes();
         try { await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", $"Default.brt", "application/octet-stream", fileBytes); }
         catch (Exception) { }
-        tempateMessage = "Template Saved";
+        templateMessage = "Template Saved";
         clearTemplateMessageDelay();
     }
 
     private Task ClearTemplate()
     {
-        tempateMessage = "Template Reset";
+        templateMessage = "Template Reset";
         Template.Clear();
         clearTemplateMessageDelay();
         StateHasChanged();

@@ -1,0 +1,16 @@
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+
+<div id="options" class="generator-block">
+    <h3>@briefingRoom.Translate("Briefing")</h3>
+    <label>@briefingRoom.Translate("OverrideMissionName")</label>
+    <input class="form-control" type="text" @bind="Template.BriefingMissionName"
+        placeholder=@briefingRoom.Translate("Generated") />
+    <label>@briefingRoom.Translate("OverrideMissionDescription")</label>
+    <textarea @bind="Template.BriefingMissionDescription" class="form-control long" spellcheck="true"
+        placeholder=@briefingRoom.Translate("Generated")></textarea>
+</div>
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+}

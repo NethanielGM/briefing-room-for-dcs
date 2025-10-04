@@ -1,0 +1,27 @@
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+
+<div id="combined-arms" class="generator-block">
+    <h3>@briefingRoom.Translate("CombinedArms")</h3>
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <div class="flex-block">
+            <h4>@briefingRoom.Translate("Blue")</h4>
+            <label>@briefingRoom.Translate("Commanders")</label>
+            <InputNumber class="form-control" @bind-Value="Template.CombinedArmsCommanderBlue"></InputNumber>
+            <label>@briefingRoom.Translate("JTAC")</label>
+            <InputNumber class="form-control" @bind-Value="Template.CombinedArmsJTACBlue"></InputNumber>
+        </div>
+        <div class="flex-block">
+            <h4>@briefingRoom.Translate("Red")</h4>
+            <label>@briefingRoom.Translate("Commanders")</label>
+            <InputNumber class="form-control" @bind-Value="Template.CombinedArmsCommanderRed"></InputNumber>
+            <label>@briefingRoom.Translate("JTAC")</label>
+            <InputNumber class="form-control" @bind-Value="Template.CombinedArmsJTACRed"></InputNumber>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+}

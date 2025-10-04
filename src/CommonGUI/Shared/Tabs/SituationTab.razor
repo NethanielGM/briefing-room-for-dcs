@@ -1,0 +1,29 @@
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div id="situation" class="generator-block">
+    <h3>@briefingRoom.Translate("Situation")</h3>
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <div class="flex-block">
+            <h4>Enemies</h4>
+            <InputEnum Label=@briefingRoom.Translate("CombatProficiency") @bind-Value="Template.SituationEnemySkill"
+                EnumType="AmountR" />
+            <InputEnum Label=@briefingRoom.Translate("AntiAircraftStrength")
+                @bind-Value="Template.SituationEnemyAirDefense" EnumType="AmountNR" />
+            <InputEnum Label=@briefingRoom.Translate("CombatAirPatrols") @bind-Value="Template.SituationEnemyAirForce"
+                EnumType="AmountNR" />
+        </div>
+        <div class="flex-block">
+            <h4>Friendlies</h4>
+            <InputEnum Label=@briefingRoom.Translate("CombatProficiency") @bind-Value="Template.SituationFriendlySkill"
+                EnumType="AmountR" />
+            <InputEnum Label=@briefingRoom.Translate("AntiAircraftStrength")
+                @bind-Value="Template.SituationFriendlyAirDefense" EnumType="AmountNR" />
+            <InputEnum Label=@briefingRoom.Translate("CombatAirPatrols")
+                @bind-Value="Template.SituationFriendlyAirForce" EnumType="AmountNR" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+}

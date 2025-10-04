@@ -1,0 +1,22 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+<div class="radio-wrapper">
+    <label class="checkbox-wrapper">
+        <input type="radio" name="all-any" checked=@(!objective.ProgressionDependentIsAny)
+            disabled=@(!string.IsNullOrEmpty(objective.ProgressionOverrideCondition))
+            @onchange="eventArgs => { objective.ProgressionDependentIsAny = false; StateHasChanged(); }" />
+        <span>@briefingRoom.Translate("All")</span>
+    </label>
+    <label class="checkbox-wrapper">
+        <input type="radio" name="all-any" checked=@objective.ProgressionDependentIsAny
+            disabled=@(!string.IsNullOrEmpty(objective.ProgressionOverrideCondition))
+            @onchange="eventArgs => { objective.ProgressionDependentIsAny = true; StateHasChanged(); }" />
+        <span>@briefingRoom.Translate("Any")</span>
+    </label>
+</div>
+
+@code {
+    [Parameter] public MissionTemplateSubTask objective { get; set; }
+}

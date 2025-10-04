@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace BriefingRoom4DCS.GUI.Utils
 {
-    internal class BuilderUtils
+    public class BuilderUtils
     {
         private BriefingRoom briefingRoom;
 

@@ -1,0 +1,51 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                @briefingRoom.Translate("Advanced")
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <p class="custom-warning"><span
+                        class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("AdvancedWarning")</p>
+                <div class="generator-group flex-justify-spaced flex-margin-fix">
+                    <div class="form-group flex-block">
+                        <label>@briefingRoom.Translate("OverrideFreqency")</label>
+                        <input class="form-control" type="text" @bind="flight.OverrideRadioFrequency"
+                            placeholder=@briefingRoom.Translate("OverrideFreqencyPlaceHolder") />
+                    </div>
+                    <InputEnum ClassString="flex-block" Label="RadioBand" @bind-Value="flight.OverrideRadioBand"
+                        EnumType="RadioModulation" />
+                </div>
+                <div class="generator-group flex-justify-spaced flex-margin-fix">
+                    <div class="flex-block form-group">
+                        <label>@briefingRoom.Translate("OverrideCallsignName")</label>
+                        <select class="form-control selectpicker" @bind=flight.OverrideCallsignName>
+                            <option value=""></option>
+                            @foreach (var item in BriefingRoom.GetAircraftCallsigns(flight.Aircraft, flight.Country))
+                            {
+                                <option value="@item">@item.Split(":")[1]</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group flex-block">
+                        <label>@briefingRoom.Translate("OverrideCallsignNumber")</label>
+                        <input class="form-control" type="number" min="1" max="9" @bind="flight.OverrideCallsignNumber"
+                            placeholder="x" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public MissionTemplateFlightGroup flight { get; set; }
+}

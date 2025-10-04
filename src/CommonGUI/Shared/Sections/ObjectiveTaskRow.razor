@@ -1,0 +1,41 @@
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="generator-group flex-justify-spaced flex-margin-fix @((Tabbed ? "tabbed" : ""))">
+    <h6 class="row-button">@(Template.GetTasksFlat().IndexOf(objective) + 1)</h6>
+    <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Preset") @bind-Value="objective.Preset"
+        DataBaseType="DatabaseEntryType.ObjectivePreset" HasDescription />
+    @if (!objective.HasPreset)
+    {
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Task") @bind-Value="objective.Task"
+            DataBaseType="DatabaseEntryType.ObjectiveTask" HasDescription />
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Target") @bind-Value="objective.Target"
+            DataBaseType="DatabaseEntryType.ObjectiveTarget" Grouping="@objective.Task" />
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("TargetBehavior")
+            @bind-Value="objective.TargetBehavior" DataBaseType="DatabaseEntryType.ObjectiveTargetBehavior"
+            Grouping="@string.Join(',', new List<string>{objective.Task, objective.Target})" HasDescription />
+    }
+    <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TargetCount") @bind-Value="objective.TargetCount"
+        EnumType="Amount" />
+    @if (NearbyCallback != null)
+    {
+        <button type="button" class="btn btn-secondary row-button" @onclick="() => NearbyCallback?.Invoke()">+
+            @briefingRoom.Translate("Nearby")</button>
+    }
+    <button type="button" class="btn btn-secondary row-button" @onclick="() => CloneCallback?.Invoke()"
+        title="Clone Task"><span class="oi oi-layers"></span></button>
+    @if (DeleteCallback != null)
+    {
+        <button type="button" class="btn btn-secondary row-button" @onclick="() => DeleteCallback?.Invoke()">x</button>
+    }
+</div>
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+    [Parameter] public MissionTemplateSubTask objective { get; set; }
+    [Parameter] public ObjectiveUtils objectiveUtil { get; set; }
+    [Parameter] public Action CloneCallback { get; set; }
+    [Parameter] public Action? DeleteCallback { get; set; }
+    [Parameter] public Action? NearbyCallback { get; set; }
+    [Parameter] public bool Tabbed { get; set; }
+}

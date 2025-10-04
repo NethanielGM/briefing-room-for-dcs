@@ -1,0 +1,111 @@
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.FlightGroups
+@using BriefingRoom4DCS.GUI.Common.Shared.Sections
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div id="flight-groups" class="generator-block">
+    <h3>@briefingRoom.Translate("PlayerFlightGroups")</h3>
+    <ul class="nav nav-tabs">
+        @foreach (var value in Template.PlayerFlightGroups)
+        {
+            <li class="nav-item">
+                <a class="nav-link @(flightGroupUtil.Tab == value ? "active" : "") @(value.Hostile ? "hostile" : "")"
+                    aria-current="page" @onclick='() => flightGroupUtil.SetFlightGroupTab(value)'>
+                    @value.Alias: @builderUtils.GetAircraftDisplayName(@value.Aircraft) x @value.Count
+                    @if (Template.PlayerFlightGroups.Count > 1)
+                    {
+                        <a class="delete-flight" @onclick="() => flightGroupUtil.RemoveFlightGroup(value, Template)">x</a>
+                    }
+                </a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" @onclick="() => flightGroupUtil.AddFlightGroup(Template)">+</a>
+        </li>
+    </ul>
+
+    @foreach (MissionTemplateFlightGroup flight in Template.PlayerFlightGroups)
+    {
+        if (flightGroupUtil.Tab == flight)
+        {
+            <div class="flight-group  @(flight.Hostile ? "hostile" : "")">
+                <div class="generator-group flex-justify-spaced flex-margin-fix">
+                    <div class="form-group flex-block">
+                        <label>@briefingRoom.Translate("Aircraft")</label>
+                        <BlazoredTypeahead SearchMethod="builderUtils.SearchAircraft" @bind-Value="flight.Aircraft"
+                            EnableDropDown="true" ConvertMethod="Typeahead.ConvertDB" DisableClear="true"
+                            MaximumSuggestions="1000">
+                            <SelectedTemplate Context="aircraftId">
+                                @builderUtils.GetAircraftDisplayName(@aircraftId)
+                            </SelectedTemplate>
+                            <ResultTemplate Context="aircraft">
+                                @aircraft.Name.Get(briefingRoom.LanguageKey)
+                            </ResultTemplate>
+                        </BlazoredTypeahead>
+                    </div>
+                    <div class="form-group flex-block">
+                        <label>@briefingRoom.Translate("Count")</label>
+                        <InputNumber class="form-control" @bind-Value="flight.Count"></InputNumber>
+                    </div>
+                    <PayloadSelect @bind-Payload="flight.Payload" Aircraft="@flight.Aircraft" />
+                    <button type="button" class="btn btn-secondary row-button"
+                        @onclick="() => flightGroupUtil.CloneFlightGroup(flight, Template)" title="Clone Flight Group"><span
+                            class="oi oi-layers"></span></button>
+                </div>
+                <div class="generator-group flex-justify-spaced flex-margin-fix">
+                    <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("StartingSetup")
+                        @bind-Value="flight.StartLocation" EnumType="PlayerStartLocation" />
+                    <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("StartOn")
+                        @bind-Value="flight.Carrier" DataBaseType="DatabaseEntryType.UnitCarrier"
+                        EmptOpt=@briefingRoom.Translate("Airbase") />
+                    @if (!String.IsNullOrEmpty(flight.Carrier))
+                    {
+                        <button type="button"
+                            class="btn @(Template.CarrierHints.ContainsKey(flight.Carrier) ? "btn-warning" : "btn-secondary") row-button"
+                            @onclick='() => RenderHintMap(flight.Carrier.StartsWith("FOB") ? flight.Carrier : $"CARRIER_{flight.Carrier}")'
+                            title="@briefingRoom.Translate("LocationHint")"><span class="oi oi-globe"></span></button>
+                    }
+                </div>
+                <div class="generator-group flex-justify-spaced flex-margin-fix">
+                    <LiverySelect @bind-Livery="flight.Livery" Aircraft="@flight.Aircraft" />
+                    <div class="flex-block form-group">
+                        <label>@briefingRoom.Translate("Country")</label>
+                        <BlazoredTypeahead SearchMethod="BuilderUtils.SearchCountry" @bind-Value="flight.Country"
+                            EnableDropDown="true" DisableClear="true" MaximumSuggestions="1000">
+                            <SelectedTemplate Context="country">
+                                @country
+                            </SelectedTemplate>
+                            <ResultTemplate Context="country">
+                                @country
+                            </ResultTemplate>
+                        </BlazoredTypeahead>
+                    </div>
+                </div>
+                <FlightAdvanced Flight="flight" />
+                <div class="flex-block form-group">
+                    <CheckboxWrapped @bind-Value=@flight.AIWingmen Label="AIWingmen" />
+                    @if (Template.PlayerFlightGroups.First() != flight)
+                    {
+                        <CheckboxWrapped @bind-Value=@flight.Hostile Label="Hostile" />
+                    }
+                </div>
+            </div>
+        }
+    }
+    <hr />
+    <DynamicSpawn Template="Template" />
+    <hr />
+    <DynamicCargo Template="Template" />
+    <hr />
+    <StrikePackages Template="Template" />
+</div>
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+    [Parameter] public BuilderUtils builderUtils { get; set; }
+    [Parameter] public Func<string, Task> RenderHintMap { get; set; }
+    [Parameter] public FlightGroupUtils flightGroupUtil { get; set; }
+
+
+
+}

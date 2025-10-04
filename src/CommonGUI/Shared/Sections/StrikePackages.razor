@@ -1,0 +1,94 @@
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.FlightGroups
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div id="flight-groups" class="generator-block">
+    <h3>@briefingRoom.Translate("StrikePackages")</h3>
+    <ul class="nav nav-tabs">
+        @foreach (var value in Template.AircraftPackages)
+        {
+            <li class="nav-item">
+                <a class="nav-link @(packageTab == value ? "active" : "")" aria-current="page"
+                    @onclick='() => SetPackageTab(value)'>
+                    @value.Alias
+                    <a class="delete-flight" @onclick="() => RemovePackage(value)">x</a>
+                </a>
+            </li>
+        }
+        @if (Template.PlayerFlightGroups.Count(x => !x.Hostile) > 1)
+        {
+            <li class="nav-item">
+                <a class="nav-link" @onclick="AddPackage">+</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <p>@briefingRoom.Translate("StrikePackageWarning")</p>
+            </li>
+        }
+    </ul>
+
+    @foreach (var package in Template.AircraftPackages)
+    {
+        if (packageTab == package)
+        {
+            <div class="flight-group">
+                <div class="form-group">
+                    <label>@briefingRoom.Translate("Objectives")</label>
+                    <CheckBoxList Data="Template.GetTasksFlat()"
+                        TextField="@(item =>item.Alias + ": " + (item.HasPreset ? item.Preset   : item.Task + "-" + item.Target))"
+                        ValueField="@(item =>Template.GetTasksFlat().IndexOf(item))" SelectedValues="package.ObjectiveIndexes"
+                        TItem="MissionTemplateSubTask" TItemOutput="int">
+                    </CheckBoxList>
+                </div>
+                <div class="form-group">
+                    <label>@briefingRoom.Translate("FlightGroups")</label>
+                    <CheckBoxList Data="GetAvailableFlightGroups(package)"
+                        TextField="@(item =>item.Alias + ": " + item.Aircraft + " x " + item.Count)"
+                        ValueField="@(item =>Template.PlayerFlightGroups.IndexOf(item))"
+                        SelectedValues="package.FlightGroupIndexes" TItem="MissionTemplateFlightGroup" TItemOutput="int">
+                    </CheckBoxList>
+                </div>
+                <InputDataBase Label=@briefingRoom.Translate("StartingAirbase") @bind-Value="package.StartingAirbase"
+                    DataBaseType="DatabaseEntryType.Airbase" Grouping="@Template.ContextTheater"
+                    EmptOpt=@briefingRoom.Translate("Random") CustomOpt=@(briefingRoom.Translate("HomeBase")+",home") />
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public MissionTemplate Template { get; set; }
+
+    private MissionTemplatePackage packageTab;
+    private void SetPackageTab(MissionTemplatePackage var)
+    {
+        packageTab = var;
+    }
+
+    private void AddPackage()
+    {
+        MissionTemplatePackage package = new();
+        packageTab = package;
+        package.Alias = BriefingRoom.GetAlias(Template.AircraftPackages.Count);
+        Template.AircraftPackages.Add(package);
+    }
+
+    private void RemovePackage(MissionTemplatePackage package)
+    {
+        Template.AircraftPackages.Remove(package);
+        if (Template.AircraftPackages.Count == 1)
+        {
+            packageTab = Template.AircraftPackages[0];
+        }
+    }
+
+    private List<MissionTemplateFlightGroup> GetAvailableFlightGroups(MissionTemplatePackage package)
+    {
+        var restOfPackages = Template.AircraftPackages.Where(x => x != package);
+        return Template.PlayerFlightGroups.Where((v, i) => !v.Hostile && (package.FlightGroupIndexes.Contains(i) ||
+        !restOfPackages.Any(y => y.FlightGroupIndexes.Contains(i)))).ToList();
+    }
+}

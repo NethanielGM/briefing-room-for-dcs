@@ -1,0 +1,87 @@
+@using Blazored.Typeahead
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.Context
+@using BriefingRoom4DCS.GUI.Common.Shared.Sections
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div id="objectives" class="generator-block">
+    <h3>@briefingRoom.Translate("Objectives")</h3>
+    <ObjectiveDistances Template="Template" />
+    <h4>@briefingRoom.Translate("Tasks")</h4>
+    <ul class="nav nav-tabs">
+        @foreach (var value in Template.Objectives)
+        {
+            <li class="nav-item">
+                <a class="nav-link @(objectiveUtil.Tab == value ? "active" : "")" aria-current="page"
+                    @onclick='() => objectiveUtil.SetObjectiveTab(value)'>
+                    @value.Alias
+                    @if (Template.Objectives.Count > 1)
+                    {
+                        <a class="delete-flight" @onclick="() => objectiveUtil.RemoveObjective(value, Template)">x</a>
+                    }
+                </a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" @onclick="() => objectiveUtil.AddObjective(Template)">+
+                @briefingRoom.Translate("Task")</a>
+        </li>
+    </ul>
+
+    @foreach (MissionTemplateObjective objective in Template.Objectives)
+    {
+        if (objectiveUtil.Tab == objective)
+        {
+            <div class="flight-group">
+                <div class="form-group">
+                    <button type="button" class="btn btn-secondary float-right"
+                        @onclick="() => objectiveUtil.CloneObjective(objective, Template)" title="Clone Objective"><span
+                            class="oi oi-layers"></span></button>
+                    <button type="button"
+                        class="btn @(objective.CoordinateHint[0] != 0 && objective.CoordinateHint[1] != 0 ? "btn-warning" : "btn-secondary") float-right"
+                        @onclick='() => RenderHintMap("OBJECTIVE_" + objective.Alias)'
+                        title='@briefingRoom.Translate("TakeHint")'><span class="oi oi-globe"></span></button>
+                    <h4>@briefingRoom.Translate("Features")</h4>
+                    <CheckBoxList
+                        Data='briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.ObjectiveFeature).Where(x => !x.Category.ContainsValue("Hidden")).ToList()'
+                        TextField="@(item =>item.Name.Get(briefingRoom.LanguageKey))"
+                        DescriptionField="@(item =>item.Description.Get(briefingRoom.LanguageKey))"
+                        ValueField="@(item =>item.ID)" SelectedValues="objective.Features" TItem="DatabaseEntryInfo"
+                        TItemOutput="string">
+                    </CheckBoxList>
+                </div>
+
+
+                <h5>@briefingRoom.Translate("Base")</h5>
+                <ObjectiveTask Template="Template" objective="objective" objectiveUtil="objectiveUtil"
+                    CloneCallback="@(() => objectiveUtil.CloneObjectiveTask(objective))" />
+                <hr />
+                <h5>@briefingRoom.Translate("Nearby")</h5>
+                @if (objective.SubTasks.Count == 0)
+                {
+                    <hr />
+                }
+                @foreach (var (subTask, i) in objective.SubTasks.Select((value, i) => (value, i)))
+                {
+                    <hr />
+                    <ObjectiveTask objective="subTask" Template="Template" objectiveUtil="objectiveUtil"
+                        CloneCallback="@(() => { objectiveUtil.CloneObjectiveSubTask(subTask,objective); StateHasChanged(); })"
+                        DeleteCallback="@(() =>  { objectiveUtil.RemoveSubTask(objective, subTask);  StateHasChanged(); })" />
+                }
+                <button type="button" class="btn btn-secondary form-control"
+                    @onclick="() => objectiveUtil.AddSubTask(objective)">+ @briefingRoom.Translate("Nearby")</button>
+            </div>
+        }
+    }
+</div>
+
+
+@code {
+    [Parameter] public ObjectiveUtils objectiveUtil { get; set; }
+    [Parameter] public BuilderUtils builderUtils { get; set; }
+    [Parameter] public MissionTemplate Template { get; set; }
+
+    [Parameter] public Func<string, Task> RenderHintMap { get; set; }
+}

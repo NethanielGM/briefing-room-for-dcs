@@ -1,0 +1,52 @@
+@using Blazored.Typeahead
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.Context
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div id="context" class="generator-block">
+    <h3>@briefingRoom.Translate("Context")</h3>
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <CoalitionInput Label="BlueCoalition" builderUtils="@builderUtils"
+            @bind-CoalitionId="@Template.ContextCoalitionBlue" />
+        <CoalitionInput Label="RedCoalition" builderUtils="@builderUtils"
+            @bind-CoalitionId="@Template.ContextCoalitionRed" />
+    </div>
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Theater")
+            @bind-Value="Template.ContextTheater" DataBaseType="DatabaseEntryType.Theater" />
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Situation")
+            @bind-Value="Template.ContextSituation" DataBaseType="DatabaseEntryType.Situation"
+            Grouping="@Template.ContextTheater" EmptOpt=@briefingRoom.Translate("Random")
+            CustomOpt="None (Spawn Anywhere),None" />
+    </div>
+    <InputDataBase Label=@briefingRoom.Translate("HomeAirbase") @bind-Value="Template.FlightPlanTheaterStartingAirbase"
+        DataBaseType="DatabaseEntryType.Airbase" Grouping="@Template.ContextTheater"
+        EmptOpt=@briefingRoom.Translate("Random") />
+    <InputEnum Label=@briefingRoom.Translate("TimePeriod") @bind-Value="Template.ContextDecade" EnumType="Decade" />
+    <InputEnum Label=@briefingRoom.Translate("PlayerSide") @bind-Value="Template.ContextPlayerCoalition"
+        EnumType="Coalition" />
+</div>
+<hr />
+<div id="environment" class="generator-block">
+    <h3>Environment</h3>
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("Season")
+            @bind-Value="Template.EnvironmentSeason" EnumType="Season" />
+        <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TimeOfDay")
+            @bind-Value="Template.EnvironmentTimeOfDay" EnumType="TimeOfDay" />
+    </div>
+
+    <div class="generator-group flex-justify-spaced flex-margin-fix">
+        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("WeatherPreset")
+            @bind-Value="Template.EnvironmentWeatherPreset" DataBaseType="DatabaseEntryType.WeatherPreset"
+            EmptOpt=@briefingRoom.Translate("Random") />
+        <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("Wind") @bind-Value="Template.EnvironmentWind"
+            EnumType="Wind" />
+    </div>
+</div>
+
+@code {
+    [Parameter] public BuilderUtils builderUtils { get; set; }
+    [Parameter] public MissionTemplate Template { get; set; }
+}

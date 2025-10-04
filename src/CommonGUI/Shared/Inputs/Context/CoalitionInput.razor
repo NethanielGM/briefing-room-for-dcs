@@ -1,0 +1,30 @@
+@using Blazored.Typeahead
+@using BriefingRoom4DCS.GUI.Utils
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="form-group flex-block">
+    <label>@briefingRoom.Translate(Label)</label>
+    <BlazoredTypeahead SearchMethod="builderUtils.SearchCoalition" Value="CoalitionId"
+        ValueExpression="@(() => CoalitionId)" ValueChanged="@((string value) => SelectedResultChanged(value))"
+        EnableDropDown="true" ConvertMethod="Typeahead.ConvertDB" DisableClear="true" MaximumSuggestions="1000">
+        <SelectedTemplate Context="coalitionId">
+            @builderUtils.GetCoalitionDisplayName(@CoalitionId)
+        </SelectedTemplate>
+        <ResultTemplate Context="coalition">
+            @coalition.Name.Get(briefingRoom.LanguageKey)
+        </ResultTemplate>
+    </BlazoredTypeahead>
+</div>
+@code {
+    [Parameter] public string Label { get; set; }
+    [Parameter] public BuilderUtils builderUtils { get; set; }
+    [Parameter] public string CoalitionId { get; set; }
+    [Parameter] public EventCallback<string> CoalitionIdChanged { get; set; }
+
+    private async Task SelectedResultChanged(string result)
+    {
+        CoalitionId = result;
+        await CoalitionIdChanged.InvokeAsync(result);
+    }
+}

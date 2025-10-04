@@ -1,0 +1,20 @@
+
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+   
+        <div>
+            @if(!string.IsNullOrEmpty(templateMessage)){
+                <div class="alert alert-info notification" role="info">
+                    @templateMessage
+                </div>
+                }
+            @if(!string.IsNullOrEmpty(errorMessage)){
+            <div class="alert alert-danger" role="alert">
+                @briefingRoom.Translate("Error"): @errorMessage
+            </div>
+            }
+            <hr>
+        </div>
+@code {
+    [Parameter] public string templateMessage { get; set; }
+    [Parameter] public string errorMessage { get; set; }
+}

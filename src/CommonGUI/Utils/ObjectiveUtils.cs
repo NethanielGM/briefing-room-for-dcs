@@ -4,7 +4,7 @@ using BriefingRoom4DCS.Template;
 
 namespace BriefingRoom4DCS.GUI.Utils
 {
-    internal class ObjectiveUtils
+    public class ObjectiveUtils
     {
         internal ObjectiveUtils(bool usePreset)
         {
@@ -17,19 +17,17 @@ namespace BriefingRoom4DCS.GUI.Utils
             Tab = var;
         }
 
-        internal void AddObjective(ref MissionTemplate Template)
+        internal void AddObjective(MissionTemplate Template)
         {
-            MissionTemplateObjective obj = new(true);
+            MissionTemplateObjective obj = new(UsePreset);
             Tab = obj;
             obj.Alias = BriefingRoom.GetAlias(Template.Objectives.Count);
-            if (!UsePreset)
-                obj.Preset = "Custom";
             Template.Objectives.Add(obj);
         }
 
-        internal void CloneObjective(MissionTemplateObjective obj, ref MissionTemplate Template)
+        internal void CloneObjective(MissionTemplateObjective obj, MissionTemplate Template)
         {
-            MissionTemplateObjective newObj = new(true)
+            MissionTemplateObjective newObj = new(UsePreset)
             {
                 Target = obj.Target,
                 TargetBehavior = obj.TargetBehavior,
@@ -85,7 +83,7 @@ namespace BriefingRoom4DCS.GUI.Utils
             obj.SubTasks.Add(newSubT);
         }
 
-        internal void RemoveObjective(MissionTemplateObjective obj, ref MissionTemplate Template)
+        internal void RemoveObjective(MissionTemplateObjective obj, MissionTemplate Template)
         {
             Template.Objectives.Remove(obj);
             if (Tab == obj)
@@ -100,9 +98,10 @@ namespace BriefingRoom4DCS.GUI.Utils
             subTask.ProgressionOverrideCondition = obj.ProgressionOverrideCondition;
         }
 
-        internal void AddSubTask(MissionTemplateObjective obj)
+        internal void AddSubTask(MissionTemplateObjective obj, bool preset = false)
         {
             obj.SubTasks.Add(new MissionTemplateSubTask{
+                Preset = preset ? "Interdiction" : "Custom",
                 Alias = $"{obj.Alias}{obj.SubTasks.Count + 2}",
             });
         }
