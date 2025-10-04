@@ -59,10 +59,10 @@
                     <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("StartOn")
                         @bind-Value="flight.Carrier" DataBaseType="DatabaseEntryType.UnitCarrier"
                         EmptOpt=@briefingRoom.Translate("Airbase") />
-                    @if (!String.IsNullOrEmpty(flight.Carrier))
+                    @if (MissionTemplate != null & !string.IsNullOrEmpty(flight.Carrier))
                     {
                         <button type="button"
-                            class="btn @(Template.CarrierHints.ContainsKey(flight.Carrier) ? "btn-warning" : "btn-secondary") row-button"
+                            class="btn @(MissionTemplate.CarrierHints.ContainsKey(flight.Carrier) ? "btn-warning" : "btn-secondary") row-button"
                             @onclick='() => RenderHintMap(flight.Carrier.StartsWith("FOB") ? flight.Carrier : $"CARRIER_{flight.Carrier}")'
                             title="@briefingRoom.Translate("LocationHint")"><span class="oi oi-globe"></span></button>
                     }
@@ -97,15 +97,22 @@
     <DynamicSpawn Template="Template" />
     <hr />
     <DynamicCargo Template="Template" />
-    <hr />
-    <StrikePackages Template="Template" />
+    @if (MissionTemplate != null)
+    {
+        <hr />
+        <StrikePackages Template="MissionTemplate" />
+    }
 </div>
 @code {
-    [Parameter] public MissionTemplate Template { get; set; }
+    [Parameter] public BaseTemplate Template { get; set; }
     [Parameter] public BuilderUtils builderUtils { get; set; }
     [Parameter] public Func<string, Task> RenderHintMap { get; set; }
     [Parameter] public FlightGroupUtils flightGroupUtil { get; set; }
 
+    private MissionTemplate MissionTemplate;
 
-
+    protected override void OnParametersSet()
+    {
+        MissionTemplate = Template as MissionTemplate;
+    }
 }

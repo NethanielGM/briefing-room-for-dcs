@@ -1,9 +1,6 @@
 @using BriefingRoom4DCS.GUI.Utils
 @using BriefingRoom4DCS.Template
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
-
-
-<InputEnum Label="Fog of war" @bind-Value="Template.OptionsFogOfWar" EnumType="FogOfWar" />
 <div class="form-group">
     <h4>@briefingRoom.Translate("MissionFeatures")</h4>
     <CheckBoxList Data="briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.MissionFeature).ToList()"

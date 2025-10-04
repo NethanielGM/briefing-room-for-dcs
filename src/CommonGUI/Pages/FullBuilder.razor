@@ -4,6 +4,7 @@
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
 @using BriefingRoom4DCS
 @using BriefingRoom4DCS.Data
+@using BriefingRoom4DCS.GUI.Common.Shared.Sections
 @using BriefingRoom4DCS.Template
 @using BriefingRoom4DCS.Generator
 @using BriefingRoom4DCS.Mission
@@ -116,8 +117,6 @@
 
 
 @code {
-    [CascadingParameter]
-    public MainLayout Layout { get; set; }
     private MissionTemplate Template;
     private DCSMission mission;
     private string errorMessage;
@@ -125,10 +124,6 @@
     private string templateMessage;
 
     private bool showGenerator = true;
-
-    private static readonly string DEFAULT_TEMPLATE_FILEPATH = $"{BriefingRoom.GetBriefingRoomRootPath()}Default.brt";
-
-    private TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
     private bool spinner = false;
 

@@ -1,0 +1,31 @@
+@using BriefingRoom4DCS.Template
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="form-group">
+        <h4>@briefingRoom.Translate("MissionOptions")</h4>
+        <CheckBoxList Data="briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.OptionsMission).ToList()"
+            TextField="@(item =>item.Name.Get(briefingRoom.LanguageKey))"
+            DescriptionField="@(item => item.Description.Get(briefingRoom.LanguageKey))" ValueField="@(item =>item.ID)"
+            SelectedValues="Template.OptionsMission" TItem="DatabaseEntryInfo" TItemOutput="string">
+        </CheckBoxList>
+    </div>
+    <div class="form-group">
+        <h4>@briefingRoom.Translate("RealismOptions")</h4>
+        <CheckBoxList Data="Enum.GetValues(typeof(RealismOption)).Cast<RealismOption>()"
+            TextField="@(item => BriefingRoomGUITools.GetEnumName(briefingRoom.LanguageKey, item))"
+            ValueField="@(item =>item)" SelectedValues="Template.OptionsRealism" TItem="RealismOption"
+            TItemOutput="RealismOption">
+        </CheckBoxList>
+    </div>
+    <div class="form-group">
+        <h4>@briefingRoom.Translate("UnitMods")</h4>
+        <CheckBoxList Data="briefingRoom.GetDatabaseEntriesInfo(DatabaseEntryType.DCSMod).ToList()"
+            TextField="@(item =>item.Name.Get(briefingRoom.LanguageKey))"
+            DescriptionField="@(item => item.Description.Get(briefingRoom.LanguageKey))" ValueField="@(item =>item.ID)"
+            SelectedValues="Template.Mods" TItem="DatabaseEntryInfo" TItemOutput="string">
+        </CheckBoxList>
+    </div>
+
+    @code {
+        [Parameter] public BaseTemplate Template { get; set; }
+    }

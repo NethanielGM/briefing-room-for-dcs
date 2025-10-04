@@ -164,7 +164,8 @@
             <div id="mission-features" class="generator-block row">
                 <div class="col-6">
                     <h3>@briefingRoom.Translate("Options")</h3>
-             <MissionFeatures Template="Template" />
+                    <InputEnum Label="Fog of war" @bind-Value="Template.OptionsFogOfWar" EnumType="FogOfWar" />
+                    <MissionFeatures Template="Template" />
                 </div>
                 <div class="col-6">
                     <h5><span class="oi oi-info"></span>&nbsp;@briefingRoom.Translate("InheritedSettings")</h5>
@@ -243,15 +244,11 @@
 
 
 @code {
-    [CascadingParameter]
-    public MainLayout Layout { get; set; }
     private MissionTemplate Template;
     private DCSMission mission;
     private string errorMessage;
     private string templateMessage;
     private bool showGenerator = true;
-    private static readonly string DEFAULT_TEMPLATE_FILEPATH = $"{BriefingRoom.GetBriefingRoomRootPath()}Default.brt";
-    private TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
     private bool spinner = false;
     private FlightGroupUtils flightGroupUtil = new FlightGroupUtils();
     private ObjectiveUtils objectiveUtil = new ObjectiveUtils(true);
