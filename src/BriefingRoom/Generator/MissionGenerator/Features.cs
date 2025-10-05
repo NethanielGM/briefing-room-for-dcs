@@ -19,6 +19,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.Mission.Objectives;
 using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using System;
@@ -152,7 +153,7 @@ namespace BriefingRoom4DCS.Generator.Mission
                     extraSettings);
 
                 if (FeaturesAsTargets && flags.HasFlag(FeatureUnitGroupFlags.ObjectiveTargetable) && groupSide == objectiveTargetSide)
-                    Objectives.AssignTargetSuffix(ref groupInfo, (string)extraSettings.GetValueOrDefault("ObjectiveName"), unitFamily.GetUnitCategory() == UnitCategory.Static || unitFamily.GetUnitCategory() == UnitCategory.Cargo);
+                    ObjectiveUtils.AssignTargetSuffix(ref groupInfo, (string)extraSettings.GetValueOrDefault("ObjectiveName"), unitFamily.GetUnitCategory() == UnitCategory.Static || unitFamily.GetUnitCategory() == UnitCategory.Cargo);
 
                 SetCarrier(ref mission, featureDB, groupSide, ref groupInfo);
                 SetSupportingTargetGroupName(ref groupInfo, flags, extraSettings);

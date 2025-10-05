@@ -73,7 +73,7 @@ namespace BriefingRoom4DCS.Generator.Mission
             var enemySideObjectivesCount = 0;
 
             template.Objectives.ForEach(x => {
-                if(Objectives.GetObjectiveData(langKey, x).taskDB.TargetSide == Side.Ally)
+                if(ObjectiveGenerator.GetObjectiveData(langKey, x).taskDB.TargetSide == Side.Ally)
                     friendlySideObjectivesCount++;
                 else
                     enemySideObjectivesCount++;

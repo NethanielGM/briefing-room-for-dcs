@@ -343,7 +343,7 @@ namespace BriefingRoom4DCS.Generator.Mission
             var i = 0;
             foreach (var objectiveTemplate in mission.TemplateRecord.Objectives)
             {
-                var (objectiveCoords, waypointGroup) = Objectives.GenerateObjective(
+                var (objectiveCoords, waypointGroup) = ObjectiveGenerator.GenerateObjective(
                     mission,
                     objectiveTemplate, lastObjectiveCoordinates,
                     ref i);
