@@ -19,16 +19,17 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
 
-    internal class MissionGeneratorAirDefense
+    internal class AirDefense
     {
         private static readonly Dictionary<AirDefenseRange, TheaterTemplateLocationType> LocationTemplateRanges = new Dictionary<AirDefenseRange, TheaterTemplateLocationType>
         {
@@ -106,7 +107,7 @@ namespace BriefingRoom4DCS.Generator
                 if (LocationTemplateRanges.ContainsKey(airDefenseRange))
                 {
                     var locationType = LocationTemplateRanges[airDefenseRange];
-                    var templateLocation = UnitMakerSpawnPointSelector.GetRandomTemplateLocation(
+                    var templateLocation = SpawnPointSelector.GetRandomTemplateLocation(
                         mission,
                         locationType,
                         centerPoint,
@@ -118,9 +119,9 @@ namespace BriefingRoom4DCS.Generator
                     if (templateLocation.HasValue)
                     {
                         spawnPoint = templateLocation.Value.Coordinates;
-                        (units, _) = UnitMaker.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, side, unitFamilies, ref extraSetting);
+                        (units, _) = UnitGenerator.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, side, unitFamilies, ref extraSetting);
                         if (units.Count == 0)
-                            UnitMakerSpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
+                            SpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
                     }
                 }
 
@@ -132,14 +133,14 @@ namespace BriefingRoom4DCS.Generator
                         unitCount = Toolbox.RandomMinMax(2, 5);
                         forceTryTemplate = Toolbox.RandomChance(2);
                     }
-                    (units, _) = UnitMaker.GetUnits(ref mission, unitFamilies, unitCount, side, 0, ref extraSetting, true, forceTryTemplate: forceTryTemplate, allowDefaults: false);
+                    (units, _) = UnitGenerator.GetUnits(ref mission, unitFamilies, unitCount, side, 0, ref extraSetting, true, forceTryTemplate: forceTryTemplate, allowDefaults: false);
                     if (units.Count == 0)
                     {
                         return groupCount - i;
                     }
                     // Find spawn point at the proper distance
                     spawnPoint =
-                        UnitMakerSpawnPointSelector.GetRandomSpawnPoint(
+                        SpawnPointSelector.GetRandomSpawnPoint(
                             ref mission,
                             validSpawnPoints,
                             centerPoint,
@@ -157,7 +158,7 @@ namespace BriefingRoom4DCS.Generator
                     BriefingRoom.PrintTranslatableWarning(mission.LangKey, "NoSpawnPointForAirDefense", airDefenseRange);
                     return groupCount - i;
                 }
-                UnitMakerGroupInfo? groupInfo = UnitMaker.AddUnitGroup(
+                GroupInfo? groupInfo = UnitGenerator.AddUnitGroup(
                     ref mission,
                         units, side, unitFamilies.First(),
                         "Vehicle", "Vehicle",
@@ -171,9 +172,9 @@ namespace BriefingRoom4DCS.Generator
                 if (!groupInfo.HasValue)
                 {
                     if (usedSP)
-                        UnitMakerSpawnPointSelector.RecoverSpawnPoint(ref mission, spawnPoint.Value);
+                        SpawnPointSelector.RecoverSpawnPoint(ref mission, spawnPoint.Value);
                     else
-                        UnitMakerSpawnPointSelector.RecoverTemplateLocation(ref mission, spawnPoint.Value);
+                        SpawnPointSelector.RecoverTemplateLocation(ref mission, spawnPoint.Value);
                     return groupCount - i;
                 }
 

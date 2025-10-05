@@ -23,14 +23,15 @@ using System.Collections.Generic;
 using System.Linq;
 using BriefingRoom4DCS.Data;
 using BriefingRoom4DCS.Generator;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission.DCSLuaObjects;
 using BriefingRoom4DCS.Template;
 
 namespace BriefingRoom4DCS.Mission
 {
-    public class CarrierUnitMakerGroupInfo
+    public class CarrierGroupInfo
     {
-        internal UnitMakerGroupInfo UnitMakerGroupInfo { get; }
+        internal GroupInfo GroupInfo { get; }
         internal int RemainingPlaneSpotCount { get; set; }
         internal int TotalPlaneSpotCount { get; init; }
 
@@ -39,9 +40,9 @@ namespace BriefingRoom4DCS.Mission
 
         internal Coalition Coalition { get; init; }
 
-        internal CarrierUnitMakerGroupInfo(UnitMakerGroupInfo unitMakerGroupInfo, int remainingPlaneSpotCount, int remainingHelicopterSpotCount, Coalition coalition)
+        internal CarrierGroupInfo(GroupInfo GroupInfo, int remainingPlaneSpotCount, int remainingHelicopterSpotCount, Coalition coalition)
         {
-            UnitMakerGroupInfo = unitMakerGroupInfo;
+            this.GroupInfo = GroupInfo;
             RemainingPlaneSpotCount = remainingPlaneSpotCount;
             TotalPlaneSpotCount = remainingPlaneSpotCount;
             RemainingHelicopterSpotCount = remainingHelicopterSpotCount;
@@ -78,7 +79,7 @@ namespace BriefingRoom4DCS.Mission
         protected internal bool PlayerSideOfFrontLine { get; protected set; }
         protected internal int GroupID { get; set; }
         protected internal int UnitID { get; set; }
-        protected internal Dictionary<string, CarrierUnitMakerGroupInfo> CarrierDictionary { get; protected set; }
+        protected internal Dictionary<string, CarrierGroupInfo> CarrierDictionary { get; protected set; }
         protected internal List<string> ModUnits { get; protected set; }
         protected internal Dictionary<Country, Dictionary<DCSUnitCategory, List<DCSGroup>>> UnitLuaTables { get; protected set; }
         protected internal List<Waypoint> Waypoints { get; protected set; }

@@ -20,10 +20,10 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 
 using System;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.UnitMaker
 {
     [Flags]
-    internal enum UnitMakerGroupFlags
+    internal enum GroupFlags
     {
         AlwaysHidden = 1,
 

@@ -25,9 +25,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorCountries
+    internal class Countries
     {
         private static readonly Country[] DEFAULT_COUNTRIES = new Country[] { Country.CombinedJointTaskForcesBlue, Country.CombinedJointTaskForcesRed };
 

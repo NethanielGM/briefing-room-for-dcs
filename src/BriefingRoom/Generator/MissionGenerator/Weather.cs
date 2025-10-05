@@ -23,9 +23,9 @@ using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorWeather
+    internal class Weather
     {
 
         internal static int GenerateWeather(ref DCSMission mission)

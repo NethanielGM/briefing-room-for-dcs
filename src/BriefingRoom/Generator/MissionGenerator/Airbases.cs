@@ -24,9 +24,9 @@ using BriefingRoom4DCS.Template;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorAirbases
+    internal class Airbases
     {
         internal static void SelectStartingAirbaseForPackages(ref DCSMission mission)
         {

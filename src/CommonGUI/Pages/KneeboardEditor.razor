@@ -131,7 +131,7 @@
               foundF.Delete();
             }
 
-            var imagesData = await MissionGeneratorImages.GenerateKneeboardImageAsync(briefingRoom.LanguageKey ,htmlStore[key]);
+            var imagesData = await Imagery.GenerateKneeboardImageAsync(briefingRoom.LanguageKey ,htmlStore[key]);
             var i = 0;
             var multiImage = imagesData.Count > 1;
             foreach (var imageData in imagesData)

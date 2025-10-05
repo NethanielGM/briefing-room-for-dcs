@@ -19,6 +19,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Mission.DCSLuaObjects;
 using BriefingRoom4DCS.Template;
@@ -28,9 +29,9 @@ using System.IO;
 using System.Linq;
 
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorObjectives
+    internal class Objectives
     {
 
 
@@ -122,19 +123,19 @@ namespace BriefingRoom4DCS.Generator
             if (Constants.THEATER_TEMPLATE_LOCATION_MAP.Keys.Any(x => objectiveTargetUnitFamilies.Contains(x)) && targetBehaviorDB.IsStatic)
             {
                 var locationType = Toolbox.RandomFrom(Constants.THEATER_TEMPLATE_LOCATION_MAP.Keys.Intersect(objectiveTargetUnitFamilies).Select(x => Constants.THEATER_TEMPLATE_LOCATION_MAP[x]).ToList());
-                var templateLocation = UnitMakerSpawnPointSelector.GetNearestTemplateLocation(ref mission, locationType, objectiveCoordinates, true);
+                var templateLocation = SpawnPointSelector.GetNearestTemplateLocation(ref mission, locationType, objectiveCoordinates, true);
                 if (templateLocation.HasValue)
                 {
                     objectiveCoordinates = templateLocation.Value.Coordinates;
-                    (units, unitDBs) = UnitMaker.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, taskDB.TargetSide, objectiveTargetUnitFamilies, ref extraSettings);
+                    (units, unitDBs) = UnitGenerator.GetUnitsForTemplateLocation(ref mission, templateLocation.Value, taskDB.TargetSide, objectiveTargetUnitFamilies, ref extraSettings);
                     if (units.Count == 0)
-                        UnitMakerSpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
+                        SpawnPointSelector.RecoverTemplateLocation(ref mission, templateLocation.Value.Coordinates);
                 }
             }
 
             var isInverseTransportWayPoint = false;
             if (units.Count == 0)
-                (units, unitDBs) = UnitMaker.GetUnits(ref mission, objectiveTargetUnitFamilies, unitCount, taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
+                (units, unitDBs) = UnitGenerator.GetUnits(ref mission, objectiveTargetUnitFamilies, unitCount, taskDB.TargetSide, groupFlags, ref extraSettings, targetBehaviorDB.IsStatic);
             var objectiveTargetUnitFamily = objectiveTargetUnitFamilies.First();
             if (units.Count == 0 || unitDBs.Count == 0)
                 throw new BriefingRoomException(mission.LangKey, "NoUnitsForTimePeriod", taskDB.TargetSide, objectiveTargetUnitFamily);
@@ -202,7 +203,7 @@ namespace BriefingRoom4DCS.Generator
             {
                 if (targetBehaviorDB.ID.StartsWith("RelocateToNewPosition"))
                 {
-                    Coordinates? spawnPoint = UnitMakerSpawnPointSelector.GetRandomSpawnPoint(
+                    Coordinates? spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
                     ref mission,
                     targetDB.ValidSpawnPoints,
                     objectiveCoordinates,
@@ -215,7 +216,7 @@ namespace BriefingRoom4DCS.Generator
                 else
                 {
                     var coords = targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.GoToPlayerAirbase ? mission.PlayerAirbase.Coordinates : unitCoordinates;
-                    var (_, _, spawnPoints) = UnitMakerSpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally, true).Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"));
+                    var (_, _, spawnPoints) = SpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally, true).Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"));
                     if (spawnPoints.Count == 0) // Failed to generate target group
                         throw new BriefingRoomException(mission.LangKey, "FailedToFindCargoSpawn");
                     unitCoordinates = spawnPoints.First();
@@ -232,7 +233,7 @@ namespace BriefingRoom4DCS.Generator
                 {
                     extraSettings["GroupX2"] = objectiveCoordinates.X;
                     extraSettings["GroupY2"] = objectiveCoordinates.Y;
-                    groupFlags |= UnitMakerGroupFlags.RadioAircraftSpawn;
+                    groupFlags |= GroupFlags.RadioAircraftSpawn;
                 }
                 else
                 {
@@ -245,17 +246,17 @@ namespace BriefingRoom4DCS.Generator
 
             if (
                 objectiveTargetUnitFamily.GetUnitCategory().IsAircraft() &&
-                !groupFlags.HasFlag(UnitMakerGroupFlags.RadioAircraftSpawn) &&
+                !groupFlags.HasFlag(GroupFlags.RadioAircraftSpawn) &&
                 !Constants.AIR_ON_GROUND_LOCATIONS.Contains(targetBehaviorDB.Location)
                 )
             {
                 if (task.ProgressionActivation)
-                    groupFlags |= UnitMakerGroupFlags.ProgressionAircraftSpawn;
+                    groupFlags |= GroupFlags.ProgressionAircraftSpawn;
                 else
-                    groupFlags |= UnitMakerGroupFlags.ImmediateAircraftSpawn;
+                    groupFlags |= GroupFlags.ImmediateAircraftSpawn;
             }
 
-            UnitMakerGroupInfo? targetGroupInfo = UnitMaker.AddUnitGroup(
+            GroupInfo? targetGroupInfo = UnitGenerator.AddUnitGroup(
                 ref mission,
                 units,
                 taskDB.TargetSide,
@@ -363,7 +364,7 @@ namespace BriefingRoom4DCS.Generator
                 SetHoldSuperiorityFeatures(targetDB, ref featureList, playerHasPlanes);
 
             foreach (string featureID in featureList)
-                MissionGeneratorFeaturesObjectives.GenerateMissionFeature(ref mission, featureID, objectiveName, objectiveIndex, targetGroupInfo.Value, taskDB.TargetSide, objectiveOptions, overrideCoords: targetBehaviorDB.ID.StartsWith("ToFrontLine") ? objectiveCoordinates : null);
+              FeaturesObjectives.GenerateMissionFeature(ref mission, featureID, objectiveName, objectiveIndex, targetGroupInfo.Value, taskDB.TargetSide, objectiveOptions, overrideCoords: targetBehaviorDB.ID.StartsWith("ToFrontLine") ? objectiveCoordinates : null);
 
             mission.ObjectiveCoordinates.Add(isInverseTransportWayPoint ? unitCoordinates : objectiveCoordinates);
             var objCoords = objectiveCoordinates;
@@ -427,13 +428,13 @@ namespace BriefingRoom4DCS.Generator
             }
         }
 
-        private static (string luaUnit, int unitCount, MinMaxI unitCountMinMax, List<UnitFamily> objectiveTargetUnitFamily, UnitMakerGroupFlags groupFlags) GetUnitData(MissionTemplateSubTaskRecord task, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTargetBehavior targetBehaviorDB, ObjectiveOption[] objectiveOptions)
+        private static (string luaUnit, int unitCount, MinMaxI unitCountMinMax, List<UnitFamily> objectiveTargetUnitFamily, GroupFlags groupFlags) GetUnitData(MissionTemplateSubTaskRecord task, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTargetBehavior targetBehaviorDB, ObjectiveOption[] objectiveOptions)
         {
-            UnitMakerGroupFlags groupFlags = 0;
-            if (objectiveOptions.Contains(ObjectiveOption.Invisible)) groupFlags |= UnitMakerGroupFlags.Invisible;
-            if (objectiveOptions.Contains(ObjectiveOption.ShowTarget)) groupFlags = UnitMakerGroupFlags.NeverHidden;
-            else if (objectiveOptions.Contains(ObjectiveOption.HideTarget)) groupFlags = UnitMakerGroupFlags.AlwaysHidden;
-            if (objectiveOptions.Contains(ObjectiveOption.EmbeddedAirDefense)) groupFlags |= UnitMakerGroupFlags.EmbeddedAirDefense;
+            GroupFlags groupFlags = 0;
+            if (objectiveOptions.Contains(ObjectiveOption.Invisible)) groupFlags |= GroupFlags.Invisible;
+            if (objectiveOptions.Contains(ObjectiveOption.ShowTarget)) groupFlags = GroupFlags.NeverHidden;
+            else if (objectiveOptions.Contains(ObjectiveOption.HideTarget)) groupFlags = GroupFlags.AlwaysHidden;
+            if (objectiveOptions.Contains(ObjectiveOption.EmbeddedAirDefense)) groupFlags |= GroupFlags.EmbeddedAirDefense;
             List<UnitFamily> unitFamilies;
             switch (true)
             {
@@ -478,7 +479,7 @@ namespace BriefingRoom4DCS.Generator
                 try
                 {
                     airbaseID = targetAirbase.DCSID;
-                    var parkingSpots = UnitMakerSpawnPointSelector.GetFreeParkingSpots(
+                    var parkingSpots = SpawnPointSelector.GetFreeParkingSpots(
                         ref mission,
                         targetAirbase.DCSID,
                         unitCount, (DBEntryAircraft)unitDB,
@@ -503,7 +504,7 @@ namespace BriefingRoom4DCS.Generator
 
         private static Coordinates GetSpawnCoordinates(ref DCSMission mission, Coordinates lastCoordinates, DBEntryAirbase playerAirbase, DBEntryObjectiveTarget targetDB, bool usingHint)
         {
-            Coordinates? spawnPoint = UnitMakerSpawnPointSelector.GetRandomSpawnPoint(
+            Coordinates? spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
                 ref mission,
                 targetDB.ValidSpawnPoints,
                 playerAirbase.Coordinates,
@@ -528,7 +529,7 @@ namespace BriefingRoom4DCS.Generator
             return (featuresID, targetDB, targetBehaviorDB, taskDB, objectiveOptions);
         }
 
-        internal static void AssignTargetSuffix(ref UnitMakerGroupInfo? targetGroupInfo, string objectiveName, Boolean isStatic)
+        internal static void AssignTargetSuffix(ref GroupInfo? targetGroupInfo, string objectiveName, Boolean isStatic)
         {
             var i = 0;
             targetGroupInfo.Value.DCSGroups.ForEach(x =>
@@ -573,13 +574,13 @@ namespace BriefingRoom4DCS.Generator
         }
 
 
-        private static void AddEmbeddedAirDefenseUnits(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTargetBehavior targetBehaviorDB, DBEntryObjectiveTask taskDB, Coordinates objectiveCoordinates, UnitMakerGroupFlags groupFlags, Dictionary<string, object> extraSettings)
+        private static void AddEmbeddedAirDefenseUnits(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTargetBehavior targetBehaviorDB, DBEntryObjectiveTask taskDB, Coordinates objectiveCoordinates, GroupFlags groupFlags, Dictionary<string, object> extraSettings)
         {
             // Static targets (aka buildings) need to have their "embedded" air defenses spawned in another group
             var airDefenseUnits = GeneratorTools.GetEmbeddedAirDefenseUnits(mission.LangKey, mission.TemplateRecord, taskDB.TargetSide, UnitCategory.Static);
 
             if (airDefenseUnits.Count > 0)
-                UnitMaker.AddUnitGroup(
+                UnitGenerator.AddUnitGroup(
                     ref mission,
                     airDefenseUnits,
                     taskDB.TargetSide, UnitFamily.VehicleAAA,
@@ -589,7 +590,7 @@ namespace BriefingRoom4DCS.Generator
                     extraSettings);
         }
 
-        private static void CreateLua(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTask taskDB, int objectiveIndex, string objectiveName, UnitMakerGroupInfo? targetGroupInfo, string taskString, MissionTemplateSubTaskRecord task, Dictionary<string, object> extraSettings)
+        private static void CreateLua(ref DCSMission mission, DBEntryObjectiveTarget targetDB, DBEntryObjectiveTask taskDB, int objectiveIndex, string objectiveName, GroupInfo? targetGroupInfo, string taskString, MissionTemplateSubTaskRecord task, Dictionary<string, object> extraSettings)
         {
             // Add Lua table for this objective
             string objectiveLua = $"briefingRoom.mission.objectives[{objectiveIndex + 1}] = {{ ";
@@ -669,7 +670,7 @@ namespace BriefingRoom4DCS.Generator
 
         private static Coordinates GetNearestSpawnCoordinates(ref DCSMission mission, Coordinates coreCoordinates, DBEntryObjectiveTarget targetDB, bool remove = true)
         {
-            Coordinates? spawnPoint = UnitMakerSpawnPointSelector.GetNearestSpawnPoint(
+            Coordinates? spawnPoint = SpawnPointSelector.GetNearestSpawnPoint(
                 ref mission,
                 targetDB.ValidSpawnPoints,
                 coreCoordinates, remove);

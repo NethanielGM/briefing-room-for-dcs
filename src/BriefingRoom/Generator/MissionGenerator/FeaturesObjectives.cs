@@ -19,18 +19,19 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorFeaturesObjectives : MissionGeneratorFeatures<DBEntryFeatureObjective>
+    internal class FeaturesObjectives :Features<DBEntryFeatureObjective>
     {
 
-        internal static void GenerateMissionFeature(ref DCSMission mission, string featureID, string objectiveName, int objectiveIndex, UnitMakerGroupInfo objectiveTarget, Side objectiveTargetSide, ObjectiveOption[] objectiveOptions, Coordinates? overrideCoords = null)
+        internal static void GenerateMissionFeature(ref DCSMission mission, string featureID, string objectiveName, int objectiveIndex, GroupInfo objectiveTarget, Side objectiveTargetSide, ObjectiveOption[] objectiveOptions, Coordinates? overrideCoords = null)
         {   
             var objCoords = overrideCoords.HasValue ? overrideCoords.Value : objectiveTarget.Coordinates;
             DBEntryFeatureObjective featureDB = Database.Instance.GetEntry<DBEntryFeatureObjective>(featureID);
@@ -55,7 +56,7 @@ namespace BriefingRoom4DCS.Generator
                 coordinates = objCoords.CreateNearRandom(featureDB.UnitGroupSpawnDistance * .75, featureDB.UnitGroupSpawnDistance * 1.5); //UnitGroupSpawnDistance treated as Meters here rather than NM
                 if (
                     !(featureDB.UnitGroupValidSpawnPoints.Contains(SpawnPointType.Sea) || featureDB.UnitGroupValidSpawnPoints.Contains(SpawnPointType.Air)) &&
-                    UnitMakerSpawnPointSelector.CheckInSea(mission.TheaterDB,coordinates.Value))
+                    SpawnPointSelector.CheckInSea(mission.TheaterDB,coordinates.Value))
                 {
                     BriefingRoom.PrintTranslatableWarning(mission.LangKey, "CannotSpawnObjectiveFeature", $"{objectiveName}: {featureDB.UIDisplayName.Get(mission.LangKey)}");
                     return;
@@ -64,7 +65,7 @@ namespace BriefingRoom4DCS.Generator
             else if (FeatureHasUnitGroup(featureDB))
             {
                 Coordinates? spawnPoint =
-                    UnitMakerSpawnPointSelector.GetRandomSpawnPoint(
+                    SpawnPointSelector.GetRandomSpawnPoint(
                         ref mission,
                         featureDB.UnitGroupValidSpawnPoints, objCoords,
                         new MinMaxD(featureDB.UnitGroupSpawnDistance * .75, featureDB.UnitGroupSpawnDistance * 1.5),
@@ -100,7 +101,7 @@ namespace BriefingRoom4DCS.Generator
                 mission.Briefing.AddItem(DCSMissionBriefingItemType.JTAC, $"{objectiveName}\t{laserCode}");
             }
 
-            UnitMakerGroupInfo? groupInfo = AddMissionFeature(
+            GroupInfo? groupInfo = AddMissionFeature(
                 featureDB, ref mission,
                 coordinates, coordinates2,
                 ref extraSettings, objectiveTargetSide, objectiveOptions.Contains(ObjectiveOption.HideTarget),

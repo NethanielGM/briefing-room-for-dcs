@@ -21,9 +21,9 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorOptions
+    internal class Options
     {
 
         internal static void GenerateForcedOptions(ref DCSMission mission, MissionTemplateRecord template)

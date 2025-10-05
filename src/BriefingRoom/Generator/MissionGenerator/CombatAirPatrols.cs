@@ -19,6 +19,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Mission.DCSLuaObjects;
 using BriefingRoom4DCS.Template;
@@ -26,9 +27,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorCombatAirPatrols
+    internal class CombatAirPatrols
     {
 
         internal static void GenerateCAP(ref DCSMission mission)
@@ -78,7 +79,7 @@ namespace BriefingRoom4DCS.Generator
 
                 // Find spawn point at the proper distance from the objective(s), but not to close from starting airbase
                 Coordinates? spawnPoint =
-                    UnitMakerSpawnPointSelector.GetRandomSpawnPoint(
+                    SpawnPointSelector.GetRandomSpawnPoint(
                         ref mission,
                         new SpawnPointType[] { SpawnPointType.Air },
                         centerPoint,
@@ -103,22 +104,22 @@ namespace BriefingRoom4DCS.Generator
 
                 var spawnpointCoordinates = spawnPoint.Value;
 
-                UnitMakerGroupFlags groupFlags = 0;
+                GroupFlags groupFlags = 0;
 
                 if (Toolbox.RandomChance(4))
-                    groupFlags |= UnitMakerGroupFlags.ImmediateAircraftSpawn;
+                    groupFlags |= GroupFlags.ImmediateAircraftSpawn;
 
                 if (mission.TemplateRecord.MissionFeatures.Contains("ContextScrambleStart"))
-                    groupFlags |= UnitMakerGroupFlags.ScrambleStart;
+                    groupFlags |= GroupFlags.ScrambleStart;
 
-                var (units, unitDBs) = UnitMaker.GetUnits(ref mission,commonCAPDB.UnitFamilies.ToList(), groupSize, side, groupFlags, ref extraSettings, false);
+                var (units, unitDBs) = UnitGenerator.GetUnits(ref mission,commonCAPDB.UnitFamilies.ToList(), groupSize, side, groupFlags, ref extraSettings, false);
                 if(units.Count == 0)
                     return;
                 var unitDB = (DBEntryAircraft)unitDBs.First();
                 if (mission.TemplateRecord.MissionFeatures.Contains("ContextGroundStartAircraft"))
                 {
                     try {
-                        var (airbase, parkingSpotIDsList, parkingSpotCoordinatesList) = UnitMakerSpawnPointSelector.GetAirbaseAndParking(mission, spawnPoint.Value, groupSize, coalition, unitDB);
+                        var (airbase, parkingSpotIDsList, parkingSpotCoordinatesList) = SpawnPointSelector.GetAirbaseAndParking(mission, spawnPoint.Value, groupSize, coalition, unitDB);
                         spawnpointCoordinates = airbase.Coordinates;
                         extraSettings.AddIfKeyUnused("ParkingID", parkingSpotIDsList);
                         extraSettings.AddIfKeyUnused("GroupAirbaseID", airbase.DCSID);
@@ -133,7 +134,7 @@ namespace BriefingRoom4DCS.Generator
                 }
 
 
-                UnitMakerGroupInfo? groupInfo = UnitMaker.AddUnitGroup(ref mission,units, side, unitDB.Families.First(), commonCAPDB.LuaGroup, commonCAPDB.LuaUnit, spawnpointCoordinates, groupFlags, extraSettings);
+                GroupInfo? groupInfo = UnitGenerator.AddUnitGroup(ref mission,units, side, unitDB.Families.First(), commonCAPDB.LuaGroup, commonCAPDB.LuaUnit, spawnpointCoordinates, groupFlags, extraSettings);
 
                 if (!groupInfo.HasValue) // Failed to generate a group
                     BriefingRoom.PrintTranslatableWarning(mission.LangKey, "FailedToFindCAPUnits", mission.LangKey, coalition);
@@ -145,7 +146,7 @@ namespace BriefingRoom4DCS.Generator
             } while (unitsLeftToSpawn > 0);
         }
 
-        private static void SetCarrier(ref DCSMission mission, Side side, ref UnitMakerGroupInfo? groupInfo)
+        private static void SetCarrier(ref DCSMission mission, Side side, ref GroupInfo? groupInfo)
         {
             if (
                 side == Side.Enemy ||
@@ -161,7 +162,7 @@ namespace BriefingRoom4DCS.Generator
                 targetFamily = UnitFamily.ShipCarrierSTOBAR;
             var unitCount = groupInfo.Value.DCSGroup.Units.Count;
             var carrierPool = mission.CarrierDictionary.Where(x =>
-                    x.Value.UnitMakerGroupInfo.UnitDB.Families.Contains(targetFamily) &&
+                    x.Value.GroupInfo.UnitDB.Families.Contains(targetFamily) &&
                     x.Value.RemainingPlaneSpotCount >= unitCount
                 ).ToDictionary(x => x.Key, x => x.Value);
 
@@ -169,12 +170,12 @@ namespace BriefingRoom4DCS.Generator
                 return;
 
             var carrier = Toolbox.RandomFrom(carrierPool.Values.ToArray());
-            groupInfo.Value.DCSGroup.Waypoints[0].LinkUnit = carrier.UnitMakerGroupInfo.DCSGroup.Units[0].UnitId;
-            groupInfo.Value.DCSGroup.Waypoints[0].HelipadId = carrier.UnitMakerGroupInfo.DCSGroup.Units[0].UnitId;
-            groupInfo.Value.DCSGroup.Waypoints[0].X = (float)carrier.UnitMakerGroupInfo.Coordinates.X;
-            groupInfo.Value.DCSGroup.Waypoints[0].Y = (float)carrier.UnitMakerGroupInfo.Coordinates.Y;
-            groupInfo.Value.DCSGroup.X = (float)carrier.UnitMakerGroupInfo.Coordinates.X;
-            groupInfo.Value.DCSGroup.Y = (float)carrier.UnitMakerGroupInfo.Coordinates.Y;
+            groupInfo.Value.DCSGroup.Waypoints[0].LinkUnit = carrier.GroupInfo.DCSGroup.Units[0].UnitId;
+            groupInfo.Value.DCSGroup.Waypoints[0].HelipadId = carrier.GroupInfo.DCSGroup.Units[0].UnitId;
+            groupInfo.Value.DCSGroup.Waypoints[0].X = (float)carrier.GroupInfo.Coordinates.X;
+            groupInfo.Value.DCSGroup.Waypoints[0].Y = (float)carrier.GroupInfo.Coordinates.Y;
+            groupInfo.Value.DCSGroup.X = (float)carrier.GroupInfo.Coordinates.X;
+            groupInfo.Value.DCSGroup.Y = (float)carrier.GroupInfo.Coordinates.Y;
             carrier.RemainingPlaneSpotCount -= unitCount;
         }
     }

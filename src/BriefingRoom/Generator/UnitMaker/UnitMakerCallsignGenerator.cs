@@ -25,9 +25,9 @@ using BriefingRoom4DCS.Mission;
 using System;
 using System.Collections.Generic;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.UnitMaker
 {
-    internal static class UnitMakerCallsignGenerator
+    internal static class CallsignGenerator
     {
 
         private static readonly List<Country> NON_NATO_CALLSIGN_NATIONS = new() { Country.Russia, Country.Abkhazia, Country.Belarus, Country.China, Country.Insurgents, Country.SouthOssetia, Country.Ukraine, Country.USSR, Country.Yugoslavia };

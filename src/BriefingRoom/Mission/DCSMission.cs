@@ -26,6 +26,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BriefingRoom4DCS.Data;
 using BriefingRoom4DCS.Generator;
+using BriefingRoom4DCS.Generator.Mission;
 using BriefingRoom4DCS.Template;
 
 namespace BriefingRoom4DCS.Mission
@@ -300,9 +301,9 @@ namespace BriefingRoom4DCS.Mission
         {
             // Generate image files
             BriefingRoom.PrintToLog("Generating images...");
-            await MissionGeneratorImages.GenerateTitleImage(this);
+            await Imagery.GenerateTitleImage(this);
             if (!TemplateRecord.OptionsMission.Contains("DisableKneeboardImages"))
-                await MissionGeneratorImages.GenerateKneeboardImagesAsync(this);
+                await Imagery.GenerateKneeboardImagesAsync(this);
 
             return MizMaker.ExportToMizBytes(this, TemplateRecord.Template);
         }
@@ -380,13 +381,13 @@ namespace BriefingRoom4DCS.Mission
         {
             if (featureDB.UnitGroupFlags.HasFlag(FeatureUnitGroupFlags.TACAN) && (featureDB.UnitGroupFamilies.Length > 0))
             {
-                var callsign = (GetType() == typeof(MissionGeneratorFeaturesObjectives) && extraSettings.ContainsKey("ObjectiveName")) ? extraSettings["ObjectiveName"].ToString()[..3] : $"{GeneratorTools.GetTACANCallsign(featureDB.UnitGroupFamilies[0])}{TACANIndex}";
+                var callsign = (GetType() == typeof(FeaturesObjectives) && extraSettings.ContainsKey("ObjectiveName")) ? extraSettings["ObjectiveName"].ToString()[..3] : $"{GeneratorTools.GetTACANCallsign(featureDB.UnitGroupFamilies[0])}{TACANIndex}";
                 if (extraSettings.ContainsKey("TACAN_NAME"))
                 {
                     var tacanName = extraSettings["TACAN_NAME"].ToString();
                     callsign = tacanName.Length > 3 ? tacanName[..3] : tacanName;
                 }
-                var channel = ((GetType() == typeof(MissionGeneratorFeaturesObjectives)) ? 31 : 25) + TACANIndex;
+                var channel = ((GetType() == typeof(FeaturesObjectives)) ? 31 : 25) + TACANIndex;
                 extraSettings.AddIfKeyUnused("TACANFrequency", 1108000000);
                 extraSettings.AddIfKeyUnused("TACANCallsign", callsign);
                 extraSettings.AddIfKeyUnused("TACANChannel", channel);

@@ -1,4 +1,5 @@
 ﻿using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
@@ -22,14 +23,14 @@ namespace BriefingRoom4DCS.Generator
             if (!onTop)
             {
                 var spawnPoints = new List<SpawnPointType> { SpawnPointType.LandLarge }.ToArray();
-                Coordinates? newCoords = UnitMakerSpawnPointSelector.GetNearestSpawnPoint(ref mission, spawnPoints, coordinates);
+                Coordinates? newCoords = SpawnPointSelector.GetNearestSpawnPoint(ref mission, spawnPoints, coordinates);
                 if (!newCoords.HasValue)
                     throw new BriefingRoomException(mission.LangKey, "Can't find suitable zone Coordinates!");
                 coords = newCoords.Value;
                 DrawingMaker.AddDrawing(ref mission, $"Supply_{mission.CTLDZoneCount}", DrawingType.TextBox, coords, "Text".ToKeyValuePair($"Supply Base"));
                 DrawingMaker.AddDrawing(ref mission, $"Supply_zone_{mission.CTLDZoneCount}", DrawingType.Circle, coords, "Radius".ToKeyValuePair(500), "Colour".ToKeyValuePair(DrawingColour.White));
                 mission.MapData.Add($"SUPPLY_{mission.CTLDZoneCount}", new List<double[]> { coords.ToArray() });
-                var group = UnitMaker.AddUnitGroup(ref mission, UnitFamily.StaticStructureMilitary, 1, Side.Ally, "Static", "Static", coords, UnitMakerGroupFlags.Inert, new Dictionary<string, object>(), true);
+                var group = UnitGenerator.AddUnitGroup(ref mission, UnitFamily.StaticStructureMilitary, 1, Side.Ally, "Static", "Static", coords, GroupFlags.Inert, new Dictionary<string, object>(), true);
                 group.Value.DCSGroup.Units[0].Name = $"logistic{mission.CTLDZoneCount}";
             }
             AddToList(ref mission, $"pickzone{mission.CTLDZoneCount}", coords, 500);

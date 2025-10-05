@@ -26,9 +26,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.UnitMaker
 {
-    internal static class UnitMakerSpawnPointSelector
+    internal static class SpawnPointSelector
     {
         private const int MAX_RADIUS_SEARCH_ITERATIONS = 15;
 

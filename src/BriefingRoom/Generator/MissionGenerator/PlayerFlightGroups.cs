@@ -19,6 +19,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
@@ -26,9 +27,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorPlayerFlightGroups
+    internal class PlayerFlightGroups
     {
 
         internal static void GeneratePlayerFlightGroup(
@@ -66,7 +67,7 @@ namespace BriefingRoom4DCS.Generator
             var country = flightGroup.Country;
             var payload = flightGroup.Payload;
             var extraSettings = new Dictionary<string, object>();
-            UnitMakerGroupFlags unitMakerGroupFlags = flightGroup.AIWingmen ? UnitMakerGroupFlags.FirstUnitIsClient : 0;
+            GroupFlags GroupFlags = flightGroup.AIWingmen ? GroupFlags.FirstUnitIsClient : 0;
             DCSSkillLevel skillLevel = flightGroup.AIWingmen ? Toolbox.RandomFrom(DCSSkillLevel.High, DCSSkillLevel.Excellent) : DCSSkillLevel.Client;
             var atcRadioFrequency = 0d;
             if (airbase.ATC != null)
@@ -76,19 +77,19 @@ namespace BriefingRoom4DCS.Generator
             {
                 var carrier = mission.CarrierDictionary[flightGroup.Carrier];
                 if (
-                    !carrier.UnitMakerGroupInfo.UnitDB.Families.Intersect([UnitFamily.ShipCarrierCATOBAR, UnitFamily.ShipCarrierSTOBAR]).Any() &&
-                    carrier.UnitMakerGroupInfo.UnitDB.Families.Contains(UnitFamily.ShipCarrierSTOVL) &&
+                    !carrier.GroupInfo.UnitDB.Families.Intersect([UnitFamily.ShipCarrierCATOBAR, UnitFamily.ShipCarrierSTOBAR]).Any() &&
+                    carrier.GroupInfo.UnitDB.Families.Contains(UnitFamily.ShipCarrierSTOVL) &&
                     flightGroup.Carrier != "LHA_Tarawa")
                 {
                     extraSettings.AddIfKeyUnused("Speed", 0);
-                    unitMakerGroupFlags = 0;
+                    GroupFlags = 0;
                     skillLevel = DCSSkillLevel.Client;
                     if (flightGroup.Aircraft == "AV8BNA")
                         payload = "EMPTY";
                 }
                 groupLuaFile = "AircraftPlayerCarrier";
-                carrierUnitID = carrier.UnitMakerGroupInfo.DCSGroup.Units[0].UnitId;
-                carrierName = carrier.UnitMakerGroupInfo.UnitDB.UIDisplayName.Get(mission.LangKey);
+                carrierUnitID = carrier.GroupInfo.DCSGroup.Units[0].UnitId;
+                carrierName = carrier.GroupInfo.UnitDB.UIDisplayName.Get(mission.LangKey);
                 if (flightGroup.StartLocation != PlayerStartLocation.Air)
                 {
                     bool isPlane = unitDB.Category == UnitCategory.Plane;
@@ -96,20 +97,20 @@ namespace BriefingRoom4DCS.Generator
                     for (int i = spotOffset; i < flightGroup.Count + spotOffset; i++)
                     {
                         parkingSpotIDsList.Add(i + 1);
-                        parkingSpotCoordinatesList.Add(carrier.UnitMakerGroupInfo.Coordinates);
+                        parkingSpotCoordinatesList.Add(carrier.GroupInfo.Coordinates);
                     }
                     if (isPlane)
                         carrier.RemainingPlaneSpotCount -= flightGroup.Count;
                     else
                         carrier.RemainingHelicopterSpotCount -= flightGroup.Count;
                 }
-                groupStartingCoords = carrier.UnitMakerGroupInfo.Coordinates;
-                atcRadioFrequency = carrier.UnitMakerGroupInfo.Frequency / 1000000.0;
+                groupStartingCoords = carrier.GroupInfo.Coordinates;
+                atcRadioFrequency = carrier.GroupInfo.Frequency / 1000000.0;
             }
             else if (flightGroup.Hostile)
             {
                 var coalition = GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side, true);
-                var (hostileAirbase, hostileParkingSpotIDsList, hostileParkingSpotCoordinatesList) = UnitMakerSpawnPointSelector.GetAirbaseAndParking(mission, mission.ObjectivesCenter, flightGroup.Count, coalition.Value, unitDB);
+                var (hostileAirbase, hostileParkingSpotIDsList, hostileParkingSpotCoordinatesList) = SpawnPointSelector.GetAirbaseAndParking(mission, mission.ObjectivesCenter, flightGroup.Count, coalition.Value, unitDB);
                 parkingSpotIDsList = hostileParkingSpotIDsList;
                 parkingSpotCoordinatesList = hostileParkingSpotCoordinatesList;
                 groupStartingCoords = hostileParkingSpotCoordinatesList.First();
@@ -123,7 +124,7 @@ namespace BriefingRoom4DCS.Generator
             }
             else // Land airbase take off
             {
-                var parkingSpots = UnitMakerSpawnPointSelector.GetFreeParkingSpots(ref mission, airbase.DCSID, flightGroup.Count, unitDB);
+                var parkingSpots = SpawnPointSelector.GetFreeParkingSpots(ref mission, airbase.DCSID, flightGroup.Count, unitDB);
                 parkingSpotIDsList = parkingSpots.Select(x => x.DCSID).ToList();
                 parkingSpotCoordinatesList = parkingSpots.Select(x => x.Coordinates).ToList();
                 groupStartingCoords = parkingSpotCoordinatesList.First();
@@ -173,11 +174,11 @@ namespace BriefingRoom4DCS.Generator
 
             var task = GetTaskType(mission.TemplateRecord.Objectives, extraSettings, package);
 
-            UnitMakerGroupInfo? groupInfo = UnitMaker.AddUnitGroup(
+            GroupInfo? groupInfo = UnitGenerator.AddUnitGroup(
                 ref mission,
                 Enumerable.Repeat(flightGroup.Aircraft, flightGroup.Count).ToList(), side, unitDB.Families[0],
                 groupLuaFile, "Aircraft", groupStartingCoords,
-                unitMakerGroupFlags,
+                GroupFlags,
                 extraSettings
                 );
 
@@ -206,7 +207,7 @@ namespace BriefingRoom4DCS.Generator
             mission.MapData.Add($"ROUTE_{groupInfo.Value.DCSGroup.GroupId}", mapWaypoints);
         }
 
-        private static void SaveFlightGroup(ref DCSMission mission, UnitMakerGroupInfo? groupInfo, MissionTemplateFlightGroupRecord flightGroup, DBEntryJSONUnit unitDB, string homeBase, DCSTask task)
+        private static void SaveFlightGroup(ref DCSMission mission, GroupInfo? groupInfo, MissionTemplateFlightGroupRecord flightGroup, DBEntryJSONUnit unitDB, string homeBase, DCSTask task)
         {
             mission.Briefing.AddItem(DCSMissionBriefingItemType.FlightGroup,
                 $"{groupInfo.Value.Name}(P)\t" +
@@ -218,7 +219,7 @@ namespace BriefingRoom4DCS.Generator
                 mission.AppendValue("SCRIPTCLIENTPILOTNAMES", $"\"{groupInfo.Value.Name} {i + 1}\",");
         }
 
-        private static void SaveWaypointsToBriefing(ref DCSMission mission, Coordinates initialCoordinates, List<Waypoint> waypoints, bool useImperialSystem, UnitMakerGroupInfo? groupInfo, DBEntryTheater theaterDB)
+        private static void SaveWaypointsToBriefing(ref DCSMission mission, Coordinates initialCoordinates, List<Waypoint> waypoints, bool useImperialSystem, GroupInfo? groupInfo, DBEntryTheater theaterDB)
         {
             double totalDistance = 0;
             Coordinates lastWP = initialCoordinates;

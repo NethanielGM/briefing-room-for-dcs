@@ -25,13 +25,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorWarehouses
+    internal class Warehouses
     {
         private static readonly string AIRPORT_TEMPLATE_FILEPATH = Path.Combine(BRPaths.INCLUDE_LUA, "Warehouses", "Airport.lua");
 
-        internal static void GenerateWarehouses(ref DCSMission mission, Dictionary<string, CarrierUnitMakerGroupInfo> carrierDictionary)
+        internal static void GenerateWarehouses(ref DCSMission mission, Dictionary<string, CarrierGroupInfo> carrierDictionary)
         {
             string warehousesAirportLua = "";
 
@@ -57,10 +57,10 @@ namespace BriefingRoom4DCS.Generator
 
             string warehousesCarriersLua = "";
 
-            foreach (CarrierUnitMakerGroupInfo carrier in carrierDictionary.Values)
+            foreach (CarrierGroupInfo carrier in carrierDictionary.Values)
             {
                 string carrierLua = airportLuaTemplate;
-                GeneratorTools.ReplaceKey(ref carrierLua, "index", carrier.UnitMakerGroupInfo.DCSGroup.Units[0].UnitId);
+                GeneratorTools.ReplaceKey(ref carrierLua, "index", carrier.GroupInfo.DCSGroup.Units[0].UnitId);
                 GeneratorTools.ReplaceKey(ref carrierLua, "coalition", carrier.Coalition.ToString().ToUpper());
                 GeneratorTools.ReplaceKey(ref carrierLua, "dynamicSpawn", mission.TemplateRecord.CarrierDynamicSpawn);
                 GeneratorTools.ReplaceKey(ref carrierLua, "dynamicCargo", mission.TemplateRecord.CarrierDynamicCargo);

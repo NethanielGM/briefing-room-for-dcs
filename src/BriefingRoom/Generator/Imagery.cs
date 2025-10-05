@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 
 namespace BriefingRoom4DCS.Generator
 {
-    public class MissionGeneratorImages
+    public class Imagery
     {
         private static string UNKOWN_IMAGE_PATH = Path.Combine(BRPaths.INCLUDE_JPG, "Flags", $"Unknown.png");
         internal static async Task GenerateCampaignImages(CampaignTemplate campaignTemplate, DCSCampaign campaign, string baseFileName)

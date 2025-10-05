@@ -25,9 +25,9 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentRandomPicker;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorBriefing
+    internal class Briefing
     {
 
         internal static void GenerateMissionBriefingDescription(ref DCSMission mission, MissionTemplateRecord template, List<UnitFamily> objectiveTargetUnitFamilies, DBEntrySituation situationDB)

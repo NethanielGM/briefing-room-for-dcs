@@ -20,7 +20,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 using System.Linq;
 using System.Collections.Generic;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.UnitMaker
 {
     internal readonly struct UnitCallsign
     {

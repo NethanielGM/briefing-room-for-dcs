@@ -19,6 +19,7 @@ along with Briefing Room for DCS World. If not, see https://www.gnu.org/licenses
 */
 
 using BriefingRoom4DCS.Data;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using Polly;
@@ -26,9 +27,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using YamlDotNet.Core.Tokens;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
     internal class MissionGenerator
     {
@@ -94,11 +94,11 @@ namespace BriefingRoom4DCS.Generator
                 mission.AddMediaFile($"l10n/DEFAULT/{Toolbox.AddMissingFileExtension(oggFile, ".ogg")}", Path.Combine(BRPaths.INCLUDE_OGG, Toolbox.AddMissingFileExtension(oggFile, ".ogg")));
 
 
-            mission.CoalitionsCountries = MissionGeneratorCountries.GenerateCountries(ref mission);
+            mission.CoalitionsCountries = Countries.GenerateCountries(ref mission);
 
             BriefingRoom.PrintToLog("Generating mission date and time...");
-            var month = MissionGeneratorDateTime.GenerateMissionDate(ref mission);
-            MissionGeneratorDateTime.GenerateMissionTime(ref mission, month);
+            var month = Temporal.GenerateMissionDate(ref mission);
+            Temporal.GenerateMissionTime(ref mission, month);
             mission.SaveStage(MissionStageName.Initialization);
 
             MissionStageName? nextStage = MissionStageName.Situation;
@@ -185,11 +185,11 @@ namespace BriefingRoom4DCS.Generator
             }
 
             BriefingRoom.PrintToLog("Generating unitLua...");
-            mission.SetValue("CountriesBlue", UnitMaker.GetUnitsLuaTable(ref mission, Coalition.Blue));
-            mission.SetValue("CountriesRed", UnitMaker.GetUnitsLuaTable(ref mission, Coalition.Red));
-            mission.SetValue("CountriesNeutral", UnitMaker.GetUnitsLuaTable(ref mission, Coalition.Neutral));
-            mission.SetValue("RequiredModules", UnitMaker.GetRequiredModules(ref mission));
-            mission.SetValue("RequiredModulesBriefing", UnitMaker.GetRequiredModulesBriefing(ref mission));
+            mission.SetValue("CountriesBlue", UnitGenerator.GetUnitsLuaTable(ref mission, Coalition.Blue));
+            mission.SetValue("CountriesRed", UnitGenerator.GetUnitsLuaTable(ref mission, Coalition.Red));
+            mission.SetValue("CountriesNeutral", UnitGenerator.GetUnitsLuaTable(ref mission, Coalition.Neutral));
+            mission.SetValue("RequiredModules", UnitGenerator.GetRequiredModules(ref mission));
+            mission.SetValue("RequiredModulesBriefing", UnitGenerator.GetRequiredModulesBriefing(ref mission));
             mission.SetValue("Drawings", DrawingMaker.GetLuaDrawings(ref mission));
             mission.SetValue("Zones", ZoneMaker.GetLuaZones(ref mission));
 
@@ -199,16 +199,16 @@ namespace BriefingRoom4DCS.Generator
             mission.Briefing.Name = missionName;
             mission.SetValue("MISSIONNAME", missionName);
 
-            MissionGeneratorBriefing.GenerateMissionBriefingDescription(ref mission, template, mission.ObjectiveTargetUnitFamilies, mission.SituationDB);
+            Briefing.GenerateMissionBriefingDescription(ref mission, template, mission.ObjectiveTargetUnitFamilies, mission.SituationDB);
             mission.SetValue("DescriptionText", mission.Briefing.GetBriefingAsRawText(ref mission, "\\\n"));
             mission.SetValue("EditorNotes", mission.Briefing.GetEditorNotes(mission.LangKey, "\\\n"));
 
 
             BriefingRoom.PrintToLog("Generating options...");
-            MissionGeneratorOptions.GenerateForcedOptions(ref mission, template);
+            Options.GenerateForcedOptions(ref mission, template);
 
             BriefingRoom.PrintToLog("Generating warehouses...");
-            MissionGeneratorWarehouses.GenerateWarehouses(ref mission, mission.CarrierDictionary);
+            Warehouses.GenerateWarehouses(ref mission, mission.CarrierDictionary);
 
             return mission;
         }
@@ -233,16 +233,16 @@ namespace BriefingRoom4DCS.Generator
             if (mission.TheaterDB.SpawnPoints is not null)
             {
                 var situationDB = mission.SituationDB;
-                mission.SpawnPoints.AddRange(mission.TheaterDB.SpawnPoints.Where(x => UnitMakerSpawnPointSelector.CheckNotInNoSpawnCoords(situationDB, x.Coordinates)).ToList());
-                mission.TemplateLocations.AddRange(mission.TheaterDB.TemplateLocations.Where(x => UnitMakerSpawnPointSelector.CheckNotInNoSpawnCoords(situationDB, x.Coordinates)).ToList());
+                mission.SpawnPoints.AddRange(mission.TheaterDB.SpawnPoints.Where(x => SpawnPointSelector.CheckNotInNoSpawnCoords(situationDB, x.Coordinates)).ToList());
+                mission.TemplateLocations.AddRange(mission.TheaterDB.TemplateLocations.Where(x => SpawnPointSelector.CheckNotInNoSpawnCoords(situationDB, x.Coordinates)).ToList());
             }
 
             var theaterDB = mission.TheaterDB;
-            var brokenSP = mission.SpawnPoints.Where(x => UnitMakerSpawnPointSelector.CheckInSea(theaterDB, x.Coordinates)).ToList();
+            var brokenSP = mission.SpawnPoints.Where(x => SpawnPointSelector.CheckInSea(theaterDB, x.Coordinates)).ToList();
             if (brokenSP.Count > 0)
                 throw new BriefingRoomException(mission.LangKey, "SpawnPointsInSea", string.Join("\n", brokenSP.Select(x => $"[{x.Coordinates.X},{x.Coordinates.Y}],{x.PointType}").ToList()));
 
-            var brokenTL = mission.TemplateLocations.Where(x => UnitMakerSpawnPointSelector.CheckInSea(theaterDB, x.Coordinates)).ToList();
+            var brokenTL = mission.TemplateLocations.Where(x => SpawnPointSelector.CheckInSea(theaterDB, x.Coordinates)).ToList();
             if (brokenTL.Count > 0)
                 throw new BriefingRoomException(mission.LangKey, "TemplateLocationsInSea", string.Join("\n", brokenTL.Select(x => $"[{x.Coordinates.X},{x.Coordinates.Y}],{x.LocationType}").ToList()));
 
@@ -260,15 +260,15 @@ namespace BriefingRoom4DCS.Generator
         {
             BriefingRoom.PrintToLog("Setting up airbases...");
             var requiredRunway = mission.TemplateRecord.PlayerFlightGroups.Select(x => ((DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft)).MinimumRunwayLengthFt).Max();
-            mission.PlayerAirbase = MissionGeneratorAirbases.SelectStartingAirbase(mission.TemplateRecord.FlightPlanTheaterStartingAirbase, ref mission, requiredRunway: requiredRunway);
+            mission.PlayerAirbase = Airbases.SelectStartingAirbase(mission.TemplateRecord.FlightPlanTheaterStartingAirbase, ref mission, requiredRunway: requiredRunway);
             mission.PopulatedAirbaseIds[mission.TemplateRecord.ContextPlayerCoalition].Add(mission.PlayerAirbase.DCSID);
             if (mission.PlayerAirbase.DCSID > 0)
             {
                 mission.MapData.Add($"AIRBASE_HOME_NAME_{mission.PlayerAirbase.UIDisplayName.Get(mission.LangKey)}", new List<double[]> { mission.PlayerAirbase.Coordinates.ToArray() });
                 mission.Briefing.AddItem(DCSMissionBriefingItemType.Airbase, $"{mission.PlayerAirbase.UIDisplayName.Get(mission.LangKey)}\t{mission.PlayerAirbase.Runways}\t{mission.PlayerAirbase.ATC}\t{mission.PlayerAirbase.ILS}\t{mission.PlayerAirbase.TACAN}");
             }
-            MissionGeneratorAirbases.SelectStartingAirbaseForPackages(ref mission);
-            MissionGeneratorAirbases.SetupAirbasesCoalitions(ref mission);
+            Airbases.SelectStartingAirbaseForPackages(ref mission);
+            Airbases.SetupAirbasesCoalitions(ref mission);
             ZoneMaker.AddAirbaseZones(ref mission, mission.TemplateRecord.MissionFeatures, mission.PlayerAirbase, mission.StrikePackages);
             mission.SetValue("PlayerAirbaseName", mission.PlayerAirbase.Name);
             mission.SetValue("PlayerAirbaseId", mission.PlayerAirbase.ID);
@@ -290,7 +290,7 @@ namespace BriefingRoom4DCS.Generator
             {
                 { "NAME", "Hank the Hack" }
             };
-            var (units, unitDBs) = UnitMaker.GetUnits(ref mission, new List<UnitFamily> { UnitFamily.HelicopterUtility }, 1, Side.Ally, new UnitMakerGroupFlags(), ref extraSettings, true);
+            var (units, unitDBs) = UnitGenerator.GetUnits(ref mission, new List<UnitFamily> { UnitFamily.HelicopterUtility }, 1, Side.Ally, new GroupFlags(), ref extraSettings, true);
             List<DBEntryAirbaseParkingSpot> parkingSpots = null;
             if (unitDBs.Count == 0)
             {
@@ -299,7 +299,7 @@ namespace BriefingRoom4DCS.Generator
             }
             try
             {
-                parkingSpots = UnitMakerSpawnPointSelector.GetFreeParkingSpots(
+                parkingSpots = SpawnPointSelector.GetFreeParkingSpots(
                         ref mission,
                         mission.PlayerAirbase.DCSID,
                         1, (DBEntryAircraft)unitDBs.First(), false, mission.TemplateRecord.GetPlayerSlotsCount());
@@ -315,21 +315,21 @@ namespace BriefingRoom4DCS.Generator
                     extraSettings.Add("GroupAirbaseID", mission.PlayerAirbase.DCSID);
                     extraSettings.Add("ParkingID", parkingSpots.Select(x => x.DCSID).ToList());
                     extraSettings.Add("UnitCoords", parkingSpots.Select(x => x.Coordinates).ToList());
-                    UnitMaker.AddUnitGroup(
+                    UnitGenerator.AddUnitGroup(
                         ref mission,
                         units, Side.Ally, UnitFamily.HelicopterUtility,
                         "AircraftUncontrolled", "Aircraft",
                         parkingSpots.First().Coordinates,
-                        UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal,
+                        GroupFlags.Invisible | GroupFlags.Inert | GroupFlags.Immortal,
                         extraSettings);
                 }
                 else
-                    UnitMaker.AddUnitGroup(
+                    UnitGenerator.AddUnitGroup(
                         ref mission,
                         units, Side.Ally, UnitFamily.HelicopterUtility,
                         "AircraftUncontrolledGround", "Aircraft",
                         mission.PlayerAirbase.Coordinates.CreateNearRandom(300, 500),
-                        UnitMakerGroupFlags.Invisible | UnitMakerGroupFlags.Inert | UnitMakerGroupFlags.Immortal,
+                        GroupFlags.Invisible | GroupFlags.Inert | GroupFlags.Immortal,
                         extraSettings);
             }
             mission.SaveStage(MissionStageName.WorldPreload);
@@ -343,7 +343,7 @@ namespace BriefingRoom4DCS.Generator
             var i = 0;
             foreach (var objectiveTemplate in mission.TemplateRecord.Objectives)
             {
-                var (objectiveCoords, waypointGroup) = MissionGeneratorObjectives.GenerateObjective(
+                var (objectiveCoords, waypointGroup) = Objectives.GenerateObjective(
                     mission,
                     objectiveTemplate, lastObjectiveCoordinates,
                     ref i);
@@ -360,21 +360,21 @@ namespace BriefingRoom4DCS.Generator
         private static void CarrierStage(ref DCSMission mission)
         {
             BriefingRoom.PrintToLog("Generating mission weather...");
-            var turbulenceFromWeather = MissionGeneratorWeather.GenerateWeather(ref mission);
-            (mission.WindSpeedAtSeaLevel, mission.WindDirectionAtSeaLevel) = MissionGeneratorWeather.GenerateWind(ref mission, turbulenceFromWeather);
+            var turbulenceFromWeather = Weather.GenerateWeather(ref mission);
+            (mission.WindSpeedAtSeaLevel, mission.WindDirectionAtSeaLevel) = Weather.GenerateWind(ref mission, turbulenceFromWeather);
 
             BriefingRoom.PrintToLog("Generating carrier groups...");
-            MissionGeneratorCarrierGroup.GenerateCarrierGroup(ref mission);
+            CarrierGroup.GenerateCarrierGroup(ref mission);
             mission.AverageInitialPosition = mission.PlayerAirbase.Coordinates;
-            if (mission.CarrierDictionary.Count > 0) mission.AverageInitialPosition = (mission.AverageInitialPosition + mission.CarrierDictionary.First().Value.UnitMakerGroupInfo.Coordinates) / 2.0;
+            if (mission.CarrierDictionary.Count > 0) mission.AverageInitialPosition = (mission.AverageInitialPosition + mission.CarrierDictionary.First().Value.GroupInfo.Coordinates) / 2.0;
 
             // Generate extra flight plan info
-            MissionGeneratorFlightPlan.GenerateBullseyes(ref mission);
-            MissionGeneratorFlightPlan.GenerateObjectiveWPCoordinatesLua(ref mission);
-            MissionGeneratorFlightPlan.GenerateAircraftPackageWaypoints(ref mission);
-            MissionGeneratorFlightPlan.GenerateIngressAndEgressWaypoints(ref mission);
-            MissionGeneratorFlightPlan.GenerateBullseyeWaypoint(ref mission);
-            MissionGeneratorFrontLine.GenerateFrontLine(ref mission);
+            FlightPlan.GenerateBullseyes(ref mission);
+            FlightPlan.GenerateObjectiveWPCoordinatesLua(ref mission);
+            FlightPlan.GenerateAircraftPackageWaypoints(ref mission);
+            FlightPlan.GenerateIngressAndEgressWaypoints(ref mission);
+            FlightPlan.GenerateBullseyeWaypoint(ref mission);
+            FrontLine.GenerateFrontLine(ref mission);
 
             foreach (var waypoint in mission.Waypoints)
             {
@@ -387,19 +387,19 @@ namespace BriefingRoom4DCS.Generator
         {
             BriefingRoom.PrintToLog("Generating player flight groups...");
             foreach (var templateFlightGroup in mission.TemplateRecord.PlayerFlightGroups)
-                MissionGeneratorPlayerFlightGroups.GeneratePlayerFlightGroup(ref mission, templateFlightGroup);
+                PlayerFlightGroups.GeneratePlayerFlightGroup(ref mission, templateFlightGroup);
             mission.SaveStage(MissionStageName.PlayerFlightGroups);
         }
 
         private static void CAPStage(ref DCSMission mission)
         {
-            MissionGeneratorCombatAirPatrols.GenerateCAP(ref mission);
+            CombatAirPatrols.GenerateCAP(ref mission);
             mission.SaveStage(MissionStageName.CAPResponse);
         }
 
         private static void AirDefenseStage(ref DCSMission mission)
         {
-            MissionGeneratorAirDefense.GenerateAirDefense(ref mission);
+            AirDefense.GenerateAirDefense(ref mission);
             mission.SaveStage(MissionStageName.AirDefense);
         }
 
@@ -408,7 +408,7 @@ namespace BriefingRoom4DCS.Generator
             BriefingRoom.PrintToLog("Generating mission features...");
             mission.AppendValue("ScriptMissionFeatures", ""); // Just in case there's no features
             foreach (var templateFeature in mission.TemplateRecord.MissionFeatures)
-                MissionGeneratorFeaturesMission.GenerateMissionFeature(ref mission, templateFeature);
+                FeaturesMission.GenerateMissionFeature(ref mission, templateFeature);
             mission.SaveStage(MissionStageName.MissionFeatures);
         }
 

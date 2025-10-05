@@ -23,9 +23,9 @@ using BriefingRoom4DCS.Mission;
 using BriefingRoom4DCS.Template;
 using System;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorDateTime
+    internal class Temporal
     {
 
         internal static Month GenerateMissionDate(ref DCSMission mission)

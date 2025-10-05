@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BriefingRoom4DCS.Data;
 using BriefingRoom4DCS.Generator;
+using BriefingRoom4DCS.Generator.UnitMaker;
 using LuaTableSerializer;
 
 namespace BriefingRoom4DCS.Mission.DCSLuaObjects
@@ -92,7 +93,7 @@ namespace BriefingRoom4DCS.Mission.DCSLuaObjects
                     continue;
                 if (isGroundBased)
                 {
-                    var waypointCoordsSpawn = UnitMakerSpawnPointSelector.GetNearestSpawnPoint(ref mission, new SpawnPointType[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium, SpawnPointType.LandSmall }, tempWaypointCoords, false);
+                    var waypointCoordsSpawn = SpawnPointSelector.GetNearestSpawnPoint(ref mission, new SpawnPointType[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium, SpawnPointType.LandSmall }, tempWaypointCoords, false);
                     if (!waypointCoordsSpawn.HasValue)
                         continue;
                     tempWaypointCoords = waypointCoordsSpawn.Value;

@@ -24,9 +24,9 @@ using BriefingRoom4DCS.Template;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorFrontLine
+    internal class FrontLine
     {
         internal static void GenerateFrontLine(ref DCSMission mission)
         {
@@ -73,7 +73,7 @@ namespace BriefingRoom4DCS.Generator
             var enemySideObjectivesCount = 0;
 
             template.Objectives.ForEach(x => {
-                if(MissionGeneratorObjectives.GetObjectiveData(langKey, x).taskDB.TargetSide == Side.Ally)
+                if(Objectives.GetObjectiveData(langKey, x).taskDB.TargetSide == Side.Ally)
                     friendlySideObjectivesCount++;
                 else
                     enemySideObjectivesCount++;

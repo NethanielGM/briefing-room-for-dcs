@@ -24,9 +24,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BriefingRoom4DCS.Generator
+namespace BriefingRoom4DCS.Generator.Mission
 {
-    internal class MissionGeneratorFlightPlan
+    internal class FlightPlan
     {
         private const double BULLSEYE_DISTANCE_MIN = 20.0;
 
