@@ -1,35 +1,10 @@
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.Objectives
 @using BriefingRoom4DCS.GUI.Utils
 @using BriefingRoom4DCS.Template
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
 <div class="generator-group flex-justify-spaced flex-margin-fix">
-    <div class="flex-block">
-        <h6>@briefingRoom.Translate("ObjectiveDistance")</h6>
-        <div class="min-max">
-            <label>@briefingRoom.Translate("Min")</label>
-            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveDistanceMin">
-            </InputNumber>
-        </div>
-        <div class="min-max">
-            <label>@briefingRoom.Translate("Max")</label>
-            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveDistanceMax">
-            </InputNumber>
-        </div>
-    </div>
-    <div class="flex-block">
-        <h6>@briefingRoom.Translate("ObjectiveSeperation")</h6>
-        <div class="min-max">
-            <label>@briefingRoom.Translate("Min")</label>
-            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveSeparationMin">
-            </InputNumber>
-        </div>
-        <div class="min-max">
-            <label>@briefingRoom.Translate("Max")</label>
-            <InputNumber class="form-control" @bind-Value="Template.FlightPlanObjectiveSeparationMax">
-            </InputNumber>
-        </div>
-    </div>
-</div>
-<div class="generator-group flex-justify-spaced flex-margin-fix">
+    <MinMax Label="ObjectiveDistance" @bind-MinValue="Template.FlightPlanObjectiveDistanceMin" @bind-MaxValue="Template.FlightPlanObjectiveDistanceMax"/>
+    <MinMax Label="ObjectiveSeperation" @bind-MinValue="Template.FlightPlanObjectiveSeparationMin" @bind-MaxValue="Template.FlightPlanObjectiveSeparationMax"/>
     <div class="form-group flex-block">
         <label>@briefingRoom.Translate("BorderLimit")</label>
         <InputNumber class="form-control" @bind-Value="Template.BorderLimit">

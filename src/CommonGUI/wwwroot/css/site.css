@@ -201,7 +201,7 @@ h4 {
 .flex-block {
     display: block;
     padding: 10px;
-    flex: 1;
+    flex: 1;   
 }
 
 .flex-no-grow {
@@ -391,9 +391,15 @@ th {
 }
 
 .min-max {
-    width: 47%;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin: 0 1%;
+}
+
+.min-max input {
+    margin-left: 5px;
+    margin-right: 15px;
+    flex-grow: 1;
 }
 
 #map,

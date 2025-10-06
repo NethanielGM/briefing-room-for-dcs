@@ -1,0 +1,33 @@
+@inject BriefingRoom4DCS.BriefingRoom briefingRoom
+
+<div class="flex-block">
+    <h6>@briefingRoom.Translate(Label)</h6>
+    <div class="min-max">
+        <label>@briefingRoom.Translate("Min")</label>
+        <InputNumber class="form-control" Value="MinValue" ValueExpression="@(() => MinValue)" @onchange="OnMinValueChanged">
+        </InputNumber>
+        <label>@briefingRoom.Translate("Max")</label>
+        <InputNumber class="form-control" Value="MaxValue" ValueExpression="@(() => MaxValue)" @onchange="OnMaxValueChanged">
+        </InputNumber>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Label { get; set; }
+    [Parameter] public int MinValue { get; set; }
+    [Parameter] public int MaxValue { get; set; }
+    [Parameter] public EventCallback<int> MinValueChanged { get; set; }
+    [Parameter] public EventCallback<int> MaxValueChanged { get; set; }
+
+    private async Task OnMinValueChanged(ChangeEventArgs eventArgs)
+    {
+        MinValue = (int)eventArgs.Value;
+        await MinValueChanged.InvokeAsync(MinValue);
+    }
+
+    private async Task OnMaxValueChanged(ChangeEventArgs eventArgs)
+    {
+        MaxValue = (int)eventArgs.Value;
+        await MaxValueChanged.InvokeAsync(MaxValue);
+    }
+}
