@@ -106,43 +106,6 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             var unitCoordinates = objectiveCoordinates;
             var objectiveName = mission.WaypointNameGenerator.GetWaypointName();
             var objectiveWaypoints = new List<Waypoint>();
-            if (taskDB.UICategory.ContainsValue("Transport"))
-            {
-                if (targetBehaviorDB.ID.StartsWith("RelocateToNewPosition"))
-                {
-                    Coordinates? spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
-                    ref mission,
-                    targetDB.ValidSpawnPoints,
-                    objectiveCoordinates,
-                    mission.TemplateRecord.FlightPlanObjectiveSeparation,
-                    coalition: GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally));
-                    if (!spawnPoint.HasValue) // Failed to generate target group
-                        throw new BriefingRoomException(mission.LangKey, "FailedToFindCargoSpawn");
-                    unitCoordinates = spawnPoint.Value;
-                }
-                else
-                {
-                    var coords = targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.GoToPlayerAirbase ? mission.PlayerAirbase.Coordinates : unitCoordinates;
-                    var (_, _, spawnPoints) = SpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally, true).Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"));
-                    if (spawnPoints.Count == 0) // Failed to generate target group
-                        throw new BriefingRoomException(mission.LangKey, "FailedToFindCargoSpawn");
-                    unitCoordinates = spawnPoints.First();
-                }
-                if (targetBehaviorDB.ID.StartsWith("RecoverToBase") || (taskDB.IsEscort() & !targetBehaviorDB.ID.StartsWith("ToFrontLine")))
-                {
-                    (unitCoordinates, objectiveCoordinates) = (objectiveCoordinates, unitCoordinates);
-                    isInverseTransportWayPoint = true;
-                }
-                var cargoWaypoint = ObjectiveUtils.GenerateObjectiveWaypoint(ref mission, task, unitCoordinates, unitCoordinates, $"{objectiveName} Pickup", scriptIgnore: true);
-                mission.Waypoints.Add(cargoWaypoint);
-                objectiveWaypoints.Add(cargoWaypoint);
-                
-                // Units shouldn't really move from pickup point if not escorted.
-                extraSettings.Remove("GroupX2");
-                extraSettings.Remove("GroupY2");
-                groupLua = Database.Instance.GetEntry<DBEntryObjectiveTargetBehavior>("Idle").GroupLua[(int)targetDB.DCSUnitCategory];
-    
-            }
 
             if (
                 objectiveTargetUnitFamily.GetUnitCategory().IsAircraft() &&
@@ -169,7 +132,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             if (!targetGroupInfo.HasValue) // Failed to generate target group
                 throw new BriefingRoomException(mission.LangKey, "FailedToGenerateGroupObjective");
 
-            if (mission.TemplateRecord.MissionFeatures.Contains("ContextScrambleStart") && !taskDB.UICategory.ContainsValue("Transport"))
+            if (mission.TemplateRecord.MissionFeatures.Contains("ContextScrambleStart"))
                 targetGroupInfo.Value.DCSGroup.LateActivation = false;
 
 
@@ -185,21 +148,10 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             if (targetDB.UnitCategory.IsAircraft())
                 targetGroupInfo.Value.DCSGroup.Waypoints.First().Tasks.Insert(0, new DCSWrappedWaypointTask("SetUnlimitedFuel", new Dictionary<string, object> { { "value", true } }));
 
-            if (targetDB.UnitCategory == UnitCategory.Infantry && taskDB.UICategory.ContainsValue("Transport"))
-            {
-                var pos = unitCoordinates.CreateNearRandom(new MinMaxD(5, 50));
-                targetGroupInfo.Value.DCSGroup.Waypoints.First().Tasks.Add(new DCSWaypointTask("EmbarkToTransport", new Dictionary<string, object>{
-                    {"x", pos.X},
-                    { "y", pos.Y},
-                    {"zoneRadius", Database.Instance.Common.DropOffDistanceMeters}
-                    }, _auto: false));
-
-            }
-
             if (objectiveOptions.Contains(ObjectiveOption.EmbeddedAirDefense) && (targetDB.UnitCategory == UnitCategory.Static))
                 ObjectiveUtils.AddEmbeddedAirDefenseUnits(ref mission, targetDB, targetBehaviorDB, taskDB, objectiveCoordinates, groupFlags, extraSettings);
 
-            targetGroupInfo.Value.DCSGroup.Waypoints = taskDB.IsEscort() || targetBehaviorDB.ID.Contains("OnRoad") || targetBehaviorDB.ID.Contains("Idle") ? targetGroupInfo.Value.DCSGroup.Waypoints : DCSWaypoint.CreateExtraWaypoints(ref mission, targetGroupInfo.Value.DCSGroup.Waypoints, targetGroupInfo.Value.UnitDB.Families.First());
+            targetGroupInfo.Value.DCSGroup.Waypoints = targetBehaviorDB.ID.Contains("OnRoad") || targetBehaviorDB.ID.Contains("Idle") ? targetGroupInfo.Value.DCSGroup.Waypoints : DCSWaypoint.CreateExtraWaypoints(ref mission, targetGroupInfo.Value.DCSGroup.Waypoints, targetGroupInfo.Value.UnitDB.Families.First());
 
             var isStatic = objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Static || objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Cargo;
             ObjectiveUtils.AssignTargetSuffix(ref targetGroupInfo, objectiveName, isStatic);
@@ -255,7 +207,6 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             if (!targetGroupInfo.Value.UnitDB.IsAircraft)
                 mission.MapData.Add($"UNIT-{targetGroupInfo.Value.UnitDB.Families[0]}-{taskDB.TargetSide}-{targetGroupInfo.Value.GroupID}", new List<double[]> { targetGroupInfo.Value.Coordinates.ToArray() });
             return objectiveWaypoints;
-
         }
     }
 }
