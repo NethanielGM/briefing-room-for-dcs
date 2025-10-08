@@ -184,12 +184,14 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
         }
 
         internal static Tuple<DBEntryAirbase, List<int>, List<Coordinates>> GetAirbaseAndParking(
-            DCSMission mission, Coordinates coordinates,
-            int unitCount, Coalition coalition, DBEntryAircraft aircraftDB)
+                    DCSMission mission, Coordinates coordinates,
+                    int unitCount, Coalition coalition, DBEntryAircraft aircraftDB, int[] excludeIds = null)
         {
-            var targetAirbaseOptions =
+                    if (excludeIds == null)
+                        excludeIds = [];
+                    var targetAirbaseOptions =
                         (from DBEntryAirbase airbaseDB in mission.AirbaseDB
-                         where (coalition == Coalition.Neutral || airbaseDB.Coalition == coalition) && mission.AirbaseParkingSpots.ContainsKey(airbaseDB.DCSID) && ValidateAirfieldParking(mission.AirbaseParkingSpots[airbaseDB.DCSID], aircraftDB.Families.First(), unitCount) && ValidateAirfieldRunway(airbaseDB, aircraftDB.Families.First())
+                         where !excludeIds.Contains(airbaseDB.DCSID) && (coalition == Coalition.Neutral || airbaseDB.Coalition == coalition) && mission.AirbaseParkingSpots.ContainsKey(airbaseDB.DCSID) && ValidateAirfieldParking(mission.AirbaseParkingSpots[airbaseDB.DCSID], aircraftDB.Families.First(), unitCount) && ValidateAirfieldRunway(airbaseDB, aircraftDB.Families.First())
                          select airbaseDB).OrderBy(x => x.Coordinates.GetDistanceFrom(coordinates));
 
             if (!targetAirbaseOptions.Any()) throw new BriefingRoomException(mission.LangKey, "No airbase found for aircraft.");

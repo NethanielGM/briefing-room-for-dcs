@@ -1,3 +1,4 @@
+@using BriefingRoom4DCS.GUI.Common.Shared.Inputs.Objectives
 @using BriefingRoom4DCS.GUI.Utils
 @using BriefingRoom4DCS.Template
 @inject BriefingRoom4DCS.BriefingRoom briefingRoom
@@ -6,18 +7,22 @@
     <h6 class="row-button">@(Template.GetTasksFlat().IndexOf(objective) + 1)</h6>
     <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Preset") @bind-Value="objective.Preset"
         DataBaseType="DatabaseEntryType.ObjectivePreset" HasDescription />
-    @if (!objective.HasPreset)
-    {
-        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Task") @bind-Value="objective.Task"
-            DataBaseType="DatabaseEntryType.ObjectiveTask" HasDescription />
-        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Target") @bind-Value="objective.Target"
-            DataBaseType="DatabaseEntryType.ObjectiveTarget" Grouping="@objective.Task" />
-        <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("TargetBehavior")
-            @bind-Value="objective.TargetBehavior" DataBaseType="DatabaseEntryType.ObjectiveTargetBehavior"
-            Grouping="@string.Join(',', new List<string>{objective.Task, objective.Target})" HasDescription />
-    }
+
+    <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Task") @bind-Value="objective.Task"
+        DataBaseType="DatabaseEntryType.ObjectiveTask" HasDescription IsDisabled="objective.HasPreset" />
+    <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("Target") @bind-Value="objective.Target"
+        DataBaseType="DatabaseEntryType.ObjectiveTarget" Grouping="@objective.Task" IsDisabled="objective.HasPreset" />
+    <InputDataBase ClassString="flex-block" Label=@briefingRoom.Translate("TargetBehavior")
+        @bind-Value="objective.TargetBehavior" DataBaseType="DatabaseEntryType.ObjectiveTargetBehavior"
+        Grouping="@string.Join(',', new List<string>{objective.Task, objective.Target})" HasDescription
+        IsDisabled="objective.HasPreset" />
     <InputEnum ClassString="flex-block" Label=@briefingRoom.Translate("TargetCount") @bind-Value="objective.TargetCount"
         EnumType="Amount" />
+    @if (objective.Task.StartsWith("Transport") && !objective.TargetBehavior.Contains("ToPlayerBase"))
+    {
+        <MinMax Label="TransportDistance" @bind-MinValue="objective.TransportDistanceMin"
+            @bind-MaxValue="objective.TransportDistanceMax" />
+    }
     @if (NearbyCallback != null)
     {
         <button type="button" class="btn btn-secondary row-button" @onclick="() => NearbyCallback?.Invoke()">+

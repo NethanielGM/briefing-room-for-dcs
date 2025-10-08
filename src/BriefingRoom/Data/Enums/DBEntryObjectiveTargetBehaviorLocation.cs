@@ -24,10 +24,9 @@ namespace BriefingRoom4DCS.Data
     {
         Default,
         Patrolling,
-        GoToAirbase,
-        GoToPlayerAirbase,
-        SpawnOnAirbase,
-        SpawnOnAirbaseParking,
-        SpawnOnAirbaseParkingNoHardenedShelter,
+        PlayerAirbase,
+        Airbase,
+        AirbaseParking,
+        AirbaseParkingNoHardenedShelter,
     }
 }

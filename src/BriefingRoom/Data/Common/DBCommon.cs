@@ -33,6 +33,7 @@ namespace BriefingRoom4DCS.Data
         public int MaxObjectives { get; private set; }
         public int MaxObjectiveDistance { get; private set; }
         public int MaxObjectiveSeparation { get; private set; }
+        public int MaxTransportDistance { get; private set; }
         public int MinBorderLimit { get; private set; }
         public int MaxBorderLimit { get; private set; }
         public int MinCampaignMissions { get; private set; }
@@ -63,6 +64,7 @@ namespace BriefingRoom4DCS.Data
             MaxObjectives = commonIni.GetValue<int>("Limits", "MaxObjectives");
             MaxObjectiveDistance = commonIni.GetValue<int>("Limits", "MaxObjectiveDistance");
             MaxObjectiveSeparation = commonIni.GetValue<int>("Limits", "MaxObjectiveSeparation");
+            MaxTransportDistance = commonIni.GetValue<int>("Limits", "MaxTransportDistance");
             MinBorderLimit = commonIni.GetValue<int>("Limits", "MinBorderLimit");
             MaxBorderLimit = commonIni.GetValue<int>("Limits", "MaxBorderLimit");
             MinCampaignMissions = commonIni.GetValue<int>("Limits", "MinCampaignMissions");

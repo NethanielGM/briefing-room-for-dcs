@@ -8,15 +8,15 @@ namespace BriefingRoom4DCS.Data
         internal static readonly List<UnitFamily> SINGLE_TYPE_FAMILIES = new() { UnitFamily.VehicleMissile, UnitFamily.VehicleArtillery };
         internal static readonly List<DBEntryObjectiveTargetBehaviorLocation> AIRBASE_LOCATIONS = new()
         {
-            DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbase,
-            DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbaseParking,
-            DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbaseParkingNoHardenedShelter,
+            DBEntryObjectiveTargetBehaviorLocation.Airbase,
+            DBEntryObjectiveTargetBehaviorLocation.AirbaseParking,
+            DBEntryObjectiveTargetBehaviorLocation.AirbaseParkingNoHardenedShelter,
         };
 
         internal static readonly List<DBEntryObjectiveTargetBehaviorLocation> AIR_ON_GROUND_LOCATIONS = new()
         {
-            DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbaseParking,
-            DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbaseParkingNoHardenedShelter
+            DBEntryObjectiveTargetBehaviorLocation.AirbaseParking,
+            DBEntryObjectiveTargetBehaviorLocation.AirbaseParkingNoHardenedShelter
         };
 
         internal static readonly List<SpawnPointType> LAND_SPAWNS = new()

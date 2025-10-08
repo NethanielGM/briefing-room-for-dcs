@@ -29,6 +29,7 @@ namespace BriefingRoom4DCS.Template
 {
     public class MissionTemplateSubTask : MissionTemplateGroup
     {
+        public static readonly int MAX_TRANSPORT_DISTANCE = Database.Instance.Common.MaxTransportDistance;
         public List<ObjectiveOption> Options { get { return Options_; } set { Options_ = value.Distinct().ToList(); } }
         private List<ObjectiveOption> Options_;
         public string Target { get { return Target_; } set { Target_ = Database.Instance.CheckID<DBEntryObjectiveTarget>(value); } }
@@ -38,17 +39,20 @@ namespace BriefingRoom4DCS.Template
         public Amount TargetCount { get; set; }
         public string Task { get { return Task_; } set { Task_ = Database.Instance.CheckID<DBEntryObjectiveTask>(value); } }
         private string Task_;
-
-        public string Preset { get { return Preset_; } set { Preset_ = Database.Instance.CheckID<DBEntryObjectivePreset>(value); } }
+        public int TransportDistanceMax { get { return TransportDistanceMax_; } set { TransportDistanceMax_ = Toolbox.Clamp(value, 0, MAX_TRANSPORT_DISTANCE); } }
+        private int TransportDistanceMax_;
+        public int TransportDistanceMin { get { return TransportDistanceMin_; } set { TransportDistanceMin_ = Toolbox.Clamp(value, 0, MAX_TRANSPORT_DISTANCE); } }
+        private int TransportDistanceMin_;
+        public string Preset { get { return Preset_; } set { setPresetValues(value); } }
         private string Preset_ = "Custom";
         public bool HasPreset { get { return Preset_ != "Custom"; } }
         public bool ProgressionActivation { get { return ProgressionDependentTasks.Count > 0 || !string.IsNullOrEmpty(ProgressionOverrideCondition); } }
         public List<int> ProgressionDependentTasks { get { return ProgressionDependentTasks_; } set { ProgressionDependentTasks_ = value.Distinct().ToList(); } }
         private List<int> ProgressionDependentTasks_;
-        public bool ProgressionDependentIsAny { get; set; } 
+        public bool ProgressionDependentIsAny { get; set; }
         public List<ObjectiveProgressionOption> ProgressionOptions { get { return ProgressionOptions_; } set { ProgressionOptions_ = value.Distinct().ToList(); } }
         private List<ObjectiveProgressionOption> ProgressionOptions_;
-        public string ProgressionOverrideCondition {get; set;}
+        public string ProgressionOverrideCondition { get; set; }
 
         public MissionTemplateSubTask()
         {
@@ -58,6 +62,8 @@ namespace BriefingRoom4DCS.Template
             TargetCount = Amount.Average;
             Task = "DestroyAll";
             Preset = "Custom";
+            TransportDistanceMin = 0;
+            TransportDistanceMax = 0;
             ProgressionDependentTasks = new List<int>();
             ProgressionDependentIsAny = false;
             ProgressionOptions = new List<ObjectiveProgressionOption>();
@@ -86,7 +92,10 @@ namespace BriefingRoom4DCS.Template
                 TargetBehavior = Toolbox.RandomFrom(preset.TargetsBehaviors);
                 TargetCount = targetCount;
                 Task = preset.Task;
+
             }
+            TransportDistanceMin = 0;
+            TransportDistanceMax = 0;
             ProgressionDependentTasks = new List<int>();
             ProgressionDependentIsAny = false;
             ProgressionOptions = new List<ObjectiveProgressionOption>();
@@ -100,6 +109,8 @@ namespace BriefingRoom4DCS.Template
             TargetBehavior = targetBehavior;
             TargetCount = targetCount;
             Task = task;
+            TransportDistanceMin = 0;
+            TransportDistanceMax = 0;
             Preset = "Custom";
         }
 
@@ -115,6 +126,8 @@ namespace BriefingRoom4DCS.Template
             TargetBehavior = ini.GetValue<string>(section, $"{key}.TargetBehavior");
             TargetCount = ini.GetValue<Amount>(section, $"{key}.TargetCount");
             Task = ini.GetValue<string>(section, $"{key}.Task");
+            TransportDistanceMin = ini.GetValue<int>(section, $"{key}.TransportDistanceMin", 0);
+            TransportDistanceMax = ini.GetValue<int>(section, $"{key}.TransportDistanceMax", 0);
             Preset = ini.GetValue<string>(section, $"{key}.Preset", "Custom");
             ProgressionDependentTasks = ini.GetValueArray<int>(section, $"{key}.Progression.DependentTasks").ToList();
             ProgressionDependentIsAny = ini.GetValue<bool>(section, $"{key}.Progression.IsAny");
@@ -129,11 +142,38 @@ namespace BriefingRoom4DCS.Template
             ini.SetValue(section, $"{key}.Target", Target);
             ini.SetValue(section, $"{key}.TargetBehavior", TargetBehavior);
             ini.SetValue(section, $"{key}.TargetCount", TargetCount);
+            ini.SetValue(section, $"{key}.TransportDistanceMin", TransportDistanceMin);
+            ini.SetValue(section, $"{key}.TransportDistanceMax", TransportDistanceMax);
             ini.SetValue(section, $"{key}.Preset", Preset);
             ini.SetValueArray(section, $"{key}.Progression.DependentTasks", ProgressionDependentTasks.Select(x => x.ToString()).ToArray());
             ini.SetValue(section, $"{key}.Progression.IsAny", ProgressionDependentIsAny);
             ini.SetValueArray(section, $"{key}.Progression.Options", ProgressionOptions.ToArray());
             ini.SetValue(section, $"{key}.Progression.OverrideCondition", ProgressionOverrideCondition);
+        }
+        
+        private void setPresetValues(string value)
+        {
+            Preset_ = Database.Instance.CheckID<DBEntryObjectivePreset>(value);
+            if (Preset_ == "Custom")
+                return;
+
+            DBEntryObjectivePreset preset = Database.Instance.GetEntry<DBEntryObjectivePreset>(Preset_);
+
+            if (preset == null) // Preset doesn't exist.
+            {
+                Options = new List<ObjectiveOption>();
+                Preset_ = "Custom";
+                Target = "VehicleAny";
+                TargetBehavior = "Idle";
+                TargetCount = Amount.Average;
+                Task = "DestroyAll";
+                return;
+            }
+
+            Options = preset.Options.ToList();
+            Target = Toolbox.RandomFrom(preset.Targets);
+            TargetBehavior = Toolbox.RandomFrom(preset.TargetsBehaviors);
+            Task = preset.Task;
         }
     }
 }

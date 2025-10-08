@@ -89,7 +89,7 @@ namespace BriefingRoom4DCS.Generator.Mission
                 throw new BriefingRoomException(mission.LangKey, "LandSeaSubMix");
             if (Constants.AIRBASE_LOCATIONS.Contains(targetBehaviorDB.Location) && !Constants.AIRBASE_LOCATIONS.Contains(mainObjLocation))
                 throw new BriefingRoomException(mission.LangKey, "AirbaseSubMix");
-            var objectiveCoords = ObjectiveUtils.GetNearestSpawnCoordinates(ref mission, coreCoordinates, targetDB);
+            var objectiveCoords = ObjectiveUtils.GetNearestSpawnCoordinates(ref mission, coreCoordinates, targetDB.ValidSpawnPoints);
             return CreateObjective(
                 task,
                 taskDB,

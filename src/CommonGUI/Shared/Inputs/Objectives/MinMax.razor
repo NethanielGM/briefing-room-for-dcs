@@ -4,10 +4,10 @@
     <h6>@briefingRoom.Translate(Label)</h6>
     <div class="min-max">
         <label>@briefingRoom.Translate("Min")</label>
-        <InputNumber class="form-control" Value="MinValue" ValueExpression="@(() => MinValue)" @onchange="OnMinValueChanged">
+        <InputNumber class="form-control" Value="MinValue" ValueExpression="@(() => MinValue)"  ValueChanged="(int i) => OnMinValueChanged(i)">
         </InputNumber>
         <label>@briefingRoom.Translate("Max")</label>
-        <InputNumber class="form-control" Value="MaxValue" ValueExpression="@(() => MaxValue)" @onchange="OnMaxValueChanged">
+        <InputNumber class="form-control" Value="MaxValue" ValueExpression="@(() => MaxValue)" ValueChanged="(int i) => OnMaxValueChanged(i)">
         </InputNumber>
     </div>
 </div>
@@ -19,15 +19,13 @@
     [Parameter] public EventCallback<int> MinValueChanged { get; set; }
     [Parameter] public EventCallback<int> MaxValueChanged { get; set; }
 
-    private async Task OnMinValueChanged(ChangeEventArgs eventArgs)
+    private async Task OnMinValueChanged(int value)
     {
-        MinValue = (int)eventArgs.Value;
-        await MinValueChanged.InvokeAsync(MinValue);
+        await MinValueChanged.InvokeAsync(value);
     }
 
-    private async Task OnMaxValueChanged(ChangeEventArgs eventArgs)
+    private async Task OnMaxValueChanged(int value)
     {
-        MaxValue = (int)eventArgs.Value;
-        await MaxValueChanged.InvokeAsync(MaxValue);
+        await MaxValueChanged.InvokeAsync(value);
     }
 }

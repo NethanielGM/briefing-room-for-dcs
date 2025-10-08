@@ -65,7 +65,7 @@ namespace BriefingRoom4DCS.Data
         internal void Initialize()
         {
             if (Initialized) return;
-
+            BriefingRoom.PrintToLog("Initializing database...", LogMessageErrorLevel.Warning);
             Language.Load();
             Common.Load(Language);
 

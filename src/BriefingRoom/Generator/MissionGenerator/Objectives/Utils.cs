@@ -67,7 +67,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                         ref mission,
                         targetAirbase.DCSID,
                         unitCount, (DBEntryAircraft)unitDB,
-                        targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.SpawnOnAirbaseParkingNoHardenedShelter);
+                        targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.AirbaseParkingNoHardenedShelter);
 
                     parkingSpotIDsList = parkingSpots.Select(x => x.DCSID).ToList();
                     parkingSpotCoordinatesList = parkingSpots.Select(x => x.Coordinates).ToList();
@@ -178,15 +178,15 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             return new Waypoint(objectiveName, waypointCoordinates, onGround, groupIds, scriptIgnore, objectiveTemplate.Options.Contains(ObjectiveOption.NoAircraftWaypoint), hiddenMapMarker);
         }
 
-        internal static Coordinates GetNearestSpawnCoordinates(ref DCSMission mission, Coordinates coreCoordinates, DBEntryObjectiveTarget targetDB, bool remove = true)
+        internal static Coordinates GetNearestSpawnCoordinates(ref DCSMission mission, Coordinates coreCoordinates, SpawnPointType[] validSpawnPoints, bool remove = true)
         {
             Coordinates? spawnPoint = SpawnPointSelector.GetNearestSpawnPoint(
                 ref mission,
-                targetDB.ValidSpawnPoints,
+                validSpawnPoints,
                 coreCoordinates, remove);
 
             if (!spawnPoint.HasValue)
-                throw new BriefingRoomException(mission.LangKey, "FailedToLaunchNearbyObjective", String.Join(",", targetDB.ValidSpawnPoints.Select(x => x.ToString()).ToList()));
+                throw new BriefingRoomException(mission.LangKey, "FailedToLaunchNearbyObjective", String.Join(",", validSpawnPoints.Select(x => x.ToString()).ToList()));
 
             Coordinates objectiveCoordinates = spawnPoint.Value;
             return objectiveCoordinates;
@@ -235,5 +235,58 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             if (!taskDB.ValidUnitCategories.Contains(targetDB.UnitCategory))
                 throw new BriefingRoomException(langKey, "TaskTargetsInvalid", taskDB.UIDisplayName, targetDB.UnitCategory);
         }
+
+        internal static Tuple<int, Coordinates> GetTransportOrigin(ref DCSMission mission, DBEntryObjectiveTargetBehaviorLocation Location, Coordinates objectiveCoordinates)
+        {
+            switch (Location)
+            {
+                case DBEntryObjectiveTargetBehaviorLocation.PlayerAirbase:
+                    return GetFriendlyAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
+                case DBEntryObjectiveTargetBehaviorLocation.Airbase:
+                    return GetFriendlyAirbaseCargoSpot(ref mission, objectiveCoordinates, mission.PlayerAirbase.DCSID);
+                default:
+                    return new Tuple<int, Coordinates>(-1, objectiveCoordinates);
+            }
+        }
+
+        // Likely will extend this in future for Escort setup
+        internal static Tuple<int, Coordinates> GetTransportDestination(
+            ref DCSMission mission,
+            DBEntryObjectiveTargetBehaviorLocation destination,
+            Coordinates originCoordinates,
+            MinMaxD transportDistance,
+            int originAirbaseId)
+        {
+            Coordinates coordinates;
+            if (transportDistance.Max == 0)
+                coordinates = originCoordinates.CreateRandomNM(10, 50);
+            else
+                coordinates = originCoordinates.CreateRandomNM(transportDistance); // Consider biasing this towards player base or objective in future
+            switch (destination)
+            {
+                case DBEntryObjectiveTargetBehaviorLocation.PlayerAirbase:
+                    return GetFriendlyAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
+                case DBEntryObjectiveTargetBehaviorLocation.Airbase:
+                    return GetFriendlyAirbaseCargoSpot(ref mission, coordinates, originAirbaseId);
+                default:
+                    coordinates = GetNearestSpawnCoordinates(ref mission, coordinates, new[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium }, false);
+
+                    return new Tuple<int, Coordinates>(-1, coordinates);
+            }
+        }
+
+        internal static Tuple<int, Coordinates> GetFriendlyAirbaseCargoSpot(ref DCSMission mission, Coordinates coords, int ignoreAirbaseId = -1)
+        {
+            var targetCoalition = GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally, true);
+            var (_, _, spawnPoints) = SpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, targetCoalition.Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"), new[] { ignoreAirbaseId });
+            if (spawnPoints.Count == 0) // Failed to generate target group
+                throw new BriefingRoomException(mission.LangKey, "FailedToFindCargoSpawn");
+            var airbaseCoords = Toolbox.RandomFrom(spawnPoints);
+            var destinationAirbase = mission.AirbaseDB.Where(x => x.Coalition == targetCoalition.Value).OrderBy(x => airbaseCoords.GetDistanceFrom(x.Coordinates)).First();
+            mission.PopulatedAirbaseIds[targetCoalition.Value].Add(destinationAirbase.DCSID);
+            return new Tuple<int, Coordinates>(destinationAirbase.DCSID, airbaseCoords);
+        }
+
+
     }
 }

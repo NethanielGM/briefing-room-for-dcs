@@ -61,11 +61,11 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                     } * Toolbox.NM_TO_METERS
                 );
             if (targetDB.DCSUnitCategory == DCSUnitCategory.Vehicle)
-                destinationPoint = ObjectiveUtils.GetNearestSpawnCoordinates(ref mission, destinationPoint, targetDB, false);
+                destinationPoint = ObjectiveUtils.GetNearestSpawnCoordinates(ref mission, destinationPoint, targetDB.ValidSpawnPoints, false);
 
 
             var groupLua = targetBehaviorDB.GroupLua[(int)targetDB.DCSUnitCategory];
-            if (targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.GoToPlayerAirbase)
+            if (targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.PlayerAirbase)
             {
                 destinationPoint = mission.PlayerAirbase.ParkingSpots.Length > 1 ? Toolbox.RandomFrom(mission.PlayerAirbase.ParkingSpots).Coordinates : mission.PlayerAirbase.Coordinates;
                 if (objectiveTargetUnitFamily.GetUnitCategory().IsAircraft() && taskDB.TargetSide == Side.Enemy)
@@ -82,7 +82,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                     };
                 }
             }
-            else if (targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.GoToAirbase)
+            else if (targetBehaviorDB.Location == DBEntryObjectiveTargetBehaviorLocation.Airbase)
             {
                 var targetCoalition = GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, taskDB.TargetSide, forceSide: true);
                 var destinationAirbase = mission.AirbaseDB.Where(x => x.Coalition == targetCoalition.Value).OrderBy(x => destinationPoint.GetDistanceFrom(x.Coordinates)).First();

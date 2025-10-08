@@ -32,6 +32,8 @@ namespace BriefingRoom4DCS.Template
         internal string TargetBehavior { get; init; }
         internal Amount TargetCount { get; init; }
         internal string Task { get; init; }
+        internal MinMaxD TransportDistance { get; init; }
+        internal bool TransportDistanceSet { get { return TransportDistance.Max > 0; } }
         internal bool ProgressionActivation { get; init; }
         internal List<int> ProgressionDependentTasks { get; init; }
         internal bool ProgressionDependentIsAny { get; init; }
@@ -46,6 +48,7 @@ namespace BriefingRoom4DCS.Template
             TargetBehavior = objective.TargetBehavior;
             TargetCount = objective.TargetCount;
             Task = objective.Task;
+            TransportDistance = new MinMaxD(objective.TransportDistanceMin, objective.TransportDistanceMax);
             Preset = objective.Preset;
             ProgressionActivation = objective.ProgressionActivation;
             ProgressionDependentTasks = objective.ProgressionDependentTasks;

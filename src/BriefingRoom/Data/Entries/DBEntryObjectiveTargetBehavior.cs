@@ -26,6 +26,7 @@ namespace BriefingRoom4DCS.Data
     internal class DBEntryObjectiveTargetBehavior : DBEntry
     {
         internal DBEntryObjectiveTargetBehaviorLocation Location { get; private set; }
+        internal DBEntryObjectiveTargetBehaviorLocation Destination { get; private set; }
 
         internal string[] GroupLua { get; private set; }
         internal string[] UnitLua { get; private set; }
@@ -39,6 +40,7 @@ namespace BriefingRoom4DCS.Data
         {
             var ini = new INIFile(iniFilePath);
             Location = ini.GetValue<DBEntryObjectiveTargetBehaviorLocation>("Behavior", "Location");
+            Destination = ini.GetValue<DBEntryObjectiveTargetBehaviorLocation>("Behavior", "Destination");
             IsStatic = ini.GetValue<bool>("Behavior", "IsStatic");
 
             GroupLua = new string[Toolbox.EnumCount<DCSUnitCategory>()];

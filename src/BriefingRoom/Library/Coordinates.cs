@@ -142,9 +142,27 @@ namespace BriefingRoom4DCS
             return $"{{ [\"x\"] = {Toolbox.ValToString(X)}, [\"y\"] = {Toolbox.ValToString(Y)} }}";
         }
 
+        internal Coordinates CreateRandomNM(MinMaxD minMax)
+        {
+            return CreateNearRandom(new MinMaxD(minMax.Min * Toolbox.NM_TO_METERS, minMax.Max * Toolbox.NM_TO_METERS));
+        }
+
+        internal Coordinates CreateRandomNM(double min, double max)
+        {
+            return CreateNearRandom(new MinMaxD(min * Toolbox.NM_TO_METERS, max * Toolbox.NM_TO_METERS));
+        }
+
         internal Coordinates CreateNearRandom(double min, double max)
         {
             return CreateNearRandom(new MinMaxD(min, max));
+        }
+
+        internal Coordinates CreateNearRandom(MinMaxD minMax)
+        {
+            double randX = minMax.GetValue() * Toolbox.RandomFrom(1, -1);
+            double randY = minMax.GetValue() * Toolbox.RandomFrom(1, -1);
+
+            return new Coordinates(X + randX, Y + randY);
         }
 
         internal double GetLength()
@@ -157,14 +175,6 @@ namespace BriefingRoom4DCS
             double length = GetLength();
             if (length == 0) return Zero;
             return new Coordinates(X / length, Y / length);
-        }
-
-        internal Coordinates CreateNearRandom(MinMaxD minMax)
-        {
-            double randX = minMax.GetValue() * Toolbox.RandomFrom(1, -1);
-            double randY = minMax.GetValue() * Toolbox.RandomFrom(1, -1);
-
-            return new Coordinates(X + randX, Y + randY);
         }
 
         internal static Coordinates Sum(IEnumerable<Coordinates> coordinates)

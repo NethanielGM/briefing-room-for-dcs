@@ -40,6 +40,7 @@ namespace BriefingRoom4DCS.Template
             TargetBehavior = objective.TargetBehavior;
             TargetCount = objective.TargetCount;
             Task = objective.Task;
+            TransportDistance = new MinMaxD(objective.TransportDistanceMin, objective.TransportDistanceMax);
             CoordinatesHint = objective.CoordinateHint_;
             ProgressionActivation = objective.ProgressionActivation;
             ProgressionDependentTasks = objective.ProgressionDependentTasks;
