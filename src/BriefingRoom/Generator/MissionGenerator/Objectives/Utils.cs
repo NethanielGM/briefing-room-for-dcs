@@ -309,6 +309,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             return unitCategory switch
             {
                 UnitCategory.Plane => new MinMaxD(30, 60),
+                UnitCategory.Ship => new MinMaxD(15, 40),
                 UnitCategory.Helicopter => new MinMaxD(10, 20),
                 UnitCategory.Infantry => new MinMaxD(1, 5),
                 _ => new MinMaxD(5, 10)
