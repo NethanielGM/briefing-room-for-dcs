@@ -41,7 +41,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                 objectiveCoordinates = ObjectiveUtils.PlaceInAirbase(ref mission, extraSettings, targetBehaviorDB, objectiveCoordinates, unitCount, unitDB);
 
             var (originAirbaseId, unitCoordinates) = ObjectiveUtils.GetTransportOrigin(ref mission, targetBehaviorDB.Location, objectiveCoordinates, true, objectiveTargetUnitFamily.GetUnitCategory());
-            var (airbaseId, destinationPoint) = ObjectiveUtils.GetTransportDestination(ref mission, targetBehaviorDB.Destination, unitCoordinates, task.TransportDistance, originAirbaseId, true, objectiveTargetUnitFamily.GetUnitCategory());
+            var (airbaseId, destinationPoint) = ObjectiveUtils.GetTransportDestination(ref mission, targetBehaviorDB.Destination, unitCoordinates, task.TransportDistance, originAirbaseId, true, objectiveTargetUnitFamily.GetUnitCategory(), targetBehaviorDB.ID.StartsWith("ToFrontLine"));
             extraSettings.Add("EndAirbaseId", airbaseId);
             objectiveCoordinates = destinationPoint;
 
@@ -64,6 +64,19 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                     groupFlags |= GroupFlags.ImmediateAircraftSpawn;
             }
             var groupLua = targetBehaviorDB.GroupLua[(int)targetDB.DCSUnitCategory];
+            if(airbaseId > 0 && mission.AirbaseDB.Find(x => x.DCSID == airbaseId).Coalition == GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Enemy, true) &&  objectiveTargetUnitFamily.GetUnitCategory().IsAircraft())
+            {
+                groupLua = objectiveTargetUnitFamily switch
+                    {
+                        UnitFamily.PlaneAttack => "AircraftBomb",
+                        UnitFamily.PlaneBomber => "AircraftBomb",
+                        UnitFamily.PlaneStrike => "AircraftBomb",
+                        UnitFamily.PlaneFighter => "AircraftCAP",
+                        UnitFamily.PlaneInterceptor => "AircraftCAP",
+                        UnitFamily.HelicopterAttack => "AircraftBomb",
+                        _ => groupLua
+                    };   
+            }
             GroupInfo? VIPGroupInfo = UnitGenerator.AddUnitGroup(
                 ref mission,
                 units,

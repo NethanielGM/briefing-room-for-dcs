@@ -246,11 +246,11 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             switch (Location)
             {
                 case DBEntryObjectiveTargetBehaviorLocation.PlayerAirbase:
-                    return GetFriendlyAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
+                    return GetAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
                 case DBEntryObjectiveTargetBehaviorLocation.Airbase:
-                    return GetFriendlyAirbaseCargoSpot(ref mission, objectiveCoordinates, mission.PlayerAirbase.DCSID);
+                    return GetAirbaseCargoSpot(ref mission, objectiveCoordinates, mission.PlayerAirbase.DCSID);
                 case DBEntryObjectiveTargetBehaviorLocation.NearAirbase:
-                    var (airbaseId, coords) = GetFriendlyAirbaseCargoSpot(ref mission, objectiveCoordinates);
+                    var (airbaseId, coords) = GetAirbaseCargoSpot(ref mission, objectiveCoordinates);
                     coords = GetNearestSpawnCoordinates(ref mission, coords, GetSpawnPointTypes(isEscort, unitCategory), true);
                     return new Tuple<int, Coordinates>(airbaseId, coords);
                 default:
@@ -266,7 +266,8 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             MinMaxD transportDistance,
             int originAirbaseId,
             bool isEscort = false,
-            UnitCategory? unitCategory = null
+            UnitCategory? unitCategory = null,
+            bool enemyAllowed = false
             )
         {
             Coordinates coordinates;
@@ -280,9 +281,9 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             switch (destination)
             {
                 case DBEntryObjectiveTargetBehaviorLocation.PlayerAirbase:
-                    return GetFriendlyAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
+                    return GetAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
                 case DBEntryObjectiveTargetBehaviorLocation.Airbase:
-                    return GetFriendlyAirbaseCargoSpot(ref mission, coordinates, originAirbaseId);
+                    return GetAirbaseCargoSpot(ref mission, coordinates, originAirbaseId, enemyAllowed);
                 default:
                     var spawnTypes = GetSpawnPointTypes(isEscort, unitCategory);
                     coordinates = GetNearestSpawnCoordinates(ref mission, coordinates, spawnTypes, false);
@@ -316,16 +317,16 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             };
         }
 
-        internal static Tuple<int, Coordinates> GetFriendlyAirbaseCargoSpot(ref DCSMission mission, Coordinates coords, int ignoreAirbaseId = -1)
+        internal static Tuple<int, Coordinates> GetAirbaseCargoSpot(ref DCSMission mission, Coordinates coords, int ignoreAirbaseId = -1, bool enemyAllowed = false)
         {
-            var targetCoalition = GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Ally, true);
-            var (_, _, spawnPoints) = SpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, targetCoalition.Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"), new[] { ignoreAirbaseId });
+            var side = enemyAllowed ? Toolbox.RandomFrom(new[] { Side.Enemy,  Side.Ally }) : Side.Ally;
+            var targetCoalition = GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side, true);
+            var (airbaseDB, _, spawnPoints) = SpawnPointSelector.GetAirbaseAndParking(mission, coords, 1, targetCoalition.Value, (DBEntryAircraft)Database.Instance.GetEntry<DBEntryJSONUnit>("Mi-8MT"), new[] { ignoreAirbaseId });
             if (spawnPoints.Count == 0) // Failed to generate target group
                 throw new BriefingRoomException(mission.LangKey, "FailedToFindCargoSpawn");
             var airbaseCoords = Toolbox.RandomFrom(spawnPoints);
-            var destinationAirbase = mission.AirbaseDB.Where(x => x.Coalition == targetCoalition.Value).OrderBy(x => airbaseCoords.GetDistanceFrom(x.Coordinates)).First();
-            mission.PopulatedAirbaseIds[targetCoalition.Value].Add(destinationAirbase.DCSID);
-            return new Tuple<int, Coordinates>(destinationAirbase.DCSID, airbaseCoords);
+            mission.PopulatedAirbaseIds[targetCoalition.Value].Add(airbaseDB.DCSID);
+            return new Tuple<int, Coordinates>(airbaseDB.DCSID, airbaseCoords);
         }
 
 
