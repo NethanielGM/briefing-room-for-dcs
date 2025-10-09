@@ -37,34 +37,20 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             var (airbaseId, destinationPoint) = ObjectiveUtils.GetTransportDestination(ref mission, targetBehaviorDB.Destination, unitCoordinates, task.TransportDistance, originAirbaseId);
             objectiveCoordinates = destinationPoint;
 
-
-            var groupLua = targetBehaviorDB.GroupLua[(int)targetDB.DCSUnitCategory];
-
             extraSettings.Add("playerCanDrive", false);
-
-            var objectiveName = mission.WaypointNameGenerator.GetWaypointName();
-            var objectiveWaypoints = new List<Waypoint>();
-
-            var cargoWaypoint = ObjectiveUtils.GenerateObjectiveWaypoint(ref mission, task, unitCoordinates, unitCoordinates, $"{objectiveName} Pickup", scriptIgnore: true);
-            mission.Waypoints.Add(cargoWaypoint);
-            objectiveWaypoints.Add(cargoWaypoint);
-
-            // Units shouldn't really move from pickup point if not escorted.
-            groupLua = Database.Instance.GetEntry<DBEntryObjectiveTargetBehavior>("Idle").GroupLua[(int)targetDB.DCSUnitCategory];
 
             GroupInfo? targetGroupInfo = UnitGenerator.AddUnitGroup(
                 ref mission,
                 units,
                 taskDB.TargetSide,
                 objectiveTargetUnitFamily,
-                groupLua, luaUnit,
+                Database.Instance.GetEntry<DBEntryObjectiveTargetBehavior>("Idle").GroupLua[(int)targetDB.DCSUnitCategory], luaUnit,
                 unitCoordinates,
                 groupFlags,
                 extraSettings);
 
             if (!targetGroupInfo.HasValue) // Failed to generate target group
                 throw new BriefingRoomException(mission.LangKey, "FailedToGenerateGroupObjective");
-
             if (task.ProgressionActivation)
             {
                 targetGroupInfo.Value.DCSGroups.ForEach((grp) =>
@@ -84,14 +70,24 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                     }, _auto: false));
 
             }
+            mission.ObjectiveCoordinates.Add(objectiveCoordinates);
 
+
+            var objectiveName = mission.WaypointNameGenerator.GetWaypointName();
+            var objectiveWaypoints = new List<Waypoint>();
+
+            var cargoWaypoint = ObjectiveUtils.GenerateObjectiveWaypoint(ref mission, task, unitCoordinates, unitCoordinates, $"{objectiveName} Pickup", scriptIgnore: true);
+            mission.Waypoints.Add(cargoWaypoint);
+            objectiveWaypoints.Add(cargoWaypoint);
+
+            mission.Briefing.AddItem(DCSMissionBriefingItemType.TargetGroupName, $"-TGT-{objectiveName}");
             var isStatic = objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Cargo;
             ObjectiveUtils.AssignTargetSuffix(ref targetGroupInfo, objectiveName, isStatic);
-            var luaExtraSettings = new Dictionary<string, object>();
-            mission.Briefing.AddItem(DCSMissionBriefingItemType.TargetGroupName, $"-TGT-{objectiveName}");
             var length = isStatic ? targetGroupInfo.Value.DCSGroups.Count : targetGroupInfo.Value.UnitNames.Length;
             var pluralIndex = length == 1 ? 0 : 1;
             var taskString = GeneratorTools.ParseRandomString(taskDB.BriefingTask[pluralIndex].Get(mission.LangKey), mission).Replace("\"", "''");
+
+            var luaExtraSettings = new Dictionary<string, object>();
             ObjectiveUtils.CreateTaskString(ref mission, pluralIndex, ref taskString, objectiveName, objectiveTargetUnitFamily, task, luaExtraSettings);
             ObjectiveUtils.CreateLua(ref mission, targetDB, taskDB, objectiveIndex, objectiveName, targetGroupInfo, taskString, task, luaExtraSettings);
 
@@ -113,13 +109,10 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
 
             // Add objective features Lua for this objective
             mission.AppendValue("ScriptObjectivesFeatures", ""); // Just in case there's no features
-            var featureList = taskDB.RequiredFeatures.Concat(featuresID).ToHashSet();
-            var playerHasPlanes = mission.TemplateRecord.PlayerFlightGroups.Any(x => Database.Instance.GetEntry<DBEntryJSONUnit>(x.Aircraft).Category == UnitCategory.Plane) || mission.TemplateRecord.AirbaseDynamicSpawn != DsAirbase.None;
 
-            foreach (string featureID in featureList)
+            foreach (string featureID in taskDB.RequiredFeatures.Concat(featuresID).ToHashSet())
                 FeaturesObjectives.GenerateMissionFeature(ref mission, featureID, objectiveName, objectiveIndex, targetGroupInfo.Value, taskDB.TargetSide, objectiveOptions, overrideCoords: targetBehaviorDB.ID.StartsWith("ToFrontLine") ? objectiveCoordinates : null);
 
-            mission.ObjectiveCoordinates.Add(unitCoordinates);
             var objCoords = objectiveCoordinates;
             var furthestWaypoint = targetGroupInfo.Value.DCSGroup.Waypoints.Aggregate(objectiveCoordinates, (furthest, x) => objCoords.GetDistanceFrom(x.Coordinates) > objCoords.GetDistanceFrom(furthest) ? x.Coordinates : furthest);
             var waypoint = ObjectiveUtils.GenerateObjectiveWaypoint(ref mission, task, objectiveCoordinates, furthestWaypoint, objectiveName, targetGroupInfo.Value.DCSGroups.Select(x => x.GroupId).ToList(), hiddenMapMarker: task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief));
