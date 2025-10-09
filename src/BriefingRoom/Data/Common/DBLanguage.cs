@@ -27,7 +27,7 @@ namespace BriefingRoom4DCS.Data
 {
     public class DatabaseLanguage
     {
-        public Dictionary<string, LanguageString> LangMap { get; private set; }
+        public Dictionary<string, LanguageString> LangMap { get; private set; } = new Dictionary<string, LanguageString>();
 
         public DatabaseLanguage() { }
 

@@ -47,7 +47,8 @@ namespace BriefingRoom4DCS.Data
         private readonly Dictionary<Type, Dictionary<string, DBEntry>> DBEntries;
         private readonly Dictionary<Type, Tuple<string, string>> UnloadedEntries = new();
 
-        private bool Initialized = false;
+        private static bool Initialized = false;
+        private static bool LoadingInProgress = false;
 
         internal Database()
         {
@@ -65,7 +66,13 @@ namespace BriefingRoom4DCS.Data
         internal void Initialize()
         {
             if (Initialized) return;
-            BriefingRoom.PrintToLog("Initializing database...", LogMessageErrorLevel.Warning);
+            BriefingRoom.PrintToLog("---------------> Initializing database...", LogMessageErrorLevel.Warning);
+            if (LoadingInProgress)
+            {
+                BriefingRoom.PrintToLog("Database loading already in progress, cancelling...", LogMessageErrorLevel.Warning);
+                return;
+            }
+            LoadingInProgress = true;
             Language.Load();
             Common.Load(Language);
 
@@ -113,6 +120,7 @@ namespace BriefingRoom4DCS.Data
                 throw new BriefingRoomException("en", "No player-controllable aircraft found.");
 
             Initialized = true;
+            BriefingRoom.PrintToLog("---------------> Database initialized.", LogMessageErrorLevel.Warning);
         }
 
         private void PrepLoadEntries<T>(string type, string subDirectory) where T : DBEntry, new()

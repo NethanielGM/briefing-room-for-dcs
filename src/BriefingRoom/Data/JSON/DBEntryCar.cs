@@ -46,7 +46,7 @@ namespace BriefingRoom4DCS.Data
             {
                 data = JsonConvert.DeserializeObject<List<Car>>(text);
             }
-            catch (JsonSerializationException e)
+            catch (JsonSerializationException)
             {
                 var legacyData = JsonConvert.DeserializeObject<List<CarLegacy>>(text);
                 data = legacyData.Select(x => x.getCar()).ToList();
