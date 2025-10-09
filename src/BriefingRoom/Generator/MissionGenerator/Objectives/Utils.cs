@@ -119,6 +119,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             objectiveLua += $"progressionHidden = {(task.ProgressionActivation ? "true" : "false")},";
             objectiveLua += $"progressionHiddenBrief = {(task.ProgressionOptions.Contains(ObjectiveProgressionOption.ProgressionHiddenBrief) ? "true" : "false")},";
             objectiveLua += $"progressionCondition = \"{(!string.IsNullOrEmpty(task.ProgressionOverrideCondition) ? task.ProgressionOverrideCondition : string.Join(task.ProgressionDependentIsAny ? " or " : " and ", task.ProgressionDependentTasks.Select(x => x + 1).ToList()))}\", ";
+            objectiveLua += $"startMinutes = {(task.ProgressionActivation ? "-1" : "0")},";
             objectiveLua += $"f10MenuText = \"$LANG_OBJECTIVE$ {objectiveName}\",";
             objectiveLua += $"f10Commands = {{}}";
             objectiveLua += "}\n";

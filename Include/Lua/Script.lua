@@ -629,6 +629,17 @@ function briefingRoom.aircraftActivator.update(args, time)
   for k, name in pairs(briefingRoom.aircraftActivator.timeQueue) do
     local actTime = briefingRoom.aircraftActivator.getAircraftTime(name)
     briefingRoom.debugPrint("Looking for aircraft groups to activate, "..name.." ActTime:"..tostring(actTime).." Time:"..tostring(minsPassed), 1)
+    for k,objective in pairs(briefingRoom.mission.objectives) do
+      if string.match(name, objective.name) then 
+        if objective.startMinutes > -1 then
+          actTime = actTime + objective.startMinutes
+          briefingRoom.debugPrint("Adjusted ActTime for objective "..objective.name.." to "..tostring(actTime), 1)
+        else 
+          actTime = 999999999999999999999 -- objective is not active, do not spawn aircraft
+          briefingRoom.debugPrint("Objective "..objective.name.." not active ignoring "..name, 1)
+        end
+      end
+    end
     if actTime <= minsPassed then
       table.insert(briefingRoom.aircraftActivator.currentQueue, name)
       table.removeValue(briefingRoom.aircraftActivator.timeQueue, name)
@@ -996,6 +1007,8 @@ function briefingRoom.mission.coreFunctions.completeObjective(index, failed)
   briefingRoom.aircraftActivator.pushFromReserveQueue() -- activate next batch of aircraft (so more CAP will pop up)
   for k,objective in pairs(briefingRoom.mission.objectives) do
     if objective ~= nil and objective.progressionHidden and briefingRoom.mission.coreFunctions.assesCondition(objective.progressionCondition) then
+      local minsPassed = math.floor((timer.getAbsTime() - timer.getTime0())/60)
+      objective.startMinutes = minsPassed
       local acGroup = Group.getByName(objective.groupName) -- get the group
       if acGroup ~= nil then -- activate the group, if it exists
         acGroup:activate()

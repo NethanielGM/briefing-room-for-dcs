@@ -323,6 +323,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                 {
                     var timeMins = (int)extraSettings.GetValueOrDefault("TimeQueueTime", new MinMaxI(1, 60).GetValue());
                     dCSGroup.Name += $"-TQ-{timeMins}-";
+                    if(extraSettings.ContainsKey("ObjectiveName"))
+                        dCSGroup.Name += $"-{extraSettings["ObjectiveName"]}";
                 }
                 else if (GroupFlags.HasFlag(GroupFlags.ProgressionAircraftSpawn)) { }
                 else if (groupTypeLua != "AircraftUncontrolled" && !groupTypeLua.Contains("Player"))
