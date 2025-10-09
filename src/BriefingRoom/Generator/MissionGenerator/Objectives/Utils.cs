@@ -181,7 +181,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
         internal static Coordinates GetNearestSpawnCoordinates(ref DCSMission mission, Coordinates coreCoordinates, SpawnPointType[] validSpawnPoints, bool remove = true)
         {
             Coordinates? spawnPoint = SpawnPointSelector.GetNearestSpawnPoint(
-                ref mission,
+                mission,
                 validSpawnPoints,
                 coreCoordinates, remove);
 

@@ -294,7 +294,7 @@ namespace BriefingRoom4DCS.Generator.Mission
                     }
                     unitFamily = unitDBs.First().Families.First();
                     if (flags.HasFlag(FeatureUnitGroupFlags.ExtraGroupsNearby))
-                        spawnCoords = SpawnPointSelector.GetNearestSpawnPoint(ref mission, featureDB.UnitGroupValidSpawnPoints, coordinates);
+                        spawnCoords = SpawnPointSelector.GetNearestSpawnPoint(mission, featureDB.UnitGroupValidSpawnPoints, coordinates);
                     else
                         spawnCoords = SpawnPointSelector.GetRandomSpawnPoint(
                             ref mission,

@@ -55,12 +55,13 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
         }
 
         internal static Coordinates? GetNearestSpawnPoint(
-            ref DCSMission mission,
+            DCSMission mission,
             SpawnPointType[] validTypes,
             Coordinates origin, bool remove = true)
         {
             if (validTypes.Contains(SpawnPointType.Air) || validTypes.Contains(SpawnPointType.Sea))
-                return Coordinates.CreateRandom(origin, new MinMaxD(1 * Toolbox.NM_TO_METERS, 3 * Toolbox.NM_TO_METERS));
+                return GetAirOrSeaCoordinates(mission, validTypes, origin, new MinMaxD(1, 3));
+
             var sp = mission.SpawnPoints.Where(x => validTypes.Contains(x.PointType)).Aggregate((acc, x) => origin.GetDistanceFrom(x.Coordinates) < origin.GetDistanceFrom(acc.Coordinates) ? x : acc);
             if (remove)
             {

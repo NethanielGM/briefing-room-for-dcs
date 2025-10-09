@@ -103,7 +103,7 @@ namespace BriefingRoom4DCS.Generator.Mission
             foreach (DBEntryAirbase airbase in airbases)
             {
 
-                Coordinates? spawnPoint = SpawnPointSelector.GetNearestSpawnPoint(ref mission, featureDB.UnitGroupValidSpawnPoints, airbase.Coordinates);
+                Coordinates? spawnPoint = SpawnPointSelector.GetNearestSpawnPoint(mission, featureDB.UnitGroupValidSpawnPoints, airbase.Coordinates);
                 if (!spawnPoint.HasValue) // No spawn point found
                 {
                     throw new BriefingRoomException(mission.LangKey, "NoSpawnPointForMissionFeature", featureID);
