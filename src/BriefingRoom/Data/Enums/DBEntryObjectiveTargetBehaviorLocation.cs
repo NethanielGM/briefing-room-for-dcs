@@ -25,6 +25,7 @@ namespace BriefingRoom4DCS.Data
         Default,
         Patrolling,
         PlayerAirbase,
+        NearAirbase,
         Airbase,
         AirbaseParking,
         AirbaseParkingNoHardenedShelter,

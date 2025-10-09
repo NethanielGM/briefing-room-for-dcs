@@ -40,7 +40,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             if (Constants.AIRBASE_LOCATIONS.Contains(targetBehaviorDB.Location) && targetDB.UnitCategory.IsAircraft())
                 objectiveCoordinates = ObjectiveUtils.PlaceInAirbase(ref mission, extraSettings, targetBehaviorDB, objectiveCoordinates, unitCount, unitDB);
 
-            var (originAirbaseId, unitCoordinates) = ObjectiveUtils.GetTransportOrigin(ref mission, targetBehaviorDB.Location, objectiveCoordinates);
+            var (originAirbaseId, unitCoordinates) = ObjectiveUtils.GetTransportOrigin(ref mission, targetBehaviorDB.Location, objectiveCoordinates, true, objectiveTargetUnitFamily.GetUnitCategory());
             var (airbaseId, destinationPoint) = ObjectiveUtils.GetTransportDestination(ref mission, targetBehaviorDB.Destination, unitCoordinates, task.TransportDistance, originAirbaseId, true, objectiveTargetUnitFamily.GetUnitCategory());
             extraSettings.Add("EndAirbaseId", airbaseId);
             objectiveCoordinates = destinationPoint;
@@ -234,7 +234,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                         new MinMaxD(0.05, 0.6),
                         new List<UnitFamily> { UnitFamily.ShipCruiser, UnitFamily.ShipFrigate, UnitFamily.ShipSpeedboat, UnitFamily.ShipSubmarine },
                         "ShipAttacking",
-                        "ShipUnitLua",
+                        "Ship",
                         new MinMaxI(1, 4),
                         new[] { SpawnPointType.Sea },
                         new MinMaxD(30, 60));

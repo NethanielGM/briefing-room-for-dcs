@@ -236,7 +236,12 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                 throw new BriefingRoomException(langKey, "TaskTargetsInvalid", taskDB.UIDisplayName, targetDB.UnitCategory);
         }
 
-        internal static Tuple<int, Coordinates> GetTransportOrigin(ref DCSMission mission, DBEntryObjectiveTargetBehaviorLocation Location, Coordinates objectiveCoordinates)
+        internal static Tuple<int, Coordinates> GetTransportOrigin(
+            ref DCSMission mission,
+            DBEntryObjectiveTargetBehaviorLocation Location,
+            Coordinates objectiveCoordinates,
+            bool isEscort = false,
+            UnitCategory? unitCategory = null)
         {
             switch (Location)
             {
@@ -244,20 +249,13 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                     return GetFriendlyAirbaseCargoSpot(ref mission, mission.PlayerAirbase.Coordinates);
                 case DBEntryObjectiveTargetBehaviorLocation.Airbase:
                     return GetFriendlyAirbaseCargoSpot(ref mission, objectiveCoordinates, mission.PlayerAirbase.DCSID);
+                case DBEntryObjectiveTargetBehaviorLocation.NearAirbase:
+                    var (airbaseId, coords) = GetFriendlyAirbaseCargoSpot(ref mission, objectiveCoordinates);
+                    coords = GetNearestSpawnCoordinates(ref mission, coords, GetSpawnPointTypes(isEscort, unitCategory), true);
+                    return new Tuple<int, Coordinates>(airbaseId, coords);
                 default:
                     return new Tuple<int, Coordinates>(-1, objectiveCoordinates);
             }
-        }
-
-        internal static MinMaxD GetStandardMoveDistanceRange(UnitCategory unitCategory)
-        {
-            return unitCategory switch
-            {
-                UnitCategory.Plane => new MinMaxD(30, 60),
-                UnitCategory.Helicopter => new MinMaxD(10, 20),
-                UnitCategory.Infantry => new MinMaxD(1, 5),
-                _ => new MinMaxD(5, 10)
-            };
         }
 
         // Likely will extend this in future for Escort setup
@@ -286,18 +284,35 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                 case DBEntryObjectiveTargetBehaviorLocation.Airbase:
                     return GetFriendlyAirbaseCargoSpot(ref mission, coordinates, originAirbaseId);
                 default:
-                    var spawnTypes = new[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium };
-                    if (isEscort && unitCategory.HasValue)
-                    {
-                        if (unitCategory.Value.IsAircraft())
-                            spawnTypes = new[] { SpawnPointType.Air };
-                        else if (unitCategory.Value == UnitCategory.Ship)
-                            spawnTypes = new[] { SpawnPointType.Sea };
-                    }
+                    var spawnTypes = GetSpawnPointTypes(isEscort, unitCategory);
                     coordinates = GetNearestSpawnCoordinates(ref mission, coordinates, spawnTypes, false);
 
                     return new Tuple<int, Coordinates>(-1, coordinates);
             }
+        }
+
+        internal static SpawnPointType[] GetSpawnPointTypes(bool isEscort = false, UnitCategory? unitCategory = null)
+        {
+            var spawnTypes = new[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium };
+            if (isEscort && unitCategory.HasValue)
+            {
+                if (unitCategory.Value.IsAircraft())
+                    spawnTypes = new[] { SpawnPointType.Air };
+                else if (unitCategory.Value == UnitCategory.Ship)
+                    spawnTypes = new[] { SpawnPointType.Sea };
+            }
+            return spawnTypes;
+        }
+
+        internal static MinMaxD GetStandardMoveDistanceRange(UnitCategory unitCategory)
+        {
+            return unitCategory switch
+            {
+                UnitCategory.Plane => new MinMaxD(30, 60),
+                UnitCategory.Helicopter => new MinMaxD(10, 20),
+                UnitCategory.Infantry => new MinMaxD(1, 5),
+                _ => new MinMaxD(5, 10)
+            };
         }
 
         internal static Tuple<int, Coordinates> GetFriendlyAirbaseCargoSpot(ref DCSMission mission, Coordinates coords, int ignoreAirbaseId = -1)
