@@ -12,7 +12,7 @@
     ["properties"] = 
     {
     }, -- end of ["properties"]
-    ["hidden"] = true,
+    ["hidden"] = false,
     ["y"] = $Y$,
     ["x"] = $X$,
     ["name"] = "$NAME$",

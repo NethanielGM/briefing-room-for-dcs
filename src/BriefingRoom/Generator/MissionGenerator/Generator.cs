@@ -88,6 +88,12 @@ namespace BriefingRoom4DCS.Generator.Mission
             mission.SetValue("InstantStart", template.PlayerFlightGroups.Any(x => x.StartLocation == PlayerStartLocation.Air));
             mission.SetValue("ShowMapMarkers", template.OptionsMission.Contains("MarkWaypoints") ? "true" : "false");
             mission.SetValue("DropOffDistanceMeters", Database.Instance.Common.DropOffDistanceMeters);
+            mission.SetValue("NextTrigIndex", 4); // Just to make sure we start from the correct trigger index
+            mission.SetValue("TrigActions", "");
+            mission.SetValue("TrigFuncs", "");
+            mission.SetValue("TrigFlags", "");
+            mission.SetValue("TrigConditions", "");
+            mission.SetValue("TrigRules", "");
 
 
             foreach (string oggFile in Database.Instance.Common.CommonOGG)

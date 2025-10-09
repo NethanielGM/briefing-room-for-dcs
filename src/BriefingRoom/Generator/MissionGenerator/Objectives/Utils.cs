@@ -249,17 +249,34 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             }
         }
 
+        internal static MinMaxD GetStandardMoveDistanceRange(UnitCategory unitCategory)
+        {
+            return unitCategory switch
+            {
+                UnitCategory.Plane => new MinMaxD(30, 60),
+                UnitCategory.Helicopter => new MinMaxD(10, 20),
+                UnitCategory.Infantry => new MinMaxD(1, 5),
+                _ => new MinMaxD(5, 10)
+            };
+        }
+
         // Likely will extend this in future for Escort setup
         internal static Tuple<int, Coordinates> GetTransportDestination(
             ref DCSMission mission,
             DBEntryObjectiveTargetBehaviorLocation destination,
             Coordinates originCoordinates,
             MinMaxD transportDistance,
-            int originAirbaseId)
+            int originAirbaseId,
+            bool isEscort = false,
+            UnitCategory? unitCategory = null
+            )
         {
             Coordinates coordinates;
             if (transportDistance.Max == 0)
-                coordinates = originCoordinates.CreateRandomNM(10, 50);
+                if (isEscort)
+                    coordinates = originCoordinates.CreateRandomNM(GetStandardMoveDistanceRange(unitCategory.HasValue ? unitCategory.Value : UnitCategory.Plane)); // Escort default distance
+                else
+                    coordinates = originCoordinates.CreateRandomNM(10, 50); // Default transport distance if none set
             else
                 coordinates = originCoordinates.CreateRandomNM(transportDistance); // Consider biasing this towards player base or objective in future
             switch (destination)
@@ -269,7 +286,15 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
                 case DBEntryObjectiveTargetBehaviorLocation.Airbase:
                     return GetFriendlyAirbaseCargoSpot(ref mission, coordinates, originAirbaseId);
                 default:
-                    coordinates = GetNearestSpawnCoordinates(ref mission, coordinates, new[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium }, false);
+                    var spawnTypes = new[] { SpawnPointType.LandLarge, SpawnPointType.LandMedium };
+                    if (isEscort && unitCategory.HasValue)
+                    {
+                        if (unitCategory.Value.IsAircraft())
+                            spawnTypes = new[] { SpawnPointType.Air };
+                        else if (unitCategory.Value == UnitCategory.Ship)
+                            spawnTypes = new[] { SpawnPointType.Sea };
+                    }
+                    coordinates = GetNearestSpawnCoordinates(ref mission, coordinates, spawnTypes, false);
 
                     return new Tuple<int, Coordinates>(-1, coordinates);
             }

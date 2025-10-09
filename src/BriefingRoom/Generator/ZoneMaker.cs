@@ -12,7 +12,7 @@ namespace BriefingRoom4DCS.Generator
     internal static class ZoneMaker
     {
 
-        internal static void AddZone(
+        internal static int AddZone(
             ref DCSMission mission, 
             string UIName,
             Coordinates coordinates, int radius) => AddToList(ref mission, UIName, coordinates, radius);
@@ -23,7 +23,7 @@ namespace BriefingRoom4DCS.Generator
             if (!onTop)
             {
                 var spawnPoints = new List<SpawnPointType> { SpawnPointType.LandLarge }.ToArray();
-                Coordinates? newCoords = SpawnPointSelector.GetNearestSpawnPoint(ref mission, spawnPoints, coordinates);
+                Coordinates? newCoords = SpawnPointSelector.GetNearestSpawnPoint(mission, spawnPoints, coordinates);
                 if (!newCoords.HasValue)
                     throw new BriefingRoomException(mission.LangKey, "Can't find suitable zone Coordinates!");
                 coords = newCoords.Value;
@@ -48,15 +48,19 @@ namespace BriefingRoom4DCS.Generator
         }
 
 
-        private static void AddToList(ref DCSMission mission, string UIName, Coordinates coordinates, int radius)
-        {
+        private static int AddToList(ref DCSMission mission, string UIName, Coordinates coordinates, int radius)
+        { 
+            var zoneId = new Random().Next(100, 500);
+            if(mission.LuaZones.Any(x => x.Contains($"[\"zoneId\"] = {zoneId},")))
+                zoneId = new Random().Next(500, 900);
             string template = File.ReadAllText(Path.Combine(BRPaths.INCLUDE_LUA_MISSION, "Zone.lua"));
             GeneratorTools.ReplaceKey(ref template, "NAME", UIName);
             GeneratorTools.ReplaceKey(ref template, "RADIUS", radius);
             GeneratorTools.ReplaceKey(ref template, "X", coordinates.X);
             GeneratorTools.ReplaceKey(ref template, "Y", coordinates.Y);
-            GeneratorTools.ReplaceKey(ref template, "zoneId", new Random().Next(100, 500));
+            GeneratorTools.ReplaceKey(ref template, "zoneId", zoneId);
             mission.LuaZones.Add(template);
+            return zoneId;
         }
 
         internal static string GetLuaZones(ref DCSMission mission)

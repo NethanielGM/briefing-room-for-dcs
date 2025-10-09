@@ -7,6 +7,7 @@ mission =
             [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Script\"));",
             [2] = "a_end_mission(\"$LUAPLAYERCOALITION$\", \"\", 0); mission.trig.func[2]=nil;",
             [3] = "a_end_mission(\"$LUAPLAYERCOALITION$\", getValueDictByKey(\"\"), 0); mission.trig.func[3]=nil;",
+            $TRIGACTIONS$
         }, -- end of ["actions"]
         ["events"] = 
         {
@@ -17,17 +18,21 @@ mission =
         ["func"] = 
         {
             [2] = "if mission.trig.conditions[2]() then mission.trig.actions[2]() end",
+            $TRIGFUNCS$
         }, -- end of ["func"]
         ["flag"] = 
         {
             [1] = true,
             [2] = true,
+            [3] = true,
+            $TRIGFLAGS$
         }, -- end of ["flag"]
         ["conditions"] = 
         {
             [1] = "return(true)",
             [2] = "return(c_flag_is_true(\"BR_END_MISSION\") )",
             [3] = "return(c_flag_is_true(\"BR_END_MISSION_NOW\") )",
+            $TRIGCONDITIONS$
         }, -- end of ["conditions"]
         ["customStartup"] = 
         {
@@ -460,6 +465,7 @@ mission =
                 }, -- end of [1]
             }, -- end of ["actions"]
         }, -- end of [3]
+        $TRIGRULES$
     }, -- end of ["trigrules"]
     ["currentKey"] = 0,
     ["start_time"] = $STARTTIME$,
