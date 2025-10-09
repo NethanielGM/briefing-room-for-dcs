@@ -14,7 +14,7 @@ namespace BriefingRoom4DCS.Data.JSON
 
     public class CarLegacy : Car
     {
-        public Dictionary<string, List<string>> paintSchemes { get; set; }
+        new public Dictionary<string, List<string>> paintSchemes { get; set; }
          
         public Car getCar()
         {

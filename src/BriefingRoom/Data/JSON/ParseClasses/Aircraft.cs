@@ -57,7 +57,7 @@ namespace BriefingRoom4DCS.Data.JSON
 
     public class AircraftLegacy : Aircraft
     {
-        public Dictionary<string, List<string>> paintSchemes { get; set; }
+        new public Dictionary<string, List<string>> paintSchemes { get; set; }
 
         public Aircraft getAircraft()
         {
