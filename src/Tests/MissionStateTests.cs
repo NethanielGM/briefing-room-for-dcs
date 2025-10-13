@@ -9,7 +9,7 @@ public class DCSMissionStateTests
     [Fact]
     public void RevertOneState()
     {
-        new BriefingRoom(nukeDB: true);
+        new BriefingRoom();
         var template = new MissionTemplate($"{BriefingRoom.GetBriefingRoomRootPath()}\\Default.brt");
         var templateRecord = new MissionTemplateRecord(template);
         var mission = new DCSMission("en",templateRecord);
@@ -35,7 +35,7 @@ public class DCSMissionStateTests
     [Fact]
     public void RevertTwoStates()
     {
-        new BriefingRoom(nukeDB: true);
+        new BriefingRoom();
         var template = new MissionTemplate($"{BriefingRoom.GetBriefingRoomRootPath()}\\Default.brt");
         var templateRecord = new MissionTemplateRecord(template);
         var mission = new DCSMission("en", templateRecord);

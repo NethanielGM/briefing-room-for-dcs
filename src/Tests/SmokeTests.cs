@@ -8,7 +8,8 @@ public class SmokeTests
     [Fact]
     public void SingleMission()
     {
-        var briefingRoom = new BriefingRoom(nukeDB: true);
+        var briefingRoom = new BriefingRoom();
+
         DCSMission mission = briefingRoom.GenerateMission($"{BriefingRoom.GetBriefingRoomRootPath()}\\Default.brt");
 
         Assert.NotNull(mission);
@@ -20,7 +21,8 @@ public class SmokeTests
     [Fact]
     public void Campaign()
     {
-        var briefingRoom = new BriefingRoom(nukeDB: true);
+        var briefingRoom = new BriefingRoom();
+        
         DCSCampaign campaign = briefingRoom.GenerateCampaign($"{BriefingRoom.GetBriefingRoomRootPath()}\\Default.cbrt");
 
         Assert.NotNull(campaign);
