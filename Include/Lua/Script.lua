@@ -2185,8 +2185,38 @@ for i=1,table.count(briefingRoom.mission.objectives) do
   table.insert(briefingRoom.mission.objectives[i].f10Commands, {text = "$LANG_WAYPOINTCOORDINATESREQUEST$", func = briefingRoom.f10MenuCommands.getWaypointCoordinates, args =  i})
   briefingRoom.mission.objectives[i].waypointRadioCommandIndex = table.count(briefingRoom.mission.objectives[i].f10Commands)
 
-  if briefingRoom.mission.objectives[i].progressionHiddenBrief == false then
+  if briefingRoom.mission.objectives[i].startActive == true then
+    -- auto-activate objective and remove from activation menu
+    local acGroup = Group.getByName(briefingRoom.mission.objectives[i].groupName)
+    if acGroup ~= nil then
+      acGroup:activate()
+      local Start = { id = 'Start', params = { } }
+      acGroup:getController():setCommand(Start)
+    end
+    briefingRoom.mission.objectives[i].progressionHidden = false
+    briefingRoom.mission.objectives[i].progressionHiddenBrief = false
     briefingRoom.f10MenuCommands.activateObjective(i)
+  else
+    -- add F10 option to activate this objective when not auto-starting
+    local text = "$LANG_OBJECTIVE$ "..briefingRoom.mission.objectives[i].name
+    local idx = table.count(briefingRoom.mission.objectives[i].f10Commands) + 1
+    local function _activate()
+      local acGroup = Group.getByName(briefingRoom.mission.objectives[i].groupName)
+      if acGroup ~= nil then
+        acGroup:activate()
+        local Start = { id = 'Start', params = { } }
+        acGroup:getController():setCommand(Start)
+      end
+      briefingRoom.mission.objectives[i].progressionHidden = false
+      briefingRoom.mission.objectives[i].progressionHiddenBrief = false
+      briefingRoom.f10MenuCommands.activateObjective(i)
+      if briefingRoom.f10Menu.objectives[i] ~= nil then
+        missionCommands.removeItemForCoalition(briefingRoom.playerCoalition, briefingRoom.f10Menu.objectives[i])
+        briefingRoom.f10Menu.objectives[i] = nil
+      end
+    end
+    briefingRoom.f10Menu.objectives[i] = missionCommands.addSubMenuForCoalition(briefingRoom.playerCoalition, text, briefingRoom.f10Menu.objectiveMenu)
+    missionCommands.addCommandForCoalition(briefingRoom.playerCoalition, "$LANG_ACTIVATE$", briefingRoom.f10Menu.objectives[i], _activate, nil)
   end
 end
 

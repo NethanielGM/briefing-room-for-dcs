@@ -47,6 +47,10 @@ namespace BriefingRoom4DCS.Template
         public List<string> OptionsMission { get; set; }
         public List<RealismOption> OptionsRealism { get; set; }
         public List<string> OptionsUnitBanList { get; set; }
+        public List<string> OptionsUnitBanListBlue { get; set; }
+        public List<string> OptionsUnitBanListRed { get; set; }
+        public List<string> OptionsLiveryBanListBlue { get; set; }
+        public List<string> OptionsLiveryBanListRed { get; set; }
         public List<MissionTemplateFlightGroup> PlayerFlightGroups { get; set; }
         public AmountR SituationEnemySkill { get; set; }
         public AmountNR SituationEnemyAirDefense { get; set; }

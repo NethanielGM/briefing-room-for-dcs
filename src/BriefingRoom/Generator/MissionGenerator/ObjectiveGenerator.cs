@@ -117,6 +117,7 @@ namespace BriefingRoom4DCS.Generator.Mission
                 throw new BriefingRoomException(mission.LangKey, "FailedToSpawnObjectiveGroup", String.Join(", ", targetDB.ValidSpawnPoints.Select(x => x.ToString()).ToList()));
 
             Coordinates objectiveCoordinates = spawnPoint.Value;
+            // Attempt to diversify objective spawns across red zones by nudging selection when overused in a zone
             return objectiveCoordinates;
         }
 

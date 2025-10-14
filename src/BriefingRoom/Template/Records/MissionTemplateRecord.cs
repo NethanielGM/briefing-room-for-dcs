@@ -51,6 +51,10 @@ namespace BriefingRoom4DCS.Template
         internal List<string> OptionsMission { get; init; }
         internal List<RealismOption> OptionsRealism { get; init; }
         internal List<string> OptionsUnitBanList { get; init; }
+        internal List<string> OptionsUnitBanListBlue { get; init; }
+        internal List<string> OptionsUnitBanListRed { get; init; }
+        internal List<string> OptionsLiveryBanListBlue { get; init; }
+        internal List<string> OptionsLiveryBanListRed { get; init; }
         internal List<MissionTemplateFlightGroupRecord> PlayerFlightGroups { get; init; }
         internal List<MissionTemplatePackageRecord> AircraftPackages { get; init; }
         internal AmountR SituationEnemySkill { get; init; }
@@ -98,6 +102,10 @@ namespace BriefingRoom4DCS.Template
             OptionsMission = template.OptionsMission;
             OptionsRealism = template.OptionsRealism;
             OptionsUnitBanList = template.OptionsUnitBanList;
+            OptionsUnitBanListBlue = template.OptionsUnitBanListBlue;
+            OptionsUnitBanListRed = template.OptionsUnitBanListRed;
+            OptionsLiveryBanListBlue = template.OptionsLiveryBanListBlue;
+            OptionsLiveryBanListRed = template.OptionsLiveryBanListRed;
             PlayerFlightGroups = template.PlayerFlightGroups.Select((x, index) =>
             {
                 if (((ContextPlayerCoalition == Coalition.Red && !x.Hostile) || (ContextPlayerCoalition == Coalition.Blue && x.Hostile)) && x.Country == Country.CombinedJointTaskForcesBlue)

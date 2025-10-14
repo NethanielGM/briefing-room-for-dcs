@@ -63,6 +63,14 @@ namespace BriefingRoom4DCS.Template
         private List<RealismOption> OptionsRealism_ = new();
         public List<string> OptionsUnitBanList { get { return OptionsUnitBanList_; } set { OptionsUnitBanList_ = value.Distinct().ToList(); } }
         private List<string> OptionsUnitBanList_ = new();
+        public List<string> OptionsUnitBanListBlue { get { return OptionsUnitBanListBlue_; } set { OptionsUnitBanListBlue_ = value.Distinct().ToList(); } }
+        private List<string> OptionsUnitBanListBlue_ = new();
+        public List<string> OptionsUnitBanListRed { get { return OptionsUnitBanListRed_; } set { OptionsUnitBanListRed_ = value.Distinct().ToList(); } }
+        private List<string> OptionsUnitBanListRed_ = new();
+        public List<string> OptionsLiveryBanListBlue { get { return OptionsLiveryBanListBlue_; } set { OptionsLiveryBanListBlue_ = value.Distinct().ToList(); } }
+        private List<string> OptionsLiveryBanListBlue_ = new();
+        public List<string> OptionsLiveryBanListRed { get { return OptionsLiveryBanListRed_; } set { OptionsLiveryBanListRed_ = value.Distinct().ToList(); } }
+        private List<string> OptionsLiveryBanListRed_ = new();
         public List<MissionTemplateFlightGroup> PlayerFlightGroups { get { return PlayerFlightGroups_; } set { PlayerFlightGroups_ = value.Take(MAX_PLAYER_FLIGHT_GROUPS).ToList(); } }
         private List<MissionTemplateFlightGroup> PlayerFlightGroups_ = new();
         public AmountR SituationEnemySkill { get; set; }
@@ -110,6 +118,10 @@ namespace BriefingRoom4DCS.Template
             OptionsMission = new List<string> { "ImperialUnitsForBriefing", "MarkWaypoints", "CombinedArmsPilotControl", "AllowLowPoly" };
             OptionsRealism = new RealismOption[] { RealismOption.DisableDCSRadioAssists, RealismOption.NoBDA }.ToList();
             OptionsUnitBanList = new List<string>();
+            OptionsUnitBanListBlue = new List<string>();
+            OptionsUnitBanListRed = new List<string>();
+            OptionsLiveryBanListBlue = new List<string>();
+            OptionsLiveryBanListRed = new List<string>();
 
             PlayerFlightGroups = new MissionTemplateFlightGroup[] { new MissionTemplateFlightGroup() }.ToList();
 
@@ -159,6 +171,10 @@ namespace BriefingRoom4DCS.Template
             OptionsMission = ini.GetValueDistinctList<string>("Options", "Mission");
             OptionsRealism = ini.GetValueDistinctList<RealismOption>("Options", "Realism");
             OptionsUnitBanList = ini.GetValueDistinctList<string>("Options", "UnitBanList");
+            OptionsUnitBanListBlue = ini.GetValueDistinctList<string>("Options", "UnitBanListBlue");
+            OptionsUnitBanListRed = ini.GetValueDistinctList<string>("Options", "UnitBanListRed");
+            OptionsLiveryBanListBlue = ini.GetValueDistinctList<string>("Options", "LiveryBanListBlue");
+            OptionsLiveryBanListRed = ini.GetValueDistinctList<string>("Options", "LiveryBanListRed");
 
             PlayerFlightGroups.Clear();
             foreach (string key in ini.GetTopLevelKeysInSection("PlayerFlightGroups"))
@@ -214,6 +230,10 @@ namespace BriefingRoom4DCS.Template
             ini.SetValueArray("Options", "Mission", OptionsMission.ToArray());
             ini.SetValueArray("Options", "Realism", OptionsRealism.ToArray());
             ini.SetValueArray("Options", "UnitBanList", OptionsUnitBanList.ToArray());
+            ini.SetValueArray("Options", "UnitBanListBlue", OptionsUnitBanListBlue.ToArray());
+            ini.SetValueArray("Options", "UnitBanListRed", OptionsUnitBanListRed.ToArray());
+            ini.SetValueArray("Options", "LiveryBanListBlue", OptionsLiveryBanListBlue.ToArray());
+            ini.SetValueArray("Options", "LiveryBanListRed", OptionsLiveryBanListRed.ToArray());
 
             ini.SetValue("Options", "AirbaseDynamicSpawn", AirbaseDynamicSpawn);
             ini.SetValue("Options", "CarrierDynamicSpawn", CarrierDynamicSpawn);

@@ -133,6 +133,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             objectiveWaypoints.Add(cargoWaypoint);
             ObjectiveUtils.AssignTargetSuffix(ref VIPGroupInfo, objectiveName, false);
             var luaExtraSettings = new Dictionary<string, object>();
+            luaExtraSettings["StartActive"] = mission.TemplateRecord.Objectives[objectiveIndex].StartActive;
             mission.Briefing.AddItem(DCSMissionBriefingItemType.TargetGroupName, $"-TGT-{objectiveName}");
             var length = VIPGroupInfo.Value.UnitNames.Length;
             var pluralIndex = length == 1 ? 0 : 1;

@@ -57,19 +57,24 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
         {
             if (unitCount <= 0) throw new BriefingRoomException("en", "Asking for a zero units");
             if (families.Count <= 0) throw new BriefingRoomException("en", "No Unit Families Provided");
-            DBEntryCoalition unitsCoalitionDB = mission.CoalitionsDB[(int)((side == Side.Ally) ? mission.TemplateRecord.ContextPlayerCoalition : mission.TemplateRecord.ContextPlayerCoalition.GetEnemy())];
+            var coalitionForSide = (side == Side.Ally) ? mission.TemplateRecord.ContextPlayerCoalition : mission.TemplateRecord.ContextPlayerCoalition.GetEnemy();
+            DBEntryCoalition unitsCoalitionDB = mission.CoalitionsDB[(int)coalitionForSide];
             List<string> units = new();
             Country country = Country.ALL;
+            var combinedBanList = mission.TemplateRecord.OptionsUnitBanList
+                .Concat(coalitionForSide == Coalition.Blue ? mission.TemplateRecord.OptionsUnitBanListBlue : mission.TemplateRecord.OptionsUnitBanListRed)
+                .Distinct().ToList();
 
             if (side == Side.Neutral)
             {
                 var ignoreCountries = mission.CoalitionsDB.SelectMany(x => x.Countries).Where(x => x != Country.ALL).ToList();
-                (country, units) = GeneratorTools.GetNeutralRandomUnits(mission.LangKey, families, ignoreCountries, mission.TemplateRecord.ContextDecade, unitCount, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"), mission.TemplateRecord.OptionsUnitBanList);
+                var combinedBanListNeutral = mission.TemplateRecord.OptionsUnitBanList;
+                (country, units) = GeneratorTools.GetNeutralRandomUnits(mission.LangKey, families, ignoreCountries, mission.TemplateRecord.ContextDecade, unitCount, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"), combinedBanListNeutral);
                 if (!units.Where(x => x != null).Any()) return new(new List<string>(), new List<DBEntryJSONUnit>());
             }
             else if (forceTryTemplate || families.All(x => Constants.TEMPLATE_ALWAYS_FAMILIES.Contains(x)) || (families.All(x => Constants.TEMPLATE_PREFERENCE_FAMILIES.Contains(x)) && Toolbox.RandomChance(3)))
             {
-                var response = unitsCoalitionDB.GetRandomTemplate(families, mission.TemplateRecord.ContextDecade, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsUnitBanList);
+                var response = unitsCoalitionDB.GetRandomTemplate(families, mission.TemplateRecord.ContextDecade, mission.TemplateRecord.Mods, combinedBanList);
                 if (response != null)
                 {
                     (country, var unitTemplate) = response;
@@ -84,7 +89,7 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                     families,
                     mission.TemplateRecord.ContextDecade,
                     unitCount, mission.TemplateRecord.Mods,
-                    mission.TemplateRecord.OptionsUnitBanList,
+                    combinedBanList,
                     mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"),
                     mission.TemplateRecord.OptionsMission.Contains("BlockSuppliers"),
                     lowUnitVariation: GroupFlags.HasFlag(GroupFlags.LowUnitVariation),
@@ -115,13 +120,17 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
         )
         {
             Boolean tryUseAll = false;
-            DBEntryCoalition unitsCoalitionDB = mission.CoalitionsDB[(int)((side == Side.Ally) ? mission.TemplateRecord.ContextPlayerCoalition : mission.TemplateRecord.ContextPlayerCoalition.GetEnemy())];
+            var coalitionForSide = (side == Side.Ally) ? mission.TemplateRecord.ContextPlayerCoalition : mission.TemplateRecord.ContextPlayerCoalition.GetEnemy();
+            DBEntryCoalition unitsCoalitionDB = mission.CoalitionsDB[(int)coalitionForSide];
             Country country = Country.ALL;
+            var combinedBanList = mission.TemplateRecord.OptionsUnitBanList
+                .Concat(coalitionForSide == Coalition.Blue ? mission.TemplateRecord.OptionsUnitBanListBlue : mission.TemplateRecord.OptionsUnitBanListRed)
+                .Distinct().ToList();
             var unitMap = templateLocation.GetRequiredFamilyMap();
             if (templateLocation.LocationType == TheaterTemplateLocationType.SAM)
             {
                 //Always pull from a template to get the right units for SAM Sites
-                var response = unitsCoalitionDB.GetRandomTemplate(families, mission.TemplateRecord.ContextDecade, mission.TemplateRecord.Mods, mission.TemplateRecord.OptionsUnitBanList);
+                var response = unitsCoalitionDB.GetRandomTemplate(families, mission.TemplateRecord.ContextDecade, mission.TemplateRecord.Mods, combinedBanList);
                 if (response != null)
                 {
                     (country, var unitTemplate) = response;
@@ -151,7 +160,7 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                     new List<UnitFamily> { unitFamily },
                     mission.TemplateRecord.ContextDecade,
                     1, mission.TemplateRecord.Mods,
-                    mission.TemplateRecord.OptionsUnitBanList,
+                    combinedBanList,
                     mission.TemplateRecord.OptionsMission.Contains("AllowLowPoly"),
                     mission.TemplateRecord.OptionsMission.Contains("BlockSuppliers"),
                     requiredCountry: country != Country.ALL ? country : null,
@@ -402,6 +411,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             }
 
             var dCSGroup = DCSGroup.YamlToGroup(groupYml);
+            // default late activation; specific cases below will override
+            dCSGroup.LateActivation = true;
 
             if (unitFamily.GetUnitCategory().IsAircraft() && extraSettings.ContainsKey("GroupAirbaseID") && dCSGroup.Waypoints[0].AirdromeId == default)
             {
@@ -412,6 +423,13 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                 dCSGroup.LateActivation = false;
                 if (!isHotStart)
                     dCSGroup.Uncontrolled = true;
+            }
+
+            // Ensure player groups are never late-activated
+            if (groupTypeLua.StartsWith("AircraftPlayer", StringComparison.InvariantCulture))
+            {
+                dCSGroup.LateActivation = false;
+                dCSGroup.Uncontrolled = false;
             }
 
             return dCSGroup;
@@ -668,6 +686,14 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             var seasonSubset = options.Where(x => x.Item2.ToLower().Contains(season.ToString().ToLower())).ToList();
             if (seasonSubset.Count > 0)
                 options = seasonSubset;
+            // apply livery ban lists by coalition if provided
+            var liveryBans = coalition == Coalition.Blue ? mission.TemplateRecord.OptionsLiveryBanListBlue : mission.TemplateRecord.OptionsLiveryBanListRed;
+            if (liveryBans != null && liveryBans.Count > 0)
+            {
+                options = options.Where(x => !liveryBans.Any(b => x.Item2.Contains(b, StringComparison.InvariantCultureIgnoreCase) || x.Item1.Contains(b, StringComparison.InvariantCultureIgnoreCase))).ToList();
+                if (options.Count == 0)
+                    options = unitDB.Liveries.GetValueOrDefault(country, new List<Tuple<string, string>> { Tuple.Create("default", "default") });
+            }
             extraSettings["Livery"] = Toolbox.RandomFrom(options).Item1;
         }
 

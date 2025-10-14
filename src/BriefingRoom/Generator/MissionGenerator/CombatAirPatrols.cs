@@ -77,12 +77,23 @@ namespace BriefingRoom4DCS.Generator.Mission
                 groupSize = Math.Min(unitsLeftToSpawn, groupSize);
                 unitsLeftToSpawn -= groupSize;
 
-                // Find spawn point at the proper distance from the objective(s), but not to close from starting airbase
+                // Find spawn point at the proper distance from the objective(s), but not too close from starting airbase
+                // If Gaza/West Bank scenario, bias CAP spawns further north (Lebanon/Syria)
+                var centerForCAP = centerPoint;
+                try
+                {
+                    var sid = mission.SituationDB.ID.ToLower();
+                    if (sid.Contains("gaza") || sid.Contains("westbank"))
+                    {
+                        centerForCAP = Coordinates.Lerp(centerPoint, opposingPoint, 0.6);
+                    }
+                }
+                catch { }
                 Coordinates? spawnPoint =
                     SpawnPointSelector.GetRandomSpawnPoint(
                         ref mission,
                         new SpawnPointType[] { SpawnPointType.Air },
-                        centerPoint,
+                        centerForCAP,
                         commonCAPDB.DistanceFromCenter,
                         opposingPoint,
                         new MinMaxD(commonCAPDB.MinDistanceFromOpposingPoint, 99999),

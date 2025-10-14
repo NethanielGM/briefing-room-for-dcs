@@ -132,7 +132,9 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
 
             if (!validSP.Any())
                 return !coalition.HasValue && (useFrontLine || nested) ? null : GetLandCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, null, nearFrontLineFamily, true);
-            DBEntryTheaterSpawnPoint selectedSpawnPoint = Toolbox.RandomFrom(validSP.ToArray());
+            // Prefer distributing across red zones by selecting spawn points spread over polygons
+            var candidateArray = validSP.ToArray();
+            DBEntryTheaterSpawnPoint selectedSpawnPoint = Toolbox.RandomFrom(candidateArray);
             mission.SpawnPoints.Remove(selectedSpawnPoint); // Remove spawn point so it won't be used again;
             mission.UsedSpawnPoints.Add(selectedSpawnPoint);
             return selectedSpawnPoint.Coordinates;
@@ -412,6 +414,16 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             var distanceLimit = Toolbox.NM_TO_METERS * borderLimit;
             var selectedZones = coalition.Value == Coalition.Blue ? blue : red;
             var distance = selectedZones.Min(x => ShapeManager.GetDistanceFromShape(coordinates, x));
+            // Enforce additional buffer near Israeli border for Gaza/West Bank scenarios: require farther distance for hostile spawns
+            try
+            {
+                var sid = mission.SituationDB.ID.ToLower();
+                if ((sid.Contains("gaza") || sid.Contains("westbank")) && coalition.Value == Coalition.Red)
+                {
+                    distanceLimit *= 0.75; // require to be deeper inside red zones (further from border)
+                }
+            }
+            catch { }
             return distance < distanceLimit;
 
         }

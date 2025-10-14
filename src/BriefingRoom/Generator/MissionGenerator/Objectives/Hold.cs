@@ -205,6 +205,7 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             var isStatic = objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Static || objectiveTargetUnitFamily.GetUnitCategory() == UnitCategory.Cargo;
             ObjectiveUtils.AssignTargetSuffix(ref targetGroupInfo, objectiveName, isStatic);
             var luaExtraSettings = new Dictionary<string, object>();
+            luaExtraSettings["StartActive"] = mission.TemplateRecord.Objectives[objectiveIndex].StartActive;
             if (task.Task.StartsWith("Hold"))
             {
                 var (holdSizeMeters, holdTimeSeconds) = GetHoldValues(task.TargetCount);

@@ -122,6 +122,9 @@ namespace BriefingRoom4DCS.Generator.Mission.Objectives
             objectiveLua += $"startMinutes = {(task.ProgressionActivation ? "-1" : "0")},";
             objectiveLua += $"f10MenuText = \"$LANG_OBJECTIVE$ {objectiveName}\",";
             objectiveLua += $"f10Commands = {{}}";
+            // StartActive flag generated from template when provided
+            var startActive = (extraSettings.ContainsKey("StartActive") && (bool)extraSettings["StartActive"]) || !task.ProgressionActivation;
+            objectiveLua += $", startActive = {(startActive ? "true" : "false")}";
             objectiveLua += "}\n";
 
             // Add F10 sub-menu for this objective

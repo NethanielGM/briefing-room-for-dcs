@@ -30,6 +30,7 @@ namespace BriefingRoom4DCS.Template
         internal List<string> Features { get; init; }
         internal List<MissionTemplateSubTaskRecord> SubTasks { get; init; }
         internal Coordinates CoordinatesHint { get; init; }
+        internal bool StartActive { get; init; }
 
         public MissionTemplateObjectiveRecord(MissionTemplateObjective objective)
         {
@@ -42,6 +43,7 @@ namespace BriefingRoom4DCS.Template
             Task = objective.Task;
             TransportDistance = new MinMaxD(objective.TransportDistanceMin, objective.TransportDistanceMax);
             CoordinatesHint = objective.CoordinateHint_;
+            StartActive = objective.StartActive;
             ProgressionActivation = objective.ProgressionActivation;
             ProgressionDependentTasks = objective.ProgressionDependentTasks;
             ProgressionDependentIsAny = objective.ProgressionDependentIsAny;

@@ -95,6 +95,22 @@ namespace BriefingRoom4DCS.Generator.Mission
                     break;
             }
 
+            // Restrict Gaza/West Bank: only MANPADS/AAA, no SAMs/jets/tanks near Israeli border
+            bool restrictToLight = false;
+            try
+            {
+                // Heuristic: if situation ID mentions Gaza or WestBank
+                var sid = mission.SituationDB.ID.ToLower();
+                restrictToLight = sid.Contains("gaza") || sid.Contains("westbank");
+            }
+            catch { }
+            if (restrictToLight)
+            {
+                unitFamilies = unitFamilies.Where(f => f == UnitFamily.InfantryMANPADS || f == UnitFamily.VehicleAAA || f == UnitFamily.VehicleAAAStatic).ToList();
+                if (unitFamilies.Count == 0)
+                    unitFamilies = new List<UnitFamily> { UnitFamily.InfantryMANPADS, UnitFamily.VehicleAAA };
+            }
+
             for (int i = 0; i < groupCount; i++)
             {
                 var unitCount = 1;
