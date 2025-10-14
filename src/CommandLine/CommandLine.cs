@@ -70,19 +70,66 @@ namespace BriefingRoom4DCS.CommandLineTool
 
         public async Task<bool> DoCommandLineAsync(string[] args)
         {
-            string[] templateFiles = (from string arg in args where File.Exists(arg) select arg).ToArray();
-            string[] invalidTemplateFiles = (from string arg in args where !File.Exists(arg) select arg).ToArray();
+			// Parse arguments: templates and optional output directory (--out or -o)
+			string outputDirectory = AppDomain.CurrentDomain.BaseDirectory;
+			var templateFilesList = new System.Collections.Generic.List<string>();
+			var invalidTemplateFilesList = new System.Collections.Generic.List<string>();
 
-            foreach (string filePath in invalidTemplateFiles)
-                WriteToDebugLog($"Template file {filePath} doesn't exist.", LogMessageErrorLevel.Warning);
+			for (int i = 0; i < args.Length; i++)
+			{
+				string arg = args[i];
+				if (string.IsNullOrWhiteSpace(arg)) continue;
 
-            if (templateFiles.Length == 0)
-            {
-                WriteToDebugLog("No valid mission template files given as parameters.", LogMessageErrorLevel.Error);
-                WriteToDebugLog("");
-                WriteToDebugLog("Command-line format is BriefingRoomCommandLine.exe <MissionTemplate.brt> [<MissionTemplate2.brt> <MissionTemplate3.brt>...]");
-                return false;
-            }
+				// Support --out <dir>, -o <dir>, --out=<dir>, -o=<dir>
+				if (string.Equals(arg, "--out", StringComparison.OrdinalIgnoreCase) || string.Equals(arg, "-o", StringComparison.OrdinalIgnoreCase))
+				{
+					if (i + 1 >= args.Length)
+					{
+						WriteToDebugLog("Missing directory after --out option.", LogMessageErrorLevel.Error);
+						return false;
+					}
+					outputDirectory = args[++i];
+					continue;
+				}
+				if (arg.StartsWith("--out=", StringComparison.OrdinalIgnoreCase))
+				{
+					outputDirectory = arg.Substring("--out=".Length);
+					continue;
+				}
+				if (arg.StartsWith("-o=", StringComparison.OrdinalIgnoreCase))
+				{
+					outputDirectory = arg.Substring("-o=".Length);
+					continue;
+				}
+
+				// Treat as template candidate
+				if (File.Exists(arg)) templateFilesList.Add(arg); else invalidTemplateFilesList.Add(arg);
+			}
+
+			foreach (string filePath in invalidTemplateFilesList)
+				WriteToDebugLog($"Template file {filePath} doesn't exist.", LogMessageErrorLevel.Warning);
+
+			var templateFiles = templateFilesList.ToArray();
+
+			if (templateFiles.Length == 0)
+			{
+				WriteToDebugLog("No valid mission template files given as parameters.", LogMessageErrorLevel.Error);
+				WriteToDebugLog("");
+				WriteToDebugLog("Command-line format is BriefingRoomCommandLine.exe [--out <directory>] <MissionTemplate.brt> [<MissionTemplate2.brt> <MissionTemplate3.brt>...]");
+				return false;
+			}
+
+			// Ensure output directory exists (create if needed)
+			try
+			{
+				if (string.IsNullOrWhiteSpace(outputDirectory)) outputDirectory = AppDomain.CurrentDomain.BaseDirectory;
+				if (!Directory.Exists(outputDirectory)) Directory.CreateDirectory(outputDirectory);
+			}
+			catch (Exception)
+			{
+				WriteToDebugLog($"Failed to create output directory {outputDirectory}", LogMessageErrorLevel.Error);
+				return false;
+			}
 
             var briefingRoom = new BriefingRoom();
 
@@ -97,15 +144,15 @@ namespace BriefingRoom4DCS.CommandLineTool
                         continue;
                     }
 
-                    string campaignDirectory;
-                    if (templateFiles.Length == 1) // Single template file provided, use  campaign name as campaign path.
-                        campaignDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, RemoveInvalidPathCharacters(campaign.Name));
-                    else // Multiple template files provided, use the template name as campaign name so we know from which template campaign was generated.
-                        campaignDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.GetFileNameWithoutExtension(t));
-                    campaignDirectory = GetUnusedFileName(campaignDirectory);
+					string campaignDirectory;
+					if (templateFiles.Length == 1) // Single template file provided, use  campaign name as campaign path.
+						campaignDirectory = Path.Combine(outputDirectory, RemoveInvalidPathCharacters(campaign.Name));
+					else // Multiple template files provided, use the template name as campaign name so we know from which template campaign was generated.
+						campaignDirectory = Path.Combine(outputDirectory, Path.GetFileNameWithoutExtension(t));
+					campaignDirectory = GetUnusedFileName(campaignDirectory);
 
-                    await campaign.ExportToDirectory(AppDomain.CurrentDomain.BaseDirectory);
-                    WriteToDebugLog($"Campaign {Path.GetFileName(campaignDirectory)} exported to directory from template {Path.GetFileName(t)}");
+					await campaign.ExportToDirectory(EnsureTrailingDirectorySeparator(campaignDirectory));
+					WriteToDebugLog($"Campaign {Path.GetFileName(campaignDirectory)} exported to directory from template {Path.GetFileName(t)}");
                 }
                 else // Template file is a mission template
                 {
@@ -116,11 +163,11 @@ namespace BriefingRoom4DCS.CommandLineTool
                         continue;
                     }
 
-                    string mizFileName;
-                    if (templateFiles.Length == 1) // Single template file provided, use "theater + mission name" as file name.
-                        mizFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{mission.TheaterID} - {RemoveInvalidPathCharacters(mission.Briefing.Name)}.miz");
-                    else // Multiple template files provided, use the template name as file name so we know from which template mission was generated.
-                        mizFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.GetFileNameWithoutExtension(t) + ".miz");
+					string mizFileName;
+					if (templateFiles.Length == 1) // Single template file provided, use "theater + mission name" as file name.
+						mizFileName = Path.Combine(outputDirectory, $"{mission.TheaterID} - {RemoveInvalidPathCharacters(mission.Briefing.Name)}.miz");
+					else // Multiple template files provided, use the template name as file name so we know from which template mission was generated.
+						mizFileName = Path.Combine(outputDirectory, Path.GetFileNameWithoutExtension(t) + ".miz");
                     mizFileName = GetUnusedFileName(mizFileName);
 
                     var savedMission = await mission.SaveToMizFile(mizFileName);
@@ -158,5 +205,13 @@ namespace BriefingRoom4DCS.CommandLineTool
 
             return newName;
         }
+
+		private static string EnsureTrailingDirectorySeparator(string path)
+		{
+			if (string.IsNullOrEmpty(path)) return path;
+			char sep = Path.DirectorySeparatorChar;
+			if (path.EndsWith(sep) || path.EndsWith(Path.AltDirectorySeparatorChar)) return path;
+			return path + sep;
+		}
     }
 }
