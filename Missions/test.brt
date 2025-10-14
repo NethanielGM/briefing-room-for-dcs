@@ -129,6 +129,6 @@ objective001.StartActive=False
 
 objective002.Task=DestroyAll
 objective002.Target=StructureMilitary
-objective002.targetcount=VeryHigh
+objective002.targetcount=Average
 objective002.position=Gaza
 objective002.StartActive=False

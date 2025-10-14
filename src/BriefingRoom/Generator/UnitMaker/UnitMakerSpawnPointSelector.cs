@@ -112,6 +112,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
         {
             var useFrontLine = nearFrontLineFamily.HasValue && mission.FrontLine.Count > 0 && Constants.NEAR_FRONT_LINE_CATEGORIES.Contains(nearFrontLineFamily.Value.GetUnitCategory());
             var validSP = from DBEntryTheaterSpawnPoint pt in mission.SpawnPoints where validTypes.Contains(pt.PointType) select pt;
+            if (includePolygons != null)
+                validSP = validSP.Where(sp => ShapeManager.IsPosValid(sp.Coordinates, includePolygons));
             Coordinates?[] distanceOrigin = [distanceOrigin1, distanceOrigin2];
             MinMaxD?[] distanceFrom = [distanceFrom1, distanceFrom2];
             for (int i = 0; i < 2; i++)

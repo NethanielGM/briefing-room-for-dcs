@@ -162,25 +162,32 @@ namespace BriefingRoom4DCS.Generator.Mission
 
         private static Coordinates GetSpawnCoordinates(ref DCSMission mission, Coordinates lastCoordinates, DBEntryAirbase playerAirbase, DBEntryObjectiveTarget targetDB, bool usingHint, List<List<Coordinates>> includePolygons)
         {
-            Coordinates? spawnPoint = includePolygons == null
-                ? SpawnPointSelector.GetRandomSpawnPoint(
+            Coordinates? spawnPoint;
+            if (includePolygons != null)
+            {
+                // Strict: only inside polygon, no fallback
+                spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
                     ref mission,
                     targetDB.ValidSpawnPoints,
-                    playerAirbase.Coordinates,
-                    usingHint ? Toolbox.ANY_RANGE : mission.TemplateRecord.FlightPlanObjectiveDistance,
                     lastCoordinates,
-                    usingHint ? Toolbox.HINT_RANGE : mission.TemplateRecord.FlightPlanObjectiveSeparation,
-                    GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Enemy))
-                : SpawnPointSelector.GetRandomSpawnPoint(
-                    ref mission,
-                    targetDB.ValidSpawnPoints,
-                    playerAirbase.Coordinates,
-                    usingHint ? Toolbox.ANY_RANGE : mission.TemplateRecord.FlightPlanObjectiveDistance,
-                    lastCoordinates,
-                    usingHint ? Toolbox.HINT_RANGE : mission.TemplateRecord.FlightPlanObjectiveSeparation,
+                    Toolbox.ANY_RANGE,
+                    null,
+                    null,
                     GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Enemy),
                     null,
                     includePolygons);
+            }
+            else
+            {
+                spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
+                    ref mission,
+                    targetDB.ValidSpawnPoints,
+                    playerAirbase.Coordinates,
+                    usingHint ? Toolbox.ANY_RANGE : mission.TemplateRecord.FlightPlanObjectiveDistance,
+                    lastCoordinates,
+                    usingHint ? Toolbox.HINT_RANGE : mission.TemplateRecord.FlightPlanObjectiveSeparation,
+                    GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, Side.Enemy));
+            }
 
             if (!spawnPoint.HasValue)
                 throw new BriefingRoomException(mission.LangKey, "FailedToSpawnObjectiveGroup", String.Join(", ", targetDB.ValidSpawnPoints.Select(x => x.ToString()).ToList()));
