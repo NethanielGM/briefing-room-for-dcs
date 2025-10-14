@@ -1,0 +1,435 @@
+[context]
+coalitionblue=Israel
+coalitionred=Insurgents
+decade=Decade2020
+playercoalition=Blue
+theater=SinaiMap
+situation=SinaiFull
+
+[flightplan]
+objectivedistancemax=1000
+objectivedistancemin=0
+objectiveseparationmax=500
+objectiveseparationmin=10
+borderlimit=50
+theaterstartingairbase=SinaiMapRamat David
+# TheaterStartingAirbase: use ID from DatabaseJSON/TheatersAirbases.json → "theatre"+"typeName" (e.g. SinaiMapRamat David)
+
+[missionfeatures]
+missionfeatures=FriendlyAWACS,FriendlyTankerBoom,FriendlyTankerBoom2,FriendlyTankerBasket,TacanAirbases,BullseyeWaypoint,EnemyGround,EnemyStaticBuildings,zFriendlyAirbaseSAM,zEnemyAirbaseSAM,SkynetIADS,FriendlyBases,EnemyBases,FriendlySea,ImprovementsGroundUnitsDamage,FriendlyHeloTransports,FriendlyTaskableTransportHelicopters,FriendlyTaskableSEAD,FiresAroundObjective,EnhancedGamemaster
+# All MissionFeatures IDs (from Database/MissionFeatures):
+#   ActiveGroundUnits
+#   ATIS
+#   BullseyeWaypoint
+#   ContextColdWar
+#   ContextGroundStartAircraft
+#   ContextScrambleStart
+#   ContextTrainingMission
+#   CSAR
+#   CTLD
+#   EnemyAmbientAAA
+#   EnemyAmbientArtillery
+#   EnemyAWACS
+#   EnemyBases
+#   EnemyBomber
+#   EnemyCAS
+#   EnemyGround
+#   EnemyHelicopters
+#   EnemyHeloTransports
+#   EnemySea
+#   EnemySEAD
+#   EnemyStaticAircraft
+#   EnemyStaticBuildings
+#   EnemyStaticOffshore
+#   EnemyTanker
+#   EnemyTransports
+#   EnhancedGamemaster
+#   EWRS
+#   FatCowAI
+#   FiresAroundHomeBase
+#   FiresAroundObjective
+#   FriendlyAmbientAAA
+#   FriendlyAmbientArtillery
+#   FriendlyAWACS
+#   FriendlyBases
+#   FriendlyBomber
+#   FriendlyCAS
+#   FriendlyGround
+#   FriendlyHelicopters
+#   FriendlyHeloTransports
+#   FriendlySea
+#   FriendlySEAD
+#   FriendlyStaticAircraft
+#   FriendlyStaticAircraftCarrier
+#   FriendlyStaticBuildings
+#   FriendlyStaticOffshore
+#   FriendlyTankerBasket
+#   FriendlyTankerBasketRecovery
+#   FriendlyTankerBoom
+#   FriendlyTaskableArtillery
+#   FriendlyTaskableBomber
+#   FriendlyTaskableCAP
+#   FriendlyTaskableCAS
+#   FriendlyTaskableHelicopters
+#   FriendlyTaskableSEAD
+#   FriendlyTaskableTransportHelicopters
+#   FriendlyTransports
+#   HoundElint
+#   ImprovementsGroundUnitsDamage
+#   ImprovementsResponsiveAircraftActivator
+#   IngressEgressWaypoints
+#   LandToCapture
+#   LaseAnything
+#   Moose
+#   NeutralAircraft
+#   NeutralStaticAircraft
+#   RespawnAircraft
+#   SelfJTAC
+#   SkynetIADS
+#   SkynetIADSCommand
+#   SystemDebugMode
+#   TacanAirbases
+#   TacanFOBs
+#   zEnemyAirbaseAA
+#   zEnemyAirbaseSAM
+#   zFriendlyAirbaseAA
+#   zFriendlyAirbaseSAM
+#   zFriendlyFOBsAA
+
+[mods]
+# Mods: list DCS mod IDs if needed (see DatabaseJSON/Mods). Leave empty for none.
+
+[options]
+fogofwar=All
+mission=CombinedArmsPilotControl,ImperialUnitsForBriefing,MarkWaypoints,EnableCivilianTraffic,RadioMessagesTextOnly,NoFrontLine
+realism=DisableDCSRadioAssists,NoBDA,HideLabels,NoCheats,NoCrashRecovery,NoEasyComms,RealisticGEffects,WakeTurbulence
+airbasedynamicspawn=All
+carrierdynamicspawn=False
+dsallowhotstart=True
+airbasedynamiccargo=Friendly
+carrierdynamiccargo=True
+LiveryBanListBlue="Egyptian Air Force, ISRAIL_UN"
+UnitBanListBlue=F-16C bl.50, S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31
+LiveryBanListRed="Israeli Air Force, US, RU"
+# UnitBanListRed=PlaneAny,PlaneFighter,PlaneAttack,PlaneBomber,PlaneInterceptor,PlaneAWACS,PlaneTanker,PlaneTransport,HelicopterAttack,VehicleMBT,VehicleSAMLong,VehicleSAMMedium,VehicleSAMShortRadar,VehicleSAMShort,ShipCarrierCATOBAR,ShipCarrierSTOBAR,ShipCarrierSTOVL,S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31,SA-11 Buk 9A310M1,SA-10 S-300,SA-6 Kub 2P25,SA-3 S-125,SA-2 S-75,SA-5 S-200,SA-8 Osa 9A33,SA-9 Strela 9P31,SA-15 Tor 9A331,SA-19 Tunguska 2S6
+# Options:
+#   FogOfWar: All | AlliesOnly | KnownUnitsOnly | SelfOnly | None
+#   Mission: use IDs from Database/OptionsMission/*.ini (filename without .ini). Common:
+    #   AllowLowPoly — Low-res Units: Enables low-res units to be spawned.
+    #   BlockSuppliers — Block Suppliers: Block coalitions from using supplier nations (can cause gen failures).
+    #   CarrierAllWaters — Carrier All Waters: Allow player carriers to spawn in any water spot.
+    #   CombinedArmsPilotControl — Combined Arms Pilot Control: Pilots can control Combined Arms units.
+    #   DisableKneeboardImages — No kneeboard pages: Skip kneeboard generation to reduce errors/size.
+    #   DSMC — DSMC Support: Prepare mission for DSMC mod.
+    #   EnableCivilianTraffic — Enable civilian traffic: Turns on civilian traffic (performance impact).
+    #   EndMissionAutomatically — Auto End Mission: End 10 mins after all objectives complete.
+    #   EndMissionOnCommand — End Mission on command: End mission instantly once objectives complete.
+    #   FC3LaserCode — JTAC FC3 Laser Code: Force laser code 1113.
+    #   HideAntiAirMFD — Hide Anti-air on MFD: Hide enemy AA from MFD.
+    #   HideBorders — Hide Borders: Hide control borders.
+    #   HighCloud — Higher Cloud: Higher cloud base for easier designation from orbit.
+    #   ImperialUnitsForBriefing — Use imperial units in briefing.
+    #   InvertCountriesCoalitions — Invert countries coalitions: Swap blue/red map countries.
+    #   MarkWaypoints — Mark waypoints: Create markers on waypoints.
+    #   NoBDA — No BDA: No text/audio kill callouts.
+    #   NoFrontLine — No Frontline: Disable front line filtering.
+    #   RadioMessagesTextOnly — Text-only radio messages: Text only; reduces .miz size.
+    #   SeaLevelRefCloud — Lower Cloud: Cloud altitude referenced to sea level (generally lower).
+    #   SingleLaserCode — JTAC Single Laser Code: Force laser code 1688 for all.
+    #   SpawnAnywhere — Allow spawning anywhere: Ignore area-of-control restrictions.
+    #   TargetOnlyBDA — Target Only BDA: Kill callouts only for targets.
+#   Realism: BirdStrikes, DisableDCSRadioAssists, HideLabels, NoBDA, NoCheats, NoCrashRecovery, NoEasyComms,
+#     NoExternalViews, NoGameMode, NoOverlays, NoPadlock, RandomFailures, RealisticGEffects, WakeTurbulence
+#   AirbaseDynamicSpawn (DsAirbase): All | Friendly | StrikePackages | HomeAirbase | None
+#   CarrierDynamicSpawn: True | False
+#   DSAllowHotStart: True | False
+#   AirbaseDynamicCargo (DsAirbase): All | Friendly | StrikePackages | HomeAirbase | None
+#   CarrierDynamicCargo: True | False
+
+[playerflightgroups]
+playerflightgroup000.aircrafttype=F-16C_50
+playerflightgroup000.aiwingmen=False
+playerflightgroup000.hostile=False
+playerflightgroup000.count=4
+playerflightgroup000.payload=default
+playerflightgroup000.country=Israel
+playerflightgroup000.startlocation=ParkingHot
+playerflightgroup000.livery="IAF_101st_squadron"
+playerflightgroup000.overrideradioband=AM
+playerflightgroup000.overridecallsignnumber=1
+
+playerflightgroup001.aircrafttype=F-15ESE
+playerflightgroup001.aiwingmen=False
+playerflightgroup001.hostile=False
+playerflightgroup001.count=4
+playerflightgroup001.payload=default
+playerflightgroup001.country=Israel
+playerflightgroup001.startlocation=ParkingHot
+playerflightgroup001.livery="IDF RA'AM, 69 Hammer Sqn"
+playerflightgroup001.overrideradioband=AM
+playerflightgroup001.overridecallsignnumber=1
+
+playerflightgroup002.aircrafttype=AH-64D_BLK_II
+playerflightgroup002.aiwingmen=False
+playerflightgroup002.hostile=False
+playerflightgroup002.count=4
+playerflightgroup002.payload=default
+playerflightgroup002.country=Israel
+playerflightgroup002.startlocation=ParkingHot
+playerflightgroup002.livery="IAF 113th Hornet Squadron"
+playerflightgroup002.overrideradioband=AM
+playerflightgroup002.overridecallsignnumber=1
+
+[situation]
+enemyskill=VeryHigh
+enemyairdefense=Low
+enemyairforce=None
+friendlyskill=VeryHigh
+friendlyairdefense=VeryHigh
+friendlyairforce=VeryHigh
+# Situation:
+#   EnemySkill/FriendlySkill: Random | VeryLow | Low | Average | High | VeryHigh
+#   EnemyAirDefense/FriendlyAirDefense: Random | None | VeryLow | Low | Average | High | VeryHigh
+#   EnemyAirForce/FriendlyAirForce: Random | None | VeryLow | Low | Average | High | VeryHigh
+
+[combinedarms]
+commanderblue=0
+commanderred=0
+jtacblue=0
+jtacred=0
+# CombinedArms: number of slots per role (0..MAX)
+
+[briefing]
+MissionName=Israel Ops – North, Gaza & West Bank V0.0.5
+MissionDescription=Since October 7th, Israel is engaged on multiple fronts.\nTasks: Destroy rocket launchers in Gaza, SEAD northern batteries, intercept drones with scramble alerts, eliminate high-value leadership, and counter hostile air.\nExpect MANPADS/AAA and SAMs. Kneeboard includes exact steerpoints.
+
+[environment]
+season=Summer
+timeofday=RandomDaytime
+wind=Calm
+WeatherPreset=Clear
+# Environment:
+#   Season: Random | Spring | Summer | Fall | Winter
+#   TimeOfDay: RandomDaytime | Dawn | Noon | Twilight | Night
+#   Wind: Calm | LightBreeze | ModerateBreeze | StrongBreeze | Gale | Storm
+#   WeatherPreset: Clear |
+
+[objectives]
+objective001.preset=Custom
+objective001.task=DestroyAll
+objective001.target=VehicleMissile
+objective001.targetbehavior=Idle
+objective001.targetcount=VeryHigh
+objective001.coordinatehint=155000,300000
+objective001.features=TargetDesignationCoordinates,TargetDesignationLaser,TargetDesignationSmokeMarker
+objective001.options=EmbeddedAirDefense
+#   objective001.StartActive=False
+
+objective002.preset=Custom
+objective002.task=DestroyTrackingRadars
+objective002.target=AirDefenseSAMMedium
+objective002.targetbehavior=Idle
+objective002.targetcount=VeryHigh
+objective002.coordinatehint=340000,500000
+objective002.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective003.preset=Custom
+objective003.task=DestroyTrackingRadars
+objective003.target=AirDefenseSAMLong
+objective003.targetbehavior=Idle
+objective003.targetcount=VeryHigh
+objective003.coordinatehint=445000,540000
+objective003.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective004.preset=Custom
+objective004.task=DestroyAll
+objective004.target=PlaneAny
+objective004.targetbehavior=IdleCAP
+objective004.targetcount=VeryHigh
+objective004.coordinatehint=340000,430000
+objective004.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective005.preset=Custom
+objective005.task=DestroyAll
+objective005.target=PlaneFighter
+objective005.targetbehavior=IdleOnAirbase
+objective005.targetcount=VeryHigh
+objective005.coordinatehint=350000,480000
+objective005.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective006.preset=Custom
+objective006.task=DestroyAll
+objective006.target=StructureMilitary
+objective006.targetbehavior=Idle
+objective006.targetcount=VeryHigh
+objective006.coordinatehint=325000,485000
+objective006.features=TargetDesignationCoordinates,TargetDesignationLaser,EnemyGround
+objective006.options=EmbeddedAirDefense,FeaturesAsTargets
+objective006.subtask0.preset=Custom
+objective006.subtask0.task=DestroyAll
+objective006.subtask0.target=Infantry
+objective006.subtask0.targetbehavior=Idle
+objective006.subtask0.targetcount=VeryHigh
+#   objective001.StartActive=False
+
+objective007.preset=Custom
+objective007.task=DestroyAll
+objective007.target=Infantry
+objective007.targetbehavior=Patrolling
+objective007.targetcount=VeryHigh
+objective007.coordinatehint=160000,310000
+objective007.features=TargetDesignationCoordinates,TargetDesignationSmokeMarker
+#   objective001.StartActive=False
+
+objective008.preset=Custom
+objective008.task=DestroyAll
+objective008.target=VehicleTransport
+objective008.targetbehavior=RecoverToBaseOnRoads
+objective008.targetcount=VeryHigh
+objective008.coordinatehint=158000,368000
+objective008.features=TargetDesignationCoordinates
+objective008.options=EmbeddedAirDefense
+#   objective001.StartActive=False
+
+objective009.preset=Custom
+objective009.task=DestroyAll
+objective009.target=PlaneAny
+objective009.targetbehavior=GoToPlayerBase
+objective009.targetcount=VeryHigh
+objective009.coordinatehint=390000,500000
+objective009.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective010.preset=Custom
+objective010.task=DestroyAll
+objective010.target=VehicleAAA
+objective010.targetbehavior=Idle
+objective010.targetcount=VeryHigh
+objective010.coordinatehint=305000,465000
+objective010.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective011.preset=Custom
+objective011.task=DestroyAll
+objective011.target=VehicleMBT
+objective011.targetbehavior=Idle
+objective011.targetcount=VeryHigh
+objective011.coordinatehint=360000,520000
+objective011.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective012.preset=Custom
+objective012.task=DestroyAll
+objective012.target=VehicleArtillery
+objective012.targetbehavior=Idle
+objective012.targetcount=VeryHigh
+objective012.coordinatehint=370000,490000
+objective012.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective013.preset=Custom
+objective013.task=DestroyTrackingRadars
+objective013.target=AirDefenseSAMMedium
+objective013.targetbehavior=Idle
+objective013.targetcount=VeryHigh
+objective013.coordinatehint=410000,530000
+objective013.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective014.preset=Custom
+objective014.task=DestroyAll
+objective014.target=PlaneAny
+objective014.targetbehavior=IdleCAP
+objective014.targetcount=VeryHigh
+objective014.coordinatehint=380000,540000
+objective014.features=TargetDesignationCoordinates
+#   objective001.StartActive=False
+
+objective015.preset=Custom
+objective015.task=DestroyAll
+objective015.target=StructureMilitary
+objective015.targetbehavior=Idle
+objective015.targetcount=VeryHigh
+objective015.coordinatehint=420000,520000
+objective015.features=TargetDesignationCoordinates
+objective015.options=EmbeddedAirDefense
+#   objective001.StartActive=False
+
+objective016.preset=Custom
+objective016.task=DestroyAll
+objective016.target=VehicleArtillery
+objective016.targetbehavior=Idle
+objective016.targetcount=VeryHigh
+objective016.coordinatehint=165000,306000
+objective016.features=TargetDesignationCoordinates,TargetDesignationSmokeMarker
+#   objective001.StartActive=False
+
+objective017.preset=Custom
+objective017.task=DestroyAll
+objective017.target=StructureMilitary
+objective017.targetbehavior=Idle
+objective017.targetcount=VeryHigh
+objective017.coordinatehint=162000,372000
+objective017.features=TargetDesignationCoordinates
+objective017.options=EmbeddedAirDefense
+#   objective001.StartActive=False
+
+# Objectives:
+#   Preset: see Database/ObjectivePresets/*.ini
+#   Task: see Database/ObjectiveTasks/*.ini (use filename without .ini)
+#   Target: see Database/ObjectiveTargets/*.ini (use filename without .ini)
+#   TargetBehavior: see Database/ObjectiveTargetsBehaviors/*.ini (use filename without .ini)
+#   TargetCount: VeryLow | Low | Average | High | VeryHigh
+#   CoordinateHint: x,y (meters in theater projection), optional
+#   Progression.*: advanced progression options (see Full Builder for schema)
+# All Objective Task IDs:
+#   CaptureLocation, DefendAttack, DestroyAll, DestroyAllExceptAirDefense, DestroyTrackingRadars, Disable,
+#   Escort, ExtractTroops, FlyNearAlly, FlyNearEnemy, Hold, HoldSuperiority, LandNearAlly, LandNearEnemy,
+#   SupportAttack, TransportCargo, TransportTroops
+# All Objective Target IDs:
+#   AirDefenseSAMLong, AirDefenseSAMMedium, AirDefenseSAMMediumLong, AirDefenseShortRangeAAA, AirDefenseShortRangeAny,
+#   AirDefenseShortRangeMANPADS, AirDefenseShortRangeSAMAny, AirDefenseShortRangeSAMIR, AirDefenseShortRangeSAMRadar,
+#   BaseDefenses, Cargo, GroundAny, HelicopterAny, HelicopterAttack, HelicopterTransport, Infantry, PlaneAny,
+#   PlaneAttack, PlaneAWACS, PlaneBomber, PlaneFighter, PlaneTanker, PlaneTransport, ShipAttackBoat, ShipCarrier,
+#   ShipCruiser, ShipFleet, ShipFrigate, ShipSubmarine, ShipTransport, StructureAny, StructureMilitary,
+#   StructureOffshore, StructureProduction, VehicleAirfield, VehicleAny, VehicleAnyCivilian, VehicleAPC,
+#   VehicleArtillery, VehicleCivilian, VehicleMBT, VehicleMissile, VehicleTransport
+# All Objective TargetBehavior IDs:
+#   GoToBase, GoToBaseOnRoads, GoToPlayerBase, GoToPlayerBaseOnRoads, Idle, IdleCAP, IdleOnAirbase,
+#   IdleOnAirbaseCAP, ParkedOnAirBase, ParkedOnAirBaseNoShelter, Patrolling, PatrollingOnRoads, RecoverToBase,
+#   RecoverToBaseOnRoads, RecoverToPlayerBase, RecoverToPlayerBaseOnRoads, RelocateToNewPosition,
+#   RelocateToNewPositionOnRoads, ToFrontLine, ToFrontLineFromPlayerAirbase, ToFrontLineOnRoads
+# Objective Feature IDs (with tooltip):
+#   EnemyCAP — Enemy CAP cover
+#   EnemyGround — Enemy ground forces nearby
+#   EnemyHeloEscort — Enemy Helicopter Escort
+#   EnemyStructures — Enemy Structures
+#   FriendlyGround — Friendly ground forces nearby
+#   FriendlyUnitsDangerClose — Friendly ground units danger close
+#   MiscTargetEmitsRadioTransmission — Misc: target emits radio transmission
+#   SceneryActiveInfantryNearObjective — Scenery: active infantry
+#   SceneryDroneNearObjective — Scenery: orbiting drone
+#   SceneryFireNearObjective — Scenery: fire
+#   SceneryInfantryNearObjective — Scenery: infantry
+#   SceneryJTACNearObjective — Scenery: JTAC
+#   TacanNearObjective — TACAN beacon
+#   TargetDesignationCoordinates — Designation: coordinates
+#   TargetDesignationFlare — Designation: flare
+#   TargetDesignationFlareInaccurate — Designation: flare (Inaccurate)
+#   TargetDesignationIlluminationBomb — Designation: illumination bomb
+#   TargetDesignationIlluminationBombInaccurate — Designation: illumination bomb (Inaccurate)
+#   TargetDesignationLaser — Designation: laser
+#   TargetDesignationSmokeMarker — Designation: smoke marker
+#   TargetDesignationSmokeMarkerInaccurate — Designation: smoke marker (Inaccurate)
+# Objective Option flags:
+#   EmbeddedAirDefense — Embedded air defense
+#   HideTarget — Always hide
+#   InaccurateWaypoint — Inaccurate waypoint
+#   AlwaysShow — Always show
+#   Invisible — Hidden To AI
+#   NoAircraftWaypoint — No Aircraft Waypoint
+#   FeaturesAsTargets — Target Feature Units

@@ -74,14 +74,23 @@ The generation of Kneeboard images has been prone to issues. While we aim to fix
 [Credits](Include/Markdown/Manuals/Credits.md)
 
 ### Docker
-Build
+docker build -t dcs:latest .
 
-    docker build -t johnharvey/dcs-briefing-room-web:latest .
+docker build --no-cache -t dcs:latest .
 
-Run responding on port localhost:5000 
+docker run --rm -it -p 5000:80 -e ASPNETCORE_HTTP_PORTS=80  dcs:latest
 
-    docker run --rm -it -p 5000:80 -e ASPNETCORE_HTTP_PORTS=80  johnharvey/dcs-briefing-room-web:latest
+or 
 
+docker run --rm -it -p 5000:80 -e ASPNETCORE_HTTP_PORTS=80 -v dcs-keys:/app/DataProtection-Keys dcs:latest
+
+
+### Manually
+dotnet run --project .\src\CommandLine\CommandLine.csproj -- --out "$env:USERPROFILE\Saved Games\DCS\Missions" .\Missions\SinaiFull.brt
+
+Invoke-WebRequest -Method POST -Uri "http://localhost:5000/Generator/from-brt" -ContentType "application/json" -Body '{"path":"/app/Missions/test.brt"}' -OutFile "$env:USERPROFILE\Saved Games\DCS\Missions\test.miz"
+
+Invoke-WebRequest -Method POST -Uri "http://localhost:5000/Generator/from-brt" -ContentType "application/json" -Body '{"path":"/app/Missions/SinaiFull.brt"}' -OutFile "$env:USERPROFILE\Saved Games\DCS\Missions\SinaiFull.miz"
 
 ## Changelog
 **Changelog is no longer maintained manually please use [github](https://github.com/akaAgar/briefing-room-for-dcs/releases)**
