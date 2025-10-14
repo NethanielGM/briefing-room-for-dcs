@@ -88,8 +88,6 @@ docker run --rm -it -p 5000:80 -e ASPNETCORE_HTTP_PORTS=80 -v dcs-keys:/app/Data
 ### Manually
 dotnet run --project .\src\CommandLine\CommandLine.csproj -- --out "$env:USERPROFILE\Saved Games\DCS\Missions" .\Missions\Default.brt
 
-Invoke-WebRequest -Method POST -Uri "http://localhost:5000/Generator/from-brt" -ContentType "application/json" -Body '{"path":"/app/Missions/test.brt"}' -OutFile "$env:USERPROFILE\Saved Games\DCS\Missions\test.miz"
-
 Invoke-WebRequest -Method POST -Uri "http://localhost:5000/Generator/from-brt" -ContentType "application/json" -Body '{"path":"/app/Missions/Default.brt"}' -OutFile "$env:USERPROFILE\Saved Games\DCS\Missions\Default.miz"
 
 ## Changelog
