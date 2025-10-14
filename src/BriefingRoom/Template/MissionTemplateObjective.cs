@@ -35,6 +35,7 @@ namespace BriefingRoom4DCS.Template
 
         public List<MissionTemplateSubTask> SubTasks { get; set; } = new List<MissionTemplateSubTask>();
         public bool StartActive { get; set; } = true;
+        public string Position { get; set; } = "";
 
         public MissionTemplateObjective(bool setPreset = false)
         {
@@ -94,6 +95,7 @@ namespace BriefingRoom4DCS.Template
             TargetCount = ini.GetValue<Amount>(section, $"{key}.TargetCount");
             Task = ini.GetValue<string>(section, $"{key}.Task");
             StartActive = ini.GetValue<bool>(section, $"{key}.StartActive", true);
+            Position = ini.GetValue<string>(section, $"{key}.Position", Position);
             ProgressionDependentTasks = ini.GetValueArray<int>(section, $"{key}.Progression.DependentTasks").ToList();
             ProgressionDependentIsAny = ini.GetValue<bool>(section, $"{key}.Progression.IsAny");
             ProgressionOptions = ini.GetValueArray<ObjectiveProgressionOption>(section, $"{key}.Progression.Options").ToList();
@@ -119,6 +121,8 @@ namespace BriefingRoom4DCS.Template
             ini.SetValue(section, $"{key}.TargetBehavior", TargetBehavior);
             ini.SetValue(section, $"{key}.TargetCount", TargetCount);
             ini.SetValue(section, $"{key}.StartActive", StartActive);
+            if (!string.IsNullOrWhiteSpace(Position))
+                ini.SetValue(section, $"{key}.Position", Position);
             ini.SetValue(section, $"{key}.CoordinateHint", CoordinateHint_);
             ini.SetValueArray(section, $"{key}.Progression.DependentTasks", ProgressionDependentTasks.Select(x => x.ToString()).ToArray());
             ini.SetValue(section, $"{key}.Progression.IsAny", ProgressionDependentIsAny);

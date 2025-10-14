@@ -39,6 +39,7 @@ namespace BriefingRoom4DCS.Template
         internal bool ProgressionDependentIsAny { get; init; }
         internal List<ObjectiveProgressionOption> ProgressionOptions { get; init; }
         internal string ProgressionOverrideCondition { get; init; }
+        internal string Position { get; init; }
 
         public MissionTemplateSubTaskRecord() { }
         public MissionTemplateSubTaskRecord(MissionTemplateSubTask objective)
@@ -55,6 +56,7 @@ namespace BriefingRoom4DCS.Template
             ProgressionDependentIsAny = objective.ProgressionDependentIsAny;
             ProgressionOptions = objective.ProgressionOptions;
             ProgressionOverrideCondition = objective.ProgressionOverrideCondition.Trim();
+            Position = (objective as MissionTemplateObjective)?.Position?.Trim() ?? "";
         }
     }
 }

@@ -42,7 +42,17 @@ namespace BriefingRoom4DCS.Generator.Mission
             var waypointList = new List<List<Waypoint>>();
             var (featuresID, targetDB, targetBehaviorDB, taskDB, objectiveOptions) = GetObjectiveData(mission.LangKey, task);
             var useHintCoordinates = task.CoordinatesHint.ToString() != "0,0";
-            lastCoordinates = useHintCoordinates ? task.CoordinatesHint : lastCoordinates;
+            // If a textual Position is provided (e.g., Gaza/WestBank/Syria) map it to an anchor to bias spawn location
+            if (!string.IsNullOrWhiteSpace(task.Position))
+            {
+                var anchor = ResolveAreaAnchor(mission, task.Position.Trim());
+                if (anchor.HasValue)
+                {
+                    lastCoordinates = anchor.Value;
+                    useHintCoordinates = true;
+                }
+            }
+            lastCoordinates = useHintCoordinates ? (lastCoordinates.ToString() == "0,0" ? task.CoordinatesHint : lastCoordinates) : lastCoordinates;
             var objectiveCoordinates = GetSpawnCoordinates(ref mission, lastCoordinates, mission.PlayerAirbase, targetDB, useHintCoordinates);
 
 
@@ -71,6 +81,25 @@ namespace BriefingRoom4DCS.Generator.Mission
 
             }
             return new(objectiveCoordinates, waypointList);
+        }
+
+        private static Coordinates? ResolveAreaAnchor(DCSMission mission, string position)
+        {
+            var p = position.ToLower().Replace(" ", "");
+            // Simple heuristics per SinaiMap; extend per-theater as needed
+            if (mission.TheaterDB.DCSID.Equals("SinaiMap", StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Approximate anchors selected within expected polygons from SinaiMapDefault red zones
+                return p switch
+                {
+                    "gaza" => new Coordinates(180000, 368000),
+                    "westbank" => new Coordinates(245000, 370000),
+                    "syria" => new Coordinates(340000, 410000),
+                    _ => null
+                };
+            }
+            // Generic fallbacks by name if present in situation zones (center of first matching side)
+            return null;
         }
 
         private static List<Waypoint> GenerateSubTask(

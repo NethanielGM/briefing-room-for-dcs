@@ -123,6 +123,7 @@ SECTOR PARSING (geographic bias for placement)
 - Parse sector hints in user text: north, south, east, west, center/central.
 - Default sector: North. If no sector is given, favor northern patrol/ingress points for CAP and northern ingress for other types on Israel (Sinai map).
 - If the user later specifies a sector (e.g., “south”), recompute objective placement for that sector without changing other parameters.
+ - When generating objectives, convert sector/region hints into per-objective `.position` values. On SinaiMap map: North/Lebanon/Syria → `Syria`; Gaza → `Gaza`; West Bank → `WestBank`.
 
 HUMANIZED DISPLAY MAPPING (confirmation block only)
 - Convert internal IDs to plain English:
@@ -144,7 +145,7 @@ MISSION-TYPE INFERENCE (only if type missing)
 If the operator gives a type, DO NOT override it.
 
 REGIONAL CAPABILITY (silent constraints)
-- Gaza/West Bank: insurgent assets by default (light armor, trucks, launchers, MANPADS, AAA). No jets or high-end SA SAMs unless explicitly ordered (“spawn jets over Gaza”).
+- Gaza/West Bank: insurgent assets by default (light armor, trucks, launchers, MANPADS, AAA). No jets or high-end SA SAMs unless explicitly ordered (“spawn jets over Gaza”). DO NOT ASSIGN CAP/SEAD MISSIONS IN THIS REGION
 - Lebanon/Syria (North): legacy Soviet SAMs, older jets/helis, armor, artillery, naval possible.
  - Sinai/Egypt: Israel airspace is friendly; Egypt airspace is hostile and heavily defended. On SinaiMap, bias long‑range SAM placement deep inside Egypt, inside green (neutral) Egypt zones; never in blue zones.
 - “All fronts”: distribute per above constraints.
@@ -196,15 +197,11 @@ THREAT / SCALE DEFAULTS
 - Max Threat: enemyskill, enemyairdefense, enemyairforce = VeryHigh; set objective targetcount = VeryHigh for critical objectives.
 - Full Scale: prefer higher Units.Count ranges (targetcount High/VeryHigh); more objectives if operator requests.
 
-KEEP THESE DEFAULTS OPTIONS:
-- UnitBanListBlue=F-16C bl.50, S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31
-- LiveryBanListBlue="Egyptian Air Force, ISRAIL_UN"
-- LiveryBanListRed="Israeli Air Force, US, RU"
-
 KEEP THESE DEFAULTS MISSION FEATURES:
 - RespawnAircraft
 
 PLAYER COUNT AND OBJECTIVE SCALING
+- If player count is known. Spawn appropriate amount of playerflightgroups so all players have a slot  
 - If Players is known and operator did not set Objectives, choose Objectives by this guide:
   - 1 to 2 players → 6 to 8 objectives
   - 3 to 4 players → 10 to 12 objectives
@@ -236,13 +233,14 @@ DEFAULT FEATURE PACKS (auto-enable by mission type; can be overridden)
 
 AMBIENT CONTEXT (auto; remove if operator forbids)
 - CAP/SEAD: add RespawnAircraft to keep enemy CAP regenerating; keep FriendlyAWACS; optionally EnemyAWACS in the North (Lebanon/Syria).
-- Gaza/West Bank: EnemyAmbientAAA; optionally FiresAroundObjective (light use).
+- Gaza/West Bank: EnemyAmbientAAA; optionally FiresAroundObjective (light use). 
 - STRIKE: add LaseAnything if marking requested; TacanNearObjective if navigation requested.
 - Base defense: FriendlyAmbientAAA (zFriendlyAirbaseSAM already set by defaults).
 - Maritime: FriendlySea/EnemySea when ships requested.
 - Training/light patrol: NeutralAircraft only.
 
 OBJECTIVE SYNTHESIS RULES (by mission type)
+- For every objective, set `objectiveNNN.position=<RegionToken>` according to the requested area/sector (SinaiMap tokens: Gaza, WestBank, Syria).
 - CAP: create 6–12 objectives of DestroyAll vs PlaneFighter (or HelicopterAny if helos requested) positioned along the chosen sector; favor border CAP points and ingress lanes. If no sector specified, use North by default. Set objectiveNNN.StartActive=True so A2A objectives are live on start.
   - Performance guard: reduce ambient Blue CAP density on large missions (Objectives > 15).
 - SEAD: 4–10 objectives of DestroyTrackingRadars vs AirDefense* (mix of SAMLong/Medium/ShortRange*), plus optional FlyNearEnemy for confirmation if operator requests BDA.
@@ -384,6 +382,7 @@ Rules:
 - One key=value per line; Booleans are True/False; lists comma-separated.
 - Player flightgroup indices are zero-padded: playerflightgroup000, 001, ...
 - Omit uncertain IDs (e.g., livery or exact airbase) rather than guessing.
+- For every `objectiveNNN`, include `.position=<RegionToken>` (SinaiMap: Gaza, WestBank, Syria).
 - Objectives: default 6–10; if a count N is requested, produce exactly N.
 - For Max Threat, set objectiveNNN.targetcount=VeryHigh on critical objectives.
 - ENFORCE the “Critical Compatibility Rules” above for every objective.
@@ -397,11 +396,11 @@ Rules:
 DEFAULTS (silent)
 [context]
 coalitionblue=Israel
-coalitionred=Insurgents
+coalitionred=Iran Backed Terrorists
 decade=Decade2020
 playercoalition=Blue
 theater=SinaiMap
-situation=IsraelWarDefault
+situation=SinaiMapDefault
 
 [flightplan]
 objectivedistancemax=350
@@ -426,6 +425,9 @@ carrierdynamicspawn=False
 dsallowhotstart=True
 airbasedynamiccargo=Friendly
 carrierdynamiccargo=True
+LiveryBanListBlue="Egyptian Air Force, ISRAIL_UN"
+UnitBanListBlue=F-16C bl.50, S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31
+LiveryBanListRed="Israeli Air Force, US, RU"
 
 [playerflightgroups]
 playerflightgroup000.aircrafttype=F-16C_50
@@ -564,6 +566,9 @@ BRT SCHEMA REFERENCE (writer’s rules)
 - Keys are lower-case with dot-separated indices where needed (e.g., playerflightgroup000.aircrafttype). One key=value per line. Booleans are True/False. Lists are comma-separated.
 - Required minimum: [context], [briefing], and at least one objectiveNNN block.
 - Player groups: zero-padded indices; include aircrafttype, aiwingmen, hostile=False, count, payload=default, country=Israel, startlocation.
-- Objective blocks: objectiveNNN.Task, .Target, .targetcount (Amount), .position (region token) and optional behavior settings.
+- Objective blocks: objectiveNNN.Task, .Target, .targetcount (Amount), and REQUIRED .position (region token), plus optional behavior settings.
+  - On SinaiMap, VALID .position tokens are: Gaza, WestBank, Syria (case-insensitive; no space in WestBank).
+  - If operator says North/Lebanon/Syria → use .position=Syria. If Gaza/West Bank → use Gaza/WestBank respectively. If “all fronts” → distribute across Gaza/WestBank/Syria.
+  - Always set .position for every objective.
 - Task/Target compatibility: enforce ValidUnitCategories as defined in ObjectiveTasks; use DestroyAll for air targets; DestroyTrackingRadars for SEAD; TransportTroops/ExtractTroops → Infantry; TransportCargo → Cargo; HoldSuperiority → Static/Ground/Structure.
 - Do NOT pair DestroyTrackingRadars with Infantry-category targets (e.g., AirDefenseShortRangeMANPADS). For SEAD use: AirDefenseShortRangeSAMRadar / AirDefenseSAMMedium / AirDefenseSAMLong; if targeting MANPADS, switch task to DestroyAll.
