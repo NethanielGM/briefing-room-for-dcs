@@ -77,6 +77,16 @@ namespace BriefingRoom4DCS.Generator.Mission
                     return;
                 }
 
+                // Enforce no enemy spawns in player blue zones for enemy-side features
+                if (spawnPoint.HasValue && objectiveTargetSide == Side.Enemy && !SpawnPointSelector.CheckNotInPlayerBlueZones(mission, spawnPoint.Value))
+                {
+                    spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
+                        ref mission,
+                        featureDB.UnitGroupValidSpawnPoints, objCoords,
+                        new MinMaxD(featureDB.UnitGroupSpawnDistance * .75, featureDB.UnitGroupSpawnDistance * 1.5),
+                        nearFrontLineFamily: flags.HasFlag(FeatureUnitGroupFlags.UseFrontLine) ? featureDB.UnitGroupFamilies.First() : null);
+                }
+
                 coordinates = spawnPoint;
             }
 

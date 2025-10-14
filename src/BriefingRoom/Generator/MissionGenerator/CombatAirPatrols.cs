@@ -98,6 +98,18 @@ namespace BriefingRoom4DCS.Generator.Mission
                         opposingPoint,
                         new MinMaxD(commonCAPDB.MinDistanceFromOpposingPoint, 99999),
                         GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side));
+                // Enforce no-enemy-in-blue even without polygons
+                if (spawnPoint.HasValue && side == Side.Enemy && !SpawnPointSelector.CheckNotInPlayerBlueZones(mission, spawnPoint.Value))
+                {
+                    spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
+                        ref mission,
+                        new SpawnPointType[] { SpawnPointType.Air },
+                        centerForCAP,
+                        commonCAPDB.DistanceFromCenter,
+                        opposingPoint,
+                        new MinMaxD(commonCAPDB.MinDistanceFromOpposingPoint, 99999),
+                        GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side));
+                }
 
                 // No spawn point found, stop here.
                 if (!spawnPoint.HasValue)

@@ -84,6 +84,21 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             return GetLandCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, coalition, nearFrontLineFamily);
         }
 
+        internal static Coordinates? GetRandomSpawnPoint(
+            ref DCSMission mission,
+            SpawnPointType[] validTypes,
+            Coordinates distanceOrigin1, MinMaxD distanceFrom1,
+            Coordinates? distanceOrigin2,
+            MinMaxD? distanceFrom2,
+            Coalition? coalition,
+            UnitFamily? nearFrontLineFamily,
+            List<List<Coordinates>> includePolygons)
+        {
+            if (validTypes.Contains(SpawnPointType.Air) || validTypes.Contains(SpawnPointType.Sea))
+                return GetAirOrSeaCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, coalition, includePolygons);
+            return GetLandCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, coalition, nearFrontLineFamily, false, includePolygons);
+        }
+
         private static Coordinates? GetLandCoordinates(
             DCSMission mission,
             SpawnPointType[] validTypes,
@@ -91,7 +106,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             Coordinates? distanceOrigin2 = null, MinMaxD? distanceFrom2 = null,
             Coalition? coalition = null,
             UnitFamily? nearFrontLineFamily = null,
-            bool nested = false
+            bool nested = false,
+            List<List<Coordinates>> includePolygons = null
         )
         {
             var useFrontLine = nearFrontLineFamily.HasValue && mission.FrontLine.Count > 0 && Constants.NEAR_FRONT_LINE_CATEGORIES.Contains(nearFrontLineFamily.Value.GetUnitCategory());
@@ -120,7 +136,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                                       where
                                         searchRange.Contains(origin.GetDistanceFrom(s.Coordinates)) &&
                                         CheckNotInHostileCoords(ref mission, s.Coordinates, coalition) &&
-                                        (useFrontLine ? CheckNotFarFromFrontLine(ref mission, s.Coordinates, nearFrontLineFamily.Value, coalition) : CheckNotFarFromBorders(ref mission, s.Coordinates, borderLimit, coalition))
+                                        (useFrontLine ? CheckNotFarFromFrontLine(ref mission, s.Coordinates, nearFrontLineFamily.Value, coalition) : CheckNotFarFromBorders(ref mission, s.Coordinates, borderLimit, coalition)) &&
+                                        (includePolygons == null || (ShapeManager.IsPosValid(s.Coordinates, includePolygons) && CheckNotInPlayerBlueZones(mission, s.Coordinates)))
                                       select s);
                     searchRange = new MinMaxD(searchRange.Min * 0.95, searchRange.Max * 1.05);
                     if (iterationsLeft < MAX_RADIUS_SEARCH_ITERATIONS * 0.3)
@@ -131,7 +148,7 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             }
 
             if (!validSP.Any())
-                return !coalition.HasValue && (useFrontLine || nested) ? null : GetLandCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, null, nearFrontLineFamily, true);
+                return !coalition.HasValue && (useFrontLine || nested) ? null : GetLandCoordinates(mission, validTypes, distanceOrigin1, distanceFrom1, distanceOrigin2, distanceFrom2, null, nearFrontLineFamily, true, includePolygons);
             // Prefer distributing across red zones by selecting spawn points spread over polygons
             var candidateArray = validSP.ToArray();
             DBEntryTheaterSpawnPoint selectedSpawnPoint = Toolbox.RandomFrom(candidateArray);
@@ -145,7 +162,8 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             SpawnPointType[] validTypes,
             Coordinates distanceOrigin1, MinMaxD distanceFrom1,
             Coordinates? distanceOrigin2 = null, MinMaxD? distanceFrom2 = null,
-            Coalition? coalition = null)
+            Coalition? coalition = null,
+            List<List<Coordinates>> includePolygons = null)
         {
             var searchRange = distanceFrom1 * Toolbox.NM_TO_METERS;
             var borderLimit = (double)mission.TemplateRecord.BorderLimit; ;
@@ -167,6 +185,9 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
 
                 if (validTypes.First() == SpawnPointType.Sea) //sea position
                     coordOptionsLinq = coordOptionsLinq.Where(x => CheckInSea(mission.TheaterDB, x));
+
+                if (includePolygons != null)
+                    coordOptionsLinq = coordOptionsLinq.Where(x => ShapeManager.IsPosValid(x, includePolygons) && CheckNotInPlayerBlueZones(mission, x));
 
                 var coordOptions = coordOptionsLinq.ToList();
                 if (coordOptions.Count > 0)
@@ -257,7 +278,9 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
                     validTLInRange = (from DBEntryTheaterTemplateLocation s in within
                                       where
                                         searchRange.Contains(origin.GetDistanceFrom(s.Coordinates)) &&
-                                        CheckNotInHostileCoords(ref mission, s.Coordinates, coalition)
+                                        CheckNotInHostileCoords(ref mission, s.Coordinates, coalition) &&
+                                        // If spawning for enemy coalition, avoid player blue zones
+                                        (coalition.HasValue && coalition.Value != mission.TemplateRecord.ContextPlayerCoalition ? CheckNotInPlayerBlueZones(mission, s.Coordinates) : true)
                                       select s);
                     searchRange = new MinMaxD(searchRange.Min * 0.95, searchRange.Max * 1.05);
                     if (iterationsLeft < MAX_RADIUS_SEARCH_ITERATIONS * 0.3)
@@ -426,6 +449,12 @@ namespace BriefingRoom4DCS.Generator.UnitMaker
             catch { }
             return distance < distanceLimit;
 
+        }
+
+        internal static bool CheckNotInPlayerBlueZones(DCSMission mission, Coordinates coordinates)
+        {
+            var blue = mission.SituationDB.GetBlueZones(mission.InvertedCoalition);
+            return !ShapeManager.IsPosValid(coordinates, blue);
         }
 
         private static bool CheckNotFarFromFrontLine(ref DCSMission mission, Coordinates coordinates, UnitFamily unitFamily, Coalition? coalition = null)

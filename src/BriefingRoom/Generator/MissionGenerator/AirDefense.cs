@@ -166,6 +166,20 @@ namespace BriefingRoom4DCS.Generator.Mission
                             GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side),
                             unitFamilies.First());
 
+                    // Enforce no enemy spawns in player blue zones
+                    if (spawnPoint.HasValue && side == Side.Enemy && !SpawnPointSelector.CheckNotInPlayerBlueZones(mission, spawnPoint.Value))
+                    {
+                        spawnPoint = SpawnPointSelector.GetRandomSpawnPoint(
+                            ref mission,
+                            validSpawnPoints,
+                            centerPoint,
+                            commonAirDefenseDB.DistanceFromCenter[(int)side, (int)airDefenseRange],
+                            opposingPoint,
+                            new MinMaxD(commonAirDefenseDB.MinDistanceFromOpposingPoint[(int)side, (int)airDefenseRange], 99999),
+                            GeneratorTools.GetSpawnPointCoalition(mission.TemplateRecord, side),
+                            unitFamilies.First());
+                    }
+
                 }
 
                 // No spawn point found, stop here.
