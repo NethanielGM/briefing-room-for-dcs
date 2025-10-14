@@ -31,7 +31,6 @@ namespace BriefingRoom4DCS.Template
         internal List<MissionTemplateSubTaskRecord> SubTasks { get; init; }
         internal Coordinates CoordinatesHint { get; init; }
         internal bool StartActive { get; init; }
-        internal string Position { get; init; }
 
         public MissionTemplateObjectiveRecord(MissionTemplateObjective objective)
         {
