@@ -4,7 +4,7 @@ coalitionred=Insurgents
 decade=Decade2020
 playercoalition=Blue
 theater=SinaiMap
-situation=SinaiFull
+situation=SinaiMapDefault
 
 [flightplan]
 objectivedistancemax=1000
@@ -215,168 +215,13 @@ WeatherPreset=Clear
 #   WeatherPreset: Clear |
 
 [objectives]
-objective001.preset=Custom
-objective001.task=DestroyAll
-objective001.target=VehicleMissile
-objective001.targetbehavior=Idle
-objective001.targetcount=VeryHigh
-objective001.coordinatehint=155000,300000
-objective001.features=TargetDesignationCoordinates,TargetDesignationLaser,TargetDesignationSmokeMarker
-objective001.options=EmbeddedAirDefense
-#   objective001.StartActive=False
-
-objective002.preset=Custom
-objective002.task=DestroyTrackingRadars
-objective002.target=AirDefenseSAMMedium
-objective002.targetbehavior=Idle
-objective002.targetcount=VeryHigh
-objective002.coordinatehint=340000,500000
-objective002.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective003.preset=Custom
-objective003.task=DestroyTrackingRadars
-objective003.target=AirDefenseSAMLong
-objective003.targetbehavior=Idle
-objective003.targetcount=VeryHigh
-objective003.coordinatehint=445000,540000
-objective003.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective004.preset=Custom
-objective004.task=DestroyAll
-objective004.target=PlaneAny
-objective004.targetbehavior=IdleCAP
-objective004.targetcount=VeryHigh
-objective004.coordinatehint=340000,430000
-objective004.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective005.preset=Custom
-objective005.task=DestroyAll
-objective005.target=PlaneFighter
-objective005.targetbehavior=IdleOnAirbase
-objective005.targetcount=VeryHigh
-objective005.coordinatehint=350000,480000
-objective005.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective006.preset=Custom
-objective006.task=DestroyAll
-objective006.target=StructureMilitary
-objective006.targetbehavior=Idle
-objective006.targetcount=VeryHigh
-objective006.coordinatehint=325000,485000
-objective006.features=TargetDesignationCoordinates,TargetDesignationLaser,EnemyGround
-objective006.options=EmbeddedAirDefense,FeaturesAsTargets
-objective006.subtask0.preset=Custom
-objective006.subtask0.task=DestroyAll
-objective006.subtask0.target=Infantry
-objective006.subtask0.targetbehavior=Idle
-objective006.subtask0.targetcount=VeryHigh
-#   objective001.StartActive=False
-
-objective007.preset=Custom
-objective007.task=DestroyAll
-objective007.target=Infantry
-objective007.targetbehavior=Patrolling
-objective007.targetcount=VeryHigh
-objective007.coordinatehint=160000,310000
-objective007.features=TargetDesignationCoordinates,TargetDesignationSmokeMarker
-#   objective001.StartActive=False
-
-objective008.preset=Custom
-objective008.task=DestroyAll
-objective008.target=VehicleTransport
-objective008.targetbehavior=RecoverToBaseOnRoads
-objective008.targetcount=VeryHigh
-objective008.coordinatehint=158000,368000
-objective008.features=TargetDesignationCoordinates
-objective008.options=EmbeddedAirDefense
-#   objective001.StartActive=False
-
-objective009.preset=Custom
-objective009.task=DestroyAll
-objective009.target=PlaneAny
-objective009.targetbehavior=GoToPlayerBase
-objective009.targetcount=VeryHigh
-objective009.coordinatehint=390000,500000
-objective009.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective010.preset=Custom
-objective010.task=DestroyAll
-objective010.target=VehicleAAA
-objective010.targetbehavior=Idle
-objective010.targetcount=VeryHigh
-objective010.coordinatehint=305000,465000
-objective010.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective011.preset=Custom
-objective011.task=DestroyAll
-objective011.target=VehicleMBT
-objective011.targetbehavior=Idle
-objective011.targetcount=VeryHigh
-objective011.coordinatehint=360000,520000
-objective011.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective012.preset=Custom
-objective012.task=DestroyAll
-objective012.target=VehicleArtillery
-objective012.targetbehavior=Idle
-objective012.targetcount=VeryHigh
-objective012.coordinatehint=370000,490000
-objective012.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective013.preset=Custom
-objective013.task=DestroyTrackingRadars
-objective013.target=AirDefenseSAMMedium
-objective013.targetbehavior=Idle
-objective013.targetcount=VeryHigh
-objective013.coordinatehint=410000,530000
-objective013.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective014.preset=Custom
-objective014.task=DestroyAll
-objective014.target=PlaneAny
-objective014.targetbehavior=IdleCAP
-objective014.targetcount=VeryHigh
-objective014.coordinatehint=380000,540000
-objective014.features=TargetDesignationCoordinates
-#   objective001.StartActive=False
-
-objective015.preset=Custom
-objective015.task=DestroyAll
-objective015.target=StructureMilitary
-objective015.targetbehavior=Idle
-objective015.targetcount=VeryHigh
-objective015.coordinatehint=420000,520000
-objective015.features=TargetDesignationCoordinates
-objective015.options=EmbeddedAirDefense
-#   objective001.StartActive=False
-
-objective016.preset=Custom
-objective016.task=DestroyAll
-objective016.target=VehicleArtillery
-objective016.targetbehavior=Idle
-objective016.targetcount=VeryHigh
-objective016.coordinatehint=165000,306000
-objective016.features=TargetDesignationCoordinates,TargetDesignationSmokeMarker
-#   objective001.StartActive=False
-
-objective017.preset=Custom
-objective017.task=DestroyAll
-objective017.target=StructureMilitary
-objective017.targetbehavior=Idle
-objective017.targetcount=VeryHigh
-objective017.coordinatehint=162000,372000
-objective017.features=TargetDesignationCoordinates
-objective017.options=EmbeddedAirDefense
-#   objective001.StartActive=False
+objective000.preset=Custom
+objective000.task=DestroyAll
+objective000.target=VehicleAny
+objective000.targetbehavior=Idle
+objective000.targetcount=Average
+objective000.coordinatehint=0,0
+objective000.progression.isany=False
 
 # Objectives:
 #   Preset: see Database/ObjectivePresets/*.ini
