@@ -11,7 +11,7 @@ objectivedistancemax=1000
 objectivedistancemin=0
 objectiveseparationmax=500
 objectiveseparationmin=10
-borderlimit=50
+borderlimit=0
 theaterstartingairbase=SinaiMapRamat David
 # TheaterStartingAirbase: use ID from DatabaseJSON/TheatersAirbases.json → "theatre"+"typeName" (e.g. SinaiMapRamat David)
 
@@ -101,7 +101,7 @@ missionfeatures=FriendlyAWACS,FriendlyTankerBoom,FriendlyTankerBoom2,FriendlyTan
 
 [options]
 fogofwar=All
-mission=CombinedArmsPilotControl,ImperialUnitsForBriefing,MarkWaypoints,EnableCivilianTraffic,RadioMessagesTextOnly,NoFrontLine
+mission=CombinedArmsPilotControl,ImperialUnitsForBriefing,MarkWaypoints,EnableCivilianTraffic,RadioMessagesTextOnly
 realism=DisableDCSRadioAssists,NoBDA,HideLabels,NoCheats,NoCrashRecovery,NoEasyComms,RealisticGEffects,WakeTurbulence
 airbasedynamicspawn=All
 carrierdynamicspawn=False
@@ -111,7 +111,7 @@ carrierdynamiccargo=True
 LiveryBanListBlue="Egyptian Air Force, ISRAIL_UN"
 UnitBanListBlue=F-16C bl.50, S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31
 LiveryBanListRed="Israeli Air Force, US, RU"
-# UnitBanListRed=PlaneAny,PlaneFighter,PlaneAttack,PlaneBomber,PlaneInterceptor,PlaneAWACS,PlaneTanker,PlaneTransport,HelicopterAttack,VehicleMBT,VehicleSAMLong,VehicleSAMMedium,VehicleSAMShortRadar,VehicleSAMShort,ShipCarrierCATOBAR,ShipCarrierSTOBAR,ShipCarrierSTOVL,S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31,SA-11 Buk 9A310M1,SA-10 S-300,SA-6 Kub 2P25,SA-3 S-125,SA-2 S-75,SA-5 S-200,SA-8 Osa 9A33,SA-9 Strela 9P31,SA-15 Tor 9A331,SA-19 Tunguska 2S6
+# UnitBanListRed=PlaneFighter,PlaneFighter,PlaneAttack,PlaneBomber,PlaneInterceptor,PlaneAWACS,PlaneTanker,PlaneTransport,HelicopterAttack,VehicleMBT,VehicleSAMLong,VehicleSAMMedium,VehicleSAMShortRadar,VehicleSAMShort,ShipCarrierCATOBAR,ShipCarrierSTOBAR,ShipCarrierSTOVL,S-300PS 54K6 cp,S-300PS 5P85C ln,S-300PS 5P85D ln,S-300PS 40B6M tr,S-300PS 40B6MD sr,S-300PS 64H6E sr,S-300PS 5H63C 30H6_tr,S-300PS 40B6MD sr_19J6,S_75M_Volhov,5p73 s-125 ln,S-200_Launcher,RPC_5N62V,RD_75,Osa 9A33 ln,Strela-1 9P31,SA-11 Buk 9A310M1,SA-10 S-300,SA-6 Kub 2P25,SA-3 S-125,SA-2 S-75,SA-5 S-200,SA-8 Osa 9A33,SA-9 Strela 9P31,SA-15 Tor 9A331,SA-19 Tunguska 2S6
 # Options:
 #   FogOfWar: All | AlliesOnly | KnownUnitsOnly | SelfOnly | None
 #   Mission: use IDs from Database/OptionsMission/*.ini (filename without .ini). Common:
@@ -242,7 +242,7 @@ objective003.features=TargetDesignationCoordinates
 
 objective004.preset=Custom
 objective004.task=DestroyAll
-objective004.target=PlaneAny
+objective004.target=PlaneFighter
 objective004.targetbehavior=IdleCAP
 objective004.targetcount=VeryHigh
 objective004.coordinatehint=340000,430000
@@ -289,7 +289,7 @@ objective008.options=EmbeddedAirDefense
 
 objective009.preset=Custom
 objective009.task=DestroyAll
-objective009.target=PlaneAny
+objective009.target=PlaneFighter
 objective009.targetbehavior=GoToPlayerBase
 objective009.targetcount=VeryHigh
 objective009.coordinatehint=300000,450000
@@ -319,7 +319,7 @@ objective010.features=TargetDesignationCoordinates
 # All Objective Target IDs:
 #   AirDefenseSAMLong, AirDefenseSAMMedium, AirDefenseSAMMediumLong, AirDefenseShortRangeAAA, AirDefenseShortRangeAny,
 #   AirDefenseShortRangeMANPADS, AirDefenseShortRangeSAMAny, AirDefenseShortRangeSAMIR, AirDefenseShortRangeSAMRadar,
-#   BaseDefenses, Cargo, GroundAny, HelicopterAny, HelicopterAttack, HelicopterTransport, Infantry, PlaneAny,
+#   BaseDefenses, Cargo, GroundAny, HelicopterAny, HelicopterAttack, HelicopterTransport, Infantry, PlaneFighter,
 #   PlaneAttack, PlaneAWACS, PlaneBomber, PlaneFighter, PlaneTanker, PlaneTransport, ShipAttackBoat, ShipCarrier,
 #   ShipCruiser, ShipFleet, ShipFrigate, ShipSubmarine, ShipTransport, StructureAny, StructureMilitary,
 #   StructureOffshore, StructureProduction, VehicleAirfield, VehicleAny, VehicleAnyCivilian, VehicleAPC,
