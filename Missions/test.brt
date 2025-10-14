@@ -118,6 +118,7 @@ WeatherPreset=Clear
 objective000.Task=DestroyAll
 objective000.Target=StructureMilitary
 objective000.targetcount=VeryHigh
+objective000.position=Syria
 objective000.StartActive=False
 
 objective001.Task=DestroyAll
